@@ -1,0 +1,16 @@
+node_modules/
+dist/*
+.idea/*
+readme.md
+.env.local
+.env.staging
+npm-debug.log
+yarn-error.log
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
