@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User/Entities/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/Entities/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObjects/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/ValueObjects/Email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObjects/Name.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/ValueObjects/FullName.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObjects/UserId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/ValueObjects/UserId.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/User/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/User/UserTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,11 +217,11 @@
       <recent name="C:\OpenServer\domains\laravel-starter-kit\app\Http" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain\User" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src" />
       <recent name="C:\OpenServer\domains\laravel-starter-kit\app\Http\Services\Payment" />
       <recent name="C:\OpenServer\domains\laravel-starter-kit\resources\frontend\admin\src\services" />
-      <recent name="C:\OpenServer\domains\laravel-starter-kit\resources\frontend\admin\src\components\dashboard" />
-      <recent name="C:\OpenServer\domains\laravel-starter-kit\resources\frontend\admin\src\layouts" />
     </key>
   </component>
   <component name="RunManager">
@@ -242,7 +246,7 @@
       <workItem from="1612941866934" duration="12823000" />
       <workItem from="1616503684153" duration="2129000" />
       <workItem from="1616567112317" duration="378000" />
-      <workItem from="1616567518826" duration="105000" />
+      <workItem from="1616567518826" duration="6510000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -349,7 +353,21 @@
       <option name="project" value="LOCAL" />
       <updated>1616508682401</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Init commit.">
+      <created>1616567782662</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1616567782662</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added User entity.">
+      <created>1616574906725</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1616574906725</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +409,8 @@
     <MESSAGE value="Updated template frontend file structure." />
     <MESSAGE value="Added frontend services." />
     <MESSAGE value="Init commit." />
-    <option name="LAST_COMMIT_MESSAGE" value="Init commit." />
+    <MESSAGE value="Added User entity." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added User entity." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
