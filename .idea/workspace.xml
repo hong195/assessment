@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Entities/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/Entities/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObjects/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/ValueObjects/Email.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObjects/Name.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/ValueObjects/FullName.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObjects/UserId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/ValueObjects/UserId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/User/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/User/UserTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Check/CheckTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Check/CheckTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +190,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Domain/Check" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="wsl://Ubuntu-20.04@/usr/bin/node" />
@@ -210,18 +206,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Check" />
       <recent name="C:\OpenServer\domains\laravel-starter-kit\resources\frontend\admin" />
       <recent name="C:\OpenServer\domains\laravel-starter-kit\resources\frontend\admin\src" />
       <recent name="C:\OpenServer\domains\laravel-starter-kit\resources\lang" />
       <recent name="C:\OpenServer\domains\laravel-starter-kit\tests\Feature" />
-      <recent name="C:\OpenServer\domains\laravel-starter-kit\app\Http" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Check\Entities" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain\Check" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain\User" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src" />
-      <recent name="C:\OpenServer\domains\laravel-starter-kit\app\Http\Services\Payment" />
-      <recent name="C:\OpenServer\domains\laravel-starter-kit\resources\frontend\admin\src\services" />
     </key>
   </component>
   <component name="RunManager">
@@ -246,7 +242,7 @@
       <workItem from="1612941866934" duration="12823000" />
       <workItem from="1616503684153" duration="2129000" />
       <workItem from="1616567112317" duration="378000" />
-      <workItem from="1616567518826" duration="6510000" />
+      <workItem from="1616567518826" duration="10602000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -367,7 +363,21 @@
       <option name="project" value="LOCAL" />
       <updated>1616574906725</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added User entity.">
+      <created>1616585076654</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1616585076654</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added check entity.">
+      <created>1616605268555</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1616605268555</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,7 +420,8 @@
     <MESSAGE value="Added frontend services." />
     <MESSAGE value="Init commit." />
     <MESSAGE value="Added User entity." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added User entity." />
+    <MESSAGE value="Added check entity." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added check entity." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
