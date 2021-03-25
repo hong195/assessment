@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Domain/User/Exception/InvalidRoleException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/User/Exception/SubscriberCantCreateCheckException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/User/Exception/TheSameUserException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/User/ValueObjects/Role.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Check/Entities/Attribute.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Check/Entities/Attribute.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Check/Entities/Check.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Check/Entities/Check.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Check/ValueObjects/AttributeValue.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Check/ValueObjects/AttributeValue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User/Entities/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/Entities/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObjects/UserId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/ValueObjects/UserId.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Check/CheckTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Check/CheckTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/User/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/User/UserTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,11 +225,11 @@
       <recent name="C:\OpenServer\domains\laravel-starter-kit\tests\Feature" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Check\Entities" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\User\Exception" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain\Check" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Check\Entities" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain\User" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src" />
     </key>
   </component>
   <component name="RunManager">
@@ -242,7 +254,8 @@
       <workItem from="1612941866934" duration="12823000" />
       <workItem from="1616503684153" duration="2129000" />
       <workItem from="1616567112317" duration="378000" />
-      <workItem from="1616567518826" duration="10602000" />
+      <workItem from="1616567518826" duration="13573000" />
+      <workItem from="1616675102894" duration="12445000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -377,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616605268555</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added check entity.">
+      <created>1616605322428</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1616605322428</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

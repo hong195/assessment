@@ -5,15 +5,16 @@ namespace Domain\Check\Entities;
 
 
 use Domain\Check\ValueObjects\CreationDate;
-use Domain\User\ValueObjects\UserId;
-use Domain\Check\Entities\Attribute;
+use Domain\User\Entities\User;
+use Domain\User\Exception\TheSameUserException;
+
 
 class Check
 {
     /**
-     * @var UserId
+     * @var User
      */
-    private $userId;
+    private $user;
     /**
      * @var CreationDate
      */
@@ -21,7 +22,7 @@ class Check
     /**
      * @var array
      */
-    private $attributes;
+    private $criteria;
     /**
      * @var string
      */
@@ -30,16 +31,39 @@ class Check
      * @var string
      */
     private $amount;
+    /**
+     * @var array
+     */
+    private $nonPrimeAttributes;
+    /**
+     * @var User
+     */
+    private $reviewer;
 
-    public function __construct(UserId $userId,
+
+    /**
+     * Check constructor.
+     * @param User $user
+     * @param User $reviewer
+     * @param CreationDate $creationDate
+     * @param array $criteria
+     * @param string $name
+     * @param int $amount
+     * @throws TheSameUserException
+     */
+    public function __construct(User $user,
+                                User $reviewer,
                                 CreationDate $creationDate,
-                                array $attributes = [],
-                                string $name = '',
-                                string $amount = '')
+                                array $criteria = [],
+                                $name = '',
+                                $amount = null)
     {
-        $this->userId = $userId;
+        $this->validateUserAndReviewer($user, $reviewer);
+
+        $this->user = $user;
+        $this->reviewer = $reviewer;
         $this->creationDate = $creationDate;
-        $this->attributes = $attributes;
+        $this->criteria = $criteria;
         $this->name = $name;
         $this->amount = $amount;
     }
@@ -49,21 +73,54 @@ class Check
         return $this->creationDate;
     }
 
-    public function getUserId(): UserId
+    public function getUser(): User
     {
-        return $this->userId;
+        return $this->user;
     }
 
     /**
      * @return Attribute[]
      */
-    public function getAttributes(): array
+    public function getCriteria(): array
     {
-        return $this->attributes;
+        return $this->criteria;
     }
 
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+    }
+
+    public function getScoredPoints(): float
+    {
+        $scored = 0;
+
+        foreach ($this->getCriteria() as $attribute) {
+            $scored += $attribute->getValue();
+        }
+
+        return $scored;
+    }
+
+    /**
+     * @param User $user
+     * @param User $reviewer
+     * @throws TheSameUserException
+     */
+    private function validateUserAndReviewer(User $user, User $reviewer)
+    {
+        if ($user->getId()->isEqual($reviewer->getId())) {
+            throw new TheSameUserException();
+        }
     }
 }

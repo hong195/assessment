@@ -2,11 +2,13 @@
 
 namespace Tests\Unit\Domain\Check;
 
-use Carbon\Carbon;
 use Domain\Check\Entities\Attribute;
 use Domain\Check\Entities\Check;
 use Domain\Check\ValueObjects\AttributeId;
 use Domain\Check\ValueObjects\CreationDate;
+use Domain\User\Entities\User;
+use Domain\User\ValueObjects\Email;
+use Domain\User\ValueObjects\FullName;
 use Domain\User\ValueObjects\UserId;
 use PHPUnit\Framework\TestCase;
 
@@ -19,31 +21,44 @@ class CheckTest extends TestCase
     /**
      * @var UserId
      */
-    private $userId;
+    private $user;
+
+    private $reviewer;
     /**
      * @var CreationDate
      */
     private $creationDate;
 
-    protected function setUp(): void
+    public function setUp(): void
     {
         parent::setUp();
 
-        $this->userId = new UserId(1);
+        $this->user = $this->createUser();
+        $this->reviewer = $this->createUser();
+
         $this->creationDate = new CreationDate(now());
 
+        $attributesList = [
+            new Attribute(new AttributeId(1), 2, 'Test Description'),
+            new Attribute(new AttributeId(2), 2,'Test Description2'),
+            new Attribute(new AttributeId(3), 2, 'Test Description3'),
+        ];
+
         $this->check = new Check(
-            $this->userId,
+            $this->user,
+            $this->reviewer,
             $this->creationDate,
-            [],
-            'Test Check',
+            $attributesList,
         );
     }
 
-    public function test_check_has_user_id()
+    private function createUser($email = 'test@gmail.com')
     {
-        $this->assertInstanceOf(UserId::class, $this->check->getUserId());
-        $this->assertEquals((string) $this->userId, (string) $this->check->getUserId());
+        return new User(
+            new UserId(UserId::next()),
+            new Email($email),
+            new FullName('test', 'test', 'test'),
+        );
     }
 
     public function test_check_has_creation_date()
@@ -52,8 +67,8 @@ class CheckTest extends TestCase
         $this->assertEquals((string) $this->creationDate, (string) $this->check->getCreationDate());
     }
 
-    public function test_can_get_list_of_attributes()
+    public function test_check_scored_points()
     {
-        $this->assertEquals([], $this->check->getAttributes());
+        $this->assertEquals(6, $this->check->getScoredPoints());
     }
 }

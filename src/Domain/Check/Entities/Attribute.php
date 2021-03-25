@@ -17,19 +17,16 @@ class Attribute
      */
     private $usedInCheckCalculation;
 
-    public function __construct(AttributeId $attributeId, bool $usedInCheckCalculation = false)
+    private $value;
+
+    public function __construct(AttributeId $attributeId, $value, $description = '')
     {
         $this->attributeId = $attributeId;
-        $this->usedInCheckCalculation = $usedInCheckCalculation;
+        $this->value = $value;
     }
 
-    public function isUsedInCheckCalculation(): bool
+    public function getValue(): float
     {
-        return $this->usedInCheckCalculation;
-    }
-
-    public function addValue()
-    {
-
+        return floatval($this->value);
     }
 }
