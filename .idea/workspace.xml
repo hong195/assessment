@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Domain/User/Exception/InvalidRoleException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/User/Exception/SubscriberCantCreateCheckException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/User/Exception/TheSameUserException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/User/ValueObjects/Role.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Check/Entities/Attribute.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Check/Entities/Attribute.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Check/Entities/Check.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Check/Entities/Check.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Check/ValueObjects/AttributeValue.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Check/ValueObjects/AttributeValue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/Entities/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/Entities/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User/ValueObjects/UserId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User/ValueObjects/UserId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Check/CheckTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Check/CheckTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/User/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/User/UserTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,34 +190,37 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Domain/Check" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Domain/User/Entities" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="wsl://Ubuntu-20.04@/usr/bin/node" />
     <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="wsl://Ubuntu-20.04@/usr/bin/node" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\User\Entities" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Check" />
       <recent name="C:\OpenServer\domains\laravel-starter-kit\resources\frontend\admin" />
       <recent name="C:\OpenServer\domains\laravel-starter-kit\resources\frontend\admin\src" />
-      <recent name="C:\OpenServer\domains\laravel-starter-kit\resources\lang" />
-      <recent name="C:\OpenServer\domains\laravel-starter-kit\tests\Feature" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\User\Exception" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain\Check" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Check\Entities" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain\User" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\User\Exceptions" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Review\Exceptions" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Assessment" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain\Model\Review" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model" />
     </key>
   </component>
   <component name="RunManager">
@@ -255,7 +246,21 @@
       <workItem from="1616503684153" duration="2129000" />
       <workItem from="1616567112317" duration="378000" />
       <workItem from="1616567518826" duration="13573000" />
-      <workItem from="1616675102894" duration="12445000" />
+      <workItem from="1616675102894" duration="13466000" />
+      <workItem from="1616739032014" duration="520000" />
+      <workItem from="1617210912610" duration="5988000" />
+      <workItem from="1617250813745" duration="773000" />
+      <workItem from="1617372684949" duration="12075000" />
+      <workItem from="1617430198963" duration="1573000" />
+      <workItem from="1617610299601" duration="2932000" />
+      <workItem from="1617618602511" duration="18253000" />
+      <workItem from="1617791891735" duration="623000" />
+      <workItem from="1617811338367" duration="5496000" />
+      <workItem from="1617952221165" duration="1131000" />
+      <workItem from="1618229459191" duration="6820000" />
+      <workItem from="1618251002958" duration="485000" />
+      <workItem from="1618292714871" duration="849000" />
+      <workItem from="1618326091976" duration="6196000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -397,7 +402,49 @@
       <option name="project" value="LOCAL" />
       <updated>1616605322428</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Update user tests.">
+      <created>1616694018683</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1616694018683</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Project updated.">
+      <created>1618330255387</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1618330255387</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Project updated.">
+      <created>1618330265306</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1618330265306</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Project updated.">
+      <created>1618331391859</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1618331391859</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Project updated.">
+      <created>1618331437873</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1618331437873</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Project updated.">
+      <created>1618332249575</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1618332249575</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,7 +488,9 @@
     <MESSAGE value="Init commit." />
     <MESSAGE value="Added User entity." />
     <MESSAGE value="Added check entity." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added check entity." />
+    <MESSAGE value="Update user tests." />
+    <MESSAGE value="Project updated." />
+    <option name="LAST_COMMIT_MESSAGE" value="Project updated." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
