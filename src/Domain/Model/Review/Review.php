@@ -108,7 +108,7 @@ final class Review
         }, 0);
     }
 
-    public function getTotal(): float
+    public function getTotalPoints(): float
     {
         $total = 0;
         foreach ($this->criteria as $criterion) {

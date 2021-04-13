@@ -75,6 +75,6 @@ class ReviewTest extends TestCase
             ->withCriteria($criteria)
             ->build();
 
-        $this->assertEquals(26, $review->getTotal());
+        $this->assertEquals(26, $review->getTotalPoints());
     }
 }

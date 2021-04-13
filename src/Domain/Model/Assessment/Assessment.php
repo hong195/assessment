@@ -133,7 +133,7 @@ final class Assessment
             fn($carry, Review $item) => $carry + $item->getScoredPoints(), 0);
 
         $this->total = array_reduce($this->reviews->toArray(),
-            fn($carry, Review $item) => $carry + $item->getTotal(),
+            fn($carry, Review $item) => $carry + $item->getTotalPoints(),
             0);
     }
 
