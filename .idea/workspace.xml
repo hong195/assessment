@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Month.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Month.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Review.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Review/Review.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -260,7 +263,9 @@
       <workItem from="1618229459191" duration="6820000" />
       <workItem from="1618251002958" duration="485000" />
       <workItem from="1618292714871" duration="849000" />
-      <workItem from="1618326091976" duration="6196000" />
+      <workItem from="1618326091976" duration="7310000" />
+      <workItem from="1618388299649" duration="84000" />
+      <workItem from="1618418796964" duration="2523000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -444,7 +449,35 @@
       <option name="project" value="LOCAL" />
       <updated>1618332249575</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Project updated.">
+      <created>1618332347311</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1618332347312</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added AssessmentRepository contract.">
+      <created>1618333222650</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1618333222650</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added AssessmentRepository contract.">
+      <created>1618333317806</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1618333317806</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Added AssessmentRepository contract.">
+      <created>1618333344214</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1618333344214</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +523,8 @@
     <MESSAGE value="Added check entity." />
     <MESSAGE value="Update user tests." />
     <MESSAGE value="Project updated." />
-    <option name="LAST_COMMIT_MESSAGE" value="Project updated." />
+    <MESSAGE value="Added AssessmentRepository contract." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added AssessmentRepository contract." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

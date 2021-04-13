@@ -45,7 +45,6 @@ final class Month
         $firstDatOfMonth = date('Y-m-01', strtotime($date));
         $lastDatOfMonth = date('Y-m-t', strtotime($date));
 
-
         return $aDate >= $firstDatOfMonth && $aDate <= $lastDatOfMonth;
     }
     /**

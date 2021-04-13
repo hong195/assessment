@@ -30,9 +30,7 @@ final class Assessment
     private UserId $userId;
 
     private Status $status;
-    /**
-     * @var AssessmentId
-     */
+
     private AssessmentId $assessmentId;
 
     public function __construct(AssessmentId $assessmentId, UserId $userId, Month $date)
@@ -70,7 +68,7 @@ final class Assessment
             throw new DifferentAssessmentUserException('Cannot assign a review of different user');
         }
 
-        if (!$this->month->isDateBetween((string) $check->getServiceDate())) {
+        if (!$this->month->isDateBetween((string)$check->getServiceDate())) {
             throw new InvalidAssessmentMonthException('Check service date must be between assessment date');
         }
 
@@ -95,25 +93,22 @@ final class Assessment
             throw new ModificationAssessmentException('Cannot remove review from completed assessment');
         }
 
-        foreach ($this->getReviews() as $review) {
+        foreach ($this->reviews as $k => $review) {
             if ($reviewId->isEqual($review->getId())) {
-                unset($review);
+                unset($this->reviews[$k]);
                 break;
             }
         }
-
-        throw new NotFoundEntityException();
     }
 
     /**
      * @param ReviewId $reviewId
-     * @param UserId $userId
      * @param UserId $reviewerId
      * @param Check $check
      * @param array $criteria
-     * @throws ModificationAssessmentException|NotFoundEntityException
+     * @throws ModificationAssessmentException
      */
-    public function updateReview(ReviewId $reviewId, UserId $userId, UserId $reviewerId, Check $check, array $criteria)
+    public function updateReview(ReviewId $reviewId, UserId $reviewerId, Check $check, array $criteria)
     {
         if ($this->isCompleted()) {
             throw new ModificationAssessmentException('Cannot update review from completed assessment');
@@ -121,19 +116,16 @@ final class Assessment
 
         foreach ($this->reviews as $review) {
             if ($reviewId->isEqual($review->getId())) {
-                $review->edit($userId, $reviewerId, $check, $criteria);
+                $review->edit($reviewerId, $check, $criteria);
                 break;
             }
         }
-
-        throw new NotFoundEntityException();
     }
 
     public function isCompleted(): bool
     {
         return $this->status->isEqualTo(Status::COMPLETED);
     }
-
 
     private function complete(): void
     {

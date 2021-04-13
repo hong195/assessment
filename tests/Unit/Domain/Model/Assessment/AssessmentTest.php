@@ -5,6 +5,7 @@ namespace Tests\Unit\Domain\Model\Assessment;
 
 
 use Carbon\Carbon;
+use Domain\Model\Assessment\Assessment;
 use Domain\Model\Assessment\Exceptions\ModificationAssessmentException;
 use Domain\Model\Assessment\Exceptions\DifferentAssessmentUserException;
 use Domain\Model\Assessment\Exceptions\InvalidAssessmentMonthException;
@@ -41,6 +42,21 @@ class AssessmentTest extends TestCase
         $this->reviewId = ReviewBuilder::aReview()->build()->getId();
     }
 
+    public function test_can_add_a_review_to_uncompleted_assessment()
+    {
+        $now = now();
+        $currentMonth = new Month($now->year, $now->month);
+        $assessment = AssessmentBuilder::anAssessment()->withUserId($this->userId)->withMonth($currentMonth)->build();
+
+        $serviceDate = new ServiceDate($now->year, $now->month, $now->day);
+        $check = CheckBuilder::aCheck()->withServiceDate($serviceDate)->build();
+
+        $assessment->addReview($this->reviewId, $this->userId, $this->reviewerId, $check, []);
+
+        $this->assertCount(1, $assessment->getReviews());
+        $this->assertEquals(Status::UNCOMPLETED, $assessment->getStatus());
+    }
+
     public function test_can_add_only_10_reviews()
     {
         $assessment = AssessmentBuilder::anAssessment()->withUserId($this->userId)->build(10);
@@ -55,7 +71,7 @@ class AssessmentTest extends TestCase
             []);
     }
 
-    public function test_fails_when_check_service_date_not_between_assessment_month()
+    public function test_fails_when_check_service_date_is_not_between_assessment_month()
     {
         $aMonthAgo = Carbon::parse('-1 month');
         $assessmentMonth = new Month($aMonthAgo->year, $aMonthAgo->month);
@@ -86,6 +102,21 @@ class AssessmentTest extends TestCase
         $assessment->addReview($this->reviewId, $anotherUserId, $this->reviewerId, $check, []);
     }
 
+    public function test_can_remove_a_review_from_uncompleted_assessment()
+    {
+        $assessment = AssessmentBuilder::anAssessment()->withUserId($this->userId)->build();
+        $assessment->addReview(
+            $this->reviewId,
+            $this->userId,
+            new UserId(UserId::next()),
+            CheckBuilder::aCheck()->build(),
+            []);
+
+        $assessment->removeReview($this->reviewId);
+
+        $this->assertEmpty($assessment->getReviews());
+    }
+
     public function test_cannot_remove_review_from_completed_assessment()
     {
         $assessment = AssessmentBuilder::anAssessment()->withUserId($this->userId)->build(9);
@@ -113,7 +144,7 @@ class AssessmentTest extends TestCase
 
         $this->expectException(ModificationAssessmentException::class);
 
-        $assessment->updateReview($this->reviewId, $this->userId, $this->reviewerId, CheckBuilder::aCheck()->build(), []);
+        $assessment->updateReview($this->reviewId, $this->reviewerId, CheckBuilder::aCheck()->build(), []);
     }
 
     public function test_assessment_completed_after_adding_10_reviews_for_one_month()
@@ -134,19 +165,19 @@ class AssessmentTest extends TestCase
                 'да'
             ),
         ];
-        $monthAssessment = AssessmentBuilder::anAssessment()->withUserId($this->userId)->build();
+        $assessment = AssessmentBuilder::anAssessment()->withUserId($this->userId)->build();
 
-        foreach (range(1, 10) as $number) {
+        foreach (range(1, Assessment::ALLOWED_REVIEWS_AMOUNT) as $number) {
             $now = Carbon::parse("-$number hour");
             $serviceDate = new ServiceDate($now->year, $now->month, $now->day);
             $check = CheckBuilder::aCheck()->withServiceDate($serviceDate)->build();
 
-            $monthAssessment->addReview(new ReviewId(ReviewId::next()), $this->userId, $this->reviewerId, $check, $criteria);
+            $assessment->addReview(new ReviewId(ReviewId::next()), $this->userId, $this->reviewerId, $check, $criteria);
         }
 
-        $this->assertEquals(10, $monthAssessment->getReviewsCount());
-        $this->assertEquals(15, $monthAssessment->getRating());
-        $this->assertEquals(Status::COMPLETED, (string)$monthAssessment->getStatus());
-        $this->assertTrue($monthAssessment->isCompleted());
+        $this->assertEquals(Assessment::ALLOWED_REVIEWS_AMOUNT, $assessment->getReviewsCount());
+        $this->assertEquals(15, $assessment->getRating());
+        $this->assertEquals(Status::COMPLETED, (string)$assessment->getStatus());
+        $this->assertTrue($assessment->isCompleted());
     }
 }

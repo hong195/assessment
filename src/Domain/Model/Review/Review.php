@@ -65,9 +65,8 @@ final class Review
         }
     }
 
-    public function edit(UserId $userId, UserId $reviewerId, Check $check, array $criteria)
+    public function edit(UserId $reviewerId, Check $check, array $criteria)
     {
-        $this->userId = $userId;
         $this->reviewerId = $reviewerId;
         $this->check = $check;
         $this->criteria = new ArrayCollection($criteria);
@@ -100,7 +99,7 @@ final class Review
 
     /**
      * @return float
-     * @throws \Domain\Model\Assessment\Exceptions\NotExistingSelectedOptionException
+     * @throws Exceptions\NotExistingSelectedOptionException
      */
     public function getScoredPoints(): float
     {
