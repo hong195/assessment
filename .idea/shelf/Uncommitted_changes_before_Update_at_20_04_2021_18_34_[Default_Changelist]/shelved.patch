@@ -1,0 +1,290 @@
+Index: src/Domain/Model/Assessment/Efficiency.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\n\r\nnamespace Domain\\Model\\Assessment;\r\n\r\n\r\nuse Doctrine\\Common\\Collections\\ArrayCollection;\r\nuse Domain\\Model\\Assessment\\Exceptions\\NotExistingSelectedOptionException;\r\n\r\nfinal class Efficiency\r\n{\r\n    private string $name;\r\n    private ArrayCollection $options;\r\n    private string $selected;\r\n    private string $description;\r\n\r\n    public function __construct(string $criterion, array $options, $selected, $description = '')\r\n    {\r\n        $this->name = $criterion;\r\n        $this->options = new ArrayCollection($options);\r\n        $this->selected = $selected;\r\n        $this->description = $description;\r\n    }\r\n\r\n    /**\r\n     * @return string\r\n     */\r\n    public function getName(): string\r\n    {\r\n        return $this->name;\r\n    }\r\n\r\n\r\n    public function getOptions(): ArrayCollection\r\n    {\r\n        return $this->options;\r\n    }\r\n\r\n    /**\r\n     * @return mixed\r\n     * @throws NotExistingSelectedOptionException\r\n     */\r\n    public function getSelectedValue() : float\r\n    {\r\n        foreach ($this->options as $option) {\r\n            if ($option->getName() === $this->selected) {\r\n                return $option->getValue();\r\n            }\r\n        }\r\n\r\n        throw new NotExistingSelectedOptionException;\r\n    }\r\n\r\n    public function getMaxPoint() : float\r\n    {\r\n        return array_reduce($this->options->toArray(),function($carry, Option $option) {\r\n            $carry = max($carry, $option->getValue());\r\n            return $carry;\r\n        }, 0);\r\n    }\r\n\r\n    public function getDescription(): string\r\n    {\r\n        return $this->description;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Domain/Model/Assessment/Efficiency.php b/src/Domain/Model/Assessment/Efficiency.php
+--- a/src/Domain/Model/Assessment/Efficiency.php	(revision ff5a3b026d01c69345321b569b6b8f86fc9fb5a9)
++++ b/src/Domain/Model/Assessment/Efficiency.php	(date 1618771573954)
+@@ -14,14 +14,42 @@
+     private string $selected;
+     private string $description;
+ 
+-    public function __construct(string $criterion, array $options, $selected, $description = '')
++    /**
++     * Efficiency constructor.
++     * @param string $criterion
++     * @param array $options
++     * @param string $selected
++     * @param string $description
++     * @throws NotExistingSelectedOptionException
++     */
++    public function __construct(string $criterion, array $options, $selected = '', $description = '')
+     {
++        $this->assertValidSelectedValue($options, $selected);
+         $this->name = $criterion;
+         $this->options = new ArrayCollection($options);
+         $this->selected = $selected;
+         $this->description = $description;
+     }
+ 
++    /**
++     * @param array $options
++     * @param string $selected
++     * @throws NotExistingSelectedOptionException
++     */
++    public function assertValidSelectedValue(array $options, string $selected)
++    {
++        if (!$selected) {
++            return;
++        }
++
++        $names = array_map(function ($option) {
++            return $option->getName();
++        }, $options);
++
++        if (!in_array($selected, $names)) {
++            throw new NotExistingSelectedOptionException;
++        }
++    }
+     /**
+      * @return string
+      */
+@@ -37,18 +65,21 @@
+     }
+ 
+     /**
+-     * @return mixed
+-     * @throws NotExistingSelectedOptionException
++     * @return float|null
+      */
+-    public function getSelectedValue() : float
++    public function getSelectedValue() : ?float
+     {
++        if (!$this->selected) {
++            return null;
++        }
++
+         foreach ($this->options as $option) {
+             if ($option->getName() === $this->selected) {
+                 return $option->getValue();
+             }
+         }
+ 
+-        throw new NotExistingSelectedOptionException;
++        return null;
+     }
+ 
+     public function getMaxPoint() : float
+Index: src/Domain/Model/Assessment/Check.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\n\r\nnamespace Domain\\Model\\Assessment;\r\n\r\nclass Check\r\n{\r\n    private ServiceDate $serviceDate;\r\n\r\n    private int $amount;\r\n\r\n    private float $saleConversion;\r\n\r\n    public function __construct(ServiceDate $serviceDate, int $amount = 0, float $saleConversion = 0)\r\n    {\r\n        $this->serviceDate = $serviceDate;\r\n        $this->amount = $amount;\r\n        $this->saleConversion = $saleConversion;\r\n    }\r\n\r\n    public function getServiceDate(): ServiceDate\r\n    {\r\n        return $this->serviceDate;\r\n    }\r\n\r\n    public function getAmount(): int\r\n    {\r\n        return $this->amount;\r\n    }\r\n\r\n    public function getSaleConversion(): float\r\n    {\r\n        return $this->saleConversion;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Domain/Model/Assessment/Check.php b/src/Domain/Model/Assessment/Check.php
+--- a/src/Domain/Model/Assessment/Check.php	(revision ff5a3b026d01c69345321b569b6b8f86fc9fb5a9)
++++ b/src/Domain/Model/Assessment/Check.php	(date 1618856746103)
+@@ -3,7 +3,7 @@
+ 
+ namespace Domain\Model\Assessment;
+ 
+-class Check
++final class Check
+ {
+     private ServiceDate $serviceDate;
+ 
+Index: tests/Unit/Domain/Model/Review/EfficiencyTest.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/tests/Unit/Domain/Model/Review/EfficiencyTest.php b/tests/Unit/Domain/Model/Assessment/EfficiencyTest.php
+rename from tests/Unit/Domain/Model/Review/EfficiencyTest.php
+rename to tests/Unit/Domain/Model/Assessment/EfficiencyTest.php
+--- a/tests/Unit/Domain/Model/Review/EfficiencyTest.php	(revision ff5a3b026d01c69345321b569b6b8f86fc9fb5a9)
++++ b/tests/Unit/Domain/Model/Assessment/EfficiencyTest.php	(date 1618856625406)
+@@ -1,7 +1,7 @@
+ <?php
+ 
+ 
+-namespace Tests\Unit\Domain\Model\Review;
++namespace Tests\Unit\Domain\Model\Assessment;
+ 
+ use Domain\Model\Assessment\Efficiency;
+ use Domain\Model\Assessment\Exceptions\NotExistingSelectedOptionException;
+@@ -13,11 +13,11 @@
+     public function test_get_criterion_selected_option()
+     {
+         $efficiency = new Efficiency('Ethics', [
+-            new Option('yes', 1),
+-            new Option('no', 0)
++            new Option('yes', 10),
++            new Option('no', 4)
+         ], 'yes');
+ 
+-        $this->assertEquals(1, $efficiency->getSelectedValue());
++        $this->assertEquals(10, $efficiency->getSelectedValue());
+     }
+ 
+     public function test_get_max_available_option_value()
+@@ -30,17 +30,15 @@
+         $this->assertEquals(7.5, $efficiency->getMaxPoint());
+     }
+ 
+-    public function test_expects_exception_when_selected_option_not_exists()
++    public function test_expects_exception_when_selected_option_does_not_exists()
+     {
+-        $efficiency = new Efficiency('Ethics',
++        $this->expectException(NotExistingSelectedOptionException::class);
++
++        new Efficiency('Ethics',
+             [
+                 new Option('yes', 1), new Option('no', 0)
+             ],
+             'non-existing-option'
+         );
+-
+-        $this->expectException(NotExistingSelectedOptionException::class);
+-
+-        $efficiency->getSelectedValue();
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"2c51a62b-cb44-43f8-812b-54b4d3dc4cec\" name=\"Default Changelist\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/DifferentRatingUserException.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/InvalidRatingMonthException.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/ModificationRatingException.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/Domain/Model/Rating/Rating.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/Domain/Model/Rating/RatingId.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/php.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/php.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentId.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentId.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentRepository.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Rating/AssessmentRepository.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/DifferentAssessmentUserException.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/InvalidAssessmentMonthException.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/InvalidAssessmentUserException.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/InvalidRatingUserException.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/MaximumReviewsForMonthReachedException.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/MaxReviewsForMonthReachedException.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/ModificationAssessmentException.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/UnknownAssessmentStatusException.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/UnknownRatingStatusException.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Month.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Rating/Month.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Status.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Rating/Status.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Review/Check.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Check.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Review/Criterion.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Efficiency.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Review/Exceptions/InvalidServiceDateException.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/InvalidServiceDateException.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Review/Exceptions/NotExistingSelectedOptionException.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/NotExistingSelectedOptionException.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Review/Option.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/Option.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Review/Review.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Review/ReviewId.php\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Domain/Model/Review/ServiceDate.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Domain/Model/Assessment/ServiceDate.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Rating/RatingTest.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/MonthTest.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Rating/MonthTest.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/RatingBuilder.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/CheckBuilder.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/CheckBuilder.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/ReviewBuilder.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/ReviewBuilder.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Review/CriterionTest.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Review/EfficiencyTest.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ReviewTest.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ReviewTest.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ServiceDateTest.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ServiceDateTest.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\" doNotAsk=\"true\" synchronizationState=\"SYNCHRONIZE\">\r\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaScript File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <excluded-from-favorite>\r\n      <branch-storage>\r\n        <map>\r\n          <entry type=\"LOCAL\">\r\n            <value>\r\n              <list>\r\n                <branch-info repo=\"$PROJECT_DIR$\" source=\"master\" />\r\n              </list>\r\n            </value>\r\n          </entry>\r\n        </map>\r\n      </branch-storage>\r\n    </excluded-from-favorite>\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"RESET_MODE\" value=\"HARD\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/ralouphie/getallheaders\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/promises\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/vlucas/phpdotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/psr7\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/graham-campbell/result-type\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpspec/prophecy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/guzzle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/lines-of-code\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/object-enumerator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/comparator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/code-unit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/fakerphp/faker\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/type\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/diff\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/filp/whoops\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/recursion-context\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/resource-operations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/global-state\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-ctype\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/environment\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/cli-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/version\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/complexity\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-iconv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php72\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/object-reflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/string\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/league/commonmark\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/league/mime-type-detection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/league/flysystem\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/hamcrest/hamcrest-php\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/asm89/stack-cors\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/opis/closure\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/brick/math\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ramsey/collection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/mockery/mockery\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/ramsey/uuid\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psy/psysh\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/voku/portable-ascii\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nunomaduro/collision\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/myclabs/deep-copy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/dragonmantank/cron-expression\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-file-iterator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-timer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/theseer/tokenizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-code-coverage\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/phpunit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-text-template\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-invoker\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laravel/tinker\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laravel/sail\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/facade/ignition-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/facade/flare-client-php\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laravel/framework\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/swiftmailer/swiftmailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/facade/ignition\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phar-io/manifest\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nesbot/carbon\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phar-io/version\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/simple-cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-client\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-message\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/fideloper/proxy\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/fruitcake/laravel-cors\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpoption/phpoption\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/lcobucci/jwt\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/tymon/jwt-auth\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/namshi/jose\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/annotations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/collections\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/orm\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/persistence\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/serializer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laravel-doctrine/orm\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1nrxeNhC18QtC5cBgCdJxgcBOTV\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"js.linters.configure.manually.selectedeslint\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/src/Domain/User/Entities\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.standard\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"wsl://Ubuntu-20.04@/usr/bin/node\" />\r\n    <property name=\"node.js.path.for.package.standard\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.standard\" value=\"\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_interpreter_path\" value=\"wsl://Ubuntu-20.04@/usr/bin/node\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"yarn\" />\r\n    <property name=\"php.override.implement.member.chooser.php.doc\" value=\"NONE\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.webide.settings.project.settings.php\" />\r\n    <property name=\"ts.external.directory.path\" value=\"C:\\Program Files\\JetBrains\\PhpStorm 2020.1.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\OpenServer\\domains\\hr-project-ddd\\src\\Domain\\User\\Entities\" />\r\n      <recent name=\"C:\\OpenServer\\domains\\hr-project-ddd\\src\\Domain\" />\r\n      <recent name=\"C:\\OpenServer\\domains\\hr-project-ddd\\src\\Domain\\Check\" />\r\n      <recent name=\"C:\\OpenServer\\domains\\laravel-starter-kit\\resources\\frontend\\admin\" />\r\n      <recent name=\"C:\\OpenServer\\domains\\laravel-starter-kit\\resources\\frontend\\admin\\src\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\OpenServer\\domains\\hr-project-ddd\\src\\Domain\\Model\\Assessment\" />\r\n      <recent name=\"C:\\OpenServer\\domains\\hr-project-ddd\\src\\Domain\\Model\\Criteria\" />\r\n      <recent name=\"C:\\OpenServer\\domains\\hr-project-ddd\\src\\Domain\\Model\\User\\Exceptions\" />\r\n      <recent name=\"C:\\OpenServer\\domains\\hr-project-ddd\\src\\Domain\\Model\\Review\\Exceptions\" />\r\n      <recent name=\"C:\\OpenServer\\domains\\hr-project-ddd\\tests\\Unit\\Domain\\Model\\Review\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"phpunit.xml\" type=\"PHPUnitRunConfigurationType\" factoryName=\"PHPUnit\">\r\n      <TestRunner scope=\"XML\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"2c51a62b-cb44-43f8-812b-54b4d3dc4cec\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1612162104262</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1612162104262</updated>\r\n      <workItem from=\"1612162106596\" duration=\"6204000\" />\r\n      <workItem from=\"1612767648161\" duration=\"7579000\" />\r\n      <workItem from=\"1612802370765\" duration=\"298000\" />\r\n      <workItem from=\"1612847920714\" duration=\"14032000\" />\r\n      <workItem from=\"1612886705784\" duration=\"2878000\" />\r\n      <workItem from=\"1612941866934\" duration=\"12823000\" />\r\n      <workItem from=\"1616503684153\" duration=\"2129000\" />\r\n      <workItem from=\"1616567112317\" duration=\"378000\" />\r\n      <workItem from=\"1616567518826\" duration=\"13573000\" />\r\n      <workItem from=\"1616675102894\" duration=\"13466000\" />\r\n      <workItem from=\"1616739032014\" duration=\"520000\" />\r\n      <workItem from=\"1617210912610\" duration=\"5988000\" />\r\n      <workItem from=\"1617250813745\" duration=\"773000\" />\r\n      <workItem from=\"1617372684949\" duration=\"12075000\" />\r\n      <workItem from=\"1617430198963\" duration=\"1573000\" />\r\n      <workItem from=\"1617610299601\" duration=\"2932000\" />\r\n      <workItem from=\"1617618602511\" duration=\"18253000\" />\r\n      <workItem from=\"1617791891735\" duration=\"623000\" />\r\n      <workItem from=\"1617811338367\" duration=\"5496000\" />\r\n      <workItem from=\"1617952221165\" duration=\"1131000\" />\r\n      <workItem from=\"1618229459191\" duration=\"6820000\" />\r\n      <workItem from=\"1618251002958\" duration=\"485000\" />\r\n      <workItem from=\"1618292714871\" duration=\"849000\" />\r\n      <workItem from=\"1618326091976\" duration=\"7310000\" />\r\n      <workItem from=\"1618388299649\" duration=\"84000\" />\r\n      <workItem from=\"1618418796964\" duration=\"2523000\" />\r\n      <workItem from=\"1618484445355\" duration=\"7000\" />\r\n      <workItem from=\"1618595515074\" duration=\"4860000\" />\r\n      <workItem from=\"1618751369371\" duration=\"5403000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Init commit.\">\r\n      <created>1612162990507</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612162990507</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Added jwt auth settings.\">\r\n      <created>1612163135489</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612163135489</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Added user resource &amp;&amp; removed unnecessary js plugin.\">\r\n      <created>1612163793067</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612163793067</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Added auth controller.\">\r\n      <created>1612165133119</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612165133119</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Updated frontend package.json.\">\r\n      <created>1612166642261</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612166642261</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Moved admin source code into frontend directory.\">\r\n      <created>1612166756266</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612166756266</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Updated auth config (default api guard jwt).\">\r\n      <created>1612169738648</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612169738648</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Added jwt auth test:&#10;&#10;- Added&#10;  auth test&#10;- Changed&#10;  default guard from web to api&#10;  unauthenicated redirect to 403 page\">\r\n      <created>1612768637442</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612768637442</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Added ru translations.\">\r\n      <created>1612768684511</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612768684511</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Updated phpunit config.\">\r\n      <created>1612768768260</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612768768260</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Updated template frontend file structure.\">\r\n      <created>1612856087086</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612856087086</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Updated template frontend file structure.\">\r\n      <created>1612857691496</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612857691496</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Updated template frontend file structure.\">\r\n      <created>1612857700639</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612857700639</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Added frontend services.\">\r\n      <created>1612880995534</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1612880995534</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Init commit.\">\r\n      <created>1616508682401</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1616508682401</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"Init commit.\">\r\n      <created>1616567782662</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1616567782662</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"Added User entity.\">\r\n      <created>1616574906725</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1616574906725</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"Added User entity.\">\r\n      <created>1616585076654</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1616585076654</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"Added check entity.\">\r\n      <created>1616605268555</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1616605268555</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"Added check entity.\">\r\n      <created>1616605322428</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1616605322428</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"Update user tests.\">\r\n      <created>1616694018683</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1616694018683</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"Project updated.\">\r\n      <created>1618330255387</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1618330255387</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"Project updated.\">\r\n      <created>1618330265306</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1618330265306</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"Project updated.\">\r\n      <created>1618331391859</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1618331391859</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"Project updated.\">\r\n      <created>1618331437873</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1618331437873</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00026\" summary=\"Project updated.\">\r\n      <created>1618332249575</created>\r\n      <option name=\"number\" value=\"00026\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1618332249575</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00027\" summary=\"Project updated.\">\r\n      <created>1618332347311</created>\r\n      <option name=\"number\" value=\"00027\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1618332347312</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"Added AssessmentRepository contract.\">\r\n      <created>1618333222650</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1618333222650</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00029\" summary=\"Added AssessmentRepository contract.\">\r\n      <created>1618333317806</created>\r\n      <option name=\"number\" value=\"00029\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1618333317806</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00030\" summary=\"Added AssessmentRepository contract.\">\r\n      <created>1618333344214</created>\r\n      <option name=\"number\" value=\"00030\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1618333344214</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00031\" summary=\"Added AssessmentRepository contract.\">\r\n      <created>1618598510741</created>\r\n      <option name=\"number\" value=\"00031\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1618598510741</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00032\" summary=\"Added AssessmentRepository contract.\">\r\n      <created>1618598539495</created>\r\n      <option name=\"number\" value=\"00032\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1618598539496</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"33\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"CUSTOM_BOOLEAN_PROPERTIES\">\r\n                <map>\r\n                  <entry key=\"Show.Git.Branches\" value=\"false\" />\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT\" value=\"false\" />\r\n    <option name=\"CHECK_NEW_TODO\" value=\"false\" />\r\n    <ignored-roots>\r\n      <path value=\"$PROJECT_DIR$/..\" />\r\n    </ignored-roots>\r\n    <MESSAGE value=\"Added jwt auth settings.\" />\r\n    <MESSAGE value=\"Added user resource &amp;&amp; removed unnecessary js plugin.\" />\r\n    <MESSAGE value=\"Added auth controller.\" />\r\n    <MESSAGE value=\"Updated frontend package.json.\" />\r\n    <MESSAGE value=\"Moved admin source code into frontend directory.\" />\r\n    <MESSAGE value=\"Updated auth config (default api guard jwt).\" />\r\n    <MESSAGE value=\"Added jwt auth test:&#10;&#10;- Added&#10;  auth test&#10;- Changed&#10;  default guard from web to api&#10;  unauthenicated redirect to 403 page\" />\r\n    <MESSAGE value=\"Added ru translations.\" />\r\n    <MESSAGE value=\"Updated phpunit config.\" />\r\n    <MESSAGE value=\"Updated template frontend file structure.\" />\r\n    <MESSAGE value=\"Added frontend services.\" />\r\n    <MESSAGE value=\"Init commit.\" />\r\n    <MESSAGE value=\"Added User entity.\" />\r\n    <MESSAGE value=\"Added check entity.\" />\r\n    <MESSAGE value=\"Update user tests.\" />\r\n    <MESSAGE value=\"Project updated.\" />\r\n    <MESSAGE value=\"Added AssessmentRepository contract.\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Added AssessmentRepository contract.\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ff5a3b026d01c69345321b569b6b8f86fc9fb5a9)
++++ b/.idea/workspace.xml	(date 1618925642100)
+@@ -5,41 +5,12 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/DifferentRatingUserException.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/InvalidRatingMonthException.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/ModificationRatingException.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Rating.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/RatingId.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentId.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/AssessmentRepository.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/DifferentAssessmentUserException.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/InvalidAssessmentMonthException.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/InvalidAssessmentUserException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/InvalidRatingUserException.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/MaximumReviewsForMonthReachedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/MaxReviewsForMonthReachedException.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/ModificationAssessmentException.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/UnknownAssessmentStatusException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/UnknownRatingStatusException.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Month.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Month.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Status.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Check.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Check.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Efficiency.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Exceptions/InvalidServiceDateException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/InvalidServiceDateException.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Exceptions/NotExistingSelectedOptionException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/NotExistingSelectedOptionException.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Option.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Option.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Review.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/ReviewId.php" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/ServiceDate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/ServiceDate.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Rating/RatingTest.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/MonthTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Rating/MonthTest.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/RatingBuilder.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/CheckBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/CheckBuilder.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/ReviewBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/ReviewBuilder.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/CriterionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/EfficiencyTest.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ReviewTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ReviewTest.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ServiceDateTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ServiceDateTest.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Check.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Check.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Efficiency.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Efficiency.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/EfficiencyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/EfficiencyTest.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ReviewTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/ReviewTest.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ServiceDateTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/ServiceDateTest.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -298,7 +269,12 @@
+       <workItem from="1618418796964" duration="2523000" />
+       <workItem from="1618484445355" duration="7000" />
+       <workItem from="1618595515074" duration="4860000" />
+-      <workItem from="1618751369371" duration="5403000" />
++      <workItem from="1618751369371" duration="6031000" />
++      <workItem from="1618763837728" duration="7080000" />
++      <workItem from="1618805982454" duration="149000" />
++      <workItem from="1618856133791" duration="608000" />
++      <workItem from="1618895999708" duration="97000" />
++      <workItem from="1618917662180" duration="773000" />
+     </task>
+     <task id="LOCAL-00001" summary="Init commit.">
+       <created>1612162990507</created>
+@@ -524,7 +500,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1618598539496</updated>
+     </task>
+-    <option name="localTasksCounter" value="33" />
++    <task id="LOCAL-00033" summary="Correct models name.">
++      <created>1618760670489</created>
++      <option name="number" value="00033" />
++      <option name="presentableId" value="LOCAL-00033" />
++      <option name="project" value="LOCAL" />
++      <updated>1618760670489</updated>
++    </task>
++    <option name="localTasksCounter" value="34" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -571,7 +554,8 @@
+     <MESSAGE value="Update user tests." />
+     <MESSAGE value="Project updated." />
+     <MESSAGE value="Added AssessmentRepository contract." />
+-    <option name="LAST_COMMIT_MESSAGE" value="Added AssessmentRepository contract." />
++    <MESSAGE value="Correct models name." />
++    <option name="LAST_COMMIT_MESSAGE" value="Correct models name." />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
+Index: tests/Unit/Domain/Model/Review/ReviewTest.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/tests/Unit/Domain/Model/Review/ReviewTest.php b/tests/Unit/Domain/Model/Assessment/ReviewTest.php
+rename from tests/Unit/Domain/Model/Review/ReviewTest.php
+rename to tests/Unit/Domain/Model/Assessment/ReviewTest.php
+--- a/tests/Unit/Domain/Model/Review/ReviewTest.php	(revision ff5a3b026d01c69345321b569b6b8f86fc9fb5a9)
++++ b/tests/Unit/Domain/Model/Assessment/ReviewTest.php	(date 1618856625411)
+@@ -1,7 +1,7 @@
+ <?php
+ 
+ 
+-namespace Tests\Unit\Domain\Model\Review;
++namespace Tests\Unit\Domain\Model\Assessment;
+ 
+ 
+ use Domain\Model\Assessment\Efficiency;
+Index: tests/Unit/Domain/Model/Review/ServiceDateTest.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/tests/Unit/Domain/Model/Review/ServiceDateTest.php b/tests/Unit/Domain/Model/Assessment/ServiceDateTest.php
+rename from tests/Unit/Domain/Model/Review/ServiceDateTest.php
+rename to tests/Unit/Domain/Model/Assessment/ServiceDateTest.php
+--- a/tests/Unit/Domain/Model/Review/ServiceDateTest.php	(revision ff5a3b026d01c69345321b569b6b8f86fc9fb5a9)
++++ b/tests/Unit/Domain/Model/Assessment/ServiceDateTest.php	(date 1618856625416)
+@@ -1,7 +1,7 @@
+ <?php
+ 
+ 
+-namespace Tests\Unit\Domain\Model\Review;
++namespace Tests\Unit\Domain\Model\Assessment;
+ 
+ use Carbon\Carbon;
+ use Domain\Model\Assessment\Exceptions\InvalidServiceDateException;

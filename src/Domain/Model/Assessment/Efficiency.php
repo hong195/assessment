@@ -1,22 +1,22 @@
 <?php
 
 
-namespace Domain\Model\Review;
+namespace Domain\Model\Assessment;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Domain\Model\Review\Exceptions\NotExistingSelectedOptionException;
+use Domain\Model\Assessment\Exceptions\NotExistingSelectedOptionException;
 
-final class Criterion
+final class Efficiency
 {
     private string $name;
     private ArrayCollection $options;
     private string $selected;
     private string $description;
 
-    public function __construct(string $name, array $options, $selected = '', $description = '')
+    public function __construct(string $criterion, array $options, $selected, $description = '')
     {
-        $this->name = $name;
+        $this->name = $criterion;
         $this->options = new ArrayCollection($options);
         $this->selected = $selected;
         $this->description = $description;
@@ -49,6 +49,14 @@ final class Criterion
         }
 
         throw new NotExistingSelectedOptionException;
+    }
+
+    public function getMaxPoint() : float
+    {
+        return array_reduce($this->options->toArray(),function($carry, Option $option) {
+            $carry = max($carry, $option->getValue());
+            return $carry;
+        }, 0);
     }
 
     public function getDescription(): string

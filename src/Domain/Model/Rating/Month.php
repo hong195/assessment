@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Domain\Model\Assessment;
+namespace Domain\Model\Rating;
 
 
-use Domain\Model\Assessment\Exceptions\InvalidAssessmentMonthException;
+use Domain\Model\Rating\Exceptions\InvalidRatingMonthException;
 
 final class Month
 {
@@ -13,7 +13,7 @@ final class Month
      * Date constructor.
      * @param int $year
      * @param int $month
-     * @throws InvalidAssessmentMonthException
+     * @throws InvalidRatingMonthException
      */
     public function __construct(int $year, int $month)
     {
@@ -34,7 +34,7 @@ final class Month
     /**
      * @param string $aDate
      * @return bool
-     * @throws InvalidAssessmentMonthException
+     * @throws InvalidRatingMonthException
      */
     public function isDateBetween(string $aDate) : bool
     {
@@ -50,7 +50,7 @@ final class Month
     /**
      * @param int $year
      * @param int $month
-     * @throws InvalidAssessmentMonthException
+     * @throws InvalidRatingMonthException
      */
     private function assertValidDate(int $year, int $month)
     {
@@ -58,12 +58,12 @@ final class Month
             $date = $year . '-'  . $month;
             $date = new \DateTime($date);
         } catch (\Exception $e) {
-            throw new InvalidAssessmentMonthException();
+            throw new InvalidRatingMonthException();
         }
         $now = new \DateTime('now');
 
         if ($date > $now) {
-            throw new InvalidAssessmentMonthException('Assessment date must be less than today');
+            throw new InvalidRatingMonthException('Assessment date must be less than today');
         }
     }
 }

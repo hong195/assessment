@@ -4,9 +4,9 @@
 namespace Tests\Unit\Domain\Model\Review;
 
 
-use Domain\Model\Review\Criterion;
-use Domain\Model\Review\Exceptions\ReviewerEqualsToPharmacistException;
-use Domain\Model\Review\Option;
+use Domain\Model\Assessment\Efficiency;
+use Domain\Model\Assessment\Exceptions\TheSameUserException;
+use Domain\Model\Assessment\Option;
 use PHPUnit\Framework\TestCase;
 use Tests\Unit\Domain\Model\Builders\ReviewBuilder;
 use Tests\Unit\Domain\Model\Builders\UserBuilder;
@@ -17,7 +17,7 @@ class ReviewTest extends TestCase
     {
         $reviewerId = UserBuilder::aUser()->build()->getId();
 
-        $this->expectException(ReviewerEqualsToPharmacistException::class);
+        $this->expectException(TheSameUserException::class);
 
         ReviewBuilder::aReview()->withUserId($reviewerId)->withReviewerId($reviewerId)->build();
     }
@@ -25,22 +25,22 @@ class ReviewTest extends TestCase
     public function test_get_review_scored_point()
     {
         $this->assertTrue(true);
-        $criteria = [];
+        $efficiency = [];
 
-        $criteria[] = new Criterion('Ethics',
+        $efficiency[] = new Efficiency('Ethics',
             [new Option('yes', 1), new Option('no', 0)],
             'yes');
 
-        $criteria[] = new Criterion('Kindness',
+        $efficiency[] = new Efficiency('Kindness',
             [new Option('yes', 1), new Option('no', 0)],
             'no');
 
-        $criteria[] = new Criterion('Additional care',
+        $efficiency[] = new Efficiency('Additional care',
             [new Option('partially', 0.5), new Option('no', 0)],
             'partially');
 
         $review = ReviewBuilder::aReview()
-            ->withCriteria($criteria)
+            ->withEfficiencies($efficiency)
             ->build();
 
         $this->assertEquals(1.5, $review->getScoredPoints());
@@ -49,22 +49,22 @@ class ReviewTest extends TestCase
     public function test_get_total_points()
     {
         $this->assertTrue(true);
-        $criteria = [];
+        $efficiency = [];
 
-        $criteria[] = new Criterion('Ethics',
+        $efficiency[] = new Efficiency('Ethics',
             [
                 new Option('yes', 10),
                 new Option('no', 5)
             ],
             'yes');
 
-        $criteria[] = new Criterion('Kindness',
+        $efficiency[] = new Efficiency('Kindness',
             [
                 new Option('yes', 15),
                 new Option('no', 2)],
             'no');
 
-        $criteria[] = new Criterion('Additional care',
+        $efficiency[] = new Efficiency('Additional care',
             [
                 new Option('partially', 0.7),
                 new Option('no', 1)
@@ -72,7 +72,7 @@ class ReviewTest extends TestCase
             'partially');
 
         $review = ReviewBuilder::aReview()
-            ->withCriteria($criteria)
+            ->withEfficiencies($efficiency)
             ->build();
 
         $this->assertEquals(26, $review->getTotalPoints());

@@ -5,141 +5,76 @@ namespace Domain\Model\Assessment;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Domain\Exceptions\NotFoundEntityException;
-use Domain\Model\Assessment\Exceptions\ModificationAssessmentException;
-use Domain\Model\Assessment\Exceptions\DifferentAssessmentUserException;
-use Domain\Model\Assessment\Exceptions\InvalidAssessmentMonthException;
-use Domain\Model\Assessment\Exceptions\MaximumReviewsForMonthReachedException;
-use Domain\Model\Review\Check;
-use Domain\Model\Review\Review;
-use Domain\Model\Review\ReviewId;
+use Domain\Exceptions\DomainException;
+use Domain\Model\Assessment\Exceptions\TheSameUserException;
 use Domain\Model\User\UserId;
 
 final class Assessment
 {
-    const ALLOWED_REVIEWS_AMOUNT = 10;
-
-    private ArrayCollection $reviews;
-
-    private Month $month;
-
-    private ?float $rating;
-
-    private ?float $total;
-
+    /**
+     * @var UserId
+     */
     private UserId $userId;
+    /**
+     * @var UserId
+     */
+    private UserId $assessmenterId;
+    /**
+     * @var Check
+     */
+    private Check $check;
 
-    private Status $status;
-
-    private AssessmentId $assessmentId;
-
-    public function __construct(AssessmentId $assessmentId, UserId $userId, Month $date)
-    {
-        $this->reviews = new ArrayCollection();
-        $this->month = $date;
-        $this->userId = $userId;
-        $this->status = new Status(Status::UNCOMPLETED);
-        $this->assessmentId = $assessmentId;
-    }
+    private ArrayCollection $efficiencies;
+    /**
+     * @var AssessmentId
+     */
+    private AssessmentId $id;
 
     /**
-     * @param ReviewId $reviewId
+     * assessment constructor.
+     * @param AssessmentId $id
      * @param UserId $userId
-     * @param UserId $reviewerId
+     * @param UserId $assessmenterId
      * @param Check $check
-     * @param array $criteria
-     * @return Review
-     * @throws DifferentAssessmentUserException
-     * @throws InvalidAssessmentMonthException
-     * @throws MaximumReviewsForMonthReachedException
-     * @throws \Domain\Exceptions\DomainException
+     * @param Efficiency[] $efficiencies
+     * @throws DomainException
      */
-    public function addReview(ReviewId $reviewId,
-                              UserId $userId,
-                              UserId $reviewerId,
-                              Check $check,
-                              array $criteria): Review
+    public function __construct(AssessmentId $id,
+                                UserId $userId,
+                                UserId $assessmenterId,
+                                Check $check,
+                                array $efficiencies)
     {
-        if ($this->isCompleted()) {
-            throw new MaximumReviewsForMonthReachedException();
-        }
-
-        if (!$userId->isEqual($this->userId)) {
-            throw new DifferentAssessmentUserException('Cannot assign a review of different user');
-        }
-
-        if (!$this->month->isDateBetween((string)$check->getServiceDate())) {
-            throw new InvalidAssessmentMonthException('Check service date must be between assessment date');
-        }
-
-        $review = new Review($reviewId, $userId, $reviewerId, $check, $criteria);
-        $this->reviews->add($review);
-
-        if ($this->getReviewsCount() === self::ALLOWED_REVIEWS_AMOUNT) {
-            $this->complete();
-            $this->status = new Status(Status::COMPLETED);
-        }
-
-        return $review;
+        $this->assertUserIdNotEqualsToassessmenterId($userId, $assessmenterId);
+        $this->id = $id;
+        $this->userId = $userId;
+        $this->assessmenterId = $assessmenterId;
+        $this->check = $check;
+        $this->efficiencies = new ArrayCollection($efficiencies);
     }
 
     /**
-     * @param ReviewId $reviewId
-     * @throws ModificationAssessmentException|NotFoundEntityException
+     * @param UserId $userId
+     * @param UserId $assessmenterId
+     * @throws TheSameUserException
      */
-    public function removeReview(ReviewId $reviewId)
+    private function assertUserIdNotEqualsToassessmenterId(UserId $userId, UserId $assessmenterId)
     {
-        if ($this->isCompleted()) {
-            throw new ModificationAssessmentException('Cannot remove review from completed assessment');
-        }
-
-        foreach ($this->reviews as $k => $review) {
-            if ($reviewId->isEqual($review->getId())) {
-                unset($this->reviews[$k]);
-                break;
-            }
+        if ($assessmenterId->isEqual($userId)) {
+            throw new TheSameUserException('A user cannot assessment himself');
         }
     }
 
-    /**
-     * @param ReviewId $reviewId
-     * @param UserId $reviewerId
-     * @param Check $check
-     * @param array $criteria
-     * @throws ModificationAssessmentException
-     */
-    public function updateReview(ReviewId $reviewId, UserId $reviewerId, Check $check, array $criteria)
+    public function edit(UserId $assessmenterId, Check $check, array $criteria)
     {
-        if ($this->isCompleted()) {
-            throw new ModificationAssessmentException('Cannot update review from completed assessment');
-        }
-
-        foreach ($this->reviews as $review) {
-            if ($reviewId->isEqual($review->getId())) {
-                $review->edit($reviewerId, $check, $criteria);
-                break;
-            }
-        }
-    }
-
-    public function isCompleted(): bool
-    {
-        return $this->status->isEqualTo(Status::COMPLETED);
-    }
-
-    private function complete(): void
-    {
-        $this->rating = array_reduce($this->reviews->toArray(),
-            fn($carry, Review $item) => $carry + $item->getScoredPoints(), 0);
-
-        $this->total = array_reduce($this->reviews->toArray(),
-            fn($carry, Review $item) => $carry + $item->getTotalPoints(),
-            0);
+        $this->assessmenterId = $assessmenterId;
+        $this->check = $check;
+        $this->efficiencies = new ArrayCollection($criteria);
     }
 
     public function getId(): AssessmentId
     {
-        return $this->assessmentId;
+        return $this->id;
     }
 
     public function getUserId(): UserId
@@ -147,33 +82,36 @@ final class Assessment
         return $this->userId;
     }
 
-    public function getRating(): ?float
+    public function getassessmenterId(): UserId
     {
-        return $this->rating;
+        return $this->assessmenterId;
     }
 
-    public function getTotal(): ?float
+    public function getCheck(): Check
     {
-        return $this->total;
+        return $this->check;
     }
 
-    public function getReviewsCount(): int
+    public function getEfficiencies(): ArrayCollection
     {
-        return $this->getReviews()->count();
+        return $this->efficiencies;
     }
 
-    public function getReviews(): ArrayCollection
+    /**
+     * @return float
+     * @throws Exceptions\NotExistingSelectedOptionException
+     */
+    public function getScoredPoints(): float
     {
-        return $this->reviews;
+        return array_reduce($this->efficiencies->toArray(), function ($prev, Efficiency $efficiency) {
+            return $prev + $efficiency->getSelectedValue();
+        }, 0);
     }
 
-    public function getMonth(): Month
+    public function getTotalPoints(): float
     {
-        return $this->month;
-    }
-
-    public function getStatus(): Status
-    {
-        return $this->status;
+        return array_reduce($this->efficiencies->toArray(), function ($carry, Efficiency $efficiency) {
+            return $carry + $efficiency->getMaxPoint();
+        },0);
     }
 }

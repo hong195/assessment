@@ -4,9 +4,9 @@
 namespace Tests\Unit\Domain\Model\Builders;
 
 
-use Domain\Model\Review\Check;
-use Domain\Model\Review\Review;
-use Domain\Model\Review\ReviewId;
+use Domain\Model\Assessment\Check;
+use Domain\Model\Assessment\Assessment;
+use Domain\Model\Assessment\AssessmentId;
 use Domain\Model\User\UserId;
 
 class ReviewBuilder
@@ -18,19 +18,19 @@ class ReviewBuilder
 
     private UserId $reviewerId;
     /**
-     * @var ReviewId
+     * @var AssessmentId
      */
-    private ReviewId $id;
+    private AssessmentId $id;
 
-    private array $criteria;
+    private array $efficiencies;
 
     public function __construct()
     {
-        $this->id = new ReviewId(ReviewId::next());
+        $this->id = new AssessmentId(AssessmentId::next());
         $this->check = CheckBuilder::aCheck()->build();
         $this->userId = new UserId(UserId::next());
         $this->reviewerId = new UserId(UserId::next());
-        $this->criteria = [];
+        $this->efficiencies = [];
     }
 
     public static function aReview(): ReviewBuilder
@@ -38,7 +38,7 @@ class ReviewBuilder
         return new self();
     }
 
-    public function withId(ReviewId $id) : self
+    public function withId(AssessmentId $id) : self
     {
         $this->id = $id;
         return $this;
@@ -50,9 +50,9 @@ class ReviewBuilder
         return $this;
     }
 
-    public function withCriteria(array $criteria): ReviewBuilder
+    public function withEfficiencies(array $efficiency): ReviewBuilder
     {
-        $this->criteria = $criteria;
+        $this->efficiencies = $efficiency;
         return $this;
     }
 
@@ -69,8 +69,8 @@ class ReviewBuilder
         return $this;
     }
 
-    public function build(): Review
+    public function build(): Assessment
     {
-        return new Review($this->id, $this->userId, $this->reviewerId, $this->check, $this->criteria);
+        return new Assessment($this->id, $this->userId, $this->reviewerId, $this->check, $this->efficiencies);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Domain\Model\Review\Exceptions;
+namespace Domain\Model\Assessment\Exceptions;
 
 
 

@@ -5,8 +5,8 @@ namespace Tests\Unit\Domain\Model\Builders;
 
 
 use Carbon\Carbon;
-use Domain\Model\Review\Check;
-use Domain\Model\Review\ServiceDate;
+use Domain\Model\Assessment\Check;
+use Domain\Model\Assessment\ServiceDate;
 
 class CheckBuilder
 {

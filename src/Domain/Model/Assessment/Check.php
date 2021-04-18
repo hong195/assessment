@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Domain\Model\Review;
+namespace Domain\Model\Assessment;
 
 class Check
 {

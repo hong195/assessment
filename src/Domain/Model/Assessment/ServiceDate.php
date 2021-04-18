@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Domain\Model\Review;
+namespace Domain\Model\Assessment;
 
 
-use Domain\Model\Review\Exceptions\InvalidServiceDateException;
+use Domain\Model\Assessment\Exceptions\InvalidServiceDateException;
 
 final class ServiceDate
 {

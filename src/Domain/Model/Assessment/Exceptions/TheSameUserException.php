@@ -6,7 +6,7 @@ namespace Domain\Model\Assessment\Exceptions;
 
 use Domain\Exceptions\DomainException;
 
-class ModificationAssessmentException extends DomainException
+class TheSameUserException extends DomainException
 {
 
 }

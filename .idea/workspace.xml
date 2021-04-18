@@ -5,12 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/DifferentRatingUserException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/InvalidRatingMonthException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/ModificationRatingException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Rating.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/RatingId.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/CriterionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/CriterionTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentId.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/AssessmentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/DifferentAssessmentUserException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/InvalidAssessmentMonthException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/InvalidAssessmentUserException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/InvalidRatingUserException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/MaximumReviewsForMonthReachedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/MaxReviewsForMonthReachedException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/ModificationAssessmentException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/UnknownAssessmentStatusException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/UnknownRatingStatusException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Month.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Month.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Status.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Check.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Check.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Efficiency.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Exceptions/InvalidServiceDateException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/InvalidServiceDateException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Exceptions/NotExistingSelectedOptionException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/NotExistingSelectedOptionException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Option.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Option.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Review.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/ReviewId.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/ServiceDate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/ServiceDate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Rating/RatingTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/MonthTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Rating/MonthTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/RatingBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/CheckBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/CheckBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/ReviewBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/ReviewBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/CriterionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/EfficiencyTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ReviewTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ReviewTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ServiceDateTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ServiceDateTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +297,8 @@
       <workItem from="1618388299649" duration="84000" />
       <workItem from="1618418796964" duration="2523000" />
       <workItem from="1618484445355" duration="7000" />
-      <workItem from="1618595515074" duration="2462000" />
+      <workItem from="1618595515074" duration="4860000" />
+      <workItem from="1618751369371" duration="5403000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -487,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618598510741</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Added AssessmentRepository contract.">
+      <created>1618598539495</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1618598539496</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Domain\Model\Assessment;
+namespace Domain\Model\Rating;
 
 
-use Domain\Model\Assessment\Exceptions\UnknownAssessmentStatusException;
+use Domain\Model\Rating\Exceptions\UnknownRatingStatusException;
 
 final class Status
 {
@@ -16,7 +16,7 @@ final class Status
     /**
      * Status constructor.
      * @param string $status
-     * @throws UnknownAssessmentStatusException
+     * @throws UnknownRatingStatusException
      */
     public function __construct(string $status)
     {
@@ -37,12 +37,12 @@ final class Status
 
     /**
      * @param string $status
-     * @throws UnknownAssessmentStatusException
+     * @throws UnknownRatingStatusException
      */
     private function assertValid(string $status)
     {
         if (!in_array($status, [self::UNCOMPLETED, self::COMPLETED])) {
-            throw new UnknownAssessmentStatusException;
+            throw new UnknownRatingStatusException;
         }
     }
 }

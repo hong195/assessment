@@ -5,64 +5,64 @@ namespace Tests\Unit\Domain\Model\Builders;
 
 
 use Carbon\Carbon;
-use Domain\Model\Assessment\Assessment;
+use Domain\Model\Rating\Rating;
+use Domain\Model\Rating\RatingId;
+use Domain\Model\Rating\Month;
+use Domain\Model\Assessment\Efficiency;
+use Domain\Model\Assessment\Option;
 use Domain\Model\Assessment\AssessmentId;
-use Domain\Model\Assessment\Month;
-use Domain\Model\Review\Criterion;
-use Domain\Model\Review\Option;
-use Domain\Model\Review\ReviewId;
-use Domain\Model\Review\ServiceDate;
+use Domain\Model\Assessment\ServiceDate;
 use Domain\Model\User\UserId;
 
-class AssessmentBuilder
+class RatingBuilder
 {
     protected Month $month;
 
     protected UserId $userId;
 
-    protected AssessmentId $assessmentId;
+    protected RatingId $ratingId;
 
     /**
-     * AssessmentBuilder constructor.
-     * @throws \Domain\Model\Assessment\Exceptions\InvalidAssessmentMonthException
+     * ratingBuilder constructor.
+     * @throws \Domain\Model\Rating\Exceptions\InvalidratingMonthException
      */
     public function __construct()
     {
-        $this->assessmentId = new AssessmentId(AssessmentId::next());
+        $this->ratingId = new RatingId(RatingId::next());
         $this->userId = new UserId(UserId::next());
         $this->month = new Month(now()->year, now()->month);
     }
 
-    public static function anAssessment(): AssessmentBuilder
+    public static function aRating(): RatingBuilder
     {
         return new self();
     }
 
-    public function withUserId(UserId $userId): AssessmentBuilder
+    public function withUserId(UserId $userId): RatingBuilder
     {
         $this->userId = $userId;
         return $this;
     }
 
-    public function withMonth(Month $month): AssessmentBuilder
+    public function withMonth(Month $month): RatingBuilder
     {
         $this->month = $month;
         return $this;
     }
 
-    public function build($reviewsNumber = 0): Assessment
+    public function build($reviewsNumber = 0): Rating
     {
-        $assessment = new Assessment($this->assessmentId, $this->userId, $this->month);
+        $rating = new Rating($this->ratingId, $this->userId, $this->month);
         $reviewerId = UserBuilder::aUser()->build()->getId();
-        $reviewId = new ReviewId(ReviewId::next());
+        $reviewId = new AssessmentId(AssessmentId::next());
         $criteria = [
-            new Criterion('Этика',
+            new Efficiency('Этика',
                 [
                     new Option('да', 1), new Option('нет', 0)
                 ],
                 'да'
             ),
-            new Criterion('Доброжелательность', [
+            new Efficiency('Доброжелательность', [
                 new Option('да', 1), new Option('нет', 0)
             ], 'да'
             ),
@@ -74,10 +74,10 @@ class AssessmentBuilder
                 $serviceDate = new ServiceDate($now->year, $now->month, $now->day);
                 $check = CheckBuilder::aCheck()->withServiceDate($serviceDate)->build();
 
-                $assessment->addReview($reviewId, $this->userId, $reviewerId, $check, $criteria);
+                $rating->addReview($reviewId, $this->userId, $reviewerId, $check, $criteria);
             }
         }
 
-        return $assessment;
+        return $rating;
     }
 }
