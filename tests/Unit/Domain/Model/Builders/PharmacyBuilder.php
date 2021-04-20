@@ -6,20 +6,22 @@ namespace Tests\Unit\Domain\Model\Builders;
 
 use Domain\Model\Pharmacy\Email;
 use Domain\Model\Pharmacy\Pharmacy;
+use Domain\Model\Pharmacy\PharmacyId;
+use Domain\Model\Pharmacy\PharmacyNumber;
 
 class PharmacyBuilder
 {
-    private $id;
-    private string $email;
-    /**
-     * @var PharmacyNumber
-     */
+    private PharmacyId $id;
+
+    private Email $email;
+
     private PharmacyNumber $number;
 
     public function __construct()
     {
-        $this->id = PharmacyId::next();
+        $this->id = new PharmacyId(PharmacyId::next());
         $this->email = new Email('pharmacy@mail.com');
+        $this->number = new PharmacyNumber('test-number');
     }
 
     public static function aPharmacy(): PharmacyBuilder
