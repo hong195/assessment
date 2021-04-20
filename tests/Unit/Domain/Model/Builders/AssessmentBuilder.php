@@ -9,7 +9,7 @@ use Domain\Model\Assessment\Assessment;
 use Domain\Model\Assessment\AssessmentId;
 use Domain\Model\User\UserId;
 
-class ReviewBuilder
+class AssessmentBuilder
 {
 
     private Check $check;
@@ -33,7 +33,7 @@ class ReviewBuilder
         $this->efficiencies = [];
     }
 
-    public static function aReview(): ReviewBuilder
+    public static function aReview(): AssessmentBuilder
     {
         return new self();
     }
@@ -44,25 +44,13 @@ class ReviewBuilder
         return $this;
     }
 
-    public function withReviewerId(UserId $userId) : self
-    {
-        $this->reviewerId = $userId;
-        return $this;
-    }
-
-    public function withEfficiencies(array $efficiency): ReviewBuilder
+    public function withEfficiencies(array $efficiency): AssessmentBuilder
     {
         $this->efficiencies = $efficiency;
         return $this;
     }
 
-    public function withUserId(UserId $userId) : self
-    {
-        $this->userId = $userId;
-        return $this;
-    }
-
-    public function withCheck(Check $check): ReviewBuilder
+    public function withCheck(Check $check): AssessmentBuilder
     {
         $this->check = $check;
 
@@ -71,6 +59,6 @@ class ReviewBuilder
 
     public function build(): Assessment
     {
-        return new Assessment($this->id, $this->userId, $this->reviewerId, $this->check, $this->efficiencies);
+        return new Assessment($this->id, $this->check, $this->efficiencies);
     }
 }

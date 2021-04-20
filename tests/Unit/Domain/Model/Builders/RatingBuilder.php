@@ -74,7 +74,7 @@ class RatingBuilder
                 $serviceDate = new ServiceDate($now->year, $now->month, $now->day);
                 $check = CheckBuilder::aCheck()->withServiceDate($serviceDate)->build();
 
-                $rating->addReview($reviewId, $this->userId, $reviewerId, $check, $criteria);
+                $rating->addReview($reviewId, $check, $criteria);
             }
         }
 

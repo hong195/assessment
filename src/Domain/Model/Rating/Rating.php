@@ -6,20 +6,19 @@ namespace Domain\Model\Rating;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Domain\Exceptions\NotFoundEntityException;
-use Domain\Model\Rating\Exceptions\ModificationRatingException;
-use Domain\Model\Rating\Exceptions\DifferentRatingUserException;
-use Domain\Model\Rating\Exceptions\InvalidRatingMonthException;
-use Domain\Model\Rating\Exceptions\MaxReviewsForMonthReachedException;
-use Domain\Model\Assessment\Check;
 use Domain\Model\Assessment\Assessment;
 use Domain\Model\Assessment\AssessmentId;
+use Domain\Model\Assessment\Check;
+use Domain\Model\Rating\Exceptions\InvalidRatingMonthException;
+use Domain\Model\Rating\Exceptions\MaxReviewsForMonthReachedException;
+use Domain\Model\Rating\Exceptions\ModificationRatingException;
 use Domain\Model\User\UserId;
 
 final class Rating
 {
     const ALLOWED_REVIEWS_AMOUNT = 10;
 
-    private ArrayCollection $reviews;
+    private ArrayCollection $assessments;
 
     private Month $month;
 
@@ -35,7 +34,7 @@ final class Rating
 
     public function __construct(RatingId $ratingId, UserId $userId, Month $date)
     {
-        $this->reviews = new ArrayCollection();
+        $this->assessments = new ArrayCollection();
         $this->month = $date;
         $this->userId = $userId;
         $this->status = new Status(Status::UNCOMPLETED);
@@ -43,20 +42,14 @@ final class Rating
     }
 
     /**
-     * @param AssessmentId $reviewId
-     * @param UserId $userId
-     * @param UserId $reviewerId
+     * @param AssessmentId $assessmentId
      * @param Check $check
      * @param array $efficiencies
      * @return Assessment
-     * @throws DifferentRatingUserException
      * @throws InvalidRatingMonthException
      * @throws MaxReviewsForMonthReachedException
-     * @throws \Domain\Exceptions\DomainException
      */
-    public function addReview(AssessmentId $reviewId,
-                              UserId $userId,
-                              UserId $reviewerId,
+    public function addReview(AssessmentId $assessmentId,
                               Check $check,
                               array $efficiencies): Assessment
     {
@@ -64,23 +57,19 @@ final class Rating
             throw new MaxReviewsForMonthReachedException();
         }
 
-        if (!$userId->isEqual($this->userId)) {
-            throw new DifferentRatingUserException('Cannot assign a review of different user');
-        }
-
         if (!$this->month->isDateBetween((string)$check->getServiceDate())) {
             throw new InvalidRatingMonthException('Check service date must be between assessment date');
         }
 
-        $review = new Assessment($reviewId, $userId, $reviewerId, $check, $efficiencies);
-        $this->reviews->add($review);
+        $assessment = new Assessment($assessmentId, $check, $efficiencies);
+        $this->assessments->add($assessment);
 
         if ($this->isMaxReviewsAdded()) {
             $this->generateScore();
             $this->status = new Status(Status::COMPLETED);
         }
 
-        return $review;
+        return $assessment;
     }
 
     /**
@@ -93,9 +82,9 @@ final class Rating
             throw new ModificationRatingException('Cannot remove review from completed assessment');
         }
 
-        foreach ($this->reviews as $k => $review) {
-            if ($reviewId->isEqual($review->getId())) {
-                unset($this->reviews[$k]);
+        foreach ($this->assessments as $k => $assessment) {
+            if ($reviewId->isEqual($assessment->getId())) {
+                unset($this->assessments[$k]);
                 break;
             }
         }
@@ -103,20 +92,19 @@ final class Rating
 
     /**
      * @param AssessmentId $reviewId
-     * @param UserId $reviewerId
      * @param Check $check
      * @param array $criteria
      * @throws ModificationRatingException
      */
-    public function updateReview(AssessmentId $reviewId, UserId $reviewerId, Check $check, array $criteria)
+    public function editReview(AssessmentId $reviewId, Check $check, array $criteria)
     {
         if ($this->isCompleted()) {
             throw new ModificationRatingException('Cannot update review from completed assessment');
         }
 
-        foreach ($this->reviews as $review) {
+        foreach ($this->assessments as $review) {
             if ($reviewId->isEqual($review->getId())) {
-                $review->edit($reviewerId, $check, $criteria);
+                $review->edit($check, $criteria);
                 break;
             }
         }
@@ -124,7 +112,7 @@ final class Rating
 
     public function isMaxReviewsAdded(): bool
     {
-        return self::ALLOWED_REVIEWS_AMOUNT === $this->getReviewsCount();
+        return self::ALLOWED_REVIEWS_AMOUNT === $this->getAssessmentsCount();
     }
 
     public function isCompleted(): bool
@@ -134,10 +122,10 @@ final class Rating
 
     private function generateScore(): void
     {
-        $this->scored = array_reduce($this->reviews->toArray(),
+        $this->scored = array_reduce($this->assessments->toArray(),
             fn($carry, Assessment $item) => $carry + $item->getScoredPoints(), 0);
 
-        $this->total = array_reduce($this->reviews->toArray(),
+        $this->total = array_reduce($this->assessments->toArray(),
             fn($carry, Assessment $item) => $carry + $item->getTotalPoints(),
             0);
     }
@@ -162,14 +150,14 @@ final class Rating
         return $this->total;
     }
 
-    public function getReviewsCount(): int
+    public function getAssessmentsCount(): int
     {
-        return $this->getReviews()->count();
+        return $this->getAssessments()->count();
     }
 
-    public function getReviews(): ArrayCollection
+    public function getAssessments(): ArrayCollection
     {
-        return $this->reviews;
+        return $this->assessments;
     }
 
     public function getMonth(): Month

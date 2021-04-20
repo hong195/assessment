@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Tests\Unit\Domain\Model\Review;
+namespace Tests\Unit\Domain\Model\Assessment;
 
 use Carbon\Carbon;
 use Domain\Model\Assessment\Exceptions\InvalidServiceDateException;

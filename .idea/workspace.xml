@@ -5,41 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/DifferentRatingUserException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/InvalidRatingMonthException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/ModificationRatingException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Rating.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/RatingId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_04_2021_18_34__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_04_2021_18_34__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/AssessmentRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/DifferentAssessmentUserException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/InvalidAssessmentMonthException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/InvalidAssessmentUserException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/InvalidRatingUserException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/MaximumReviewsForMonthReachedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/MaxReviewsForMonthReachedException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/ModificationAssessmentException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/UnknownAssessmentStatusException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/UnknownRatingStatusException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Month.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Month.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Status.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Check.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Check.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Efficiency.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Exceptions/InvalidServiceDateException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/InvalidServiceDateException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Exceptions/NotExistingSelectedOptionException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/NotExistingSelectedOptionException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Option.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Option.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/Review.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/ReviewId.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Review/ServiceDate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/ServiceDate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Rating/RatingTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/MonthTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Rating/MonthTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/RatingBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/CheckBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/CheckBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/ReviewBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/ReviewBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/CriterionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/EfficiencyTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ReviewTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ReviewTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ServiceDateTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ServiceDateTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/DifferentRatingUserException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/InvalidRatingUserException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Rating/Rating.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Rating/Rating.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/RatingBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/RatingBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/ReviewBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Rating/RatingTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Rating/RatingTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/EfficiencyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/EfficiencyTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ReviewTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Review/ServiceDateTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/ServiceDateTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +55,7 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -298,7 +276,13 @@
       <workItem from="1618418796964" duration="2523000" />
       <workItem from="1618484445355" duration="7000" />
       <workItem from="1618595515074" duration="4860000" />
-      <workItem from="1618751369371" duration="5403000" />
+      <workItem from="1618751369371" duration="6031000" />
+      <workItem from="1618763837728" duration="7080000" />
+      <workItem from="1618805982454" duration="149000" />
+      <workItem from="1618856133791" duration="608000" />
+      <workItem from="1618895999708" duration="97000" />
+      <workItem from="1618917662180" duration="1002000" />
+      <workItem from="1618941445886" duration="1924000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -524,7 +508,21 @@
       <option name="project" value="LOCAL" />
       <updated>1618598539496</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Correct models name.">
+      <created>1618760670489</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1618760670489</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Correct models name.">
+      <created>1618941608015</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1618941608015</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +569,8 @@
     <MESSAGE value="Update user tests." />
     <MESSAGE value="Project updated." />
     <MESSAGE value="Added AssessmentRepository contract." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added AssessmentRepository contract." />
+    <MESSAGE value="Correct models name." />
+    <option name="LAST_COMMIT_MESSAGE" value="Correct models name." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

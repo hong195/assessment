@@ -5,32 +5,27 @@ namespace Tests\Unit\Domain\Model\Rating;
 
 
 use Carbon\Carbon;
-use Domain\Model\Rating\Rating;
-use Domain\Model\Rating\Exceptions\ModificationratingException;
-use Domain\Model\Rating\Exceptions\DifferentratingUserException;
-use Domain\Model\Rating\Exceptions\InvalidratingMonthException;
-use Domain\Model\Rating\Exceptions\MaxReviewsForMonthReachedException;
-use Domain\Model\Rating\Month;
-use Domain\Model\Rating\Status;
+use Domain\Model\Assessment\AssessmentId;
 use Domain\Model\Assessment\Efficiency;
 use Domain\Model\Assessment\Option;
-use Domain\Model\Assessment\AssessmentId;
 use Domain\Model\Assessment\ServiceDate;
+use Domain\Model\Rating\Exceptions\InvalidratingMonthException;
+use Domain\Model\Rating\Exceptions\MaxReviewsForMonthReachedException;
+use Domain\Model\Rating\Exceptions\ModificationratingException;
+use Domain\Model\Rating\Month;
+use Domain\Model\Rating\Rating;
+use Domain\Model\Rating\Status;
 use Domain\Model\User\UserId;
 use PHPUnit\Framework\TestCase;
-use Tests\Unit\Domain\Model\Builders\RatingBuilder;
+use Tests\Unit\Domain\Model\Builders\AssessmentBuilder;
 use Tests\Unit\Domain\Model\Builders\CheckBuilder;
-use Tests\Unit\Domain\Model\Builders\ReviewBuilder;
+use Tests\Unit\Domain\Model\Builders\RatingBuilder;
 use Tests\Unit\Domain\Model\Builders\UserBuilder;
 
 class RatingTest extends TestCase
 {
     private UserId $userId;
 
-    private UserId $reviewerId;
-    /**
-     * @var AssessmentId
-     */
     private AssessmentId $reviewId;
 
     protected function setUp(): void
@@ -38,8 +33,7 @@ class RatingTest extends TestCase
         parent::setUp();
 
         $this->userId = UserBuilder::aUser()->build()->getId();
-        $this->reviewerId = UserBuilder::aUser()->build()->getId();
-        $this->reviewId = ReviewBuilder::aReview()->build()->getId();
+        $this->reviewId = AssessmentBuilder::aReview()->build()->getId();
     }
 
     public function test_is_max_reviews_added()
@@ -48,7 +42,7 @@ class RatingTest extends TestCase
 
         $this->assertTrue($rating->isMaxReviewsAdded());
         $this->assertTrue($rating->isCompleted());
-        $this->assertEquals(Rating::ALLOWED_REVIEWS_AMOUNT, $rating->getReviewsCount());
+        $this->assertEquals(Rating::ALLOWED_REVIEWS_AMOUNT, $rating->getAssessmentsCount());
     }
 
     public function test_can_add_a_review_to_uncompleted_rating()
@@ -60,9 +54,9 @@ class RatingTest extends TestCase
         $serviceDate = new ServiceDate($now->year, $now->month, $now->day);
         $check = CheckBuilder::aCheck()->withServiceDate($serviceDate)->build();
 
-        $rating->addReview($this->reviewId, $this->userId, $this->reviewerId, $check, []);
+        $rating->addReview($this->reviewId, $check, []);
 
-        $this->assertCount(1, $rating->getReviews());
+        $this->assertCount(1, $rating->getAssessments());
         $this->assertEquals(Status::UNCOMPLETED, $rating->getStatus());
     }
 
@@ -74,8 +68,6 @@ class RatingTest extends TestCase
 
         $rating->addReview(
             $this->reviewId,
-            $this->userId,
-            $this->reviewerId,
             CheckBuilder::aCheck()->build(),
             []);
     }
@@ -97,18 +89,7 @@ class RatingTest extends TestCase
 
         $this->expectException(InvalidratingMonthException::class);
 
-        $rating->addReview($this->reviewId, $this->userId, $this->reviewerId, $outDatedCheck, []);
-    }
-
-    public function test_cannot_assign_review_of_different_user()
-    {
-        $anotherUserId = new UserId(UserId::next());
-        $check = CheckBuilder::aCheck()->build();
-        $rating = RatingBuilder::aRating()->withUserId($this->userId)->build();
-
-        $this->expectException(DifferentratingUserException::class);
-
-        $rating->addReview($this->reviewId, $anotherUserId, $this->reviewerId, $check, []);
+        $rating->addReview($this->reviewId, $outDatedCheck, []);
     }
 
     public function test_can_remove_a_review_from_uncompleted_rating()
@@ -116,14 +97,12 @@ class RatingTest extends TestCase
         $rating = RatingBuilder::aRating()->withUserId($this->userId)->build();
         $rating->addReview(
             $this->reviewId,
-            $this->userId,
-            new UserId(UserId::next()),
             CheckBuilder::aCheck()->build(),
             []);
 
         $rating->removeReview($this->reviewId);
 
-        $this->assertEmpty($rating->getReviews());
+        $this->assertEmpty($rating->getAssessments());
     }
 
     public function test_cannot_remove_review_from_completed_rating()
@@ -131,8 +110,6 @@ class RatingTest extends TestCase
         $rating = RatingBuilder::aRating()->withUserId($this->userId)->build(9);
         $rating->addReview(
             $this->reviewId,
-            $this->userId,
-            new UserId(UserId::next()),
             CheckBuilder::aCheck()->build(),
             []);
 
@@ -141,19 +118,17 @@ class RatingTest extends TestCase
         $rating->removeReview($this->reviewId);
     }
 
-    public function test_cannot_update_review_from_completed_rating()
+    public function test_cannot_edit_review_from_completed_rating()
     {
         $rating = RatingBuilder::aRating()->withUserId($this->userId)->build(9);
         $rating->addReview(
             $this->reviewId,
-            $this->userId,
-            new UserId(UserId::next()),
             CheckBuilder::aCheck()->build(),
             []);
 
         $this->expectException(ModificationratingException::class);
 
-        $rating->updateReview($this->reviewId, $this->reviewerId, CheckBuilder::aCheck()->build(), []);
+        $rating->editReview($this->reviewId, CheckBuilder::aCheck()->build(), []);
     }
 
     public function test_rating_completed_after_adding_10_reviews_for_one_month()
@@ -181,10 +156,10 @@ class RatingTest extends TestCase
             $serviceDate = new ServiceDate($now->year, $now->month, $now->day);
             $check = CheckBuilder::aCheck()->withServiceDate($serviceDate)->build();
 
-            $rating->addReview(new AssessmentId(AssessmentId::next()), $this->userId, $this->reviewerId, $check, $efficiency);
+            $rating->addReview(new AssessmentId(AssessmentId::next()), $check, $efficiency);
         }
 
-        $this->assertEquals(Rating::ALLOWED_REVIEWS_AMOUNT, $rating->getReviewsCount());
+        $this->assertEquals(Rating::ALLOWED_REVIEWS_AMOUNT, $rating->getAssessmentsCount());
         $this->assertEquals(15, $rating->getScored());
         $this->assertEquals(Status::COMPLETED, (string) $rating->getStatus());
         $this->assertTrue($rating->isCompleted());

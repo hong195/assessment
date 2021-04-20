@@ -1,27 +1,17 @@
 <?php
 
 
-namespace Tests\Unit\Domain\Model\Review;
+namespace Tests\Unit\Domain\Model\Assessment;
 
 
 use Domain\Model\Assessment\Efficiency;
-use Domain\Model\Assessment\Exceptions\TheSameUserException;
 use Domain\Model\Assessment\Option;
 use PHPUnit\Framework\TestCase;
-use Tests\Unit\Domain\Model\Builders\ReviewBuilder;
+use Tests\Unit\Domain\Model\Builders\AssessmentBuilder;
 use Tests\Unit\Domain\Model\Builders\UserBuilder;
 
-class ReviewTest extends TestCase
+class AssessmentTest extends TestCase
 {
-    public function test_reviewer_and_user_cannot_be_the_same_person()
-    {
-        $reviewerId = UserBuilder::aUser()->build()->getId();
-
-        $this->expectException(TheSameUserException::class);
-
-        ReviewBuilder::aReview()->withUserId($reviewerId)->withReviewerId($reviewerId)->build();
-    }
-
     public function test_get_review_scored_point()
     {
         $this->assertTrue(true);
@@ -39,16 +29,16 @@ class ReviewTest extends TestCase
             [new Option('partially', 0.5), new Option('no', 0)],
             'partially');
 
-        $review = ReviewBuilder::aReview()
+        $review = AssessmentBuilder::aReview()
             ->withEfficiencies($efficiency)
             ->build();
 
         $this->assertEquals(1.5, $review->getScoredPoints());
+        $this->assertCount(count($efficiency), $review->getEfficiencies());
     }
 
     public function test_get_total_points()
     {
-        $this->assertTrue(true);
         $efficiency = [];
 
         $efficiency[] = new Efficiency('Ethics',
@@ -71,10 +61,21 @@ class ReviewTest extends TestCase
             ],
             'partially');
 
-        $review = ReviewBuilder::aReview()
+        $review = AssessmentBuilder::aReview()
             ->withEfficiencies($efficiency)
             ->build();
 
         $this->assertEquals(26, $review->getTotalPoints());
+        $this->assertCount(count($efficiency), $review->getEfficiencies());
+    }
+
+    public function test_can_assign_a_reviewer()
+    {
+        $review = AssessmentBuilder::aReview()->build();
+        $reviewerId = UserBuilder::aUser()->build()->getId();
+
+        $review->setReviewerId($reviewerId);
+
+        $this->assertEquals($reviewerId, $review->getReviewerId());
     }
 }

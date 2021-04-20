@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Tests\Unit\Domain\Model\Review;
+namespace Tests\Unit\Domain\Model\Assessment;
 
 use Domain\Model\Assessment\Efficiency;
 use Domain\Model\Assessment\Exceptions\NotExistingSelectedOptionException;
