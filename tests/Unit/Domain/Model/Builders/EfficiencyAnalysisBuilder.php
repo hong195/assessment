@@ -12,7 +12,7 @@ use Domain\Model\Assessment\ServiceDate;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
 use Domain\Model\EfficiencyAnalysis\EmployeeId;
 use Domain\Model\EfficiencyAnalysis\Month;
-use Domain\Model\EfficiencyAnalysis\RatingId;
+use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
 
 class EfficiencyAnalysisBuilder
 {
@@ -20,11 +20,11 @@ class EfficiencyAnalysisBuilder
 
     protected EmployeeId $employeeId;
 
-    protected RatingId $ratingId;
+    protected EfficiencyAnalysisId $ratingId;
 
     public function __construct()
     {
-        $this->ratingId = new RatingId(RatingId::next());
+        $this->ratingId = new EfficiencyAnalysisId(EfficiencyAnalysisId::next());
         $this->employeeId = new EmployeeId(EmployeeId::next());
         $this->month = new Month(now()->year, now()->month);
     }

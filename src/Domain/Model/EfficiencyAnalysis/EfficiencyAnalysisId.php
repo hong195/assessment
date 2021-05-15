@@ -6,6 +6,6 @@ namespace Domain\Model\EfficiencyAnalysis;
 
 use Domain\Id;
 
-final class RatingId extends Id
+final class EfficiencyAnalysisId extends Id
 {
 }

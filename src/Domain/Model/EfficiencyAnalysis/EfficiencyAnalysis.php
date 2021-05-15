@@ -29,9 +29,9 @@ final class EfficiencyAnalysis
 
     private Status $status;
 
-    private RatingId $ratingId;
+    private EfficiencyAnalysisId $ratingId;
 
-    public function __construct(RatingId $ratingId, EmployeeId $employeeId, Month $date)
+    public function __construct(EfficiencyAnalysisId $ratingId, EmployeeId $employeeId, Month $date)
     {
         $this->assessments = new ArrayCollection();
         $this->month = $date;
@@ -129,7 +129,7 @@ final class EfficiencyAnalysis
             0);
     }
 
-    public function getId(): RatingId
+    public function getId(): EfficiencyAnalysisId
     {
         return $this->ratingId;
     }
