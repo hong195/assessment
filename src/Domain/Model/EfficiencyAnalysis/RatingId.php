@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Domain\Model\Rating;
+namespace Domain\Model\EfficiencyAnalysis;
 
 
 use Domain\Id;

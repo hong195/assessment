@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Domain\Model\Rating;
+namespace Domain\Model\EfficiencyAnalysis;
 
 
-use Domain\Model\Rating\Exceptions\UnknownRatingStatusException;
+use Domain\Model\EfficiencyAnalysis\Exceptions\UnknownRatingStatusException;
 
 final class Status
 {

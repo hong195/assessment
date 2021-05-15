@@ -5,11 +5,6 @@ namespace Domain\Model\Pharmacy;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Domain\Model\User\FullName;
-use Domain\Model\User\Login;
-use Domain\Model\User\Role;
-use Domain\Model\User\User;
-use Domain\Model\User\UserId;
 
 final class Pharmacy
 {
@@ -32,20 +27,6 @@ final class Pharmacy
     public function getEmail(): Email
     {
         return $this->email;
-    }
-
-    public function getUsers(): ArrayCollection
-    {
-        return $this->employees;
-    }
-
-    public function addUser(UserId $userId, Login $login, FullName $fullName): User
-    {
-        $user = new User($userId, $login, $fullName, new Role(Role::PHARMACIST));
-
-        $this->employees->add($user);
-
-        return $user;
     }
 
     public function changeEmail(Email $email)

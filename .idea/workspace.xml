@@ -3,19 +3,39 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="AutoTestManager">
+    <enabled-run-configurations>
+      <run-configuration type="PHPUnitRunConfigurationType" name="AssessmentTest" />
+    </enabled-run-configurations>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Exceptions/InvalidPharmacyEmailException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Exceptions/InvalidPharmacyNumberException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyId.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyNumber.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/EmailTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyNumberTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/AssessmentRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/MonthTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Efficiency.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Criterion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/PharmacyBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/PharmacyBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Rating/AssessmentRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/InvalidRatingMonthException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Exceptions/InvalidRatingMonthException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/MaxReviewsForMonthReachedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Exceptions/MaxReviewsForMonthReachedException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/ModificationRatingException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Exceptions/ModificationRatingException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Rating/Exceptions/UnknownRatingStatusException.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Exceptions/UnknownRatingStatusException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Rating/Month.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Month.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Rating/Rating.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Rating/RatingId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/RatingId.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Rating/Status.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Status.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Repository/AssessmentRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/User/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/EfficiencyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/EfficiencyTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/RatingBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/EfficiencyAnalysisBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyNumberTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyNumberTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Rating/MonthTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Rating/RatingTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +84,14 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Domain/Model/User/User.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
@@ -200,7 +227,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../modules/php/PHP_7.4/php.exe" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -213,7 +240,7 @@
     <property name="nodejs_interpreter_path" value="wsl://Ubuntu-20.04@/usr/bin/node" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -226,20 +253,52 @@
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Check" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Rating" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Watcher" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Assessment" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Criteria" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\User\Exceptions" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Review\Exceptions" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain\Model\Review" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="phpunit" />
+    </option>
+  </component>
+  <component name="RunManager" selected="PHPUnit.PharmacyTest">
+    <configuration name="AssessmentTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\Assessment\AssessmentTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="EfficiencyAnalysisTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MonthTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\EfficiencyAnalysis\MonthTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/MonthTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PharmacyTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\Pharmacy\PharmacyTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.PharmacyTest" />
+        <item itemvalue="PHPUnit.EfficiencyAnalysisTest" />
+        <item itemvalue="PHPUnit.MonthTest" />
+        <item itemvalue="PHPUnit.AssessmentTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Hong10\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="" />
@@ -281,7 +340,17 @@
       <workItem from="1618856133791" duration="608000" />
       <workItem from="1618895999708" duration="97000" />
       <workItem from="1618917662180" duration="1002000" />
-      <workItem from="1618941445886" duration="4289000" />
+      <workItem from="1618941445886" duration="6693000" />
+      <workItem from="1618987769871" duration="596000" />
+      <workItem from="1619024806789" duration="598000" />
+      <workItem from="1619069896301" duration="839000" />
+      <workItem from="1619109209275" duration="1610000" />
+      <workItem from="1619111171407" duration="594000" />
+      <workItem from="1619185095828" duration="1355000" />
+      <workItem from="1619272933159" duration="2895000" />
+      <workItem from="1619331775980" duration="6499000" />
+      <workItem from="1619445931099" duration="405000" />
+      <workItem from="1621085950443" duration="2109000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -528,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618943423971</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Added pharmacy entity test.">
+      <created>1618945811972</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1618945811972</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,7 +653,8 @@
     <MESSAGE value="Added AssessmentRepository contract." />
     <MESSAGE value="Correct models name." />
     <MESSAGE value="Updated app tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated app tests." />
+    <MESSAGE value="Added pharmacy entity test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pharmacy entity test." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

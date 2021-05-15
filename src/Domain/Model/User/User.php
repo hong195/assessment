@@ -31,9 +31,21 @@ final class User
         $this->role = $role;
     }
 
-    /**
-     * @return UserId
-     */
+    public function changeLogin(Login $login)
+    {
+        $this->login = $login;
+    }
+
+    public function updateName(FullName $name)
+    {
+        $this->name = $name;
+    }
+
+    public function setRole(Role $role)
+    {
+        $this->role = $role;
+    }
+
     public function getId(): UserId
     {
         return $this->id;

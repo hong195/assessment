@@ -31,4 +31,27 @@ class UserTest extends TestCase
         $this->assertEquals('user-login', (string) $user->getLogin());
         $this->assertEquals('Alex Patrick Black', (string) $user->getFullName());
     }
+
+    public function test_can_change_login()
+    {
+        $user = UserBuilder::aUser()->withLogin(new Login('old-login'))->build();
+        $newLogin = new Login('new-login');
+
+        $user->changeLogin($newLogin);
+
+        $this->assertEquals($newLogin, $user->getLogin());
+        $this->assertEquals('new-login', (string) $user->getLogin());
+    }
+
+    public function test_update_full_name()
+    {
+        $user = UserBuilder::aUser()->withName(new FullName('oldName', 'oldLastName'))->build();
+        $newName = new FullName('newName', 'newLastName');
+
+        $user->updateName($newName);
+
+        $this->assertEquals($newName, $user->getFullName());
+        $this->assertEquals('newName', (string) $user->getFullName()->firstName());
+        $this->assertEquals('newLastName', (string) $user->getFullName()->lastName());
+    }
 }

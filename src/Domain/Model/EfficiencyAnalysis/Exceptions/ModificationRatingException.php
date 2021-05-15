@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Domain\Model\Rating\Exceptions;
+namespace Domain\Model\EfficiencyAnalysis\Exceptions;
 
 
 use Domain\Exceptions\DomainException;

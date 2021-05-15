@@ -7,7 +7,7 @@ namespace Domain\Model\Assessment;
 use Doctrine\Common\Collections\ArrayCollection;
 use Domain\Model\Assessment\Exceptions\NotExistingSelectedOptionException;
 
-final class Efficiency
+final class Criterion
 {
     private string $name;
     private ArrayCollection $options;

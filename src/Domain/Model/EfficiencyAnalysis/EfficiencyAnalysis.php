@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Domain\Model\Rating;
+namespace Domain\Model\EfficiencyAnalysis;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -9,12 +9,11 @@ use Domain\Exceptions\NotFoundEntityException;
 use Domain\Model\Assessment\Assessment;
 use Domain\Model\Assessment\AssessmentId;
 use Domain\Model\Assessment\Check;
-use Domain\Model\Rating\Exceptions\InvalidRatingMonthException;
-use Domain\Model\Rating\Exceptions\MaxReviewsForMonthReachedException;
-use Domain\Model\Rating\Exceptions\ModificationRatingException;
-use Domain\Model\User\UserId;
+use Domain\Model\EfficiencyAnalysis\Exceptions\InvalidRatingMonthException;
+use Domain\Model\EfficiencyAnalysis\Exceptions\MaxReviewsForMonthReachedException;
+use Domain\Model\EfficiencyAnalysis\Exceptions\ModificationRatingException;
 
-final class Rating
+final class EfficiencyAnalysis
 {
     const ALLOWED_REVIEWS_AMOUNT = 10;
 
@@ -26,17 +25,17 @@ final class Rating
 
     private ?float $total = null;
 
-    private UserId $userId;
+    private EmployeeId $employeeId;
 
     private Status $status;
 
     private RatingId $ratingId;
 
-    public function __construct(RatingId $ratingId, UserId $userId, Month $date)
+    public function __construct(RatingId $ratingId, EmployeeId $employeeId, Month $date)
     {
         $this->assessments = new ArrayCollection();
         $this->month = $date;
-        $this->userId = $userId;
+        $this->employeeId = $employeeId;
         $this->status = new Status(Status::UNCOMPLETED);
         $this->ratingId = $ratingId;
     }
@@ -135,9 +134,9 @@ final class Rating
         return $this->ratingId;
     }
 
-    public function getUserId(): UserId
+    public function getEmployeeId(): EmployeeId
     {
-        return $this->userId;
+        return $this->employeeId;
     }
 
     public function getScored(): ?float

@@ -1,13 +1,15 @@
 <?php
 
 
-namespace Domain\Model\Rating;
+namespace Domain\Model\EfficiencyAnalysis;
 
 
-use Domain\Model\Rating\Exceptions\InvalidRatingMonthException;
+use Domain\Model\EfficiencyAnalysis\Exceptions\InvalidRatingMonthException;
 
 final class Month
 {
+    const MIN_YEAR = 2020;
+
     private \DateTimeImmutable $date;
     /**
      * Date constructor.
@@ -54,6 +56,9 @@ final class Month
      */
     private function assertValidDate(int $year, int $month)
     {
+        if ($year < self::MIN_YEAR) {
+            throw new InvalidRatingMonthException();
+        }
         try {
             $date = $year . '-'  . $month;
             $date = new \DateTime($date);

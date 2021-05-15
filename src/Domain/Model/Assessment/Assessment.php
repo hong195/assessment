@@ -5,11 +5,10 @@ namespace Domain\Model\Assessment;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Domain\Model\User\UserId;
 
 final class Assessment
 {
-    private UserId $reviewerId;
+    private WatcherId $watcherId;
 
     private Check $check;
 
@@ -20,9 +19,8 @@ final class Assessment
     /**
      * assessment constructor.
      * @param AssessmentId $id
-     * @param UserId $reviewerId
      * @param Check $check
-     * @param Efficiency[] $efficiencies
+     * @param Criterion[] $efficiencies
      */
     public function __construct(AssessmentId $id,
                                 Check $check,
@@ -44,9 +42,9 @@ final class Assessment
         return $this->id;
     }
 
-    public function getReviewerId(): UserId
+    public function getWatcherId(): WatcherId
     {
-        return $this->reviewerId;
+        return $this->watcherId;
     }
 
     public function getCheck(): Check
@@ -59,9 +57,9 @@ final class Assessment
         return $this->efficiencies;
     }
 
-    public function setReviewerId(UserId $reviewerId)
+    public function setWatcherId(WatcherId $watcherId)
     {
-        $this->reviewerId = $reviewerId;
+        $this->watcherId = $watcherId;
     }
     /**
      * @return float
@@ -69,14 +67,14 @@ final class Assessment
      */
     public function getScoredPoints(): float
     {
-        return array_reduce($this->efficiencies->toArray(), function ($prev, Efficiency $efficiency) {
-            return $prev + $efficiency->getSelectedValue();
+        return array_reduce($this->efficiencies->toArray(), function ($prev, Criterion $criterion) {
+            return $prev + $criterion->getSelectedValue();
         }, 0);
     }
 
     public function getTotalPoints(): float
     {
-        return array_reduce($this->efficiencies->toArray(), function ($carry, Efficiency $efficiency) {
+        return array_reduce($this->efficiencies->toArray(), function ($carry, Criterion $efficiency) {
             return $carry + $efficiency->getMaxPoint();
         },0);
     }

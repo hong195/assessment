@@ -3,7 +3,7 @@
 
 namespace Tests\Unit\Domain\Model\Assessment;
 
-use Domain\Model\Assessment\Efficiency;
+use Domain\Model\Assessment\Criterion;
 use Domain\Model\Assessment\Exceptions\NotExistingSelectedOptionException;
 use Domain\Model\Assessment\Option;
 use PHPUnit\Framework\TestCase;
@@ -12,7 +12,7 @@ class EfficiencyTest extends TestCase
 {
     public function test_get_criterion_selected_option()
     {
-        $efficiency = new Efficiency('Ethics', [
+        $efficiency = new Criterion('Ethics', [
             new Option('yes', 1),
             new Option('no', 0)
         ], 'yes');
@@ -22,7 +22,7 @@ class EfficiencyTest extends TestCase
 
     public function test_get_max_available_option_value()
     {
-        $efficiency = new Efficiency('Ethics', [
+        $efficiency = new Criterion('Ethics', [
             new Option('yes', 7.5),
             new Option('no', 7)
         ], 'yes');
@@ -32,7 +32,7 @@ class EfficiencyTest extends TestCase
 
     public function test_expects_exception_when_selected_option_not_exists()
     {
-        $efficiency = new Efficiency('Ethics',
+        $efficiency = new Criterion('Ethics',
             [
                 new Option('yes', 1), new Option('no', 0)
             ],

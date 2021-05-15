@@ -14,12 +14,6 @@ class AssessmentBuilder
 
     private Check $check;
 
-    private UserId $userId;
-
-    private UserId $reviewerId;
-    /**
-     * @var AssessmentId
-     */
     private AssessmentId $id;
 
     private array $efficiencies;
@@ -28,8 +22,6 @@ class AssessmentBuilder
     {
         $this->id = new AssessmentId(AssessmentId::next());
         $this->check = CheckBuilder::aCheck()->build();
-        $this->userId = new UserId(UserId::next());
-        $this->reviewerId = new UserId(UserId::next());
         $this->efficiencies = [];
     }
 
