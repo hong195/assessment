@@ -10,10 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemoryUserRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractUserRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/User/UserRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,11 +233,11 @@
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Check" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\User" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Rating" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Watcher" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Assessment" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Criteria" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\User\Exceptions" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -243,21 +245,21 @@
       <command value="phpunit" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.UserTest">
-    <configuration name="AssessmentTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\Domain\Model\Assessment\AssessmentTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.InMemoryUserRepositoryTest">
+    <configuration name="InMemoryUserRepositoryTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemoryUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemoryUserRepositoryTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="EfficiencyAnalysisTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" scope="Class" />
+    <configuration name="InMemoryUserRepositoryTest.test_find_or_fail" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemoryUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemoryUserRepositoryTest.php" method="test_find_or_fail" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="MonthTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\Domain\Model\EfficiencyAnalysis\MonthTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/MonthTest.php" scope="Class" />
+    <configuration name="InMemoryUserRepositoryTest.test_get_all" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemoryUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemoryUserRepositoryTest.php" method="test_get_all" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PharmacyTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\Domain\Model\Pharmacy\PharmacyTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" scope="Class" />
+    <configuration name="InMemoryUserRepositoryTest.test_get_by_ids" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemoryUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemoryUserRepositoryTest.php" method="test_get_by_ids" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="UserTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -270,11 +272,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.UserTest" />
-        <item itemvalue="PHPUnit.PharmacyTest" />
-        <item itemvalue="PHPUnit.EfficiencyAnalysisTest" />
-        <item itemvalue="PHPUnit.MonthTest" />
-        <item itemvalue="PHPUnit.AssessmentTest" />
+        <item itemvalue="PHPUnit.InMemoryUserRepositoryTest" />
+        <item itemvalue="PHPUnit.InMemoryUserRepositoryTest.test_get_by_ids" />
+        <item itemvalue="PHPUnit.InMemoryUserRepositoryTest.test_get_by_ids" />
+        <item itemvalue="PHPUnit.InMemoryUserRepositoryTest.test_get_all" />
+        <item itemvalue="PHPUnit.InMemoryUserRepositoryTest.test_get_all" />
       </list>
     </recent_temporary>
   </component>
@@ -333,7 +335,7 @@
       <workItem from="1619272933159" duration="2895000" />
       <workItem from="1619331775980" duration="6499000" />
       <workItem from="1619445931099" duration="405000" />
-      <workItem from="1621085950443" duration="3984000" />
+      <workItem from="1621085950443" duration="20645000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -608,7 +610,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621089192042</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Added entities interfaces.">
+      <created>1621090242102</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1621090242102</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -660,7 +669,8 @@
     <MESSAGE value="Added pharmacy entity test." />
     <MESSAGE value="Updated project structure &amp; tests." />
     <MESSAGE value="Updated EfficiencyAnalysis models." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated EfficiencyAnalysis models." />
+    <MESSAGE value="Added entities interfaces." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added entities interfaces." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
