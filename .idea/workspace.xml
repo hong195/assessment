@@ -10,11 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/AssessmentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/RatingId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/EfficiencyAnalysisBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/EfficiencyAnalysisBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +243,7 @@
       <command value="phpunit" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.PharmacyTest">
+  <component name="RunManager" selected="PHPUnit.UserTest">
     <configuration name="AssessmentTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Unit\Domain\Model\Assessment\AssessmentTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" scope="Class" />
       <method v="2" />
@@ -261,12 +260,17 @@
       <TestRunner class="Tests\Unit\Domain\Model\Pharmacy\PharmacyTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" scope="Class" />
       <method v="2" />
     </configuration>
+    <configuration name="UserTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\User\UserTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.UserTest" />
         <item itemvalue="PHPUnit.PharmacyTest" />
         <item itemvalue="PHPUnit.EfficiencyAnalysisTest" />
         <item itemvalue="PHPUnit.MonthTest" />
@@ -329,7 +333,7 @@
       <workItem from="1619272933159" duration="2895000" />
       <workItem from="1619331775980" duration="6499000" />
       <workItem from="1619445931099" duration="405000" />
-      <workItem from="1621085950443" duration="3142000" />
+      <workItem from="1621085950443" duration="3984000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -597,7 +601,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621088267799</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Updated EfficiencyAnalysis models.">
+      <created>1621089192042</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1621089192042</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,7 +659,8 @@
     <MESSAGE value="Updated app tests." />
     <MESSAGE value="Added pharmacy entity test." />
     <MESSAGE value="Updated project structure &amp; tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated project structure &amp; tests." />
+    <MESSAGE value="Updated EfficiencyAnalysis models." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated EfficiencyAnalysis models." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

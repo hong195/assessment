@@ -15,4 +15,6 @@ interface EfficiencyAnalysisRepository
     public function findByEmployeeId(EmployeeId $employeeId) : EfficiencyAnalysis;
 
     public function add(EfficiencyAnalysisId $efficiencyAnalysisId) : EfficiencyAnalysis;
+
+    public function save(EfficiencyAnalysis $efficiencyAnalysis) : void;
 }

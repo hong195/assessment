@@ -13,7 +13,7 @@ use Tests\Unit\Domain\Model\Builders\UserBuilder;
 
 class UserTest extends TestCase
 {
-    public function test_can_create_a_user()
+    public function test_user()
     {
         $userId = new UserId(UserId::next());
         $user = UserBuilder::aUser()
