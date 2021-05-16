@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentId.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Check.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Check.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/EfficiencyAnalysisBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/EfficiencyAnalysisBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/PharmacyBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/PharmacyBuilder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,7 +332,7 @@
       <workItem from="1619331775980" duration="6499000" />
       <workItem from="1619445931099" duration="405000" />
       <workItem from="1621085950443" duration="20645000" />
-      <workItem from="1621141475931" duration="24760000" />
+      <workItem from="1621141475931" duration="24962000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -659,7 +663,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621189282304</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Removed default migrations.">
+      <created>1621189428481</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1621189428481</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

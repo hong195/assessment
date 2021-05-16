@@ -27,7 +27,7 @@ class EfficiencyAnalysisBuilder
 
     public function __construct()
     {
-        $this->ratingId = new EfficiencyAnalysisId(EfficiencyAnalysisId::next());
+        $this->ratingId = EfficiencyAnalysisId::next();
         $this->employee = new Employee(UserId::next(), new Name('Test', 'Test'), new PharmacyId(PharmacyId::next()));
         $this->month = new Month(now()->year, now()->month);
     }

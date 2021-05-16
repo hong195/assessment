@@ -3,7 +3,7 @@
 
 namespace Domain\Model\Assessment;
 
-class Check
+final class Check
 {
     private ServiceDate $serviceDate;
 

@@ -20,7 +20,7 @@ class AssessmentBuilder
 
     public function __construct()
     {
-        $this->id = new AssessmentId(AssessmentId::next());
+        $this->id = AssessmentId::next();
         $this->check = CheckBuilder::aCheck()->build();
         $this->efficiencies = [];
     }

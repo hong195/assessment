@@ -19,7 +19,7 @@ class PharmacyBuilder
 
     public function __construct()
     {
-        $this->id = new PharmacyId(PharmacyId::next());
+        $this->id = PharmacyId::next();
         $this->email = new Email('pharmacy@mail.com');
         $this->number = new PharmacyNumber('test-number');
     }
