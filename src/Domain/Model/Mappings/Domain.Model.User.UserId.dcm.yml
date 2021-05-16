@@ -1,0 +1,9 @@
+Domain\Model\User\UserId:
+  type: embeddable
+  id:
+    id:
+      name: id
+      column: id
+      type: guid
+      generator:
+        strategy: UUID

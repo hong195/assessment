@@ -54,8 +54,13 @@ class InMemoryUserRepository implements UserRepository
         return $found;
     }
 
+    /**
+     * @param User $user
+     * @throws DomainException
+     */
     public function add(User $user)
     {
+        /** @var User $aUser */
         foreach ($this->users as $aUser) {
             if ($user->getId()->isEqual($aUser->getId())) {
                 throw new DomainException('User with this uuid is already added!');

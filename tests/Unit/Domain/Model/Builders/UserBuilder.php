@@ -26,7 +26,7 @@ class UserBuilder
 
     public function __construct()
     {
-        $this->id = new UserId(UserId::next());
+        $this->id = UserId::next();
         $this->login = new Login('user-login');
         $this->fullName = new FullName('Test', 'Test', 'Test');
         $this->role = new Role(Role::PHARMACIST);

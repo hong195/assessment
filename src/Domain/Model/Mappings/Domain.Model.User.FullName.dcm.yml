@@ -1,0 +1,10 @@
+Domain\Model\User\FullName:
+  type: embeddable
+  fields:
+    firstName:
+      type: string
+    lastName:
+      type: string
+    patronymic:
+      type: string
+      nullable: TRUE

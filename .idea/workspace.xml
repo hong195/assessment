@@ -5,22 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Participant/AbstractParticipant.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Participant/Employee.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Participant/Name.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Participant/ParticipantService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Participant/Reviewer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Participant/SalesManger.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infastructure/Services/ToParticipantTranslator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryEfficiencyAnalysisRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryEfficiencyAnalysisRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractEfficiencyAnalysisTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractEfficiencyAnalysisTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/EfficiencyAnalysisBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/EfficiencyAnalysisBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Id.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Id.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryUserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractUserRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractUserRepositoryTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,6 +185,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
       <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
       <path value="$PROJECT_DIR$/vendor/laravel-doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
     </include_path>
   </component>
   <component name="ProjectId" id="1nrxeNhC18QtC5cBgCdJxgcBOTV" />
@@ -212,7 +201,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Domain/Model/Mappings" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -231,18 +220,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence\InMemory" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain\Model\Pharmacy" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Pharmacy\Exceptions" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\User\Entities" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Participant" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain\Model" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence\InMemory" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence\InMemory" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -250,11 +239,7 @@
       <command value="phpunit" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.InMemoryEfficiencyAnalysisTest">
-    <configuration name="EfficiencyAnalysisTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.InMemoryUserRepositoryTest.test_remove">
     <configuration name="InMemoryEfficiencyAnalysisTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryEfficiencyAnalysisTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryEfficiencyAnalysisTest.php" scope="Class" />
       <method v="2" />
@@ -271,15 +256,19 @@
       <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryUserRepositoryTest.php" scope="Class" />
       <method v="2" />
     </configuration>
+    <configuration name="InMemoryUserRepositoryTest.test_remove" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryUserRepositoryTest.php" method="test_remove" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.InMemoryUserRepositoryTest.test_remove" />
+        <item itemvalue="PHPUnit.InMemoryUserRepositoryTest" />
         <item itemvalue="PHPUnit.InMemoryEfficiencyAnalysisTest" />
-        <item itemvalue="PHPUnit.InMemoryEfficiencyAnalysisTest.test_find_by_employee_id" />
-        <item itemvalue="PHPUnit.InMemoryEfficiencyAnalysisTest.test_find_by_employee_id" />
         <item itemvalue="PHPUnit.InMemoryEfficiencyAnalysisTest.test_find_by_employee_id" />
         <item itemvalue="PHPUnit.InMemoryEfficiencyAnalysisTest.test_find_by_employee_id" />
       </list>
@@ -341,7 +330,7 @@
       <workItem from="1619331775980" duration="6499000" />
       <workItem from="1619445931099" duration="405000" />
       <workItem from="1621085950443" duration="20645000" />
-      <workItem from="1621141475931" duration="13307000" />
+      <workItem from="1621141475931" duration="24512000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -644,7 +633,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621146754059</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Added participant context.">
+      <created>1621176327812</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1621176327812</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Added user entity yml mapping.">
+      <created>1621188008247</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1621188008247</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,8 +677,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Added user resource &amp;&amp; removed unnecessary js plugin." />
-    <MESSAGE value="Added auth controller." />
     <MESSAGE value="Updated frontend package.json." />
     <MESSAGE value="Moved admin source code into frontend directory." />
     <MESSAGE value="Updated auth config (default api guard jwt)." />
@@ -699,7 +700,9 @@
     <MESSAGE value="Added efficiency analysis repository tests." />
     <MESSAGE value="Updated in memory folder structure." />
     <MESSAGE value="Updated criterion repository tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated criterion repository tests." />
+    <MESSAGE value="Added participant context." />
+    <MESSAGE value="Added user entity yml mapping." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added user entity yml mapping." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

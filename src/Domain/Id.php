@@ -4,29 +4,28 @@
 namespace Domain;
 
 use Ramsey\Uuid\Uuid;
-use Ramsey\Uuid\UuidInterface;
 
-abstract class Id
+class Id
 {
-    private UuidInterface $id;
+    protected string $id;
 
-    public function __construct(UuidInterface $id)
+    public function __construct(string $id)
     {
         $this->id = $id;
     }
 
     public function __toString() : string
     {
-        return $this->id->toString();
+        return $this->id;
     }
 
-    public static function next(): \Ramsey\Uuid\UuidInterface
+    public static function next()
     {
-        return Uuid::uuid4();
+        return new static(Uuid::uuid4()->toString());
     }
 
     public function isEqual(self $userId) : bool
     {
-        return (string) $userId === (string) $this;
+        return $this->id === (string) $userId;
     }
 }
