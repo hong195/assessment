@@ -4,13 +4,15 @@
 namespace Domain\Model\Criterion;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 interface CriterionRepository
 {
-    public function all();
+    public function all() : ArrayCollection;
 
-    public function getById(CriterionId $criterionId);
+    public function findById(CriterionId $criterionIdId): ?Criterion;
 
-    public function add(Criterion $criterion) : void;
+    public function add(Criterion $criterion): void;
 
-    public function delete(CriterionId $criterionId) : void;
+    public function remove(CriterionId $criterionId): void;
 }

@@ -5,8 +5,8 @@ namespace Tests\Feature\Infastructure\Persistence;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
 use Domain\Model\EfficiencyAnalysis\Month;
-use Tests\TestCase;
 use Tests\Unit\Domain\Model\Builders\EfficiencyAnalysisBuilder;
+use Tests\TestCase;
 
 abstract class AbstractEfficiencyAnalysisTest extends TestCase
 {
