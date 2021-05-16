@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Infastructure\Persistence;
+namespace Infastructure\Persistence\InMemory;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Domain\Exceptions\DomainException;

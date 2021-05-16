@@ -1,10 +1,11 @@
 <?php
 
-namespace Tests\Feature\Infastructure\Persistence;
+namespace Tests\Feature\Infastructure\Persistence\InMemory;
 
 
 use Domain\Model\User\UserRepository;
-use Infastructure\Persistence\InMemoryUserRepository;
+use Infastructure\Persistence\InMemory\InMemoryUserRepository;
+use Tests\Feature\Infastructure\Persistence\AbstractUserRepositoryTest;
 
 class InMemoryUserRepositoryTest extends AbstractUserRepositoryTest
 {
