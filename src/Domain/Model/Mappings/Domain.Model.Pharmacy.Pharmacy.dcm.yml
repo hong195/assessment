@@ -1,0 +1,11 @@
+Domain\Model\Pharmacy\Pharmacy:
+  type: entity
+  table: pharmacies
+  embedded:
+    id:
+      class: PharmacyId
+    number:
+      class: PharmacyNumber
+    email:
+      class: Email
+

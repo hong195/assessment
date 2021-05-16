@@ -1,0 +1,5 @@
+Domain\Model\Pharmacy\PharmacyNumber:
+  type: embeddable
+  fields:
+    number:
+      type: string

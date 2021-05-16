@@ -1,0 +1,10 @@
+Domain\Model\Pharmacy\PharmacyId:
+  type: embeddable
+  id:
+    id:
+      name: id
+      column: id
+      type: guid
+      generator:
+        strategy: UUID
+

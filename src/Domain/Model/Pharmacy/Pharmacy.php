@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 final class Pharmacy
 {
-    private PharmacyId $pharmacyId;
+    private PharmacyId $id;
 
     private Email $email;
 
@@ -20,7 +20,7 @@ final class Pharmacy
     {
         $this->email = $email;
         $this->employees = new ArrayCollection([]);
-        $this->pharmacyId = $pharmacyId;
+        $this->id = $pharmacyId;
         $this->number = $number;
     }
 
@@ -41,7 +41,7 @@ final class Pharmacy
 
     public function getId(): PharmacyId
     {
-        return $this->pharmacyId;
+        return $this->id;
     }
 
     public function getNumber(): PharmacyNumber
