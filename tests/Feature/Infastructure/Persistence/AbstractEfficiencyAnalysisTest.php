@@ -5,6 +5,7 @@ namespace Tests\Feature\Infastructure\Persistence;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
 use Domain\Model\EfficiencyAnalysis\Month;
+use Domain\Model\User\UserId;
 use Tests\Unit\Domain\Model\Builders\EfficiencyAnalysisBuilder;
 use Tests\TestCase;
 
@@ -34,12 +35,12 @@ abstract class AbstractEfficiencyAnalysisTest extends TestCase
     public function test_find_by_employee_id()
     {
         $analysis = EfficiencyAnalysisBuilder::anAnalysis()->build();
-        $employeeId = $analysis->getEmployeeId();
+        $employeeId = new UserId($analysis->getEmployee()->getIdentity());
 
         $this->repository->add($analysis);
         $founded = $this->repository->findByEmployeeId($employeeId);
 
-        $this->assertSame($employeeId, $founded->last()->getEmployeeId());
+        $this->assertSame((string) $employeeId, (string) $founded->last()->getEmployee()->getIdentity());
     }
 
     public function test_find_by_month()
@@ -71,17 +72,20 @@ abstract class AbstractEfficiencyAnalysisTest extends TestCase
         $this->repository->add($analysisC);
         $this->repository->add($analysisB);
 
-        $foundAnalysis = $this->repository->findByEmployeeIds([$analysis->getEmployeeId(),
-                    $analysisC->getEmployeeId(),$analysisB->getEmployeeId()]);
+        $idA = new UserId($analysis->getEmployee()->getIdentity());
+        $idB = new UserId($analysisC->getEmployee()->getIdentity());
+        $idC = new UserId($analysisB->getEmployee()->getIdentity());
+
+        $foundAnalysis = $this->repository->findByEmployeeIds([$idA, $idB,$idC]);
 
         $foundEmployeeIds = $foundAnalysis->map(function (EfficiencyAnalysis $singleAnalysis) {
-            return $singleAnalysis->getEmployeeId();
+            return $singleAnalysis->getEmployee();
         });
 
         $this->assertNotEmpty($foundAnalysis);
-        $this->assertNotContains($analysisD->getEmployeeId(), $foundEmployeeIds);
-        $this->assertContains($analysis->getEmployeeId(), $foundEmployeeIds);
-        $this->assertContains($analysisC->getEmployeeId(), $foundEmployeeIds);
-        $this->assertContains($analysisB->getEmployeeId(), $foundEmployeeIds);
+        $this->assertNotContains($analysisD->getEmployee(), $foundEmployeeIds);
+        $this->assertContains($analysis->getEmployee(), $foundEmployeeIds);
+        $this->assertContains($analysisC->getEmployee(), $foundEmployeeIds);
+        $this->assertContains($analysisB->getEmployee(), $foundEmployeeIds);
     }
 }

@@ -5,12 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryCriterionRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractCriterionTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryCriterionTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Participant/AbstractParticipant.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Participant/Employee.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Participant/Name.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Participant/ParticipantService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Participant/Reviewer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Participant/SalesManger.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Infastructure/Services/ToParticipantTranslator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/CriterionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/CriterionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryEfficiencyAnalysisRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryEfficiencyAnalysisRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractEfficiencyAnalysisTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractEfficiencyAnalysisTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/EfficiencyAnalysisBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/EfficiencyAnalysisBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,11 +238,11 @@
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\User\Entities" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Participant" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain\Model" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence\InMemory" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence\InMemory" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\User" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -240,25 +250,25 @@
       <command value="phpunit" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.InMemoryCriterionTest">
-    <configuration name="InMemoryCriterionTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryCriterionTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryCriterionTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.InMemoryEfficiencyAnalysisTest">
+    <configuration name="EfficiencyAnalysisTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="InMemoryCriterionTest.test_can_find_by_id" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryCriterionTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryCriterionTest.php" method="test_can_find_by_id" scope="Method" />
+    <configuration name="InMemoryEfficiencyAnalysisTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryEfficiencyAnalysisTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryEfficiencyAnalysisTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="InMemoryCriterionTest.test_can_get_all_criteria" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryCriterionTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryCriterionTest.php" method="test_can_get_all_criteria" scope="Method" />
+    <configuration name="InMemoryEfficiencyAnalysisTest.test_find_by_employee_id" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryEfficiencyAnalysisTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryEfficiencyAnalysisTest.php" method="test_find_by_employee_id" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="InMemoryCriterionTest.test_can_remove_a_criterion" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryCriterionTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryCriterionTest.php" method="test_can_remove_a_criterion" scope="Method" />
+    <configuration name="InMemoryEfficiencyAnalysisTest.test_find_by_employees_ids" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryEfficiencyAnalysisTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryEfficiencyAnalysisTest.php" method="test_find_by_employees_ids" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UserTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\Domain\Model\User\UserTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" scope="Class" />
+    <configuration name="InMemoryUserRepositoryTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryUserRepositoryTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -267,11 +277,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.InMemoryCriterionTest" />
-        <item itemvalue="PHPUnit.InMemoryCriterionTest.test_can_find_by_id" />
-        <item itemvalue="PHPUnit.InMemoryCriterionTest.test_can_find_by_id" />
-        <item itemvalue="PHPUnit.InMemoryCriterionTest.test_can_find_by_id" />
-        <item itemvalue="PHPUnit.InMemoryCriterionTest" />
+        <item itemvalue="PHPUnit.InMemoryEfficiencyAnalysisTest" />
+        <item itemvalue="PHPUnit.InMemoryEfficiencyAnalysisTest.test_find_by_employee_id" />
+        <item itemvalue="PHPUnit.InMemoryEfficiencyAnalysisTest.test_find_by_employee_id" />
+        <item itemvalue="PHPUnit.InMemoryEfficiencyAnalysisTest.test_find_by_employee_id" />
+        <item itemvalue="PHPUnit.InMemoryEfficiencyAnalysisTest.test_find_by_employee_id" />
       </list>
     </recent_temporary>
   </component>
@@ -331,7 +341,7 @@
       <workItem from="1619331775980" duration="6499000" />
       <workItem from="1619445931099" duration="405000" />
       <workItem from="1621085950443" duration="20645000" />
-      <workItem from="1621141475931" duration="5171000" />
+      <workItem from="1621141475931" duration="13307000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -627,7 +637,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621145664941</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Updated criterion repository tests.">
+      <created>1621146754059</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1621146754059</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -657,7 +674,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Added jwt auth settings." />
     <MESSAGE value="Added user resource &amp;&amp; removed unnecessary js plugin." />
     <MESSAGE value="Added auth controller." />
     <MESSAGE value="Updated frontend package.json." />
@@ -682,7 +698,8 @@
     <MESSAGE value="Added entities interfaces." />
     <MESSAGE value="Added efficiency analysis repository tests." />
     <MESSAGE value="Updated in memory folder structure." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated in memory folder structure." />
+    <MESSAGE value="Updated criterion repository tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated criterion repository tests." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

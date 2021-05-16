@@ -7,6 +7,8 @@ namespace Tests\Unit\Domain\Model\Assessment;
 use Domain\Model\Assessment\Criterion;
 use Domain\Model\Assessment\Option;
 use Domain\Model\Assessment\WatcherId;
+use Domain\Model\Participant\Name;
+use Domain\Model\Participant\Reviewer;
 use PHPUnit\Framework\TestCase;
 use Tests\Unit\Domain\Model\Builders\AssessmentBuilder;
 
@@ -68,13 +70,13 @@ class AssessmentTest extends TestCase
         $this->assertCount(count($criterion), $review->getEfficiencies());
     }
 
-    public function test_can_set_a_watcher_id()
+    public function test_can_assign_reviewer()
     {
         $assessment = AssessmentBuilder::aReview()->build();
-        $watcherId = new WatcherId(WatcherId::next());
+        $reviewer = new Reviewer('2222', new Name('Test', 'Test'));
 
-        $assessment->setWatcherId($watcherId);
+        $assessment->assignReviewer($reviewer);
 
-        $this->assertEquals($watcherId, $assessment->getWatcherId());
+        $this->assertEquals($reviewer, $assessment->getReviewer());
     }
 }

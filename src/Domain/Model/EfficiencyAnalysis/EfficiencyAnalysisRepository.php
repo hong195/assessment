@@ -5,6 +5,7 @@ namespace Domain\Model\EfficiencyAnalysis;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Domain\Id;
 
 interface EfficiencyAnalysisRepository
 {
@@ -14,7 +15,7 @@ interface EfficiencyAnalysisRepository
 
     public function findByEmployeeIds(array $employeeIds) : ArrayCollection;
 
-    public function findByEmployeeId(EmployeeId $employeeId) : ArrayCollection;
+    public function findByEmployeeId(Id $employeeId) : ArrayCollection;
 
     public function add(EfficiencyAnalysis $efficiencyAnalysis) : void;
 

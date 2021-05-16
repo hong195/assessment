@@ -5,10 +5,11 @@ namespace Domain\Model\Assessment;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Domain\Model\Participant\Reviewer;
 
 final class Assessment
 {
-    private WatcherId $watcherId;
+    private Reviewer $reviewer;
 
     private Check $check;
 
@@ -42,9 +43,9 @@ final class Assessment
         return $this->id;
     }
 
-    public function getWatcherId(): WatcherId
+    public function getReviewer(): Reviewer
     {
-        return $this->watcherId;
+        return $this->reviewer;
     }
 
     public function getCheck(): Check
@@ -57,9 +58,9 @@ final class Assessment
         return $this->efficiencies;
     }
 
-    public function setWatcherId(WatcherId $watcherId)
+    public function assignReviewer(Reviewer $reviewer)
     {
-        $this->watcherId = $watcherId;
+        $this->reviewer = $reviewer;
     }
     /**
      * @return float

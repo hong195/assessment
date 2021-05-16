@@ -10,22 +10,25 @@ use Domain\Model\Assessment\Criterion;
 use Domain\Model\Assessment\Option;
 use Domain\Model\Assessment\ServiceDate;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
-use Domain\Model\EfficiencyAnalysis\EmployeeId;
-use Domain\Model\EfficiencyAnalysis\Month;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
+use Domain\Model\EfficiencyAnalysis\Month;
+use Domain\Model\Participant\Employee;
+use Domain\Model\Participant\Name;
+use Domain\Model\Pharmacy\PharmacyId;
+use Domain\Model\User\UserId;
 
 class EfficiencyAnalysisBuilder
 {
     protected Month $month;
 
-    protected EmployeeId $employeeId;
+    protected Employee $employee;
 
     protected EfficiencyAnalysisId $ratingId;
 
     public function __construct()
     {
         $this->ratingId = new EfficiencyAnalysisId(EfficiencyAnalysisId::next());
-        $this->employeeId = new EmployeeId(EmployeeId::next());
+        $this->employee = new Employee(UserId::next(), new Name('Test', 'Test'), new PharmacyId(PharmacyId::next()));
         $this->month = new Month(now()->year, now()->month);
     }
 
@@ -34,9 +37,9 @@ class EfficiencyAnalysisBuilder
         return new self();
     }
 
-    public function withEmployee(EmployeeId $employeeId): EfficiencyAnalysisBuilder
+    public function withEmployee(Employee $employee): EfficiencyAnalysisBuilder
     {
-        $this->employeeId = $employeeId;
+        $this->employee = $employee;
         return $this;
     }
 
@@ -48,7 +51,7 @@ class EfficiencyAnalysisBuilder
 
     public function build($reviewsNumber = 0): EfficiencyAnalysis
     {
-        $efficiencyAnalysis = new EfficiencyAnalysis($this->ratingId, $this->employeeId, $this->month);
+        $efficiencyAnalysis = new EfficiencyAnalysis($this->ratingId, $this->employee, $this->month);
         $reviewId = new AssessmentId(AssessmentId::next());
         $criteria = [
             new Criterion('Этика',

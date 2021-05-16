@@ -12,6 +12,7 @@ use Domain\Model\Assessment\Check;
 use Domain\Model\EfficiencyAnalysis\Exceptions\InvalidRatingMonthException;
 use Domain\Model\EfficiencyAnalysis\Exceptions\MaxReviewsForMonthReachedException;
 use Domain\Model\EfficiencyAnalysis\Exceptions\ModificationRatingException;
+use Domain\Model\Participant\Employee;
 
 final class EfficiencyAnalysis
 {
@@ -25,17 +26,17 @@ final class EfficiencyAnalysis
 
     private ?float $total = null;
 
-    private EmployeeId $employeeId;
+    private Employee $employee;
 
     private Status $status;
 
     private EfficiencyAnalysisId $ratingId;
 
-    public function __construct(EfficiencyAnalysisId $ratingId, EmployeeId $employeeId, Month $date)
+    public function __construct(EfficiencyAnalysisId $ratingId, Employee $employee, Month $date)
     {
         $this->assessments = new ArrayCollection();
         $this->month = $date;
-        $this->employeeId = $employeeId;
+        $this->employee = $employee;
         $this->status = new Status(Status::UNCOMPLETED);
         $this->ratingId = $ratingId;
     }
@@ -134,9 +135,9 @@ final class EfficiencyAnalysis
         return $this->ratingId;
     }
 
-    public function getEmployeeId(): EmployeeId
+    public function getEmployee(): Employee
     {
-        return $this->employeeId;
+        return $this->employee;
     }
 
     public function getScored(): ?float

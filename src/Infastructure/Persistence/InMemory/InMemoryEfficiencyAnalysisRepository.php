@@ -5,6 +5,7 @@ namespace Infastructure\Persistence\InMemory;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Domain\Id;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
@@ -43,7 +44,7 @@ class InMemoryEfficiencyAnalysisRepository implements EfficiencyAnalysisReposito
     {
         return $this->analysis->filter(function (EfficiencyAnalysis $singleAnalysis)  use ($employeeIds){
             foreach ($employeeIds as $id) {
-                if ($singleAnalysis->getEmployeeId()->isEqual($id)) {
+                if ((string) $singleAnalysis->getEmployee()->getIdentity() === (string) $id) {
                     return $singleAnalysis;
                 }
             }
@@ -51,10 +52,10 @@ class InMemoryEfficiencyAnalysisRepository implements EfficiencyAnalysisReposito
         });
     }
 
-    public function findByEmployeeId(EmployeeId $employeeId): ArrayCollection
+    public function findByEmployeeId(Id $employeeId): ArrayCollection
     {
         return $this->analysis->filter(function (EfficiencyAnalysis  $singleAnalysis) use ($employeeId){
-           return  $employeeId->isEqual($singleAnalysis->getEmployeeId());
+           return  (string) $singleAnalysis->getEmployee()->getIdentity() === (string) $employeeId;
         });
     }
 
