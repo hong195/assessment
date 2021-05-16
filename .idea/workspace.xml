@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Id.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Id.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryUserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractUserRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractUserRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,7 +328,7 @@
       <workItem from="1619331775980" duration="6499000" />
       <workItem from="1619445931099" duration="405000" />
       <workItem from="1621085950443" duration="20645000" />
-      <workItem from="1621141475931" duration="24512000" />
+      <workItem from="1621141475931" duration="24760000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit.">
       <created>1612162990507</created>
@@ -647,7 +645,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621188008247</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Added user entity yml mapping.">
+      <created>1621189161715</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1621189161715</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Removed default migrations.">
+      <created>1621189282304</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1621189282304</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -677,7 +689,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Updated frontend package.json." />
     <MESSAGE value="Moved admin source code into frontend directory." />
     <MESSAGE value="Updated auth config (default api guard jwt)." />
     <MESSAGE value="Added jwt auth test:&#10;&#10;- Added&#10;  auth test&#10;- Changed&#10;  default guard from web to api&#10;  unauthenicated redirect to 403 page" />
@@ -702,7 +713,8 @@
     <MESSAGE value="Updated criterion repository tests." />
     <MESSAGE value="Added participant context." />
     <MESSAGE value="Added user entity yml mapping." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added user entity yml mapping." />
+    <MESSAGE value="Removed default migrations." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed default migrations." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

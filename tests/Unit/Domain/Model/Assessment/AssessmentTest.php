@@ -35,7 +35,7 @@ class AssessmentTest extends TestCase
             ->build();
 
         $this->assertEquals(1.5, $review->getScoredPoints());
-        $this->assertCount(count($criterion), $review->getEfficiencies());
+        $this->assertCount(count($criterion), $review->getCriteria());
     }
 
     public function test_get_total_points()
@@ -67,7 +67,7 @@ class AssessmentTest extends TestCase
             ->build();
 
         $this->assertEquals(26, $review->getTotalPoints());
-        $this->assertCount(count($criterion), $review->getEfficiencies());
+        $this->assertCount(count($criterion), $review->getCriteria());
     }
 
     public function test_can_assign_reviewer()

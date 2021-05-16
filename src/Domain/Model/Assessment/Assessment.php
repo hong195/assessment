@@ -13,7 +13,7 @@ final class Assessment
 
     private Check $check;
 
-    private ArrayCollection $efficiencies;
+    private ArrayCollection $criteria;
 
     private AssessmentId $id;
 
@@ -29,13 +29,13 @@ final class Assessment
     {
         $this->id = $id;
         $this->check = $check;
-        $this->efficiencies = new ArrayCollection($efficiencies);
+        $this->criteria = new ArrayCollection($efficiencies);
     }
 
     public function edit(Check $check, array $criteria)
     {
         $this->check = $check;
-        $this->efficiencies = new ArrayCollection($criteria);
+        $this->criteria = new ArrayCollection($criteria);
     }
 
     public function getId(): AssessmentId
@@ -53,9 +53,9 @@ final class Assessment
         return $this->check;
     }
 
-    public function getEfficiencies(): ArrayCollection
+    public function getCriteria(): ArrayCollection
     {
-        return $this->efficiencies;
+        return $this->criteria;
     }
 
     public function assignReviewer(Reviewer $reviewer)
@@ -68,15 +68,15 @@ final class Assessment
      */
     public function getScoredPoints(): float
     {
-        return array_reduce($this->efficiencies->toArray(), function ($prev, Criterion $criterion) {
+        return array_reduce($this->criteria->toArray(), function ($prev, Criterion $criterion) {
             return $prev + $criterion->getSelectedValue();
         }, 0);
     }
 
     public function getTotalPoints(): float
     {
-        return array_reduce($this->efficiencies->toArray(), function ($carry, Criterion $efficiency) {
-            return $carry + $efficiency->getMaxPoint();
+        return array_reduce($this->criteria->toArray(), function ($carry, Criterion $criterion) {
+            return $carry + $criterion->getMaxPoint();
         },0);
     }
 }
