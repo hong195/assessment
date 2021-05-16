@@ -23,6 +23,11 @@ final class Month
         $this->date = (new \DateTimeImmutable())->setDate($year, $month, 1);
     }
 
+    public function isEqual(Month $month) : bool
+    {
+        return $this->getMonth() === $month->getMonth() && $this->getYear() === $month->getYear();
+    }
+
     public function getMonth(): int
     {
         return (int) $this->date->format('m');

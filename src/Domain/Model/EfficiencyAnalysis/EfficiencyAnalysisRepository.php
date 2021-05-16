@@ -4,17 +4,19 @@
 namespace Domain\Model\EfficiencyAnalysis;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 interface EfficiencyAnalysisRepository
 {
-    public function findByEfficiencyAnalysisId(EfficiencyAnalysisId $efficiencyAnalysisId) : EfficiencyAnalysis;
+    public function findById(EfficiencyAnalysisId $efficiencyAnalysisId) : ?EfficiencyAnalysis;
 
-    public function findByMonth(Month $month);
+    public function findByMonth(Month $month) : ArrayCollection;
 
-    public function findByEmployeeIds(EmployeeId $employeeId);
+    public function findByEmployeeIds(array $employeeIds) : ArrayCollection;
 
-    public function findByEmployeeId(EmployeeId $employeeId) : EfficiencyAnalysis;
+    public function findByEmployeeId(EmployeeId $employeeId) : ArrayCollection;
 
-    public function add(EfficiencyAnalysisId $efficiencyAnalysisId) : EfficiencyAnalysis;
+    public function add(EfficiencyAnalysis $efficiencyAnalysis) : void;
 
-    public function save(EfficiencyAnalysis $efficiencyAnalysis) : void;
+    public function all() : ArrayCollection;
 }
