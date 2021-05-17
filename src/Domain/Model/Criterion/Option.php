@@ -12,8 +12,9 @@ final class Option
 
     private float $value;
 
-    private OptionId $optionId;
+    private OptionId $id;
 
+    private Criterion $criterion;
     /**
      * Option constructor.
      * @param OptionId $optionId
@@ -25,7 +26,7 @@ final class Option
     {
         $this->assertNotEmpty($name);
         $this->assertValueNotNegative($value);
-        $this->optionId = $optionId;
+        $this->id = $optionId;
         $this->name = $name;
         $this->value = $value;
     }
@@ -67,8 +68,8 @@ final class Option
         return $this->value;
     }
 
-    public function getOptionId(): OptionId
+    public function getId(): OptionId
     {
-        return $this->optionId;
+        return $this->id;
     }
 }

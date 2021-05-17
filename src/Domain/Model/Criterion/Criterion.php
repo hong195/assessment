@@ -13,13 +13,13 @@ final class Criterion
 
     private ArrayCollection $options;
 
-    private CriterionId $criteriaId;
+    private CriterionId $id;
 
     public function __construct(CriterionId $criteriaId, string $name)
     {
         $this->name = $name;
         $this->options = new ArrayCollection([]);
-        $this->criteriaId = $criteriaId;
+        $this->id = $criteriaId;
     }
 
     public function getOptions(): ArrayCollection
@@ -78,8 +78,8 @@ final class Criterion
         }
     }
 
-    public function getCriteriaId(): CriterionId
+    public function getId(): CriterionId
     {
-        return $this->criteriaId;
+        return $this->id;
     }
 }

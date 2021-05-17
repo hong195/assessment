@@ -50,7 +50,7 @@ abstract class AbstractCriterionTest extends TestCase
         $criterion = CriterionBuilder::aCriterion()->build();
 
         $this->repository->add($criterion);
-        $this->repository->remove($criterion->getCriteriaId());
+        $this->repository->remove($criterion->getId());
 
         $this->assertNotContains($criterion, $this->repository->all());
     }
@@ -60,7 +60,7 @@ abstract class AbstractCriterionTest extends TestCase
         $criterion = CriterionBuilder::aCriterion()->build();
 
         $this->repository->add($criterion);
-        $found = $this->repository->findById($criterion->getCriteriaId());
+        $found = $this->repository->findById($criterion->getId());
 
         $this->assertEquals($found, $criterion);
     }

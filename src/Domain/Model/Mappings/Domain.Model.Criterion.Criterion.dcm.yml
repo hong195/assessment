@@ -1,0 +1,15 @@
+Domain\Model\Criterion\Criterion:
+  type: entity
+  table: criteria
+  embedded:
+    id:
+      class: CriterionId
+  fields:
+    name:
+      type: string
+  oneToMany:
+    options:
+      targetEntity: Option
+      mappedBy: criteria
+      cascade: ["persist", "remove"]
+

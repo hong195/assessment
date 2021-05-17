@@ -21,7 +21,7 @@ class InMemoryCriterionRepository implements CriterionRepository
     public function findById(CriterionId $criterionId): ?Criterion
     {
         $collection = $this->criteria->filter(function (Criterion $criterion) use ($criterionId) {
-            if ($criterion->getCriteriaId()->isEqual($criterionId)) {
+            if ($criterion->getId()->isEqual($criterionId)) {
                 return $criterion;
             }
             return null;

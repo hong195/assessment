@@ -1,0 +1,21 @@
+Domain\Model\Criterion\Option:
+  type: entity
+  table: criteria_options
+  embedded:
+    id:
+      class: OptionId
+  fields:
+    name:
+      type: string
+    value:
+      type: float
+      defult: 0
+  manyToOne:
+    criterion:
+      targetEntity: Criterion
+      inversedBy: options
+      joinColumn:
+        name: criterion_id
+        referencedColumnName: id_id
+        after: id
+

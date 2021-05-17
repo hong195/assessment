@@ -29,7 +29,7 @@ final class CriterionTest extends TestCase
         $addedOption = $this->criterion->addOption($this->optionId, 'yes', 1);
 
         $this->assertInstanceOf(Option::class, $addedOption);
-        $this->assertEquals($this->optionId, $addedOption->getOptionId());
+        $this->assertEquals($this->optionId, $addedOption->getId());
         $this->assertEquals('yes', $addedOption->getName());
         $this->assertEquals(1, $addedOption->getValue());
     }
