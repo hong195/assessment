@@ -1,0 +1,13 @@
+Domain\Model\Assessment\Assessment:
+  type: entity
+  table: assessments
+  embedded:
+    id:
+      class: AssessmentId
+    check:
+      class: Check
+  fields:
+    criteria:
+      type: json_array
+      after: check_amount
+

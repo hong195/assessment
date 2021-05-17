@@ -1,4 +1,4 @@
-Domain\Model\Pharmacy\PharmacyId:
+Domain\Model\Assessment\AssessmentId:
   type: embeddable
   id:
     id:

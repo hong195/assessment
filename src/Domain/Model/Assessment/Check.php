@@ -5,20 +5,20 @@ namespace Domain\Model\Assessment;
 
 final class Check
 {
-    private ServiceDate $serviceDate;
+    private \DateTime $serviceDate;
 
     private int $amount;
 
     private float $saleConversion;
 
-    public function __construct(ServiceDate $serviceDate, int $amount = 0, float $saleConversion = 0)
+    public function __construct(\DateTime $serviceDate, int $amount = 0, float $saleConversion = 0)
     {
         $this->serviceDate = $serviceDate;
         $this->amount = $amount;
         $this->saleConversion = $saleConversion;
     }
 
-    public function getServiceDate(): ServiceDate
+    public function getServiceDate(): \DateTime
     {
         return $this->serviceDate;
     }

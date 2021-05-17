@@ -21,15 +21,15 @@ final class Assessment
      * assessment constructor.
      * @param AssessmentId $id
      * @param Check $check
-     * @param Criterion[] $efficiencies
+     * @param Criterion[] $criteria
      */
     public function __construct(AssessmentId $id,
                                 Check $check,
-                                array $efficiencies)
+                                array $criteria)
     {
         $this->id = $id;
         $this->check = $check;
-        $this->criteria = new ArrayCollection($efficiencies);
+        $this->criteria = new ArrayCollection($criteria);
     }
 
     public function edit(Check $check, array $criteria)
