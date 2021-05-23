@@ -55,8 +55,9 @@ final class Criterion
 
     public function removeOption(OptionId $optionId) : void
     {
+        /** @var Option $option */
         foreach ($this->options as $k => $option) {
-            if ($option->getOptionId()->isEqual($optionId)) {
+            if ($option->getId()->isEqual($optionId)) {
                 unset($this->options[$k]);
                 break;
             }

@@ -35,12 +35,12 @@ abstract class AbstractEfficiencyAnalysisTest extends TestCase
     public function test_find_by_employee_id()
     {
         $analysis = EfficiencyAnalysisBuilder::anAnalysis()->build();
-        $employeeId = new UserId($analysis->getEmployeeId()->getIdentity());
+        $employeeId = new UserId($analysis->getEmployeeId());
 
         $this->repository->add($analysis);
         $founded = $this->repository->findByEmployeeId($employeeId);
 
-        $this->assertSame((string) $employeeId, (string) $founded->last()->getEmployee()->getIdentity());
+        $this->assertSame((string) $employeeId, (string) $founded->last()->getEmployeeId());
     }
 
     public function test_find_by_month()
@@ -72,9 +72,9 @@ abstract class AbstractEfficiencyAnalysisTest extends TestCase
         $this->repository->add($analysisC);
         $this->repository->add($analysisB);
 
-        $idA = new UserId($analysis->getEmployeeId()->getIdentity());
-        $idB = new UserId($analysisC->getEmployeeId()->getIdentity());
-        $idC = new UserId($analysisB->getEmployeeId()->getIdentity());
+        $idA = new UserId($analysis->getEmployeeId());
+        $idB = new UserId($analysisC->getEmployeeId());
+        $idC = new UserId($analysisB->getEmployeeId());
 
         $foundAnalysis = $this->repository->findByEmployeeIds([$idA, $idB,$idC]);
 

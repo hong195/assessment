@@ -10,7 +10,7 @@ use Domain\Model\Assessment\ServiceDate;
 
 class CheckBuilder
 {
-    private ServiceDate $serviceDate;
+    private \DateTime $serviceDate;
 
     private int $amount;
 
@@ -19,7 +19,7 @@ class CheckBuilder
     public function __construct()
     {
         $validDate = Carbon::parse('today');
-        $this->serviceDate = new ServiceDate($validDate->year, $validDate->month, $validDate->day);
+        $this->serviceDate = (new \DateTime())->setDate($validDate->year, $validDate->month, $validDate->day);
         $this->amount = 20000;
         $this->saleConversion = 10;
     }
@@ -29,7 +29,7 @@ class CheckBuilder
         return new self();
     }
 
-    public function withServiceDate(ServiceDate $serviceDate)
+    public function withServiceDate(\DateTime $serviceDate)
     {
         $this->serviceDate = $serviceDate;
         return $this;

@@ -58,7 +58,7 @@ final class EfficiencyAnalysis
             throw new MaxReviewsForMonthReachedException();
         }
 
-        if (!$this->month->isDateBetween((string)$check->getServiceDate())) {
+        if (!$this->month->isDateBetween($check->getServiceDate())) {
             throw new InvalidRatingMonthException('Check service date must be between assessment date');
         }
 

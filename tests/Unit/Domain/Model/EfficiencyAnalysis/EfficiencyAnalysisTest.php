@@ -5,22 +5,17 @@ namespace Tests\Unit\Domain\Model\EfficiencyAnalysis;
 
 
 use Carbon\Carbon;
-use Domain\Id;
 use Domain\Model\Assessment\AssessmentId;
 use Domain\Model\Assessment\Criterion;
 use Domain\Model\Assessment\Option;
 use Domain\Model\Assessment\ServiceDate;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
-use Domain\Model\EfficiencyAnalysis\EmployeeId;
 use Domain\Model\EfficiencyAnalysis\Exceptions\InvalidratingMonthException;
 use Domain\Model\EfficiencyAnalysis\Exceptions\MaxReviewsForMonthReachedException;
 use Domain\Model\EfficiencyAnalysis\Exceptions\ModificationratingException;
 use Domain\Model\EfficiencyAnalysis\Month;
 use Domain\Model\EfficiencyAnalysis\Status;
-use Domain\Model\Employee\Employee;
-use Domain\Model\Employee\Name;
-use Domain\Model\Pharmacy\PharmacyId;
-use Domain\Model\User\UserId;
+use Domain\Model\Employee\EmployeeId;
 use PHPUnit\Framework\TestCase;
 use Tests\Unit\Domain\Model\Builders\AssessmentBuilder;
 use Tests\Unit\Domain\Model\Builders\CheckBuilder;
@@ -28,7 +23,7 @@ use Tests\Unit\Domain\Model\Builders\EfficiencyAnalysisBuilder;
 
 class EfficiencyAnalysisTest extends TestCase
 {
-    private Employee $employee;
+    private EmployeeId $employeeId;
 
     private AssessmentId $assessmentId;
 
@@ -36,7 +31,7 @@ class EfficiencyAnalysisTest extends TestCase
     {
         parent::setUp();
 
-        $this->employee = new Employee(UserId::next(), new Name('Test', 'Test'), new PharmacyId(PharmacyId::next()));
+        $this->employeeId = new EmployeeId(EmployeeId::next());
         $this->assessmentId = AssessmentBuilder::aReview()->build()->getId();
     }
 
@@ -54,11 +49,11 @@ class EfficiencyAnalysisTest extends TestCase
         $now = now();
         $currentMonth = new Month($now->year, $now->month);
         $efficiencyAnalysis = EfficiencyAnalysisBuilder::anAnalysis()
-                    ->withEmployee($this->employee)
-                    ->withMonth($currentMonth)
-                    ->build();
+            ->withEmployee($this->employeeId)
+            ->withMonth($currentMonth)
+            ->build();
 
-        $serviceDate = new ServiceDate($now->year, $now->month, $now->day);
+        $serviceDate = (new \DateTime())->setDate($now->year, $now->month, $now->day);
         $check = CheckBuilder::aCheck()->withServiceDate($serviceDate)->build();
 
         $efficiencyAnalysis->addReview($this->assessmentId, $check, []);
@@ -69,7 +64,7 @@ class EfficiencyAnalysisTest extends TestCase
 
     public function test_can_add_only_10_reviews()
     {
-        $rating = EfficiencyAnalysisBuilder::anAnalysis()->withEmployee($this->employee)->build(10);
+        $rating = EfficiencyAnalysisBuilder::anAnalysis()->withEmployee($this->employeeId)->build(10);
 
         $this->expectException(MaxReviewsForMonthReachedException::class);
 
@@ -85,12 +80,12 @@ class EfficiencyAnalysisTest extends TestCase
         $ratingMonth = new Month($aMonthAgo->year, $aMonthAgo->month);
 
         $rating = EfficiencyAnalysisBuilder::anAnalysis()
-            ->withEmployee($this->employee)
+            ->withEmployee($this->employeeId)
             ->withMonth($ratingMonth)
             ->build();
 
         $outDatedCheck = CheckBuilder::aCheck()->withServiceDate(
-            new ServiceDate(now()->year, now()->month, now()->day)
+            (new \DateTime())->setDate(now()->year, now()->month, now()->day)
         )
             ->build();
 
@@ -101,7 +96,7 @@ class EfficiencyAnalysisTest extends TestCase
 
     public function test_can_remove_a_review_from_uncompleted_rating()
     {
-        $rating = EfficiencyAnalysisBuilder::anAnalysis()->withEmployee($this->employee)->build();
+        $rating = EfficiencyAnalysisBuilder::anAnalysis()->withEmployee($this->employeeId)->build();
         $rating->addReview(
             $this->assessmentId,
             CheckBuilder::aCheck()->build(),
@@ -114,7 +109,7 @@ class EfficiencyAnalysisTest extends TestCase
 
     public function test_cannot_remove_review_from_completed_rating()
     {
-        $rating = EfficiencyAnalysisBuilder::anAnalysis()->withEmployee($this->employee)->build(9);
+        $rating = EfficiencyAnalysisBuilder::anAnalysis()->withEmployee($this->employeeId)->build(9);
         $rating->addReview(
             $this->assessmentId,
             CheckBuilder::aCheck()->build(),
@@ -127,7 +122,7 @@ class EfficiencyAnalysisTest extends TestCase
 
     public function test_cannot_edit_review_from_completed_analysis()
     {
-        $rating = EfficiencyAnalysisBuilder::anAnalysis()->withEmployee($this->employee)->build(9);
+        $rating = EfficiencyAnalysisBuilder::anAnalysis()->withEmployee($this->employeeId)->build(9);
         $rating->addReview(
             $this->assessmentId,
             CheckBuilder::aCheck()->build(),
@@ -156,11 +151,11 @@ class EfficiencyAnalysisTest extends TestCase
                 'да'
             ),
         ];
-        $rating = EfficiencyAnalysisBuilder::anAnalysis()->withEmployee($this->employee)->build();
+        $rating = EfficiencyAnalysisBuilder::anAnalysis()->withEmployee($this->employeeId)->build();
 
         foreach (range(1, EfficiencyAnalysis::ALLOWED_REVIEWS_AMOUNT) as $number) {
             $now = Carbon::parse("-$number hour");
-            $serviceDate = new ServiceDate($now->year, $now->month, $now->day);
+            $serviceDate = (new \DateTime())->setDate($now->year, $now->month, $now->day);
             $check = CheckBuilder::aCheck()->withServiceDate($serviceDate)->build();
 
             $rating->addReview(new AssessmentId(AssessmentId::next()), $check, $efficiency);
@@ -168,7 +163,7 @@ class EfficiencyAnalysisTest extends TestCase
 
         $this->assertEquals(EfficiencyAnalysis::ALLOWED_REVIEWS_AMOUNT, $rating->getAssessmentsCount());
         $this->assertEquals(15, $rating->getScored());
-        $this->assertEquals(Status::COMPLETED, (string) $rating->getStatus());
+        $this->assertEquals(Status::COMPLETED, (string)$rating->getStatus());
         $this->assertTrue($rating->isCompleted());
     }
 }

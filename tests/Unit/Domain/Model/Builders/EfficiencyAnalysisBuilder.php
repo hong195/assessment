@@ -5,6 +5,7 @@ namespace Tests\Unit\Domain\Model\Builders;
 
 
 use Carbon\Carbon;
+use Domain\Id;
 use Domain\Model\Assessment\AssessmentId;
 use Domain\Model\Assessment\Criterion;
 use Domain\Model\Assessment\Option;
@@ -13,22 +14,24 @@ use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
 use Domain\Model\EfficiencyAnalysis\Month;
 use Domain\Model\Employee\Employee;
+use Domain\Model\Employee\EmployeeId;
 use Domain\Model\Employee\Name;
 use Domain\Model\Pharmacy\PharmacyId;
 use Domain\Model\User\UserId;
+use Faker\Provider\DateTime;
 
 class EfficiencyAnalysisBuilder
 {
     protected Month $month;
 
-    protected Employee $employee;
+    protected EmployeeId $employeeId;
 
     protected EfficiencyAnalysisId $ratingId;
 
     public function __construct()
     {
         $this->ratingId = EfficiencyAnalysisId::next();
-        $this->employee = new Employee(UserId::next(), new Name('Test', 'Test'), new PharmacyId(PharmacyId::next()));
+        $this->employeeId = new EmployeeId(EmployeeId::next());
         $this->month = new Month(now()->year, now()->month);
     }
 
@@ -37,9 +40,9 @@ class EfficiencyAnalysisBuilder
         return new self();
     }
 
-    public function withEmployee(Employee $employee): EfficiencyAnalysisBuilder
+    public function withEmployee(EmployeeId $employeeId): EfficiencyAnalysisBuilder
     {
-        $this->employee = $employee;
+        $this->employeeId = $employeeId;
         return $this;
     }
 
@@ -51,7 +54,7 @@ class EfficiencyAnalysisBuilder
 
     public function build($reviewsNumber = 0): EfficiencyAnalysis
     {
-        $efficiencyAnalysis = new EfficiencyAnalysis($this->ratingId, $this->employee, $this->month);
+        $efficiencyAnalysis = new EfficiencyAnalysis($this->ratingId, $this->employeeId, $this->month);
         $reviewId = new AssessmentId(AssessmentId::next());
         $criteria = [
             new Criterion('Этика',
@@ -69,7 +72,7 @@ class EfficiencyAnalysisBuilder
         if ($reviewsNumber) {
             foreach (range(1, $reviewsNumber) as $number) {
                 $now = Carbon::parse('-1 hour');
-                $serviceDate = new ServiceDate($now->year, $now->month, $now->day);
+                $serviceDate = (new \DateTime())->setDate($now->year, $now->month, $now->day);
                 $check = CheckBuilder::aCheck()->withServiceDate($serviceDate)->build();
 
                 $efficiencyAnalysis->addReview($reviewId, $check, $criteria);

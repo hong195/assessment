@@ -6,9 +6,7 @@ namespace Tests\Unit\Domain\Model\Assessment;
 
 use Domain\Model\Assessment\Criterion;
 use Domain\Model\Assessment\Option;
-use Domain\Model\Assessment\WatcherId;
-use Domain\Model\Employee\Name;
-use Domain\Model\Employee\Reviewer;
+use Domain\Model\Assessment\ReviewerId;
 use PHPUnit\Framework\TestCase;
 use Tests\Unit\Domain\Model\Builders\AssessmentBuilder;
 
@@ -73,7 +71,7 @@ class AssessmentTest extends TestCase
     public function test_can_assign_reviewer()
     {
         $assessment = AssessmentBuilder::aReview()->build();
-        $reviewer = new Reviewer('2222', new Name('Test', 'Test'));
+        $reviewer = new ReviewerId(ReviewerId::next());
 
         $assessment->assignReviewer($reviewer);
 

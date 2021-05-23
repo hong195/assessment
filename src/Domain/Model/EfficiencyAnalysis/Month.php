@@ -4,6 +4,7 @@
 namespace Domain\Model\EfficiencyAnalysis;
 
 
+use DateTime;
 use Domain\Model\EfficiencyAnalysis\Exceptions\InvalidRatingMonthException;
 
 final class Month
@@ -39,15 +40,15 @@ final class Month
     }
 
     /**
-     * @param string $aDate
+     * @param DateTime $aDate
      * @return bool
      * @throws InvalidRatingMonthException
      */
-    public function isDateBetween(string $aDate) : bool
+    public function isDateBetween(\DateTime $aDate) : bool
     {
-        $this->assertValidDate(date('Y', strtotime($aDate)), date('m', strtotime($aDate)));
+        $this->assertValidDate(date('Y', $aDate->getTimestamp()), date('m', $aDate->getTimestamp()));
 
-        $aDate = date('Y-m-d', strtotime($aDate));
+        $aDate = date('Y-m-d', $aDate->getTimestamp());
         $date = $this->date->format('Y-m-d');
         $firstDatOfMonth = date('Y-m-01', strtotime($date));
         $lastDatOfMonth = date('Y-m-t', strtotime($date));

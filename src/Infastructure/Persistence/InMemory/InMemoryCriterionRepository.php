@@ -43,7 +43,7 @@ class InMemoryCriterionRepository implements CriterionRepository
     public function remove(CriterionId $criterionId) : void
     {
         foreach ($this->criteria as $index => $criterion) {
-            if ($criterionId->isEqual($criterion->getCriteriaId())) {
+            if ($criterionId->isEqual($criterion->getId())) {
                 unset($this->criteria[$index]);
                 break;
             }
