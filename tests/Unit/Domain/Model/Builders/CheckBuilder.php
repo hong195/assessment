@@ -29,7 +29,7 @@ class CheckBuilder
         return new self();
     }
 
-    public function withServiceDate(\DateTime $serviceDate)
+    public function withServiceDate(\DateTime $serviceDate): CheckBuilder
     {
         $this->serviceDate = $serviceDate;
         return $this;

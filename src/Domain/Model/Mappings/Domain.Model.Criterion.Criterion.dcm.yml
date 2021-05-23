@@ -10,6 +10,6 @@ Domain\Model\Criterion\Criterion:
   oneToMany:
     options:
       targetEntity: Option
-      mappedBy: criteria
+      mappedBy: criterion
       cascade: ["persist", "remove"]
 

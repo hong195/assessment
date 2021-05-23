@@ -6,7 +6,7 @@ namespace Domain\Model\User;
 
 interface UserRepository
 {
-    public function findById(UserId $userId) : ?User;
+    public function findById(UserId $userId);
 
     public function findOrFail(UserId $userId) : User;
 
