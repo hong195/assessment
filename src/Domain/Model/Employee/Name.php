@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Domain\Model\Participant;
+namespace Domain\Model\Employee;
 
 
 final class Name

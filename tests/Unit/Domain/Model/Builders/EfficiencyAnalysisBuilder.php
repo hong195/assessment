@@ -12,8 +12,8 @@ use Domain\Model\Assessment\ServiceDate;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
 use Domain\Model\EfficiencyAnalysis\Month;
-use Domain\Model\Participant\Employee;
-use Domain\Model\Participant\Name;
+use Domain\Model\Employee\Employee;
+use Domain\Model\Employee\Name;
 use Domain\Model\Pharmacy\PharmacyId;
 use Domain\Model\User\UserId;
 

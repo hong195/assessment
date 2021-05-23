@@ -4,6 +4,8 @@ Domain\Model\Assessment\Assessment:
   embedded:
     id:
       class: AssessmentId
+    reviewerId:
+      class: ReviewerId
     check:
       class: Check
   fields:

@@ -1,0 +1,5 @@
+Domain\Model\EfficiencyAnalysis\Month:
+  type: embeddable
+  fields:
+    date:
+      type: datetime

@@ -1,0 +1,8 @@
+Domain\Model\Employee\EmployeeId:
+  type: embeddable
+  fields:
+    id:
+      column: employee_id
+      columnPrefix: ''
+      after: id_id
+      type: guid

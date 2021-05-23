@@ -1,15 +1,16 @@
 <?php
 
 
-namespace Domain\Model\Participant;
+namespace Domain\Model\Employee;
 
 
 abstract class AbstractParticipant
 {
-    private $identity;
-    private Name $name;
+    protected string $identity;
 
-    public function __construct($identity, Name $name)
+    protected Name $name;
+
+    public function __construct(string $identity, Name $name)
     {
         $this->identity = $identity;
         $this->name = $name;

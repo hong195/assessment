@@ -1,0 +1,9 @@
+Domain\Model\Assessment\ReviewerId:
+  type: embeddable
+  fields:
+    id:
+      column: reviewer_id
+      columnPrefix: ''
+      type: guid
+      nullable: true
+      after: id_id

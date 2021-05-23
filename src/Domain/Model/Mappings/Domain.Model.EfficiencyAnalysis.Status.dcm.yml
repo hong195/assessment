@@ -1,0 +1,5 @@
+Domain\Model\EfficiencyAnalysis\Status:
+  type: embeddable
+  fields:
+    status:
+      type: string

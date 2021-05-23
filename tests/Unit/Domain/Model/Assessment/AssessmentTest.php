@@ -7,8 +7,8 @@ namespace Tests\Unit\Domain\Model\Assessment;
 use Domain\Model\Assessment\Criterion;
 use Domain\Model\Assessment\Option;
 use Domain\Model\Assessment\WatcherId;
-use Domain\Model\Participant\Name;
-use Domain\Model\Participant\Reviewer;
+use Domain\Model\Employee\Name;
+use Domain\Model\Employee\Reviewer;
 use PHPUnit\Framework\TestCase;
 use Tests\Unit\Domain\Model\Builders\AssessmentBuilder;
 

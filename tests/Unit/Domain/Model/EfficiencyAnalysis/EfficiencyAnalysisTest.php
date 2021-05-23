@@ -17,8 +17,8 @@ use Domain\Model\EfficiencyAnalysis\Exceptions\MaxReviewsForMonthReachedExceptio
 use Domain\Model\EfficiencyAnalysis\Exceptions\ModificationratingException;
 use Domain\Model\EfficiencyAnalysis\Month;
 use Domain\Model\EfficiencyAnalysis\Status;
-use Domain\Model\Participant\Employee;
-use Domain\Model\Participant\Name;
+use Domain\Model\Employee\Employee;
+use Domain\Model\Employee\Name;
 use Domain\Model\Pharmacy\PharmacyId;
 use Domain\Model\User\UserId;
 use PHPUnit\Framework\TestCase;

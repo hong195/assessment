@@ -35,7 +35,7 @@ abstract class AbstractEfficiencyAnalysisTest extends TestCase
     public function test_find_by_employee_id()
     {
         $analysis = EfficiencyAnalysisBuilder::anAnalysis()->build();
-        $employeeId = new UserId($analysis->getEmployee()->getIdentity());
+        $employeeId = new UserId($analysis->getEmployeeId()->getIdentity());
 
         $this->repository->add($analysis);
         $founded = $this->repository->findByEmployeeId($employeeId);
@@ -72,20 +72,20 @@ abstract class AbstractEfficiencyAnalysisTest extends TestCase
         $this->repository->add($analysisC);
         $this->repository->add($analysisB);
 
-        $idA = new UserId($analysis->getEmployee()->getIdentity());
-        $idB = new UserId($analysisC->getEmployee()->getIdentity());
-        $idC = new UserId($analysisB->getEmployee()->getIdentity());
+        $idA = new UserId($analysis->getEmployeeId()->getIdentity());
+        $idB = new UserId($analysisC->getEmployeeId()->getIdentity());
+        $idC = new UserId($analysisB->getEmployeeId()->getIdentity());
 
         $foundAnalysis = $this->repository->findByEmployeeIds([$idA, $idB,$idC]);
 
         $foundEmployeeIds = $foundAnalysis->map(function (EfficiencyAnalysis $singleAnalysis) {
-            return $singleAnalysis->getEmployee();
+            return $singleAnalysis->getEmployeeId();
         });
 
         $this->assertNotEmpty($foundAnalysis);
-        $this->assertNotContains($analysisD->getEmployee(), $foundEmployeeIds);
-        $this->assertContains($analysis->getEmployee(), $foundEmployeeIds);
-        $this->assertContains($analysisC->getEmployee(), $foundEmployeeIds);
-        $this->assertContains($analysisB->getEmployee(), $foundEmployeeIds);
+        $this->assertNotContains($analysisD->getEmployeeId(), $foundEmployeeIds);
+        $this->assertContains($analysis->getEmployeeId(), $foundEmployeeIds);
+        $this->assertContains($analysisC->getEmployeeId(), $foundEmployeeIds);
+        $this->assertContains($analysisB->getEmployeeId(), $foundEmployeeIds);
     }
 }

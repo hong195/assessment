@@ -4,11 +4,11 @@
 namespace Infastructure\Services;
 
 
-use Domain\Model\Participant\Employee;
-use Domain\Model\Participant\Name;
-use Domain\Model\Participant\ParticipantService;
-use Domain\Model\Participant\Reviewer;
-use Domain\Model\Participant\SalesManger;
+use Domain\Model\Employee\Employee;
+use Domain\Model\Employee\Name;
+use Domain\Model\Employee\ParticipantService;
+use Domain\Model\Employee\Reviewer;
+use Domain\Model\Employee\SalesManger;
 use Domain\Model\Pharmacy\PharmacyId;
 
 final class ToParticipantTranslator implements ParticipantService

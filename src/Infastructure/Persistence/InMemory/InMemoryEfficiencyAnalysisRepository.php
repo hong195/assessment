@@ -44,7 +44,7 @@ class InMemoryEfficiencyAnalysisRepository implements EfficiencyAnalysisReposito
     {
         return $this->analysis->filter(function (EfficiencyAnalysis $singleAnalysis)  use ($employeeIds){
             foreach ($employeeIds as $id) {
-                if ((string) $singleAnalysis->getEmployee()->getIdentity() === (string) $id) {
+                if ((string) $singleAnalysis->getEmployeeId()->getIdentity() === (string) $id) {
                     return $singleAnalysis;
                 }
             }
@@ -55,7 +55,7 @@ class InMemoryEfficiencyAnalysisRepository implements EfficiencyAnalysisReposito
     public function findByEmployeeId(Id $employeeId): ArrayCollection
     {
         return $this->analysis->filter(function (EfficiencyAnalysis  $singleAnalysis) use ($employeeId){
-           return  (string) $singleAnalysis->getEmployee()->getIdentity() === (string) $employeeId;
+           return  (string) $singleAnalysis->getEmployeeId()->getIdentity() === (string) $employeeId;
         });
     }
 

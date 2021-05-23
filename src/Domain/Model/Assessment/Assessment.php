@@ -5,11 +5,10 @@ namespace Domain\Model\Assessment;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Domain\Model\Participant\Reviewer;
 
 final class Assessment
 {
-    private Reviewer $reviewer;
+    private ReviewerId $reviewerId;
 
     private Check $check;
 
@@ -43,9 +42,14 @@ final class Assessment
         return $this->id;
     }
 
-    public function getReviewer(): Reviewer
+    public function getReviewer(): ReviewerId
     {
-        return $this->reviewer;
+        return $this->reviewerId;
+    }
+
+    public function assignReviewer(ReviewerId $reviewer)
+    {
+        $this->reviewerId = $reviewer;
     }
 
     public function getCheck(): Check
@@ -58,10 +62,6 @@ final class Assessment
         return $this->criteria;
     }
 
-    public function assignReviewer(Reviewer $reviewer)
-    {
-        $this->reviewer = $reviewer;
-    }
     /**
      * @return float
      * @throws Exceptions\NotExistingSelectedOptionException
