@@ -1,25 +1,27 @@
 <?php
 
-
 namespace Domain\Model\User;
-
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * @ORM\Entity
+ */
 final class User
 {
     /**
-     * @var UserId
+     * @ORM\Column(type="user_id")
+     * @ORM\Id
      */
     private UserId $id;
-
     /**
-     * @var string
+     * @ORM\Embedded(class="FullName")
      */
-    private $name;
+    private FullName $name;
     /**
-     * @var Role
+     * @ORM\Embedded(class="Role")
      */
     private Role $role;
     /**
-     * @var Login
+     * @ORM\Embedded(class="Login")
      */
     private Login $login;
 

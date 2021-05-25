@@ -3,20 +3,31 @@
 
 namespace Domain\Model\User;
 
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Embeddable
+ */
 class FullName
 {
-    private string $firstName;
-
-    private ?string $patronymic;
-
-    private string $lastName;
+    /**
+     * @ORM\Column (type="string")
+     */
+    private string $first;
+    /**
+     * @ORM\Column (type="string")
+     */
+    private ?string $middle;
+    /**
+     * @ORM\Column (type="string")
+     */
+    private string $last;
 
     public function __construct(string $name, string $lastName, string $patronymic = null)
     {
-        $this->firstName = $name;
-        $this->patronymic = $patronymic;
-        $this->lastName = $lastName;
+        $this->first = $name;
+        $this->middle = $patronymic;
+        $this->last = $lastName;
     }
 
     /**
@@ -24,7 +35,7 @@ class FullName
      */
     public function firstName(): string
     {
-        return $this->firstName;
+        return $this->first;
     }
 
     /**
@@ -32,7 +43,7 @@ class FullName
      */
     public function patronymic(): string
     {
-        return $this->patronymic;
+        return $this->middle;
     }
 
     /**
@@ -40,11 +51,11 @@ class FullName
      */
     public function lastName(): ?string
     {
-        return $this->lastName;
+        return $this->last;
     }
 
     public function __toString(): string
     {
-        return "{$this->firstName} {$this->lastName} {$this->patronymic}";
+        return "{$this->first} {$this->last} {$this->middle}";
     }
 }

@@ -4,49 +4,63 @@
 namespace Infastructure\Persistence\Doctrine;
 
 
-use Doctrine\ORM\EntityManager;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
+use Domain\Exceptions\NotFoundEntityException;
 use Domain\Model\User\User;
 use Domain\Model\User\UserId;
 use Domain\Model\User\UserRepository;
+use \Doctrine\Persistence\ObjectRepository;
 
 final class DoctrineUserRepository implements UserRepository
 {
-    private EntityManager $em;
+    private EntityManagerInterface $em;
+    private ObjectRepository $repository;
 
     public function __construct(EntityManagerInterface $em)
     {
+        $this->repository = $em->getRepository(User::class);
         $this->em = $em;
     }
 
     public function findById(UserId $userId): ?User
     {
-        dd($this->em->getRepository(User::class)->find($userId));
         return $this->em->getRepository(User::class)->find($userId);
     }
 
+    /**
+     * @param UserId $userId
+     * @return User
+     * @throws NotFoundEntityException
+     */
     public function findOrFail(UserId $userId): User
     {
-        // TODO: Implement findOrFail() method.
+        $user = $this->repository->find($userId);
+
+        if (!$user) {
+            throw new NotFoundEntityException();
+        }
+
+        return $user;
     }
 
-    public function remove(UserId $userId): void
+    public function remove(User $user): void
     {
-        // TODO: Implement remove() method.
+        $this->em->remove($user);
     }
 
-    public function add(User $user)
+    public function add(User $user) : void
     {
-        // TODO: Implement add() method.
+        $this->em->persist($user);
     }
 
     public function getAll()
     {
-        // TODO: Implement getAll() method.
+        return $this->repository->findAll();
     }
 
-    public function findByIds(array $ids)
+    public function findByIds(array $ids) : ArrayCollection
     {
-        // TODO: Implement findByIds() method.
+        return $this->repository->findBy(['id' => $ids]);
     }
 }

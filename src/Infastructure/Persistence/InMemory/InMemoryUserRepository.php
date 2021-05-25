@@ -58,7 +58,7 @@ class InMemoryUserRepository implements UserRepository
      * @param User $user
      * @throws DomainException
      */
-    public function add(User $user)
+    public function add(User $user) : void
     {
         /** @var User $aUser */
         foreach ($this->users as $aUser) {
@@ -70,10 +70,10 @@ class InMemoryUserRepository implements UserRepository
         $this->users->add($user);
     }
 
-    public function remove(UserId $userId) : void
+    public function remove(User $user) : void
     {
-        foreach ($this->users as $key => $user) {
-            if ($userId->isEqual($user->getId())) {
+        foreach ($this->users as $key => $user2) {
+            if ($user2->isEqual($user->getId())) {
                 unset($this->users[$key]);
                 break;
             }

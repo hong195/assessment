@@ -1,5 +1,0 @@
-Domain\Model\Pharmacy\Email:
-  type: embeddable
-  fields:
-    email:
-      type: string

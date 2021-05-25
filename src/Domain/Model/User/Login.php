@@ -6,9 +6,16 @@ namespace Domain\Model\User;
 
 use Domain\Model\User\Exceptions\EmptyLoginException;
 use Domain\Model\User\Exceptions\InvalidLoginException;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Embeddable
+ */
 final class Login
 {
+    /**
+     * @ORM\Column (type="string", name="login")
+     */
     private string $login;
 
     /**

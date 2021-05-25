@@ -2,16 +2,22 @@
 
 
 namespace Domain\Model\User;
-
+use Doctrine\ORM\Mapping as ORM;
 
 use Domain\Model\User\Exceptions\InvalidRoleException;
 
+/**
+ * @ORM\Embeddable
+ */
 final class Role
 {
     public const REVIEWER = '1';
     public const PHARMACIST = '2';
     public const ADMIN = '3';
 
+    /**
+     * @ORM\Column(type="string", name="role")
+     */
     private string $role;
 
     /**

@@ -23,11 +23,11 @@ return [
     'managers'                   => [
         'default' => [
             'dev'           => env('APP_DEBUG', false),
-            'meta'          => env('DOCTRINE_METADATA', 'yaml'),
+            'meta'          => env('DOCTRINE_METADATA', 'annotations'),
             'connection'    => env('DB_CONNECTION', 'mysql'),
             'namespaces'    => [],
             'paths'         => [
-                base_path('src/Domain/Model/Mappings')
+                base_path('src/Domain/Model')
             ],
             'repository'    => Doctrine\ORM\EntityRepository::class,
             'proxies'       => [
@@ -74,7 +74,7 @@ return [
             'mapping_types' => [
                 //'enum' => 'string'
             ]
-        ]
+        ],
     ],
     /*
     |--------------------------------------------------------------------------
@@ -108,6 +108,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'custom_types'               => [
+        'user_id' => \Domain\Model\User\UserIdType::class
     ],
     /*
     |--------------------------------------------------------------------------

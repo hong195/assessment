@@ -1,5 +1,6 @@
 <?php
 
+use Domain\Model\User\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $repo = \LaravelDoctrine\ORM\Facades\EntityManager::getRepository(User::class);
+
+    \LaravelDoctrine\ORM\Facades\EntityManager::persist(\Tests\Unit\Domain\Model\Builders\UserBuilder::aUser()->build());
+    \LaravelDoctrine\ORM\Facades\EntityManager::flush();
+
+    dd($repo->findAll());
     return view('welcome');
 });

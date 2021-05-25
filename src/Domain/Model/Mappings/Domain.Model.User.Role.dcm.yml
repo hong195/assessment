@@ -1,5 +1,0 @@
-Domain\Model\User\Role:
-  type: embeddable
-  fields:
-    role:
-      type: string

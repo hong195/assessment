@@ -1,5 +1,0 @@
-Domain\Model\User\Login:
-  type: embeddable
-  fields:
-    login:
-      type: string

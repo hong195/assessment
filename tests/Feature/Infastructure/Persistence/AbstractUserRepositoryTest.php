@@ -26,7 +26,7 @@ abstract class AbstractUserRepositoryTest extends TestCase
         $this->userRepository->add($aUser);
         $addedUser = $this->userRepository->findById($aUser->getId());
 
-        $this->assertCount(1, $this->userRepository->getAll());
+        $this->assertNotEmpty($this->userRepository->getAll());
         $this->assertInstanceOf(User::class, $addedUser);
         $this->assertSame($aUser, $addedUser);
     }
@@ -47,7 +47,7 @@ abstract class AbstractUserRepositoryTest extends TestCase
 
         $this->userRepository->add($aUser);
         $this->userRepository->add($aUser2);
-        $this->userRepository->remove($aUser->getId());
+        $this->userRepository->remove($aUser);
 
         $this->assertNotContains($aUser, $this->userRepository->getAll());
         $this->assertCount(1, $this->userRepository->getAll());
@@ -61,7 +61,7 @@ abstract class AbstractUserRepositoryTest extends TestCase
         $this->userRepository->add($aUser);
         $this->userRepository->add($aUser2);
 
-        $this->assertNotEmpty($this->userRepository);
+        $this->assertNotEmpty($this->userRepository->getAll());
         $this->assertContains($aUser, $this->userRepository->getAll());
         $this->assertContains($aUser2, $this->userRepository->getAll());
     }

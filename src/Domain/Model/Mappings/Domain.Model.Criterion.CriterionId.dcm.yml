@@ -1,9 +1,0 @@
-Domain\Model\Criterion\CriterionId:
-  type: embeddable
-  id:
-    id:
-      name: id
-      column: id
-      type: guid
-      generator:
-        strategy: UUID
