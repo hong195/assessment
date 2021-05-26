@@ -108,7 +108,8 @@ return [
     |--------------------------------------------------------------------------
     */
     'custom_types'               => [
-        'user_id' => \Domain\Model\User\UserIdType::class
+        'user_id' => \Domain\Model\User\UserIdType::class,
+        'pharmacy_id'=> \Domain\Model\Pharmacy\PharmacyIdType::class
     ],
     /*
     |--------------------------------------------------------------------------

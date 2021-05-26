@@ -4,16 +4,30 @@
 namespace Domain\Model\Pharmacy;
 
 
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
+/**
+ * @ORM\Entity
+ */
 final class Pharmacy
 {
+    /**
+     * @ORM\Column(type="pharmacy_id")
+     * @ORM\Id
+     */
     private PharmacyId $id;
 
+    /**
+     * @ORM\Embedded (class="Email")
+     */
     private Email $email;
 
     private ArrayCollection $employees;
 
+    /**
+     * @ORM\Embedded (class="PharmacyNumber")
+     */
     private PharmacyNumber $number;
 
     public function __construct(PharmacyId $pharmacyId, PharmacyNumber $number, Email $email)

@@ -3,11 +3,16 @@
 
 namespace Domain\Model\Pharmacy;
 
-
+use Doctrine\ORM\Mapping as ORM;
 use Domain\Model\Pharmacy\Exceptions\InvalidPharmacyEmailException;
-
+/**
+ * @ORM\Embeddable
+ */
 final class Email
 {
+    /**
+     * @ORM\Column (type="string")
+     */
     private string $email;
 
     /**

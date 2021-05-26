@@ -3,11 +3,17 @@
 
 namespace Domain\Model\Pharmacy;
 
-
+use Doctrine\ORM\Mapping as ORM;
 use Domain\Model\Pharmacy\Exceptions\InvalidPharmacyNumberException;
 
+/**
+ * @ORM\Embeddable
+ */
 final class PharmacyNumber
 {
+    /**
+     * @ORM\Column  (type="string")
+     */
     private string $number;
 
     /**
