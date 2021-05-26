@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyIdType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/Version20210526181739.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/CriterionIdType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/CriterionOptionIdType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/doctrine.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Email.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyNumber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyNumber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/Criterion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/Option.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/Option.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/OptionId.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/OptionId.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,14 +351,7 @@
       <workItem from="1621781271701" duration="9324000" />
       <workItem from="1621874534679" duration="10886000" />
       <workItem from="1621962438169" duration="8539000" />
-      <workItem from="1622045188888" duration="7350000" />
-    </task>
-    <task id="LOCAL-00010" summary="Updated phpunit config.">
-      <created>1612768768260</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1612768768260</updated>
+      <workItem from="1622045188888" duration="8858000" />
     </task>
     <task id="LOCAL-00011" summary="Updated template frontend file structure.">
       <created>1612856087086</created>
@@ -694,7 +689,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622051919010</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="changed pharmacy yaml to annotations mapping.">
+      <created>1622053118826</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1622053118826</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -734,7 +736,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Added User entity." />
     <MESSAGE value="Added check entity." />
     <MESSAGE value="Update user tests." />
     <MESSAGE value="Project updated." />
@@ -759,7 +760,8 @@
     <MESSAGE value="fixed errors bugs." />
     <MESSAGE value="repository 1." />
     <MESSAGE value="changed user yaml to annotations mappings." />
-    <option name="LAST_COMMIT_MESSAGE" value="changed user yaml to annotations mappings." />
+    <MESSAGE value="changed pharmacy yaml to annotations mapping." />
+    <option name="LAST_COMMIT_MESSAGE" value="changed pharmacy yaml to annotations mapping." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

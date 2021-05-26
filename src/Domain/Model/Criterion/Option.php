@@ -4,16 +4,32 @@
 namespace Domain\Model\Criterion;
 
 
+use Doctrine\ORM\Mapping as ORM;
 use Domain\Model\Criterion\Exceptions\CriterionException;
 
+/**
+ * Class Option
+ * @ORM\Entity
+ */
 final class Option
 {
-    private string $name;
-
-    private float $value;
-
+    /**
+     * @ORM\Column (type="criterion_option_id")
+     * @ORM\Id
+     */
     private OptionId $id;
-
+    /**
+     * @ORM\Column (type="string")
+     */
+    private string $name;
+    /**
+     * @ORM\Column (type="float", nullable=true)
+     */
+    private float $value;
+    /**
+     * @ORM\ManyToOne(targetEntity="Criterion", inversedBy="options")
+     * @ORM\JoinColumn(name="criterion_id", referencedColumnName="id")
+     */
     private Criterion $criterion;
     /**
      * Option constructor.

@@ -3,17 +3,28 @@
 
 namespace Domain\Model\Criterion;
 
-
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Domain\Model\Criterion\Exceptions\CriterionException;
 
+/**
+ * @ORM\Entity
+ */
 final class Criterion
 {
-    private string $name;
-
-    private ArrayCollection $options;
-
+    /**
+     * @ORM\Column (type="criterion_id")
+     * @ORM\Id
+     */
     private CriterionId $id;
+    /**
+     * @ORM\Column (type="string")
+     */
+    private string $name;
+    /**
+     * @ORM\OneToMany(targetEntity="Option", mappedBy="criterion")
+     */
+    private ArrayCollection $options;
 
     public function __construct(CriterionId $criteriaId, string $name)
     {

@@ -109,7 +109,9 @@ return [
     */
     'custom_types'               => [
         'user_id' => \Domain\Model\User\UserIdType::class,
-        'pharmacy_id'=> \Domain\Model\Pharmacy\PharmacyIdType::class
+        'pharmacy_id'=> \Domain\Model\Pharmacy\PharmacyIdType::class,
+        'criterion_id' => \Domain\Model\Criterion\CriterionIdType::class,
+        'criterion_option_id' => \Domain\Model\Criterion\CriterionOptionIdType::class
     ],
     /*
     |--------------------------------------------------------------------------
