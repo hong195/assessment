@@ -111,7 +111,9 @@ return [
         'user_id' => \Domain\Model\User\UserIdType::class,
         'pharmacy_id'=> \Domain\Model\Pharmacy\PharmacyIdType::class,
         'criterion_id' => \Domain\Model\Criterion\CriterionIdType::class,
-        'criterion_option_id' => \Domain\Model\Criterion\CriterionOptionIdType::class
+        'criterion_option_id' => \Domain\Model\Criterion\CriterionOptionIdType::class,
+        'assessment_id' => \Domain\Model\Assessment\AssessmentIdType::class,
+        'assessment_reviewer_id' => \Domain\Model\Assessment\AssessmentReviewerIdType::class
     ],
     /*
     |--------------------------------------------------------------------------

@@ -3,18 +3,35 @@
 
 namespace Domain\Model\Assessment;
 
-
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
+/**
+ * Class Assessment
+ * @ORM\Entity
+ */
 final class Assessment
 {
+    /**
+     * @ORM\Column (type="assessment_id")
+     * @ORM\Id
+     */
+    private AssessmentId $id;
+
+    /**
+     * @ORM\Column (type="assessment_reviewer_id")
+     */
     private ReviewerId $reviewerId;
 
+    /**
+     * @ORM\Embedded (class="Check")
+     */
     private Check $check;
 
+    /**
+     * @ORM\Column (type="json_array")
+     */
     private ArrayCollection $criteria;
-
-    private AssessmentId $id;
 
     /**
      * assessment constructor.
