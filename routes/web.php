@@ -1,7 +1,15 @@
 <?php
 
+use Domain\Model\Assessment\AssessmentId;
+use Domain\Model\Assessment\Check;
+use Domain\Model\Assessment\Criterion;
+use Domain\Model\Assessment\Option;
+use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
+use Domain\Model\Employee\Employee;
+use Domain\Model\Employee\EmployeeId;
 use Domain\Model\User\User;
 use Illuminate\Support\Facades\Route;
+use Tests\Unit\Domain\Model\Builders\AssessmentBuilder;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +23,42 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $repo = \LaravelDoctrine\ORM\Facades\EntityManager::getRepository(User::class);
+//    $repo = \LaravelDoctrine\ORM\Facades\EntityManager::getRepository(User::class);
+//
+//
+//    \LaravelDoctrine\ORM\Facades\EntityManager::persist(\Tests\Unit\Domain\Model\Builders\UserBuilder::aUser()->build());
 
-    \LaravelDoctrine\ORM\Facades\EntityManager::persist(\Tests\Unit\Domain\Model\Builders\UserBuilder::aUser()->build());
+    $criterion = [];
+
+    $criterion[] = new Criterion('Ethics',
+        [new Option('yes', 1), new Option('no', 0)],
+        'yes');
+
+    $criterion[] = new Criterion('Kindness',
+        [new Option('yes', 1), new Option('no', 0)],
+        'no');
+
+    $criterion[] = new Criterion('Additional care',
+        [new Option('partially', 0.5), new Option('no', 0)],
+        'partially');
+
+
+
+    $employee = EmployeeId::next();
+    $month = new \Domain\Model\EfficiencyAnalysis\Month(2020, 12);
+    $id = EfficiencyAnalysisId::next();
+    $analysys = new \Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis($id, $employee, $month);
+
+
+
+
+    \LaravelDoctrine\ORM\Facades\EntityManager::persist($analysys);
+
+    $analysys->addReview(
+        AssessmentId::next(),new Check(new \DateTime('2020-12-01'), 0, 0), $criterion);
+
     \LaravelDoctrine\ORM\Facades\EntityManager::flush();
 
-    dd($repo->findAll());
+
     return view('welcome');
 });

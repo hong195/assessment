@@ -19,6 +19,8 @@
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "ramsey/uuid": "^4.1",
+        "symfony/property-access": "^5.2",
+        "symfony/serializer": "^5.2",
         "symfony/yaml": "^5.2",
         "tymon/jwt-auth": "^1.0"
     },

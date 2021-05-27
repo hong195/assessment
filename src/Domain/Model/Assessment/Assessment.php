@@ -5,6 +5,7 @@ namespace Domain\Model\Assessment;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
 
 /**
  * Class Assessment
@@ -17,7 +18,11 @@ final class Assessment
      * @ORM\Id
      */
     private AssessmentId $id;
-
+    /**
+     * @ORM\ManyToOne(targetEntity="Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis", inversedBy="assessments", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="analysis_id", referencedColumnName="id")
+     */
+    private EfficiencyAnalysis $analysis;
     /**
      * @ORM\Column (type="assessment_reviewer_id")
      */
@@ -29,20 +34,24 @@ final class Assessment
     private Check $check;
 
     /**
-     * @ORM\Column (type="json_array")
+     * @ORM\Column (type="assessment_criteria", nullable=true)
      */
     private ArrayCollection $criteria;
 
+
     /**
-     * assessment constructor.
+     * Assessment constructor.
      * @param AssessmentId $id
+     * @param EfficiencyAnalysis $analysis
      * @param Check $check
-     * @param Criterion[] $criteria
+     * @param array $criteria
      */
     public function __construct(AssessmentId $id,
+                                EfficiencyAnalysis $analysis,
                                 Check $check,
                                 array $criteria)
     {
+        $this->analysis = $analysis;
         $this->id = $id;
         $this->check = $check;
         $this->criteria = new ArrayCollection($criteria);
@@ -94,6 +103,6 @@ final class Assessment
     {
         return array_reduce($this->criteria->toArray(), function ($carry, Criterion $criterion) {
             return $carry + $criterion->getMaxPoint();
-        },0);
+        }, 0);
     }
 }

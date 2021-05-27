@@ -14,17 +14,14 @@ final class Criterion
     private string $selected;
     private string $description;
 
-    public function __construct(string $criterion, array $options, $selected, $description = '')
+    public function __construct(string $name, array $options, $selected, $description = '')
     {
-        $this->name = $criterion;
+        $this->name = $name;
         $this->options = new ArrayCollection($options);
         $this->selected = $selected;
         $this->description = $description;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;

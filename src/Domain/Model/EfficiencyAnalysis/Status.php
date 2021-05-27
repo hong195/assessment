@@ -5,12 +5,20 @@ namespace Domain\Model\EfficiencyAnalysis;
 
 
 use Domain\Model\EfficiencyAnalysis\Exceptions\UnknownRatingStatusException;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Class Status
+ * @ORM\Embeddable
+ */
 final class Status
 {
     const UNCOMPLETED = 'uncompleted';
     const COMPLETED = 'completed';
 
+    /**
+     * @ORM\Column (type="string")
+     */
     private string $status;
 
     /**

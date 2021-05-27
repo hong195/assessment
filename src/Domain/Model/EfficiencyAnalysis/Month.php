@@ -3,14 +3,21 @@
 
 namespace Domain\Model\EfficiencyAnalysis;
 
-
+use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 use Domain\Model\EfficiencyAnalysis\Exceptions\InvalidRatingMonthException;
 
+/**
+ * Class Month
+ * @ORM\Embeddable
+ */
 final class Month
 {
     const MIN_YEAR = 2020;
 
+    /**
+     * @ORM\Column (type="datetime")
+     */
     private \DateTimeImmutable $date;
     /**
      * Date constructor.

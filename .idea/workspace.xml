@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentIdType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentReviewerIdType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentCriteriaType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/doctrine.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Check.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Check.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Criterion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,6 +203,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
       <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
     </include_path>
   </component>
   <component name="ProjectId" id="1nrxeNhC18QtC5cBgCdJxgcBOTV" />
@@ -349,21 +356,12 @@
       <workItem from="1621781271701" duration="9324000" />
       <workItem from="1621874534679" duration="10886000" />
       <workItem from="1621962438169" duration="8539000" />
-      <workItem from="1622045188888" duration="9534000" />
-    </task>
-    <task id="LOCAL-00012" summary="Updated template frontend file structure.">
-      <created>1612857691496</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1612857691496</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Updated template frontend file structure.">
-      <created>1612857700639</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1612857700639</updated>
+      <workItem from="1622045188888" duration="11430000" />
+      <workItem from="1622135745791" duration="5253000" />
+      <workItem from="1622222062016" duration="324000" />
+      <workItem from="1622298750982" duration="595000" />
+      <workItem from="1622315237542" duration="3102000" />
+      <workItem from="1622479857611" duration="823000" />
     </task>
     <task id="LOCAL-00014" summary="Added frontend services.">
       <created>1612880995534</created>
@@ -694,7 +692,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622054590123</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="changed assessment yaml to annotations mapping.">
+      <created>1622055309912</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1622055309912</updated>
+    </task>
+    <task id="LOCAL-00062" summary="changed efficiency analasys yaml to annotations mapping.">
+      <created>1622137798375</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1622137798376</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -734,8 +746,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Update user tests." />
-    <MESSAGE value="Project updated." />
     <MESSAGE value="Added AssessmentRepository contract." />
     <MESSAGE value="Correct models name." />
     <MESSAGE value="Updated app tests." />
@@ -759,7 +769,9 @@
     <MESSAGE value="changed user yaml to annotations mappings." />
     <MESSAGE value="changed pharmacy yaml to annotations mapping." />
     <MESSAGE value="changed criterion yaml to annotations mapping." />
-    <option name="LAST_COMMIT_MESSAGE" value="changed criterion yaml to annotations mapping." />
+    <MESSAGE value="changed assessment yaml to annotations mapping." />
+    <MESSAGE value="changed efficiency analasys yaml to annotations mapping." />
+    <option name="LAST_COMMIT_MESSAGE" value="changed efficiency analasys yaml to annotations mapping." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

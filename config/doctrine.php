@@ -113,7 +113,10 @@ return [
         'criterion_id' => \Domain\Model\Criterion\CriterionIdType::class,
         'criterion_option_id' => \Domain\Model\Criterion\CriterionOptionIdType::class,
         'assessment_id' => \Domain\Model\Assessment\AssessmentIdType::class,
-        'assessment_reviewer_id' => \Domain\Model\Assessment\AssessmentReviewerIdType::class
+        'assessment_reviewer_id' => \Domain\Model\Assessment\AssessmentReviewerIdType::class,
+        'efficiency_analysis_id' => \Domain\Model\EfficiencyAnalysis\EAIdType::class,
+        'employee_id' => \Domain\Model\Employee\EmployeeIdType::class,
+        'assessment_criteria' => \Domain\Model\Assessment\AssessmentCriteriaType::class,
     ],
     /*
     |--------------------------------------------------------------------------

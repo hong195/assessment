@@ -3,8 +3,9 @@
 
 namespace Domain\Model\EfficiencyAnalysis;
 
-
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Domain\Exceptions\NotFoundEntityException;
 use Domain\Model\Assessment\Assessment;
 use Domain\Model\Assessment\AssessmentId;
@@ -12,30 +13,49 @@ use Domain\Model\Assessment\Check;
 use Domain\Model\EfficiencyAnalysis\Exceptions\InvalidRatingMonthException;
 use Domain\Model\EfficiencyAnalysis\Exceptions\MaxReviewsForMonthReachedException;
 use Domain\Model\EfficiencyAnalysis\Exceptions\ModificationRatingException;
-use Domain\Model\Employee\Employee;
 use Domain\Model\Employee\EmployeeId;
 
+/**
+ * Class EfficiencyAnalysis
+ * @ORM\Entity
+ */
 final class EfficiencyAnalysis
 {
     const ALLOWED_REVIEWS_AMOUNT = 10;
-
-    private ArrayCollection $assessments;
-
+    /**
+     * @ORM\Id
+     * @ORM\Column (type="efficiency_analysis_id")
+     */
+    private EfficiencyAnalysisId $id;
+    /**
+     * @ORM\OneToMany(targetEntity="Domain\Model\Assessment\Assessment", mappedBy="analysis", cascade={"persist", "remove"})
+     */
+    private Collection  $assessments;
+    /**
+     * @ORM\Embedded (class="Month")
+     */
     private Month $month;
-
+    /**
+     * @ORM\Column  (type="float", nullable=true)
+     */
     private ?float $scored = null;
-
+    /**
+     * @ORM\Column  (type="float", nullable=true)
+     */
     private ?float $total = null;
-
+    /**
+     * @ORM\Column  (type="employee_id")
+     */
     private EmployeeId $employeeId;
-
+    /**
+     * @ORM\Embedded (class="Status")
+     */
     private Status $status;
 
-    private EfficiencyAnalysisId $id;
 
     public function __construct(EfficiencyAnalysisId $analysisId, EmployeeId $employee, Month $date)
     {
-        $this->assessments = new ArrayCollection();
+        $this->assessments = new ArrayCollection([]);
         $this->month = $date;
         $this->employeeId = $employee;
         $this->status = new Status(Status::UNCOMPLETED);
@@ -45,14 +65,14 @@ final class EfficiencyAnalysis
     /**
      * @param AssessmentId $assessmentId
      * @param Check $check
-     * @param array $efficiencies
+     * @param array $criteria
      * @return Assessment
      * @throws InvalidRatingMonthException
      * @throws MaxReviewsForMonthReachedException
      */
     public function addReview(AssessmentId $assessmentId,
                               Check $check,
-                              array $efficiencies): Assessment
+                              array $criteria): Assessment
     {
         if ($this->isCompleted()) {
             throw new MaxReviewsForMonthReachedException();
@@ -62,7 +82,7 @@ final class EfficiencyAnalysis
             throw new InvalidRatingMonthException('Check service date must be between assessment date');
         }
 
-        $assessment = new Assessment($assessmentId, $check, $efficiencies);
+        $assessment = new Assessment($assessmentId, $this, $check, $criteria);
         $this->assessments->add($assessment);
 
         if ($this->isMaxReviewsAdded()) {
