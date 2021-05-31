@@ -5,22 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineEmployeeEfficiencyAnalysesRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelAssessmentAssessment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelCriterionCriterion.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelCriterionOption.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelEfficiencyAnalysisEfficiencyAnalysis.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelPharmacyPharmacy.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelUserUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentCriteriaType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentCriteriaType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Criterion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/Criterion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/Option.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/Option.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Month.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Month.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Employee/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Employee/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/User/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryUserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/HomePageTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/Doctrine/DoctrineUserRepositoryTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +218,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/Doctrine" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -244,11 +237,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence\Doctrine" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence\Doctrine" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence\InMemory" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Unit\Domain\Model\Pharmacy" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence" />
@@ -366,14 +359,7 @@
       <workItem from="1622222062016" duration="324000" />
       <workItem from="1622298750982" duration="595000" />
       <workItem from="1622315237542" duration="3102000" />
-      <workItem from="1622479857611" duration="4889000" />
-    </task>
-    <task id="LOCAL-00015" summary="Init commit.">
-      <created>1616508682401</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1616508682401</updated>
+      <workItem from="1622479857611" duration="6243000" />
     </task>
     <task id="LOCAL-00016" summary="Init commit.">
       <created>1616567782662</created>
@@ -711,7 +697,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622480692954</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="generated doctrine proxy.">
+      <created>1622484866725</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1622484866726</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -751,7 +744,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Added AssessmentRepository contract." />
     <MESSAGE value="Correct models name." />
     <MESSAGE value="Updated app tests." />
     <MESSAGE value="Added pharmacy entity test." />
@@ -776,7 +768,8 @@
     <MESSAGE value="changed criterion yaml to annotations mapping." />
     <MESSAGE value="changed assessment yaml to annotations mapping." />
     <MESSAGE value="changed efficiency analasys yaml to annotations mapping." />
-    <option name="LAST_COMMIT_MESSAGE" value="changed efficiency analasys yaml to annotations mapping." />
+    <MESSAGE value="generated doctrine proxy." />
+    <option name="LAST_COMMIT_MESSAGE" value="generated doctrine proxy." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

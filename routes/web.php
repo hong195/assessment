@@ -23,45 +23,8 @@ use Tests\Unit\Domain\Model\Builders\AssessmentBuilder;
 */
 
 Route::get('/', function () {
-//    $repo = \LaravelDoctrine\ORM\Facades\EntityManager::getRepository(User::class);
-//
-//
-//    \LaravelDoctrine\ORM\Facades\EntityManager::persist(\Tests\Unit\Domain\Model\Builders\UserBuilder::aUser()->build());
+    $repo = \LaravelDoctrine\ORM\Facades\EntityManager::getRepository(\Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis::class);
 
-//    $criterion = [];
-//
-//    $criterion[] = new Criterion('Ethics',
-//        [new Option('yes', 1), new Option('no', 0)],
-//        'yes');
-//
-//    $criterion[] = new Criterion('Kindness',
-//        [new Option('yes', 1), new Option('no', 0)],
-//        'no');
-//
-//    $criterion[] = new Criterion('Additional care',
-//        [new Option('partially', 0.5), new Option('no', 0)],
-//        'partially');
-//
-//
-//
-//    $employee = EmployeeId::next();
-//    $month = new \Domain\Model\EfficiencyAnalysis\Month(2020, 12);
-//    $id = EfficiencyAnalysisId::next();
-//    $analysys = new \Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis($id, $employee, $month);
-//
-//
-//
-//
-//    \LaravelDoctrine\ORM\Facades\EntityManager::persist($analysys);
-//
-//    $analysys->addReview(
-//        AssessmentId::next(),new Check(new \DateTime('2020-12-01'), 0, 0), $criterion);
-//
-//    \LaravelDoctrine\ORM\Facades\EntityManager::flush();
-
-
-    $obj = \LaravelDoctrine\ORM\Facades\EntityManager::find(\Domain\Model\Assessment\Assessment::class, '9cf8db4c-76bf-46f1-9383-437c10bfe758');
-
-    dd($obj);
+    dd($repo->findByMonthDate(new \Domain\Model\EfficiencyAnalysis\Month(2020, 1)));
     return view('welcome');
 });
