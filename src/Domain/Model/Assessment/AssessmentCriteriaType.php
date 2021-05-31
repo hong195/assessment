@@ -4,10 +4,15 @@
 namespace Domain\Model\Assessment;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\JsonType;
+use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
+use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
+use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\Serializer\Encoder\JsonDecode;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
@@ -35,9 +40,18 @@ class AssessmentCriteriaType extends JsonType
         return $this->getSerializer()->serialize($data, 'json');
     }
 
-    public function deserialize($data)
+    public function deserialize($collection): ArrayCollection
     {
-        return $this->getSerializer()->deserialize($data, Criterion::class, 'json');
+        $collection = new ArrayCollection(json_decode($collection));
+
+        return $collection->map(function ($criterion) {
+
+            $options = array_map(function ($option) {
+                return new Option($option->name, $option->value);
+            }, (array) $criterion->options);
+
+            return new Criterion($criterion->name, $options, $criterion->selectedValue, $criterion->description);
+        });
     }
 
     private function getSerializer(): Serializer

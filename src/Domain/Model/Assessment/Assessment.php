@@ -11,7 +11,7 @@ use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
  * Class Assessment
  * @ORM\Entity
  */
-final class Assessment
+class Assessment
 {
     /**
      * @ORM\Column (type="assessment_id")

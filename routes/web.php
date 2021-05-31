@@ -28,37 +28,40 @@ Route::get('/', function () {
 //
 //    \LaravelDoctrine\ORM\Facades\EntityManager::persist(\Tests\Unit\Domain\Model\Builders\UserBuilder::aUser()->build());
 
-    $criterion = [];
+//    $criterion = [];
+//
+//    $criterion[] = new Criterion('Ethics',
+//        [new Option('yes', 1), new Option('no', 0)],
+//        'yes');
+//
+//    $criterion[] = new Criterion('Kindness',
+//        [new Option('yes', 1), new Option('no', 0)],
+//        'no');
+//
+//    $criterion[] = new Criterion('Additional care',
+//        [new Option('partially', 0.5), new Option('no', 0)],
+//        'partially');
+//
+//
+//
+//    $employee = EmployeeId::next();
+//    $month = new \Domain\Model\EfficiencyAnalysis\Month(2020, 12);
+//    $id = EfficiencyAnalysisId::next();
+//    $analysys = new \Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis($id, $employee, $month);
+//
+//
+//
+//
+//    \LaravelDoctrine\ORM\Facades\EntityManager::persist($analysys);
+//
+//    $analysys->addReview(
+//        AssessmentId::next(),new Check(new \DateTime('2020-12-01'), 0, 0), $criterion);
+//
+//    \LaravelDoctrine\ORM\Facades\EntityManager::flush();
 
-    $criterion[] = new Criterion('Ethics',
-        [new Option('yes', 1), new Option('no', 0)],
-        'yes');
 
-    $criterion[] = new Criterion('Kindness',
-        [new Option('yes', 1), new Option('no', 0)],
-        'no');
+    $obj = \LaravelDoctrine\ORM\Facades\EntityManager::find(\Domain\Model\Assessment\Assessment::class, '9cf8db4c-76bf-46f1-9383-437c10bfe758');
 
-    $criterion[] = new Criterion('Additional care',
-        [new Option('partially', 0.5), new Option('no', 0)],
-        'partially');
-
-
-
-    $employee = EmployeeId::next();
-    $month = new \Domain\Model\EfficiencyAnalysis\Month(2020, 12);
-    $id = EfficiencyAnalysisId::next();
-    $analysys = new \Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis($id, $employee, $month);
-
-
-
-
-    \LaravelDoctrine\ORM\Facades\EntityManager::persist($analysys);
-
-    $analysys->addReview(
-        AssessmentId::next(),new Check(new \DateTime('2020-12-01'), 0, 0), $criterion);
-
-    \LaravelDoctrine\ORM\Facades\EntityManager::flush();
-
-
+    dd($obj);
     return view('welcome');
 });

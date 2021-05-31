@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity
  */
-final class Pharmacy
+class Pharmacy
 {
     /**
      * @ORM\Column(type="pharmacy_id")

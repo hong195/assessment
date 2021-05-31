@@ -10,7 +10,7 @@ use Domain\Model\Criterion\Exceptions\CriterionException;
 /**
  * @ORM\Entity
  */
-final class Criterion
+class Criterion
 {
     /**
      * @ORM\Column (type="criterion_id")

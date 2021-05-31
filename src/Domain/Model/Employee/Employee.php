@@ -4,7 +4,7 @@
 namespace Domain\Model\Employee;
 
 
-final class Employee extends AbstractParticipant
+class Employee extends AbstractParticipant
 {
     public function __construct($identity, string $name)
     {

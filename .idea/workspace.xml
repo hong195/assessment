@@ -5,17 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentCriteriaType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentCriteriaType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentCriteriaType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Criterion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/Criterion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/Option.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/Option.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Month.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Month.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Employee/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Employee/Employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/User/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryUserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/HomePageTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/Doctrine/DoctrineUserRepositoryTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,17 +264,13 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.DoctrineUserRepositoryTest.test_add_user">
+  <component name="RunManager" selected="PHPUnit.InMemoryUserRepositoryTest.test_remove">
     <configuration name="DoctrineUserRepositoryTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Infastructure\Persistence\Doctrine\DoctrineUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/Doctrine/DoctrineUserRepositoryTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="DoctrineUserRepositoryTest.test_add_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Infastructure\Persistence\Doctrine\DoctrineUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/Doctrine/DoctrineUserRepositoryTest.php" method="test_add_user" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="DoctrineUserRepositoryTest.test_get_all" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\Doctrine\DoctrineUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/Doctrine/DoctrineUserRepositoryTest.php" method="test_get_all" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="DoctrineUserRepositoryTest.test_remove" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -280,17 +281,21 @@
       <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryEfficiencyAnalysisTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryEfficiencyAnalysisTest.php" method="test_find_by_employees_ids" scope="Method" />
       <method v="2" />
     </configuration>
+    <configuration name="InMemoryUserRepositoryTest.test_remove" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryUserRepositoryTest.php" method="test_remove" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.InMemoryUserRepositoryTest.test_remove" />
         <item itemvalue="PHPUnit.DoctrineUserRepositoryTest.test_add_user" />
         <item itemvalue="PHPUnit.DoctrineUserRepositoryTest.test_add_user" />
         <item itemvalue="PHPUnit.DoctrineUserRepositoryTest.test_add_user" />
         <item itemvalue="PHPUnit.DoctrineUserRepositoryTest" />
-        <item itemvalue="PHPUnit.DoctrineUserRepositoryTest.test_get_all" />
       </list>
     </recent_temporary>
   </component>
@@ -361,14 +366,7 @@
       <workItem from="1622222062016" duration="324000" />
       <workItem from="1622298750982" duration="595000" />
       <workItem from="1622315237542" duration="3102000" />
-      <workItem from="1622479857611" duration="823000" />
-    </task>
-    <task id="LOCAL-00014" summary="Added frontend services.">
-      <created>1612880995534</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1612880995534</updated>
+      <workItem from="1622479857611" duration="4889000" />
     </task>
     <task id="LOCAL-00015" summary="Init commit.">
       <created>1616508682401</created>
@@ -706,7 +704,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622137798376</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="changed efficiency analasys yaml to annotations mapping.">
+      <created>1622480692954</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1622480692954</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

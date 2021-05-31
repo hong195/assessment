@@ -9,9 +9,24 @@ use Domain\Model\Assessment\Exceptions\NotExistingSelectedOptionException;
 
 final class Criterion
 {
+    /**
+     * @var string
+     */
     private string $name;
+
+    /**
+     * @var ArrayCollection
+     */
     private ArrayCollection $options;
+
+    /**
+     * @var string
+     */
     private string $selected;
+
+    /**
+     * @var string|mixed
+     */
     private string $description;
 
     public function __construct(string $name, array $options, $selected, $description = '')

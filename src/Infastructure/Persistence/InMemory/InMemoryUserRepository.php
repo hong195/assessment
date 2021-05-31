@@ -73,7 +73,7 @@ class InMemoryUserRepository implements UserRepository
     public function remove(User $user) : void
     {
         foreach ($this->users as $key => $user2) {
-            if ($user2->isEqual($user->getId())) {
+            if ($user2->getId()->isEqual($user->getId())) {
                 unset($this->users[$key]);
                 break;
             }

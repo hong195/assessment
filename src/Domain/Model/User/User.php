@@ -5,7 +5,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-final class User
+class User
 {
     /**
      * @ORM\Column(type="user_id")

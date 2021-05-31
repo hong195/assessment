@@ -18,7 +18,7 @@ final class Month
     /**
      * @ORM\Column (type="datetime")
      */
-    private \DateTimeImmutable $date;
+    private \DateTime $date;
     /**
      * Date constructor.
      * @param int $year
@@ -28,7 +28,7 @@ final class Month
     public function __construct(int $year, int $month)
     {
         $this->assertValidDate($year, $month);
-        $this->date = (new \DateTimeImmutable())->setDate($year, $month, 1);
+        $this->date = (new \DateTime())->setDate($year, $month, 1);
     }
 
     public function isEqual(Month $month) : bool

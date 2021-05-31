@@ -19,7 +19,7 @@ use Domain\Model\Employee\EmployeeId;
  * Class EfficiencyAnalysis
  * @ORM\Entity
  */
-final class EfficiencyAnalysis
+class EfficiencyAnalysis
 {
     const ALLOWED_REVIEWS_AMOUNT = 10;
     /**
@@ -176,7 +176,7 @@ final class EfficiencyAnalysis
         return $this->getAssessments()->count();
     }
 
-    public function getAssessments(): ArrayCollection
+    public function getAssessments(): Collection
     {
         return $this->assessments;
     }

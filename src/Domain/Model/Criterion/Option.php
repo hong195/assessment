@@ -11,7 +11,7 @@ use Domain\Model\Criterion\Exceptions\CriterionException;
  * Class Option
  * @ORM\Entity
  */
-final class Option
+class Option
 {
     /**
      * @ORM\Column (type="criterion_option_id")

@@ -17,12 +17,14 @@ class AssessmentBuilder
     private AssessmentId $id;
 
     private array $efficiencies;
+    private \Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis $analyses;
 
     public function __construct()
     {
         $this->id = AssessmentId::next();
         $this->check = CheckBuilder::aCheck()->build();
         $this->efficiencies = [];
+        $this->analyses = EfficiencyAnalysisBuilder::anAnalysis()->build();
     }
 
     public static function aReview(): AssessmentBuilder
@@ -51,6 +53,6 @@ class AssessmentBuilder
 
     public function build(): Assessment
     {
-        return new Assessment($this->id, $this->check, $this->efficiencies);
+        return new Assessment($this->id, $this->analyses, $this->check, $this->efficiencies);
     }
 }
