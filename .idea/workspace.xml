@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineEmployeeEfficiencyAnalysesRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelAssessmentAssessment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelCriterionCriterion.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelCriterionOption.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelEfficiencyAnalysisEfficiencyAnalysis.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelPharmacyPharmacy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelUserUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +42,7 @@
     </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,9 +58,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Model/User/User.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
@@ -128,7 +123,6 @@
       <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
       <path value="$PROJECT_DIR$/vendor/league/flysystem" />
       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
-      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/asm89/stack-cors" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/opis/closure" />
@@ -203,6 +197,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
     </include_path>
   </component>
   <component name="ProjectId" id="1nrxeNhC18QtC5cBgCdJxgcBOTV" />
