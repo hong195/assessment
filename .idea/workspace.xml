@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added Criterion repository.">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added pharmacy repository.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractCriterionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractCriterionTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyIdType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyIdType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,13 +256,9 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.InMemoryCriterionTest">
+  <component name="RunManager" selected="PHPUnit.PharmacyRepositoryTest.test_create_pharmacy">
     <configuration name="DoctrineUserRepositoryTest.test_add_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Infastructure\Persistence\Doctrine\DoctrineUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/Doctrine/DoctrineUserRepositoryTest.php" method="test_add_user" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="DoctrineUserRepositoryTest.test_remove" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\Doctrine\DoctrineUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/Doctrine/DoctrineUserRepositoryTest.php" method="test_remove" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="InMemoryCriterionTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -277,15 +273,19 @@
       <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryUserRepositoryTest.php" method="test_remove" scope="Method" />
       <method v="2" />
     </configuration>
+    <configuration name="PharmacyRepositoryTest.test_create_pharmacy" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\PharmacyRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/PharmacyRepositoryTest.php" method="test_create_pharmacy" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.PharmacyRepositoryTest.test_create_pharmacy" />
         <item itemvalue="PHPUnit.InMemoryCriterionTest" />
         <item itemvalue="PHPUnit.InMemoryUserRepositoryTest.test_remove" />
-        <item itemvalue="PHPUnit.DoctrineUserRepositoryTest.test_add_user" />
         <item itemvalue="PHPUnit.DoctrineUserRepositoryTest.test_add_user" />
         <item itemvalue="PHPUnit.DoctrineUserRepositoryTest.test_add_user" />
       </list>
@@ -361,21 +361,7 @@
       <workItem from="1622479857611" duration="6243000" />
       <workItem from="1622628312418" duration="7727000" />
       <workItem from="1622726464130" duration="2543000" />
-      <workItem from="1622729337462" duration="2672000" />
-    </task>
-    <task id="LOCAL-00021" summary="Update user tests.">
-      <created>1616694018683</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1616694018683</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Project updated.">
-      <created>1618330255387</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1618330255387</updated>
+      <workItem from="1622729337462" duration="4985000" />
     </task>
     <task id="LOCAL-00023" summary="Project updated.">
       <created>1618330265306</created>
@@ -706,7 +692,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622740365072</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="updated criterion repository tests.">
+      <created>1622740617611</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1622740617611</updated>
+    </task>
+    <task id="LOCAL-00071" summary="added pharmacy repository.">
+      <created>1622742082581</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1622742082581</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -746,8 +746,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Updated EfficiencyAnalysis models." />
-    <MESSAGE value="Added entities interfaces." />
     <MESSAGE value="Added efficiency analysis repository tests." />
     <MESSAGE value="Updated in memory folder structure." />
     <MESSAGE value="Updated criterion repository tests." />
@@ -771,7 +769,9 @@
     <MESSAGE value="updated EfficiencyAnalyses repository." />
     <MESSAGE value="updated User repository." />
     <MESSAGE value="added Criterion repository." />
-    <option name="LAST_COMMIT_MESSAGE" value="added Criterion repository." />
+    <MESSAGE value="updated criterion repository tests." />
+    <MESSAGE value="added pharmacy repository." />
+    <option name="LAST_COMMIT_MESSAGE" value="added pharmacy repository." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

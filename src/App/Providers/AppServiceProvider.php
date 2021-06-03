@@ -5,10 +5,12 @@ namespace App\Providers;
 use Doctrine\ORM\EntityManagerInterface;
 use Domain\Model\Criterion\CriterionRepository;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
+use Domain\Model\Pharmacy\PharmacyRepository;
 use Domain\Model\User\UserRepository;
 use Illuminate\Support\ServiceProvider;
 use Infastructure\Persistence\Doctrine\DoctrineCriterionRepository;
 use Infastructure\Persistence\Doctrine\DoctrineEmployeeEfficiencyAnalysesRepository;
+use Infastructure\Persistence\Doctrine\DoctrinePharmacyRepository;
 use Infastructure\Persistence\Doctrine\DoctrineUserRepository;
 
 class AppServiceProvider extends ServiceProvider
@@ -33,6 +35,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CriterionRepository::class, function() {
             $em = $this->app->make(EntityManagerInterface::class);
             return new DoctrineCriterionRepository($em);
+        });
+
+        $this->app->bind(PharmacyRepository::class, function() {
+            $em = $this->app->make(EntityManagerInterface::class);
+            return new DoctrinePharmacyRepository($em);
         });
     }
 

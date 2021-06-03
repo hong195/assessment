@@ -11,7 +11,7 @@ class PharmacyIdType extends GuidType
 {
     const PHARMACY_ID = 'pharmacy_id';
 
-    public function getName()
+    public function getName() : string
     {
         return static::PHARMACY_ID;
     }
@@ -21,12 +21,12 @@ class PharmacyIdType extends GuidType
         return PharmacyId::class;
     }
 
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): string
     {
         return (string) $value;
     }
 
-    public function convertToPHPValue($value, AbstractPlatform $platform)
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?PharmacyId
     {
         return !empty($value) ? new PharmacyId($value) : null;
     }
