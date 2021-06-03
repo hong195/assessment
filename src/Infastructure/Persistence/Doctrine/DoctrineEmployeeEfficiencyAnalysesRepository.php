@@ -24,29 +24,40 @@ final class DoctrineEmployeeEfficiencyAnalysesRepository implements EfficiencyAn
         $this->em = $em;
     }
 
-    public function add(EfficiencyAnalysis $efficiencyAnalysis) : void
+    public function add(EfficiencyAnalysis $efficiencyAnalysis): void
     {
         $this->em->persist($efficiencyAnalysis);
     }
 
     public function findByMonth(Month $month): ArrayCollection
     {
-        return $this->repository->findBy(['month_date' => $month]);
+        $query = $this->repository->createQueryBuilder('e')->select('e')
+            ->where('YEAR(e.month.date) = :year')
+            ->andWhere('MONTH(e.month.date) = :month')
+            ->setParameter('year', $month->getYear())
+            ->setParameter('month', $month->getMonth())
+            ->getQuery();
+
+        return new ArrayCollection($query->getResult());
     }
 
     public function findByEmployeeIds(array $employeeIds): ArrayCollection
     {
-        return $this->repository->findBy(['id' => $employeeIds]);
+        $qb = $this->repository->createQueryBuilder('e');
+        $query = $qb->select('e')
+            ->add('where', $qb->expr()->in('e.employeeId', $employeeIds));
+
+        return new ArrayCollection($query->getQuery()->getResult());
     }
 
     public function findByEmployeeId(Id $employeeId): ArrayCollection
     {
-        return $this->repository->findBy(['employee_id' => $employeeId]);
+        return new ArrayCollection($this->repository->findBy(['employeeId' => $employeeId]));
     }
 
     public function all(): ArrayCollection
     {
-        return $this->repository->findAll();
+        return new ArrayCollection($this->repository->findAll());
     }
 
     public function findById(EfficiencyAnalysisId $efficiencyAnalysisId): ?EfficiencyAnalysis

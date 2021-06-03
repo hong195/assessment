@@ -1,5 +1,6 @@
 <?php
 
+use Doctrine\ORM\EntityManagerInterface;
 use Domain\Model\Assessment\AssessmentId;
 use Domain\Model\Assessment\Check;
 use Domain\Model\Assessment\Criterion;
@@ -23,8 +24,12 @@ use Tests\Unit\Domain\Model\Builders\AssessmentBuilder;
 */
 
 Route::get('/', function () {
-    $repo = \LaravelDoctrine\ORM\Facades\EntityManager::getRepository(\Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis::class);
+    $em = app()->make(EntityManagerInterface::class);
 
-    dd($repo->findByMonthDate(new \Domain\Model\EfficiencyAnalysis\Month(2020, 1)));
+    $repo = app()->make(\Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository::class);
+
+
+    $array = [new EmployeeId('89974b0e-7ba7-41fb-84c7-ea1ef0588872')];
+    dd($repo->findById(new EfficiencyAnalysisId('3b223208-74bc-4fbd-8e7f-c091b64c84a2')));
     return view('welcome');
 });

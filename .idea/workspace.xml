@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated migrations.x">
       <change beforePath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Month.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Month.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineEmployeeEfficiencyAnalysesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineEmployeeEfficiencyAnalysesRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,6 +204,10 @@
       <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
       <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/laravel-doctrine/extensions" />
+      <path value="$PROJECT_DIR$/vendor/gedmo/doctrine-extensions" />
+      <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
+      <path value="$PROJECT_DIR$/vendor/beberlei/doctrineextensions" />
     </include_path>
   </component>
   <component name="ProjectId" id="1nrxeNhC18QtC5cBgCdJxgcBOTV" />
@@ -355,20 +365,8 @@
       <workItem from="1622298750982" duration="595000" />
       <workItem from="1622315237542" duration="3102000" />
       <workItem from="1622479857611" duration="6243000" />
-    </task>
-    <task id="LOCAL-00016" summary="Init commit.">
-      <created>1616567782662</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1616567782662</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Added User entity.">
-      <created>1616574906725</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1616574906725</updated>
+      <workItem from="1622628312418" duration="7727000" />
+      <workItem from="1622726464130" duration="2254000" />
     </task>
     <task id="LOCAL-00018" summary="Added User entity.">
       <created>1616585076654</created>
@@ -699,7 +697,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622484866726</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="updated migrations.">
+      <created>1622546282458</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1622546282459</updated>
+    </task>
+    <task id="LOCAL-00066" summary="updated migrations.">
+      <created>1622546294850</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1622546294850</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -739,7 +751,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Correct models name." />
     <MESSAGE value="Updated app tests." />
     <MESSAGE value="Added pharmacy entity test." />
     <MESSAGE value="Updated project structure &amp; tests." />
@@ -764,7 +775,8 @@
     <MESSAGE value="changed assessment yaml to annotations mapping." />
     <MESSAGE value="changed efficiency analasys yaml to annotations mapping." />
     <MESSAGE value="generated doctrine proxy." />
-    <option name="LAST_COMMIT_MESSAGE" value="generated doctrine proxy." />
+    <MESSAGE value="updated migrations." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated migrations." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

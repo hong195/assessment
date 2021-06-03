@@ -36,6 +36,16 @@ final class Month
         return $this->getMonth() === $month->getMonth() && $this->getYear() === $month->getYear();
     }
 
+    public function __toString(): string
+    {
+       return $this->date->format('Y-m-d');
+    }
+
+    public function getDate(): DateTime
+    {
+        return $this->date;
+    }
+
     public function getMonth(): int
     {
         return (int) $this->date->format('m');
