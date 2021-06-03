@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated User repository.">
-      <change afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineCriterionRepository.php" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added Criterion repository.">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/Criterion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/CriterionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/CriterionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/Option.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/Option.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineUserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryCriterionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryCriterionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractCriterionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractCriterionTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,17 +256,17 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.InMemoryUserRepositoryTest.test_remove">
-    <configuration name="DoctrineUserRepositoryTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\Doctrine\DoctrineUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/Doctrine/DoctrineUserRepositoryTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.InMemoryCriterionTest">
     <configuration name="DoctrineUserRepositoryTest.test_add_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Infastructure\Persistence\Doctrine\DoctrineUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/Doctrine/DoctrineUserRepositoryTest.php" method="test_add_user" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="DoctrineUserRepositoryTest.test_remove" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Infastructure\Persistence\Doctrine\DoctrineUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/Doctrine/DoctrineUserRepositoryTest.php" method="test_remove" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="InMemoryCriterionTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryCriterionTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryCriterionTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="InMemoryEfficiencyAnalysisTest.test_find_by_employees_ids" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -288,11 +283,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.InMemoryCriterionTest" />
         <item itemvalue="PHPUnit.InMemoryUserRepositoryTest.test_remove" />
         <item itemvalue="PHPUnit.DoctrineUserRepositoryTest.test_add_user" />
         <item itemvalue="PHPUnit.DoctrineUserRepositoryTest.test_add_user" />
         <item itemvalue="PHPUnit.DoctrineUserRepositoryTest.test_add_user" />
-        <item itemvalue="PHPUnit.DoctrineUserRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -366,14 +361,7 @@
       <workItem from="1622479857611" duration="6243000" />
       <workItem from="1622628312418" duration="7727000" />
       <workItem from="1622726464130" duration="2543000" />
-      <workItem from="1622729337462" duration="2533000" />
-    </task>
-    <task id="LOCAL-00020" summary="Added check entity.">
-      <created>1616605322428</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1616605322428</updated>
+      <workItem from="1622729337462" duration="2672000" />
     </task>
     <task id="LOCAL-00021" summary="Update user tests.">
       <created>1616694018683</created>
@@ -711,7 +699,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622738855199</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="added Criterion repository.">
+      <created>1622740365072</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1622740365072</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -751,7 +746,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Updated project structure &amp; tests." />
     <MESSAGE value="Updated EfficiencyAnalysis models." />
     <MESSAGE value="Added entities interfaces." />
     <MESSAGE value="Added efficiency analysis repository tests." />
@@ -776,7 +770,8 @@
     <MESSAGE value="updated migrations." />
     <MESSAGE value="updated EfficiencyAnalyses repository." />
     <MESSAGE value="updated User repository." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated User repository." />
+    <MESSAGE value="added Criterion repository." />
+    <option name="LAST_COMMIT_MESSAGE" value="added Criterion repository." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
