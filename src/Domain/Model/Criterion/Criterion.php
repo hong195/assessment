@@ -3,6 +3,7 @@
 
 namespace Domain\Model\Criterion;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Domain\Model\Criterion\Exceptions\CriterionException;
@@ -22,9 +23,9 @@ class Criterion
      */
     private string $name;
     /**
-     * @ORM\OneToMany(targetEntity="Option", mappedBy="criterion")
+     * @ORM\OneToMany(targetEntity="Option", mappedBy="criterion", cascade={"persist","remove"})
      */
-    private ArrayCollection $options;
+    private Collection $options;
 
     public function __construct(CriterionId $criteriaId, string $name)
     {
@@ -33,7 +34,7 @@ class Criterion
         $this->id = $criteriaId;
     }
 
-    public function getOptions(): ArrayCollection
+    public function getOptions(): Collection
     {
         return $this->options;
     }
@@ -58,7 +59,7 @@ class Criterion
             }
         }
 
-        $option = new Option($optionId, $label, $value);
+        $option = new Option($optionId, $this, $label, $value);
         $this->options->add($option);
 
         return $option;

@@ -26,7 +26,7 @@ final class DoctrineUserRepository implements UserRepository
 
     public function findById(UserId $userId): ?User
     {
-        return $this->em->getRepository(User::class)->find($userId);
+        return $this->repository->find($userId);
     }
 
     /**

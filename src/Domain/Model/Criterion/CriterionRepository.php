@@ -14,5 +14,5 @@ interface CriterionRepository
 
     public function add(Criterion $criterion): void;
 
-    public function remove(CriterionId $criterionId): void;
+    public function remove(Criterion $criterion): void;
 }

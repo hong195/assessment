@@ -38,13 +38,14 @@ class Option
      * @param float|int $value
      * @throws CriterionException
      */
-    public function __construct(OptionId $optionId, string $name, float $value = 0)
+    public function __construct(OptionId $optionId, $criterion, string $name, float $value = 0)
     {
         $this->assertNotEmpty($name);
         $this->assertValueNotNegative($value);
         $this->id = $optionId;
         $this->name = $name;
         $this->value = $value;
+        $this->criterion = $criterion;
     }
 
     /**
