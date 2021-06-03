@@ -11,6 +11,7 @@ use Domain\Model\User\User;
 use Domain\Model\User\UserId;
 use Domain\Model\User\UserRepository;
 use \Doctrine\Persistence\ObjectRepository;
+use Illuminate\Support\Arr;
 
 final class DoctrineUserRepository implements UserRepository
 {
@@ -49,18 +50,21 @@ final class DoctrineUserRepository implements UserRepository
         $this->em->remove($user);
     }
 
-    public function add(User $user) : void
+    public function add(User $user): void
     {
         $this->em->persist($user);
     }
 
-    public function getAll()
+    public function getAll(): ArrayCollection
     {
-        return $this->repository->findAll();
+        return new ArrayCollection($this->repository->findAll());
     }
 
-    public function findByIds(array $ids) : ArrayCollection
+    public function findByIds(array $ids): ArrayCollection
     {
-        return $this->repository->findBy(['id' => $ids]);
+        $qb = $this->repository->createQueryBuilder('u');
+        $query = $qb->select('u')->add('where', $qb->expr()->in('u.id', $ids))->getQuery();
+
+        return new ArrayCollection($query->getResult());
     }
 }
