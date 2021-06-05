@@ -43,6 +43,12 @@ class EmployeeBuilder
         return $this;
     }
 
+    public function withPharmacy(Pharmacy $pharmacy) : self
+    {
+        $this->pharmacy = $pharmacy;
+        return $this;
+    }
+
     public function withGender(Gender $gender) : self
     {
         $this->gender = $gender;

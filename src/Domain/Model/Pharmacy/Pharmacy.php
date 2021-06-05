@@ -7,6 +7,7 @@ namespace Domain\Model\Pharmacy;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Domain\Model\Employee\Employee;
 
 /**
  * @ORM\Entity
@@ -69,5 +70,20 @@ class Pharmacy
     public function getEmployees() : Collection
     {
         return $this->employees;
+    }
+
+    public function addEmployee(Employee $employee)
+    {
+        $this->employees->add($employee);
+    }
+
+    public function resign(Employee $employee)
+    {
+        foreach ($this->employees as $key => $pharmacyEmployee) {
+            if ($employee->getId()->isEqual($pharmacyEmployee->getId())) {
+                $this->employees->remove($key);
+                break;
+            }
+        }
     }
 }

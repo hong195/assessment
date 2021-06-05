@@ -19,15 +19,15 @@ Route::get('/', function () {
     $em = app()->make(EntityManagerInterface::class);
     $repo = app()->make(\Domain\Model\Pharmacy\PharmacyRepository::class);
 
+    $pharmacy = \Tests\Unit\Domain\Model\Builders\PharmacyBuilder::aPharmacy()->build();
 
-//    $criterion = $repo->findById(new P);
+    $employee = \Tests\Unit\Domain\Model\Builders\EmployeeBuilder::anEmployee()
+            ->withPharmacy($pharmacy)->build();
 
-
-//    $pharmacy = \Tests\Unit\Domain\Model\Builders\PharmacyBuilder::aPharmacy()->build();
-    $ph = $repo->findById(new PharmacyId('0cb6fd00-476e-4780-99c0-d3e418bd991a'));
-
-    dd($ph);
-    //$repo->remove($criterion);
+    $pharmacy->addEmployee($employee);
+    $pharmacy->resign($employee);
+    $repo->add($pharmacy);
+    $em->flush();
 
     return view('welcome');
 });

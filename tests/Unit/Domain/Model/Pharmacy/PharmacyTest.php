@@ -7,6 +7,7 @@ namespace Tests\Unit\Domain\Model\Pharmacy;
 use Domain\Model\Pharmacy\Email;
 use Domain\Model\Pharmacy\PharmacyNumber;
 use PHPUnit\Framework\TestCase;
+use Tests\Unit\Domain\Model\Builders\EmployeeBuilder;
 use Tests\Unit\Domain\Model\Builders\PharmacyBuilder;
 
 class PharmacyTest extends TestCase
@@ -31,5 +32,30 @@ class PharmacyTest extends TestCase
 
         $this->assertEquals($newNumber, $pharmacy->getNumber());
         $this->assertEquals('new-number', (string) $pharmacy->getNumber());
+    }
+
+    public function test_can_add_employees()
+    {
+        $pharmacy = PharmacyBuilder::aPharmacy()->build();
+        $employee = EmployeeBuilder::anEmployee()->build();
+        $pharmacy->addEmployee($employee);
+
+        $this->assertNotEmpty($pharmacy->getEmployees());
+        $this->assertContains($employee, $pharmacy->getEmployees());
+    }
+
+    public function test_can_remove_employee()
+    {
+        $pharmacy = PharmacyBuilder::aPharmacy()->build();
+        $employeeA = EmployeeBuilder::anEmployee()->build();
+        $employeeB = EmployeeBuilder::anEmployee()->build();
+
+        $pharmacy->addEmployee($employeeA);
+        $pharmacy->addEmployee($employeeB);
+
+        $pharmacy->resign($employeeA);
+
+        $this->assertNotContains($employeeA, $pharmacy->getEmployees());
+        $this->assertContains($employeeB, $pharmacy->getEmployees());
     }
 }
