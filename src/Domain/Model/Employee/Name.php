@@ -4,12 +4,25 @@
 namespace Domain\Model\Employee;
 
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Class Gender
+ * @ORM\Embeddable
+ */
 final class Name
 {
+    /**
+     * @ORM\Column (type="string")
+     */
     private string $firstName;
-
+    /**
+     * @ORM\Column (type="string", nullable=true)
+     */
     private ?string $middle;
-
+    /**
+     * @ORM\Column (type="string")
+     */
     private string $lastName;
 
     public function __construct(string $name, string $lastName, string $middle = null)

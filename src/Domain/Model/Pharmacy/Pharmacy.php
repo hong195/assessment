@@ -4,6 +4,7 @@
 namespace Domain\Model\Pharmacy;
 
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -22,8 +23,10 @@ class Pharmacy
      * @ORM\Embedded (class="Email")
      */
     private Email $email;
-
-    private ArrayCollection $employees;
+    /**
+     * @ORM\OneToMany(targetEntity="Domain\Model\Employee\Employee", mappedBy="pharmacy", cascade={"persist","remove"})
+     */
+    private Collection $employees;
 
     /**
      * @ORM\Embedded (class="PharmacyNumber")
@@ -61,5 +64,10 @@ class Pharmacy
     public function getNumber(): PharmacyNumber
     {
         return $this->number;
+    }
+
+    public function getEmployees() : Collection
+    {
+        return $this->employees;
     }
 }

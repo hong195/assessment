@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added pharmacy repository.">
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added employee entity.">
+      <change afterPath="$PROJECT_DIR$/database/migrations/Version20210605163040.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyIdType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyIdType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/Option.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/Option.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Employee/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Employee/Employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Employee/Gender.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Employee/Gender.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Employee/Name.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Employee/Name.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,11 +246,11 @@
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/Unit/Domain/Model/EmployeeTest" />
+      <recent name="$PROJECT_DIR$/tests/Unit/Domain/Model" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings\Pharmacy" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Participant" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -256,25 +259,25 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.PharmacyRepositoryTest.test_create_pharmacy">
-    <configuration name="DoctrineUserRepositoryTest.test_add_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\Doctrine\DoctrineUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/Doctrine/DoctrineUserRepositoryTest.php" method="test_add_user" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.EmployeeTest">
+    <configuration name="EmployeeTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\Employee\EmployeeTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Employee/EmployeeTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="InMemoryCriterionTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryCriterionTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryCriterionTest.php" scope="Class" />
+    <configuration name="EmployeeTest.test_can_change_birthdate" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\Employee\EmployeeTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Employee/EmployeeTest.php" method="test_can_change_birthdate" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="InMemoryEfficiencyAnalysisTest.test_find_by_employees_ids" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryEfficiencyAnalysisTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryEfficiencyAnalysisTest.php" method="test_find_by_employees_ids" scope="Method" />
+    <configuration name="EmployeeTest.test_can_change_name" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\Employee\EmployeeTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Employee/EmployeeTest.php" method="test_can_change_name" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="InMemoryUserRepositoryTest.test_remove" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryUserRepositoryTest.php" method="test_remove" scope="Method" />
+    <configuration name="EmployeeTest.test_example" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\Employee\EmployeeTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Employee/EmployeeTest.php" method="test_example" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PharmacyRepositoryTest.test_create_pharmacy" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\PharmacyRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/PharmacyRepositoryTest.php" method="test_create_pharmacy" scope="Method" />
+    <configuration name="GenderTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\Employee\GenderTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Employee/GenderTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -283,11 +286,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.PharmacyRepositoryTest.test_create_pharmacy" />
-        <item itemvalue="PHPUnit.InMemoryCriterionTest" />
-        <item itemvalue="PHPUnit.InMemoryUserRepositoryTest.test_remove" />
-        <item itemvalue="PHPUnit.DoctrineUserRepositoryTest.test_add_user" />
-        <item itemvalue="PHPUnit.DoctrineUserRepositoryTest.test_add_user" />
+        <item itemvalue="PHPUnit.EmployeeTest" />
+        <item itemvalue="PHPUnit.EmployeeTest.test_can_change_birthdate" />
+        <item itemvalue="PHPUnit.EmployeeTest.test_can_change_name" />
+        <item itemvalue="PHPUnit.GenderTest" />
+        <item itemvalue="PHPUnit.EmployeeTest.test_example" />
       </list>
     </recent_temporary>
   </component>
@@ -361,21 +364,10 @@
       <workItem from="1622479857611" duration="6243000" />
       <workItem from="1622628312418" duration="7727000" />
       <workItem from="1622726464130" duration="2543000" />
-      <workItem from="1622729337462" duration="4985000" />
-    </task>
-    <task id="LOCAL-00023" summary="Project updated.">
-      <created>1618330265306</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1618330265306</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Project updated.">
-      <created>1618331391859</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1618331391859</updated>
+      <workItem from="1622729337462" duration="7006000" />
+      <workItem from="1622828641075" duration="1079000" />
+      <workItem from="1622829827495" duration="1279000" />
+      <workItem from="1622894429732" duration="9991000" />
     </task>
     <task id="LOCAL-00025" summary="Project updated.">
       <created>1618331437873</created>
@@ -706,7 +698,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622742082581</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="added pharmacy repository.">
+      <created>1622742920645</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1622742920645</updated>
+    </task>
+    <task id="LOCAL-00073" summary="added employee entity.">
+      <created>1622908080327</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1622908080328</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -746,7 +752,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Added efficiency analysis repository tests." />
     <MESSAGE value="Updated in memory folder structure." />
     <MESSAGE value="Updated criterion repository tests." />
     <MESSAGE value="Added participant context." />
@@ -771,7 +776,8 @@
     <MESSAGE value="added Criterion repository." />
     <MESSAGE value="updated criterion repository tests." />
     <MESSAGE value="added pharmacy repository." />
-    <option name="LAST_COMMIT_MESSAGE" value="added pharmacy repository." />
+    <MESSAGE value="added employee entity." />
+    <option name="LAST_COMMIT_MESSAGE" value="added employee entity." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

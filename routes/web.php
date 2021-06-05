@@ -1,16 +1,8 @@
 <?php
 
 use Doctrine\ORM\EntityManagerInterface;
-use Domain\Model\Assessment\AssessmentId;
-use Domain\Model\Assessment\Check;
-use Domain\Model\Assessment\Criterion;
-use Domain\Model\Assessment\Option;
-use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
-use Domain\Model\Employee\Employee;
-use Domain\Model\Employee\EmployeeId;
-use Domain\Model\User\User;
+use Domain\Model\Pharmacy\PharmacyId;
 use Illuminate\Support\Facades\Route;
-use Tests\Unit\Domain\Model\Builders\AssessmentBuilder;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +17,17 @@ use Tests\Unit\Domain\Model\Builders\AssessmentBuilder;
 
 Route::get('/', function () {
     $em = app()->make(EntityManagerInterface::class);
+    $repo = app()->make(\Domain\Model\Pharmacy\PharmacyRepository::class);
 
-    $repo = app()->make(\Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository::class);
+
+//    $criterion = $repo->findById(new P);
 
 
-    $array = [new EmployeeId('89974b0e-7ba7-41fb-84c7-ea1ef0588872')];
-    dd($repo->findById(new EfficiencyAnalysisId('3b223208-74bc-4fbd-8e7f-c091b64c84a2')));
+//    $pharmacy = \Tests\Unit\Domain\Model\Builders\PharmacyBuilder::aPharmacy()->build();
+    $ph = $repo->findById(new PharmacyId('0cb6fd00-476e-4780-99c0-d3e418bd991a'));
+
+    dd($ph);
+    //$repo->remove($criterion);
+
     return view('welcome');
 });

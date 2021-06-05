@@ -31,14 +31,16 @@ class Option
      * @ORM\JoinColumn(name="criterion_id", referencedColumnName="id")
      */
     private Criterion $criterion;
+
     /**
      * Option constructor.
      * @param OptionId $optionId
+     * @param Criterion $criterion
      * @param string $name
      * @param float|int $value
      * @throws CriterionException
      */
-    public function __construct(OptionId $optionId, $criterion, string $name, float $value = 0)
+    public function __construct(OptionId $optionId, Criterion $criterion, string $name, float $value = 0)
     {
         $this->assertNotEmpty($name);
         $this->assertValueNotNegative($value);
