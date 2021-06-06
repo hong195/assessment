@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added password hasher.">
-      <change afterPath="$PROJECT_DIR$/src/Infastructure/Services/AuthenticationService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/AuthenticationServiceTest.php" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added auth service.">
+      <change afterPath="$PROJECT_DIR$/src/Infastructure/Exceptions/InfrastructureException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Infastructure/Exceptions/LoginHasBeenAlreadyTakenException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Infastructure/Services/UserService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/User/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/User/UserRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineUserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/UserBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/UserBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryUserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/ToParticipantTranslator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractUserRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractUserRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/AuthenticationServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/AuthenticationServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -263,25 +264,25 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.phpunit.xml">
-    <configuration name="AuthenticationServiceTest.test_user_can_sign_in_by_token" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\AuthenticationServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/AuthenticationServiceTest.php" method="test_user_can_sign_in_by_token" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.UserServiceTest">
+    <configuration name="UserServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\UserServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="PasswordHashServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\PasswordHashServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PasswordHashTest.php" scope="Class" />
+    <configuration name="UserServiceTest.test_can_delete_a_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\UserServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" method="test_can_delete_a_user" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PasswordHashTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\PasswordHashTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PasswordHashTest.php" scope="Class" />
+    <configuration name="UserServiceTest.test_can_update_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\UserServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" method="test_can_update_user" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UserTest.test_can_set_password" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\Domain\Model\User\UserTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" method="test_can_set_password" scope="Method" />
+    <configuration name="UserServiceTest.test_cannot_delete_non_existing_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\UserServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" method="test_cannot_delete_non_existing_user" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UserTest.test_get_password" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\Domain\Model\User\UserTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" method="test_get_password" scope="Method" />
+    <configuration name="UserServiceTest.test_user_login_must_be_unique" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\UserServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" method="test_user_login_must_be_unique" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -290,11 +291,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.AuthenticationServiceTest.test_user_can_sign_in_by_token" />
-        <item itemvalue="PHPUnit.PasswordHashTest" />
-        <item itemvalue="PHPUnit.PasswordHashServiceTest" />
-        <item itemvalue="PHPUnit.UserTest.test_get_password" />
-        <item itemvalue="PHPUnit.UserTest.test_can_set_password" />
+        <item itemvalue="PHPUnit.UserServiceTest" />
+        <item itemvalue="PHPUnit.UserServiceTest.test_can_delete_a_user" />
+        <item itemvalue="PHPUnit.UserServiceTest.test_cannot_delete_non_existing_user" />
+        <item itemvalue="PHPUnit.UserServiceTest.test_user_login_must_be_unique" />
+        <item itemvalue="PHPUnit.UserServiceTest.test_can_update_user" />
       </list>
     </recent_temporary>
   </component>
@@ -372,35 +373,7 @@
       <workItem from="1622828641075" duration="1079000" />
       <workItem from="1622829827495" duration="1279000" />
       <workItem from="1622894429732" duration="19517000" />
-      <workItem from="1622952894691" duration="21288000" />
-    </task>
-    <task id="LOCAL-00032" summary="Added AssessmentRepository contract.">
-      <created>1618598539495</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1618598539496</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Correct models name.">
-      <created>1618760670489</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1618760670489</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Correct models name.">
-      <created>1618941608015</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1618941608015</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Updated app tests.">
-      <created>1618943423971</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1618943423971</updated>
+      <workItem from="1622952894691" duration="26304000" />
     </task>
     <task id="LOCAL-00036" summary="Added pharmacy entity test.">
       <created>1618945811972</created>
@@ -717,7 +690,35 @@
       <option name="project" value="LOCAL" />
       <updated>1622965274545</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="added auth service.">
+      <created>1622982236275</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1622982236275</updated>
+    </task>
+    <task id="LOCAL-00082" summary="added auth service.">
+      <created>1622982249514</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1622982249514</updated>
+    </task>
+    <task id="LOCAL-00083" summary="added auth service.">
+      <created>1622982414834</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1622982414835</updated>
+    </task>
+    <task id="LOCAL-00084" summary="added auth service.">
+      <created>1622982567007</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1622982567007</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -787,7 +788,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Updated test entity builders." />
     <MESSAGE value="Added pharmacy yml mappings." />
     <MESSAGE value="added criterion yaml mapping." />
     <MESSAGE value="added assessment yaml mapping." />
@@ -812,7 +812,8 @@
     <MESSAGE value="updated employee repository." />
     <MESSAGE value="added vue fronted template." />
     <MESSAGE value="added password hasher." />
-    <option name="LAST_COMMIT_MESSAGE" value="added password hasher." />
+    <MESSAGE value="added auth service." />
+    <option name="LAST_COMMIT_MESSAGE" value="added auth service." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

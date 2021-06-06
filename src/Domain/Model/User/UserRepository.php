@@ -19,4 +19,6 @@ interface UserRepository
     public function getAll();
 
     public function findByIds(array $ids) : ArrayCollection;
+
+    public function findByLogin(Login $login) : ?User;
 }

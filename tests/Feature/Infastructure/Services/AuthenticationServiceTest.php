@@ -13,7 +13,7 @@ use Tests\TestCase;
 use Tests\Unit\Domain\Model\Builders\UserBuilder;
 
 /**
- * @group Integration
+ * @group integration
  */
 class AuthenticationServiceTest extends TestCase
 {

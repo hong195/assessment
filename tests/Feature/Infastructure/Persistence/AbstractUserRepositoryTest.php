@@ -3,6 +3,7 @@
 namespace Tests\Feature\Infastructure\Persistence;
 
 use Domain\Exceptions\DomainException;
+use Domain\Model\User\Login;
 use Domain\Model\User\User;
 use Domain\Model\User\UserRepository;
 use Tests\TestCase;
@@ -18,7 +19,7 @@ abstract class AbstractUserRepositoryTest extends TestCase
         $this->userRepository = $this->getRepository();
     }
 
-    abstract protected function getRepository() : UserRepository;
+    abstract protected function getRepository(): UserRepository;
 
     public function test_add_user()
     {
@@ -71,6 +72,7 @@ abstract class AbstractUserRepositoryTest extends TestCase
         $aUser = UserBuilder::aUser()->build();
         $aUser2 = UserBuilder::aUser()->build();
 
+
         $this->userRepository->add($aUser);
         $this->userRepository->add($aUser2);
 
@@ -79,5 +81,16 @@ abstract class AbstractUserRepositoryTest extends TestCase
         $this->assertNotEmpty($this->userRepository);
         $this->assertContains($aUser, $foundUsers);
         $this->assertContains($aUser2, $foundUsers);
+    }
+
+    public function test_can_find_by_login()
+    {
+        $login = new Login('login');
+        $aUser = UserBuilder::aUser()->withLogin($login)->build();
+
+        $this->userRepository->add($aUser);
+        $foundUser = $this->userRepository->findByLogin($login);
+
+        $this->assertEquals((string)$login, (string)$foundUser->getLogin());
     }
 }

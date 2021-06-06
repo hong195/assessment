@@ -7,6 +7,7 @@ namespace Infastructure\Persistence\Doctrine;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Domain\Exceptions\NotFoundEntityException;
+use Domain\Model\User\Login;
 use Domain\Model\User\User;
 use Domain\Model\User\UserId;
 use Domain\Model\User\UserRepository;
@@ -57,6 +58,11 @@ final class DoctrineUserRepository implements UserRepository
     public function getAll(): ArrayCollection
     {
         return new ArrayCollection($this->repository->findAll());
+    }
+
+    public function findByLogin(Login $login): ?User
+    {
+        return $this->repository->findOneBy(['login.login' => (string) $login]);
     }
 
     public function findByIds(array $ids): ArrayCollection

@@ -5,6 +5,7 @@ namespace Infastructure\Persistence\InMemory;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Domain\Exceptions\DomainException;
+use Domain\Model\User\Login;
 use Domain\Model\User\User;
 use Domain\Model\User\UserId;
 use Domain\Model\User\UserRepository;
@@ -90,5 +91,17 @@ class InMemoryUserRepository implements UserRepository
             }
             return null;
         });
+    }
+
+    public function findByLogin(Login $login): ?User
+    {
+        $found =  $this->users->filter(function ($user)  use ($login){
+            if ((string) $user->getLogin() === (string) $login) {
+                return $user;
+            }
+            return null;
+        });
+
+        return $found->first() ?? null;
     }
 }
