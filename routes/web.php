@@ -1,6 +1,7 @@
 <?php
 
 use Doctrine\ORM\EntityManagerInterface;
+use Domain\Model\Employee\EmployeeRepository;
 use Domain\Model\Pharmacy\PharmacyId;
 use Illuminate\Support\Facades\Route;
 
@@ -19,15 +20,15 @@ Route::get('/', function () {
     $em = app()->make(EntityManagerInterface::class);
     $repo = app()->make(\Domain\Model\Pharmacy\PharmacyRepository::class);
 
-    $pharmacy = \Tests\Unit\Domain\Model\Builders\PharmacyBuilder::aPharmacy()->build();
+    $pharmacy = $repo->findById(new PharmacyId('6a973177-bb96-4e01-93dd-90f2c43a999b'));
 
-    $employee = \Tests\Unit\Domain\Model\Builders\EmployeeBuilder::anEmployee()
-            ->withPharmacy($pharmacy)->build();
+//    $employee = \Tests\Unit\Domain\Model\Builders\EmployeeBuilder::anEmployee()->withPharmacy($pharmacy)->build();
+//
+//    $pharmacy->addEmployee($employee);
+//    $repo->add($pharmacy);
+//
+//    $em->flush();
 
-    $pharmacy->addEmployee($employee);
-    $pharmacy->resign($employee);
-    $repo->add($pharmacy);
-    $em->flush();
-
+    dd($pharmacy->getEmployees()->toArray());
     return view('welcome');
 });
