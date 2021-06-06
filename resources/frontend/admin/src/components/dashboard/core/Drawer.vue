@@ -18,7 +18,7 @@
     <v-list-item two-line>
       <v-list-item-content>
         <v-list-item-title class="text-uppercase font-weight-regular display-2">
-          <span class="logo-mini">E-signature</span>
+          <span class="logo-mini">Hr Project</span>
         </v-list-item-title>
       </v-list-item-content>
     </v-list-item>
@@ -79,7 +79,7 @@
       computedItems () {
         const user = this.$store.state.user
 
-        if (!user.isAdmin) {
+        if (user.isAdmin) {
           return this.itemsAdmin.map(this.mapItem)
         }
 

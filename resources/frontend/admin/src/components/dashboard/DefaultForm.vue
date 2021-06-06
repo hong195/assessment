@@ -16,7 +16,7 @@
   </base-material-card>
 </template>
 <script>
-  import FormBase from '@/components/form/FormBase'
+  import FormBase from '@/components/Form/FormBase'
 
   export default {
     name: 'DefaultForm',

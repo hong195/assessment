@@ -19,6 +19,11 @@ export default [
         avatar: 'mdi-clipboard-outline',
         title: 'createPharmacy',
       },
+      {
+        to: 'pharmacy-rating',
+        avatar: 'mdi-clipboard-outline',
+        title: 'pharmacyRating',
+      },
     ],
   },
   {

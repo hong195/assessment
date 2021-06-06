@@ -1,13 +1,13 @@
 import Vue from 'vue'
-import App from '@/components/App.vue'
+import App from './App.vue'
 import store from './store'
 import router from './router'
 import './plugins/base'
 import './plugins/vee-validate'
 import './plugins/axios/index'
 import vuetify from './plugins/vuetify'
-import i18n from './plugins/i18n'
-import { mapMutations } from 'vuex'
+import i18n from './i18n'
+import { mapMutations, mapActions } from 'vuex'
 
 Vue.config.productionTip = false
 
@@ -18,6 +18,7 @@ function boot () {
     },
     methods: {
       ...mapMutations(['removePreloader']),
+      ...mapActions('user', ['fetchUser']),
     },
     router,
     store,
@@ -29,7 +30,10 @@ function boot () {
 // extract user before vue instance created
 store.dispatch('user/fetchUser')
   .then(() => {
-    boot()
+    store.dispatch('user/refreshToken')
+      .then(() => {
+      boot()
+      })
   })
   .catch(() => {
     boot()

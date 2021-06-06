@@ -1,6 +1,6 @@
 <template>
   <v-data-table
-    :items="$store.getters[getter]"
+    :items="items"
     :headers="headers"
     :loading="loading"
     :server-items-length="total"
@@ -85,12 +85,6 @@
         type: [Object, FormData],
         default: () => ({}),
       },
-      mutation: {
-        type: String,
-      },
-      getter: {
-        type: String,
-      },
     },
     data: () => ({
       items: [],
@@ -125,12 +119,15 @@
           sortBy = null,
         } = this.options
 
+        const sortDesc = this.options.sortDesc.includes(false) ? 'ASC' : 'DESC'
+
         this.$http.get(this.fetchUrl, {
           params: {
-            ...this.searchOptions,
             perPage: itemsPerPage === -1 ? 10000000 : itemsPerPage,
             page: page,
             orderBy: sortBy ? sortBy[0] : null,
+            direction: sortDesc,
+            ...this.searchOptions,
           },
         })
           .then(({ data }) => {
@@ -139,7 +136,6 @@
               el.expanded = false
               this.items.push(el)
             })
-            this.$store.commit(this.mutation, this.items)
             this.meta = data.meta
             this.loading = false
           })
@@ -180,9 +176,15 @@
         return value
       },
       getHeaderClass (header) {
-        if (header.value === 'data-table-expand') { return 'text-right' }
-        if (header.align) { return ' text-' + header.align }
-        return 'text-start'
+        const defaultClass = header.value.split('.').join(' ')
+
+        if (header.value === 'data-table-expand') {
+          return `text-right ${defaultClass}`
+        }
+        if (header.align) {
+          return `text-${header.align} ${defaultClass}`
+        }
+        return `text-start ${defaultClass}`
       },
     },
   }

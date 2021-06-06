@@ -36,5 +36,6 @@
     "admin_panel": {
         "loading": "Загрузка",
         "noDataText": "Нет данных"
-    }
+    },
+    "pharmacyRating": "Рейтинг аптеки"
 }

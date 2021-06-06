@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated pharmacy repository.">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Model/Employee/EmployeeRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineEmployeeRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryEmployeeRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/EmployeeRepositoryTest.php" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added vue fronted template.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +214,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -239,18 +233,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/frontend" />
+      <recent name="$PROJECT_DIR$/resources" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence\Doctrine" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence\Doctrine" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence\InMemory" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/frontend/admin" />
       <recent name="$PROJECT_DIR$/tests/Unit/Domain/Model/EmployeeTest" />
       <recent name="$PROJECT_DIR$/tests/Unit/Domain/Model" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings\Pharmacy" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -368,21 +362,7 @@
       <workItem from="1622828641075" duration="1079000" />
       <workItem from="1622829827495" duration="1279000" />
       <workItem from="1622894429732" duration="19517000" />
-      <workItem from="1622952894691" duration="3826000" />
-    </task>
-    <task id="LOCAL-00027" summary="Project updated.">
-      <created>1618332347311</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1618332347312</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Added AssessmentRepository contract.">
-      <created>1618333222650</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1618333222650</updated>
+      <workItem from="1622952894691" duration="5084000" />
     </task>
     <task id="LOCAL-00029" summary="Added AssessmentRepository contract.">
       <created>1618333317806</created>
@@ -713,7 +693,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622916080665</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="updated employee repository.">
+      <created>1622956912111</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1622956912112</updated>
+    </task>
+    <task id="LOCAL-00077" summary="added vue fronted template.">
+      <created>1622957431984</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1622957431984</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -753,8 +747,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Added participant context." />
-    <MESSAGE value="Added user entity yml mapping." />
     <MESSAGE value="Removed default migrations." />
     <MESSAGE value="Updated test entity builders." />
     <MESSAGE value="Added pharmacy yml mappings." />
@@ -778,7 +770,9 @@
     <MESSAGE value="added" />
     <MESSAGE value="added employee entity." />
     <MESSAGE value="updated pharmacy repository." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated pharmacy repository." />
+    <MESSAGE value="updated employee repository." />
+    <MESSAGE value="added vue fronted template." />
+    <option name="LAST_COMMIT_MESSAGE" value="added vue fronted template." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
