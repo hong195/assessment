@@ -9,6 +9,7 @@ use Domain\Model\User\Login;
 use Domain\Model\User\Role;
 use Domain\Model\User\User;
 use Domain\Model\User\UserId;
+use Infastructure\Services\CustomPasswordHasher;
 
 class UserBuilder
 {
@@ -23,6 +24,8 @@ class UserBuilder
     private Role $role;
 
     private FullName $fullName;
+    private string $password;
+    private CustomPasswordHasher $passHasher;
 
     public function __construct()
     {
@@ -30,6 +33,8 @@ class UserBuilder
         $this->login = new Login('user-login');
         $this->fullName = new FullName('Test', 'Test', 'Test');
         $this->role = new Role(Role::PHARMACIST);
+        $this->passHasher = new CustomPasswordHasher();
+        $this->password = $this->passHasher->hash('test');
     }
 
     public static function aUser(): UserBuilder
@@ -62,8 +67,14 @@ class UserBuilder
         return $this;
     }
 
+    public function withPassword(string $password): UserBuilder
+    {
+        $this->password = $this->passHasher->hash($password);
+        return $this;
+    }
+
     public function build(): User
     {
-        return new User($this->id, $this->login, $this->fullName, $this->role);
+        return new User($this->id, $this->login, $this->password, $this->fullName, $this->role);
     }
 }

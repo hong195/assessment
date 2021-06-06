@@ -11,7 +11,6 @@ use Domain\Model\User\User;
 use Domain\Model\User\UserId;
 use Domain\Model\User\UserRepository;
 use \Doctrine\Persistence\ObjectRepository;
-use Illuminate\Support\Arr;
 
 final class DoctrineUserRepository implements UserRepository
 {

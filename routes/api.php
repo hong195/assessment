@@ -1,5 +1,6 @@
 <?php
 
+use Doctrine\ORM\EntityManagerInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/user', function (Request $request) {
+    $credentials = request(['login', 'password']);
+
+    $credentials = [
+        'login.login' => $request->login,
+        'password' => $request->password
+    ];
+
+
+    if (! $token = auth()->attempt($credentials)) {
+        return response()->json(['error' => 'Unauthorized'], 401);
+    }
+
+    dd(auth()->user(), $token);
+    return ['user' => auth()->user(), 'token' => $token];
 });

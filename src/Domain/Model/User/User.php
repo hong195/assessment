@@ -1,11 +1,16 @@
 <?php
 
 namespace Domain\Model\User;
+
+
 use Doctrine\ORM\Mapping as ORM;
+use \Illuminate\Contracts\Auth\Authenticatable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+
 /**
  * @ORM\Entity
  */
-class User
+class User implements Authenticatable, JWTSubject
 {
     /**
      * @ORM\Column(type="user_id")
@@ -26,17 +31,17 @@ class User
     private Login $login;
 
     /**
-     * @ORM\Column (typre="string")
+     * @ORM\Column (type="string")
      */
     private string $password;
 
-    public function __construct(UserId $userId, Login $login, FullName $name, Role $role)
+    public function __construct(UserId $userId, Login $login, $password, FullName $name, Role $role)
     {
         $this->id = $userId;
         $this->login = $login;
         $this->name = $name;
         $this->role = $role;
-        $this->password = '';
+        $this->password = $password;
     }
 
     public function changeLogin(Login $login)
@@ -83,4 +88,35 @@ class User
     {
         return $this->password;
     }
+
+    public function getAuthIdentifierName(): string
+    {
+        return 'id';
+    }
+
+    public function getAuthIdentifier()
+    {
+        return $this->id;
+    }
+
+    public function getAuthPassword(): string
+    {
+        return $this->getPassword();
+    }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getId();
+    }
+
+    public function getJWTCustomClaims() : array
+    {
+        return [];
+    }
+
+    public function getRememberToken(){}
+
+    public function setRememberToken($value){}
+
+    public function getRememberTokenName(){}
 }
