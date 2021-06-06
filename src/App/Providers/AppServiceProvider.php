@@ -17,6 +17,7 @@ use Infastructure\Persistence\Doctrine\DoctrinePharmacyRepository;
 use Infastructure\Persistence\Doctrine\DoctrineUserRepository;
 use Illuminate\Contracts\Hashing\Hasher;
 use Infastructure\Services\BcryptPasswordHasher;
+use Infastructure\Services\UserService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -55,6 +56,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(PasswordHasher::class, function() {
             $hasher = $this->app->make(Hasher::class);
             return new BcryptPasswordHasher($hasher);
+        });
+
+        $this->app->bind(UserService::class, function() {
+            $hasher = $this->app->make(PasswordHasher::class);
+            $em = $this->app->make(EntityManagerInterface::class);
+            $userRepository = $this->app->make(UserRepository::class);
+
+            return new UserService($userRepository, $em, $hasher);
         });
     }
 
