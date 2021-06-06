@@ -25,12 +25,18 @@ class User
      */
     private Login $login;
 
+    /**
+     * @ORM\Column (typre="string")
+     */
+    private string $password;
+
     public function __construct(UserId $userId, Login $login, FullName $name, Role $role)
     {
         $this->id = $userId;
         $this->login = $login;
         $this->name = $name;
         $this->role = $role;
+        $this->password = '';
     }
 
     public function changeLogin(Login $login)
@@ -66,5 +72,15 @@ class User
     public function getFullName(): FullName
     {
         return $this->name;
+    }
+
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
+
+    public function getPassword() : string
+    {
+        return $this->password;
     }
 }

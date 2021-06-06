@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added vue fronted template.">
+      <change afterPath="$PROJECT_DIR$/src/Domain/Model/User/PasswordHasher.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/User/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +218,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -233,18 +237,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/frontend" />
+      <recent name="$PROJECT_DIR$/resources/frontend/admin" />
       <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$/resources/frontend" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence\Doctrine" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence\Doctrine" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Infastructure/Services" />
+      <recent name="$PROJECT_DIR$/tests/Feature/Infastructure/Services" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin" />
       <recent name="$PROJECT_DIR$/tests/Unit/Domain/Model/EmployeeTest" />
       <recent name="$PROJECT_DIR$/tests/Unit/Domain/Model" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -253,38 +257,38 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.EmployeeRepositoryTest">
-    <configuration name="EmployeeRepositoryTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\EmployeeRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/EmployeeRepositoryTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.phpunit.xml">
+    <configuration name="PasswordHashServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\PasswordHashServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PasswordHashTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="EmployeeRepositoryTest.test_can_get_by_pharmacy_id" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\EmployeeRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/EmployeeRepositoryTest.php" method="test_can_get_by_pharmacy_id" scope="Method" />
+    <configuration name="PasswordHashTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\PasswordHashTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PasswordHashTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="PharmacyTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\Domain\Model\Pharmacy\PharmacyTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" scope="Class" />
+    <configuration name="UserTest.test_can_hash_password" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\User\UserTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" method="test_can_hash_password" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PharmacyTest.test_can_add_employees" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\Domain\Model\Pharmacy\PharmacyTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" method="test_can_add_employees" scope="Method" />
+    <configuration name="UserTest.test_can_set_password" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\User\UserTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" method="test_can_set_password" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PharmacyTest.test_can_remove_employee" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\Domain\Model\Pharmacy\PharmacyTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" method="test_can_remove_employee" scope="Method" />
+    <configuration name="UserTest.test_get_password" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\User\UserTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" method="test_get_password" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner scope="XML" />
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.EmployeeRepositoryTest" />
-        <item itemvalue="PHPUnit.EmployeeRepositoryTest.test_can_get_by_pharmacy_id" />
-        <item itemvalue="PHPUnit.PharmacyTest" />
-        <item itemvalue="PHPUnit.PharmacyTest.test_can_remove_employee" />
-        <item itemvalue="PHPUnit.PharmacyTest.test_can_add_employees" />
+        <item itemvalue="PHPUnit.PasswordHashTest" />
+        <item itemvalue="PHPUnit.PasswordHashServiceTest" />
+        <item itemvalue="PHPUnit.UserTest.test_get_password" />
+        <item itemvalue="PHPUnit.UserTest.test_can_set_password" />
+        <item itemvalue="PHPUnit.UserTest.test_can_hash_password" />
       </list>
     </recent_temporary>
   </component>
@@ -362,14 +366,7 @@
       <workItem from="1622828641075" duration="1079000" />
       <workItem from="1622829827495" duration="1279000" />
       <workItem from="1622894429732" duration="19517000" />
-      <workItem from="1622952894691" duration="5084000" />
-    </task>
-    <task id="LOCAL-00029" summary="Added AssessmentRepository contract.">
-      <created>1618333317806</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1618333317806</updated>
+      <workItem from="1622952894691" duration="11819000" />
     </task>
     <task id="LOCAL-00030" summary="Added AssessmentRepository contract.">
       <created>1618333344214</created>
@@ -707,7 +704,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622957431984</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="added vue fronted template.">
+      <created>1622958254264</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1622958254264</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

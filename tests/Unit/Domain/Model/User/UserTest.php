@@ -54,4 +54,14 @@ class UserTest extends TestCase
         $this->assertEquals('newName', (string) $user->getFullName()->firstName());
         $this->assertEquals('newLastName', (string) $user->getFullName()->lastName());
     }
+
+    public function test_get_password()
+    {
+        $pass = 'user-pass';
+        $aUser = UserBuilder::aUser()->build();
+
+        $aUser->setPassword($pass);
+
+        $this->assertEquals($aUser->getPassword(), $pass);
+    }
 }

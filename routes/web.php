@@ -3,6 +3,7 @@
 use Doctrine\ORM\EntityManagerInterface;
 use Domain\Model\Employee\EmployeeRepository;
 use Domain\Model\Pharmacy\PharmacyId;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,8 @@ Route::get('/', function () {
 
     $pharmacy = $repo->findById(new PharmacyId('6a973177-bb96-4e01-93dd-90f2c43a999b'));
 
+    $str = Hash::make(34343);
+    dd($str);
 //    $employee = \Tests\Unit\Domain\Model\Builders\EmployeeBuilder::anEmployee()->withPharmacy($pharmacy)->build();
 //
 //    $pharmacy->addEmployee($employee);
