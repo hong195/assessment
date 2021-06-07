@@ -54,7 +54,7 @@ class UserServiceTest extends TestCase
         $this->userService->addUser($id, $login, $password, $name, $role);
         $createdUser = $this->repository->findById($id);
 
-        $this->assertEquals((string) $id, $createdUser->getId());
+        $this->assertTrue($createdUser->getId()->isEqual($id));
         $this->assertEquals((string) $login, $createdUser->getLogin());
         $this->assertEquals((string) $name, $createdUser->getFullName());
         $this->assertEquals((string) $role, $createdUser->getRole());
@@ -130,7 +130,9 @@ class UserServiceTest extends TestCase
         $this->em->flush();
 
         $this->userService->deleteUser($aUser->getId());
+        $foundUsers = $this->repository->getAll();
 
         $this->assertDatabaseCount('users', 0);
+        $this->assertEmpty($foundUsers);
     }
 }

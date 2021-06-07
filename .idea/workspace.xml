@@ -4,19 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added auth service.">
-      <change afterPath="$PROJECT_DIR$/src/Infastructure/Exceptions/InfrastructureException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infastructure/Exceptions/LoginHasBeenAlreadyTakenException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infastructure/Services/UserService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Infastructure/Services/PharmacyService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/User/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineUserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryUserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/ToParticipantTranslator.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractUserRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractUserRepositoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/AuthenticationServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/AuthenticationServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrinePharmacyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrinePharmacyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryPharmacyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryPharmacyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/PharmacyRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/PharmacyRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +47,7 @@
     </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="test" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -66,9 +63,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Model/User/User.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
@@ -210,6 +207,7 @@
       <path value="$PROJECT_DIR$/vendor/gedmo/doctrine-extensions" />
       <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
       <path value="$PROJECT_DIR$/vendor/beberlei/doctrineextensions" />
+      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
     </include_path>
   </component>
   <component name="ProjectId" id="1nrxeNhC18QtC5cBgCdJxgcBOTV" />
@@ -225,7 +223,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -244,18 +242,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/frontend/admin" />
-      <recent name="$PROJECT_DIR$/resources" />
-      <recent name="$PROJECT_DIR$/resources/frontend" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence\Doctrine" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence\Doctrine" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence\InMemory" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Infastructure/Services" />
-      <recent name="$PROJECT_DIR$/tests/Feature/Infastructure/Services" />
-      <recent name="$PROJECT_DIR$/resources/frontend/admin" />
-      <recent name="$PROJECT_DIR$/tests/Unit/Domain/Model/EmployeeTest" />
-      <recent name="$PROJECT_DIR$/tests/Unit/Domain/Model" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings\Pharmacy" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model" />
+      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Participant" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -264,38 +262,38 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.UserServiceTest">
-    <configuration name="UserServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\UserServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.PharmacyServiceTest.test_cant_delete_not_existing_pharmacy">
+    <configuration name="PharmacyServiceTest.test_can_add_pharmacy" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_can_add_pharmacy" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UserServiceTest.test_can_delete_a_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\UserServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" method="test_can_delete_a_user" scope="Method" />
+    <configuration name="PharmacyServiceTest.test_can_delete_pharmacy" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_can_delete_pharmacy" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UserServiceTest.test_can_update_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\UserServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" method="test_can_update_user" scope="Method" />
+    <configuration name="PharmacyServiceTest.test_can_update" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_can_update" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UserServiceTest.test_cannot_delete_non_existing_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\UserServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" method="test_cannot_delete_non_existing_user" scope="Method" />
+    <configuration name="PharmacyServiceTest.test_cant_delete_not_existing_pharmacy" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_cant_delete_not_existing_pharmacy" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UserServiceTest.test_user_login_must_be_unique" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\UserServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" method="test_user_login_must_be_unique" scope="Method" />
+    <configuration name="PharmacyServiceTest.test_expects_exception_when_pharmacy_number_is_not_unique" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_expects_exception_when_pharmacy_number_is_not_unique" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" />
+      <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.UserServiceTest" />
-        <item itemvalue="PHPUnit.UserServiceTest.test_can_delete_a_user" />
-        <item itemvalue="PHPUnit.UserServiceTest.test_cannot_delete_non_existing_user" />
-        <item itemvalue="PHPUnit.UserServiceTest.test_user_login_must_be_unique" />
-        <item itemvalue="PHPUnit.UserServiceTest.test_can_update_user" />
+        <item itemvalue="PHPUnit.PharmacyServiceTest.test_cant_delete_not_existing_pharmacy" />
+        <item itemvalue="PHPUnit.PharmacyServiceTest.test_can_delete_pharmacy" />
+        <item itemvalue="PHPUnit.PharmacyServiceTest.test_can_update" />
+        <item itemvalue="PHPUnit.PharmacyServiceTest.test_expects_exception_when_pharmacy_number_is_not_unique" />
+        <item itemvalue="PHPUnit.PharmacyServiceTest.test_can_add_pharmacy" />
       </list>
     </recent_temporary>
   </component>
@@ -366,14 +364,137 @@
       <workItem from="1622222062016" duration="324000" />
       <workItem from="1622298750982" duration="595000" />
       <workItem from="1622315237542" duration="3102000" />
-      <workItem from="1622479857611" duration="6243000" />
-      <workItem from="1622628312418" duration="7727000" />
-      <workItem from="1622726464130" duration="2543000" />
-      <workItem from="1622729337462" duration="7006000" />
-      <workItem from="1622828641075" duration="1079000" />
-      <workItem from="1622829827495" duration="1279000" />
-      <workItem from="1622894429732" duration="19517000" />
-      <workItem from="1622952894691" duration="26304000" />
+      <workItem from="1622479857611" duration="6886000" />
+      <workItem from="1622830122004" duration="643000" />
+      <workItem from="1622895216605" duration="881000" />
+      <workItem from="1622979101105" duration="1299000" />
+      <workItem from="1623084292808" duration="4329000" />
+    </task>
+    <task id="LOCAL-00018" summary="Added User entity.">
+      <created>1616585076654</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1616585076654</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added check entity.">
+      <created>1616605268555</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1616605268555</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added check entity.">
+      <created>1616605322428</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1616605322428</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Update user tests.">
+      <created>1616694018683</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1616694018683</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Project updated.">
+      <created>1618330255387</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1618330255387</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Project updated.">
+      <created>1618330265306</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1618330265306</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Project updated.">
+      <created>1618331391859</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1618331391859</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Project updated.">
+      <created>1618331437873</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1618331437873</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Project updated.">
+      <created>1618332249575</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1618332249575</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Project updated.">
+      <created>1618332347311</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1618332347312</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added AssessmentRepository contract.">
+      <created>1618333222650</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1618333222650</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added AssessmentRepository contract.">
+      <created>1618333317806</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1618333317806</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Added AssessmentRepository contract.">
+      <created>1618333344214</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1618333344214</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Added AssessmentRepository contract.">
+      <created>1618598510741</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1618598510741</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Added AssessmentRepository contract.">
+      <created>1618598539495</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1618598539496</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Correct models name.">
+      <created>1618760670489</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1618760670489</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Correct models name.">
+      <created>1618941608015</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1618941608015</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Updated app tests.">
+      <created>1618943423971</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1618943423971</updated>
     </task>
     <task id="LOCAL-00036" summary="Added pharmacy entity test.">
       <created>1618945811972</created>
@@ -578,147 +699,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622484866726</updated>
     </task>
-    <task id="LOCAL-00065" summary="updated migrations.">
-      <created>1622546282458</created>
+    <task id="LOCAL-00065" summary="added efficiency analyses repository.">
+      <created>1622486175889</created>
       <option name="number" value="00065" />
       <option name="presentableId" value="LOCAL-00065" />
       <option name="project" value="LOCAL" />
-      <updated>1622546282459</updated>
+      <updated>1622486175889</updated>
     </task>
-    <task id="LOCAL-00066" summary="updated migrations.">
-      <created>1622546294850</created>
+    <task id="LOCAL-00066" summary="added efficiency analyses repository.">
+      <created>1622486182780</created>
       <option name="number" value="00066" />
       <option name="presentableId" value="LOCAL-00066" />
       <option name="project" value="LOCAL" />
-      <updated>1622546294850</updated>
+      <updated>1622486182781</updated>
     </task>
-    <task id="LOCAL-00067" summary="updated EfficiencyAnalyses repository.">
-      <created>1622728950442</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1622728950442</updated>
-    </task>
-    <task id="LOCAL-00068" summary="updated User repository.">
-      <created>1622738855198</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1622738855199</updated>
-    </task>
-    <task id="LOCAL-00069" summary="added Criterion repository.">
-      <created>1622740365072</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1622740365072</updated>
-    </task>
-    <task id="LOCAL-00070" summary="updated criterion repository tests.">
-      <created>1622740617611</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1622740617611</updated>
-    </task>
-    <task id="LOCAL-00071" summary="added pharmacy repository.">
-      <created>1622742082581</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1622742082581</updated>
-    </task>
-    <task id="LOCAL-00072" summary="added pharmacy repository.">
-      <created>1622742920645</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1622742920645</updated>
-    </task>
-    <task id="LOCAL-00073" summary="added employee entity.">
-      <created>1622908080327</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1622908080328</updated>
-    </task>
-    <task id="LOCAL-00074" summary="added employee entity.">
-      <created>1622910998656</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1622910998656</updated>
-    </task>
-    <task id="LOCAL-00075" summary="updated pharmacy repository.">
-      <created>1622916080664</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1622916080665</updated>
-    </task>
-    <task id="LOCAL-00076" summary="updated employee repository.">
-      <created>1622956912111</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1622956912112</updated>
-    </task>
-    <task id="LOCAL-00077" summary="added vue fronted template.">
-      <created>1622957431984</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1622957431984</updated>
-    </task>
-    <task id="LOCAL-00078" summary="added vue fronted template.">
-      <created>1622958254264</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1622958254264</updated>
-    </task>
-    <task id="LOCAL-00079" summary="added password hasher.">
-      <created>1622965252466</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1622965252466</updated>
-    </task>
-    <task id="LOCAL-00080" summary="added password hasher.">
-      <created>1622965274545</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1622965274545</updated>
-    </task>
-    <task id="LOCAL-00081" summary="added auth service.">
-      <created>1622982236275</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1622982236275</updated>
-    </task>
-    <task id="LOCAL-00082" summary="added auth service.">
-      <created>1622982249514</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1622982249514</updated>
-    </task>
-    <task id="LOCAL-00083" summary="added auth service.">
-      <created>1622982414834</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1622982414835</updated>
-    </task>
-    <task id="LOCAL-00084" summary="added auth service.">
-      <created>1622982567007</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1622982567007</updated>
-    </task>
-    <option name="localTasksCounter" value="85" />
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -737,31 +732,6 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
-        <entry key="56b08d76-074a-4939-857e-35683f06164a">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:/Users/aleksejem/Sites/assessment/tests/Feature" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -775,11 +745,6 @@
         </entry>
       </map>
     </option>
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="56b08d76-074a-4939-857e-35683f06164a" value="TOOL_WINDOW" />
-      </map>
-    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
@@ -788,6 +753,18 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
+    <MESSAGE value="Updated app tests." />
+    <MESSAGE value="Added pharmacy entity test." />
+    <MESSAGE value="Updated project structure &amp; tests." />
+    <MESSAGE value="Updated EfficiencyAnalysis models." />
+    <MESSAGE value="Added entities interfaces." />
+    <MESSAGE value="Added efficiency analysis repository tests." />
+    <MESSAGE value="Updated in memory folder structure." />
+    <MESSAGE value="Updated criterion repository tests." />
+    <MESSAGE value="Added participant context." />
+    <MESSAGE value="Added user entity yml mapping." />
+    <MESSAGE value="Removed default migrations." />
+    <MESSAGE value="Updated test entity builders." />
     <MESSAGE value="Added pharmacy yml mappings." />
     <MESSAGE value="added criterion yaml mapping." />
     <MESSAGE value="added assessment yaml mapping." />
@@ -800,20 +777,8 @@
     <MESSAGE value="changed assessment yaml to annotations mapping." />
     <MESSAGE value="changed efficiency analasys yaml to annotations mapping." />
     <MESSAGE value="generated doctrine proxy." />
-    <MESSAGE value="updated migrations." />
-    <MESSAGE value="updated EfficiencyAnalyses repository." />
-    <MESSAGE value="updated User repository." />
-    <MESSAGE value="added Criterion repository." />
-    <MESSAGE value="updated criterion repository tests." />
-    <MESSAGE value="added pharmacy repository." />
-    <MESSAGE value="added" />
-    <MESSAGE value="added employee entity." />
-    <MESSAGE value="updated pharmacy repository." />
-    <MESSAGE value="updated employee repository." />
-    <MESSAGE value="added vue fronted template." />
-    <MESSAGE value="added password hasher." />
-    <MESSAGE value="added auth service." />
-    <option name="LAST_COMMIT_MESSAGE" value="added auth service." />
+    <MESSAGE value="added efficiency analyses repository." />
+    <option name="LAST_COMMIT_MESSAGE" value="added efficiency analyses repository." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

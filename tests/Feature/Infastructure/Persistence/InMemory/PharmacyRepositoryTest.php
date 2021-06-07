@@ -3,6 +3,7 @@
 namespace Tests\Feature\Infastructure\Persistence\InMemory;
 
 use Domain\Model\Pharmacy\Pharmacy;
+use Domain\Model\Pharmacy\PharmacyNumber;
 use Domain\Model\Pharmacy\PharmacyRepository;
 use Infastructure\Persistence\InMemory\InMemoryPharmacyRepository;
 use Tests\TestCase;
@@ -53,5 +54,16 @@ class PharmacyRepositoryTest extends TestCase
         $this->assertNotEmpty($this->pharmacyRepository->all());
         $this->assertContains($aPharmacy, $this->pharmacyRepository->all());
         $this->assertContains($aPharmacy2, $this->pharmacyRepository->all());
+    }
+
+    public function test_can_find_by_number()
+    {
+        $aPharmacyNumber = new PharmacyNumber('#1');
+
+        $aPharmacy = PharmacyBuilder::aPharmacy()->withNumber($aPharmacyNumber)->build();
+        $this->pharmacyRepository->add($aPharmacy);
+        $found = $this->pharmacyRepository->findByNumber($aPharmacyNumber);
+
+        $this->assertContains($aPharmacy, $found);
     }
 }

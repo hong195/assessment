@@ -7,6 +7,7 @@ namespace Infastructure\Persistence\InMemory;
 use Doctrine\Common\Collections\ArrayCollection;
 use Domain\Model\Pharmacy\Pharmacy;
 use Domain\Model\Pharmacy\PharmacyId;
+use Domain\Model\Pharmacy\PharmacyNumber;
 use Domain\Model\Pharmacy\PharmacyRepository;
 
 class InMemoryPharmacyRepository implements PharmacyRepository
@@ -48,5 +49,12 @@ class InMemoryPharmacyRepository implements PharmacyRepository
                 break;
             }
         }
+    }
+
+    public function findByNumber(PharmacyNumber $number): ArrayCollection
+    {
+        return $this->pharmacies->filter(function (Pharmacy $pharmacy) use ($number){
+            return (string) $pharmacy->getNumber() === (string) $number;
+        });
     }
 }

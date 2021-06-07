@@ -15,4 +15,6 @@ interface PharmacyRepository
     public function add(Pharmacy $pharmacy) :void;
 
     public function remove(Pharmacy $pharmacy);
+
+    public function findByNumber(PharmacyNumber $number);
 }
