@@ -27,10 +27,11 @@ class EfficiencyAnalysisBuilder
     protected EmployeeId $employeeId;
 
     protected EfficiencyAnalysisId $ratingId;
+    private EfficiencyAnalysisId $analysesId;
 
     public function __construct()
     {
-        $this->ratingId = EfficiencyAnalysisId::next();
+        $this->analysesId = EfficiencyAnalysisId::next();
         $this->employeeId = new EmployeeId(EmployeeId::next());
         $this->month = new Month(now()->year, now()->month);
     }
@@ -40,6 +41,11 @@ class EfficiencyAnalysisBuilder
         return new self();
     }
 
+    public function withId(EfficiencyAnalysisId $analysisId)
+    {
+        $this->analysesId = $analysisId;
+        return $this;
+    }
     public function withEmployee(EmployeeId $employeeId): EfficiencyAnalysisBuilder
     {
         $this->employeeId = $employeeId;
@@ -54,7 +60,7 @@ class EfficiencyAnalysisBuilder
 
     public function build($reviewsNumber = 0): EfficiencyAnalysis
     {
-        $efficiencyAnalysis = new EfficiencyAnalysis($this->ratingId, $this->employeeId, $this->month);
+        $efficiencyAnalysis = new EfficiencyAnalysis($this->analysesId, $this->employeeId, $this->month);
         $reviewId = new AssessmentId(AssessmentId::next());
         $criteria = [
             new Criterion('Этика',

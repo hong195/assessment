@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Infastructure/Services/PharmacyService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated full name embed annotation &amp; added user service to service container.">
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrinePharmacyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrinePharmacyRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryPharmacyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryPharmacyRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/PharmacyRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/PharmacyRepositoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/EfficiencyAnalysisService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Services/EfficiencyAnalysisService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/EfficiencyAnalysisBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/EfficiencyAnalysisBuilder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +44,7 @@
     </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,9 +60,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Model/User/User.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
@@ -262,38 +259,37 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.PharmacyServiceTest.test_cant_delete_not_existing_pharmacy">
-    <configuration name="PharmacyServiceTest.test_can_add_pharmacy" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_can_add_pharmacy" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.EfficiencyAnalysesServiceTest.test_can_add_assessment">
+    <configuration name="EfficiencyAnalysesServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\EfficiencyAnalysesServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="PharmacyServiceTest.test_can_delete_pharmacy" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_can_delete_pharmacy" scope="Method" />
+    <configuration name="EfficiencyAnalysesServiceTest.test_can_add_assessment" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\EfficiencyAnalysesServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" method="test_can_add_assessment" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PharmacyServiceTest.test_can_update" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_can_update" scope="Method" />
+    <configuration name="EfficiencyAnalysesServiceTest.test_can_create_an_efficiency_analyses" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\EfficiencyAnalysesServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" method="test_can_create_an_efficiency_analyses" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PharmacyServiceTest.test_cant_delete_not_existing_pharmacy" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_cant_delete_not_existing_pharmacy" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="PharmacyServiceTest.test_expects_exception_when_pharmacy_number_is_not_unique" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_expects_exception_when_pharmacy_number_is_not_unique" scope="Method" />
+    <configuration name="EfficiencyAnalysesServiceTest.test_expects_exception_when_employee_has_already_analyses_for_a_certain_month" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\EfficiencyAnalysesServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" method="test_expects_exception_when_employee_has_already_analyses_for_a_certain_month" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="EfficiencyAnalysisService.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/Infastructure/Services/EfficiencyAnalysisService.php">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.PharmacyServiceTest.test_cant_delete_not_existing_pharmacy" />
-        <item itemvalue="PHPUnit.PharmacyServiceTest.test_can_delete_pharmacy" />
-        <item itemvalue="PHPUnit.PharmacyServiceTest.test_can_update" />
-        <item itemvalue="PHPUnit.PharmacyServiceTest.test_expects_exception_when_pharmacy_number_is_not_unique" />
-        <item itemvalue="PHPUnit.PharmacyServiceTest.test_can_add_pharmacy" />
+        <item itemvalue="PHPUnit.EfficiencyAnalysesServiceTest.test_can_add_assessment" />
+        <item itemvalue="PHPUnit.EfficiencyAnalysesServiceTest.test_can_create_an_efficiency_analyses" />
+        <item itemvalue="PHPUnit.EfficiencyAnalysesServiceTest.test_expects_exception_when_employee_has_already_analyses_for_a_certain_month" />
+        <item itemvalue="PHP Script.EfficiencyAnalysisService.php" />
+        <item itemvalue="PHPUnit.EfficiencyAnalysesServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -368,28 +364,11 @@
       <workItem from="1622830122004" duration="643000" />
       <workItem from="1622895216605" duration="881000" />
       <workItem from="1622979101105" duration="1299000" />
-      <workItem from="1623084292808" duration="4329000" />
-    </task>
-    <task id="LOCAL-00018" summary="Added User entity.">
-      <created>1616585076654</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1616585076654</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Added check entity.">
-      <created>1616605268555</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1616605268555</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Added check entity.">
-      <created>1616605322428</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1616605322428</updated>
+      <workItem from="1623084292808" duration="5229000" />
+      <workItem from="1623175600259" duration="1211000" />
+      <workItem from="1623255087228" duration="6539000" />
+      <workItem from="1623515175948" duration="1407000" />
+      <workItem from="1623517048134" duration="765000" />
     </task>
     <task id="LOCAL-00021" summary="Update user tests.">
       <created>1616694018683</created>
@@ -713,7 +692,28 @@
       <option name="project" value="LOCAL" />
       <updated>1622486182781</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="added pharmacy service.">
+      <created>1623088954423</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1623088954424</updated>
+    </task>
+    <task id="LOCAL-00068" summary="added pharmacy service.">
+      <created>1623088984999</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1623088984999</updated>
+    </task>
+    <task id="LOCAL-00069" summary="added pharmacy service.">
+      <created>1623088995741</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1623088995741</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -732,6 +732,11 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="56b08d76-074a-4939-857e-35683f06164a">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -753,7 +758,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Updated app tests." />
     <MESSAGE value="Added pharmacy entity test." />
     <MESSAGE value="Updated project structure &amp; tests." />
     <MESSAGE value="Updated EfficiencyAnalysis models." />
@@ -778,7 +782,8 @@
     <MESSAGE value="changed efficiency analasys yaml to annotations mapping." />
     <MESSAGE value="generated doctrine proxy." />
     <MESSAGE value="added efficiency analyses repository." />
-    <option name="LAST_COMMIT_MESSAGE" value="added efficiency analyses repository." />
+    <MESSAGE value="added pharmacy service." />
+    <option name="LAST_COMMIT_MESSAGE" value="added pharmacy service." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

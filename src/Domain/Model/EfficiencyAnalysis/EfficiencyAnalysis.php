@@ -141,6 +141,9 @@ class EfficiencyAnalysis
         return  $this->isMaxReviewsAdded() && $this->status->isEqualTo(Status::COMPLETED);
     }
 
+    /**
+     * @throws \Domain\Model\Assessment\Exceptions\NotExistingSelectedOptionException
+     */
     private function generateScore(): void
     {
         $this->scored = array_reduce($this->assessments->toArray(),

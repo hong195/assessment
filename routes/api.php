@@ -16,8 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/user', function (Request $request) {
+    die;
     $credentials = request(['login', 'password']);
 
+    dd($credentials);
     $credentials = [
         'login.login' => $request->login,
         'password' => $request->password
