@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added criterion service.">
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated analyses service.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/EfficiencyAnalysisService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Services/EfficiencyAnalysisService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelEfficiencyAnalysisEfficiencyAnalysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelEfficiencyAnalysisEfficiencyAnalysis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -375,14 +372,7 @@
       <workItem from="1623255087228" duration="6539000" />
       <workItem from="1623515175948" duration="1407000" />
       <workItem from="1623517048134" duration="5598000" />
-      <workItem from="1623567567270" duration="4078000" />
-    </task>
-    <task id="LOCAL-00024" summary="Project updated.">
-      <created>1618331391859</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1618331391859</updated>
+      <workItem from="1623567567270" duration="4996000" />
     </task>
     <task id="LOCAL-00025" summary="Project updated.">
       <created>1618331437873</created>
@@ -720,7 +710,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623571911428</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="updated analyses service.">
+      <created>1623572405300</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1623572405300</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -765,7 +762,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="Updated EfficiencyAnalysis models." />
     <MESSAGE value="Added entities interfaces." />
     <MESSAGE value="Added efficiency analysis repository tests." />
     <MESSAGE value="Updated in memory folder structure." />
@@ -790,7 +786,8 @@
     <MESSAGE value="updated full name embed annotation &amp; added user service to service container." />
     <MESSAGE value="added pharmacy service." />
     <MESSAGE value="added criterion service." />
-    <option name="LAST_COMMIT_MESSAGE" value="added criterion service." />
+    <MESSAGE value="updated analyses service." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated analyses service." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
