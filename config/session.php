@@ -149,13 +149,13 @@ return [
     | Session Cookie Domain
     |--------------------------------------------------------------------------
     |
-    | Here you may change the domain of the cookie used to identify a session
+    | Here you may change the src of the cookie used to identify a session
     | in your application. This will determine which domains the cookie is
     | available to in your application. A sensible default has been set.
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', null),
+    'src' => env('SESSION_DOMAIN', null),
 
     /*
     |--------------------------------------------------------------------------

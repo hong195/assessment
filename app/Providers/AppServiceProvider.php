@@ -18,6 +18,10 @@ use Infastructure\Persistence\Doctrine\DoctrineUserRepository;
 use Illuminate\Contracts\Hashing\Hasher;
 use Infastructure\Services\BcryptPasswordHasher;
 use Infastructure\Services\UserService;
+use Symfony\Component\Serializer\Encoder\JsonDecode;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -64,6 +68,13 @@ class AppServiceProvider extends ServiceProvider
             $userRepository = $this->app->make(UserRepository::class);
 
             return new UserService($userRepository, $em, $hasher);
+        });
+
+        $this->app->bind(Serializer::class, function() {
+            $encoders = [new JsonEncoder(), new JsonDecode()];
+            $normalizers = [new ObjectNormalizer()];
+
+            return new Serializer($normalizers, $encoders);
         });
     }
 
