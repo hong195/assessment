@@ -102,7 +102,7 @@ class EfficiencyAnalysisTest extends TestCase
             CheckBuilder::aCheck()->build(),
             []);
 
-        $rating->removeReview($this->assessmentId);
+        $rating->removeAssessment($this->assessmentId);
 
         $this->assertEmpty($rating->getAssessments());
     }
@@ -117,7 +117,7 @@ class EfficiencyAnalysisTest extends TestCase
 
         $this->expectException(ModificationratingException::class);
 
-        $rating->removeReview($this->assessmentId);
+        $rating->removeAssessment($this->assessmentId);
     }
 
     public function test_cannot_edit_review_from_completed_analysis()

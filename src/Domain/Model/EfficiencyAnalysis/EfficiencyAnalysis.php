@@ -97,7 +97,7 @@ class EfficiencyAnalysis
      * @param AssessmentId $reviewId
      * @throws ModificationRatingException|NotFoundEntityException
      */
-    public function removeReview(AssessmentId $reviewId)
+    public function removeAssessment(AssessmentId $reviewId)
     {
         if ($this->isCompleted()) {
             throw new ModificationRatingException('Cannot remove review from completed assessment');

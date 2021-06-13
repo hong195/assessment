@@ -63,7 +63,7 @@ class EfficiencyAnalysisService
      * @throws \Domain\Model\EfficiencyAnalysis\Exceptions\InvalidRatingMonthException
      * @throws \Domain\Model\EfficiencyAnalysis\Exceptions\MaxReviewsForMonthReachedException
      */
-    public function addAssessment(EfficiencyAnalysisId $id, EmployeeId $employeeId, Check  $check, array $criteria)
+    public function addAssessment(EfficiencyAnalysisId $id, AssessmentId $assessmentId,EmployeeId $employeeId, Check  $check, array $criteria)
     {
         $analyses = $this->repository->findById($id);
 
@@ -71,7 +71,12 @@ class EfficiencyAnalysisService
             throw new EntityNotFoundException();
         }
 
-        $analyses->addReview(AssessmentId::next(), $check, $criteria);
+        $analyses->addReview($assessmentId, $check, $criteria);
         $this->em->flush();
+    }
+
+    public function removeAssessment(EfficiencyAnalysis $analysis, AssessmentId $assessmentId)
+    {
+        $analysis->removeAssessment($assessmentId);
     }
 }

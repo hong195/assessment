@@ -5,6 +5,8 @@ namespace Tests\Feature\Infastructure\Services;
 
 
 use Doctrine\ORM\EntityManagerInterface;
+use Domain\Id;
+use Domain\Model\Assessment\AssessmentId;
 use Domain\Model\Assessment\Criterion;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
@@ -81,11 +83,36 @@ class EfficiencyAnalysesServiceTest extends TestCase
         $analyses = EfficiencyAnalysisBuilder::anAnalysis()->withId($id)->build();
         $this->repository->add($analyses);
         $this->em->flush();
+        $assessmentId = AssessmentId::next();
         $check = CheckBuilder::aCheck()->build();
         $criteria = [new Criterion('Ethics', [new \Domain\Model\Assessment\Option('yes', 1)], 'yes')];
 
-        $this->analysisService->addAssessment($id, $anEmployeeId, $check, $criteria);
+        $this->analysisService->addAssessment($id, $assessmentId, $anEmployeeId, $check, $criteria);
 
         $this->assertDatabaseCount('assessments', 1);
+    }
+
+    public function test_can_remove_assessment()
+    {
+        $id = new EfficiencyAnalysisId(EfficiencyAnalysisId::next());
+        $anEmployeeId = EmployeeBuilder::anEmployee()->build()->getId();
+
+        $analyses = EfficiencyAnalysisBuilder::anAnalysis()->withId($id)->build();
+        $this->repository->add($analyses);
+        $this->em->flush();
+        $assessmentId = AssessmentId::next();
+        $check = CheckBuilder::aCheck()->build();
+        $criteria = [new Criterion('Ethics', [new \Domain\Model\Assessment\Option('yes', 1)], 'yes')];
+
+        $this->analysisService->addAssessment($id, $assessmentId, $anEmployeeId, $check, $criteria);
+        $this->analysisService->removeAssessment($analyses, $assessmentId);
+
+        $updatedAnalyses = $this->repository->findById($id);
+        $missingAssessment = $updatedAnalyses->getAssessments()->filter(function ($assessment) use ($assessmentId){
+            return $assessment->getId()->isEqual($assessmentId);
+        })
+            ->isEmpty();
+
+        $this->assertTrue($missingAssessment);
     }
 }

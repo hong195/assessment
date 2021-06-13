@@ -60,7 +60,7 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
 
 
     /**
-     * 
+     *
      * @return array
      */
     public function __sleep()
@@ -73,7 +73,7 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
     }
 
     /**
-     * 
+     *
      */
     public function __wakeup()
     {
@@ -95,7 +95,7 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
     }
 
     /**
-     * 
+     *
      */
     public function __clone()
     {
@@ -175,7 +175,7 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
         return self::$lazyPropertiesDefaults;
     }
 
-    
+
     /**
      * {@inheritDoc}
      */
@@ -190,12 +190,12 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
     /**
      * {@inheritDoc}
      */
-    public function removeReview(\Domain\Model\Assessment\AssessmentId $reviewId)
+    public function removeAssessment(\Domain\Model\Assessment\AssessmentId $reviewId)
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeReview', [$reviewId]);
 
-        return parent::removeReview($reviewId);
+        return parent::removeAssessment($reviewId);
     }
 
     /**
