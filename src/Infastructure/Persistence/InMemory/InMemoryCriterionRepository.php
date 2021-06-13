@@ -49,4 +49,11 @@ class InMemoryCriterionRepository implements CriterionRepository
             }
         }
     }
+
+    public function findByName(string $name)
+    {
+        return $this->criteria->filter(function ($criterion) use ($name){
+            return $criterion->getName() === $name;
+        })->first();
+    }
 }

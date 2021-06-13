@@ -65,6 +65,25 @@ class Criterion
         return $option;
     }
 
+    /**
+     * @param OptionId $optionId
+     * @param string $name
+     * @param float $value
+     * @throws CriterionException
+     */
+    public function updateOption(OptionId $optionId, string $name, float $value)
+    {
+        foreach ($this->options as $k => $option) {
+            if ($option->getId()->isEqual($optionId)) {
+                $this->options[$k]->changeName($name);
+                $this->options[$k]->changeValue($value);
+                break;
+            }if ($option->isNameEquals($name)) {
+                throw new CriterionException('The option name is already taken!');
+            }
+        }
+    }
+
     public function removeOption(OptionId $optionId) : void
     {
         /** @var Option $option */
@@ -94,5 +113,10 @@ class Criterion
     public function getId(): CriterionId
     {
         return $this->id;
+    }
+
+    public function changeName(string $name)
+    {
+        $this->name = $name;
     }
 }

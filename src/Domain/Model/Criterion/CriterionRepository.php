@@ -15,4 +15,6 @@ interface CriterionRepository
     public function add(Criterion $criterion): void;
 
     public function remove(Criterion $criterion): void;
+
+    public function findByName(string $name);
 }

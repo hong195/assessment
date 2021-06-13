@@ -54,6 +54,25 @@ class Option
      * @param string $name
      * @throws CriterionException
      */
+    public function changeName(string $name)
+    {
+        $this->assertNotEmpty($name);
+        $this->name = $name;
+    }
+
+    /**
+     * @param float $value
+     * @throws CriterionException
+     */
+    public function changeValue(float $value)
+    {
+        $this->assertValueNotNegative($value);
+        $this->value = $value;
+    }
+    /**
+     * @param string $name
+     * @throws CriterionException
+     */
     private function assertNotEmpty(string $name)
     {
         if (empty($name)) {

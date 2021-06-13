@@ -36,6 +36,13 @@ class DoctrineCriterionRepository implements CriterionRepository
         $this->em->persist($criterion);
     }
 
+    public function findByName(string $name)
+    {
+        return $this->repository->findOneBy([
+            'name' => $name
+        ]);
+    }
+
     public function remove(Criterion $criterion): void
     {
         $this->em->remove($criterion);
