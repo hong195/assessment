@@ -179,6 +179,28 @@ class Option extends \Domain\Model\Criterion\Option implements \Doctrine\ORM\Pro
     /**
      * {@inheritDoc}
      */
+    public function changeName(string $name)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'changeName', [$name]);
+
+        return parent::changeName($name);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function changeValue(float $value)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'changeValue', [$value]);
+
+        return parent::changeValue($value);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function isNameEquals(string $name): bool
     {
 

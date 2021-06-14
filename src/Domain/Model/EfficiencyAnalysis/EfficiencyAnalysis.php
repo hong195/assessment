@@ -28,7 +28,7 @@ class EfficiencyAnalysis
      */
     private EfficiencyAnalysisId $id;
     /**
-     * @ORM\OneToMany(targetEntity="Domain\Model\Assessment\Assessment", mappedBy="analysis", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="Domain\Model\Assessment\Assessment", mappedBy="analysis", fetch="EAGER", cascade={"persist", "remove"})
      */
     private Collection  $assessments;
     /**
@@ -70,9 +70,9 @@ class EfficiencyAnalysis
      * @throws InvalidRatingMonthException
      * @throws MaxReviewsForMonthReachedException
      */
-    public function addReview(AssessmentId $assessmentId,
-                              Check $check,
-                              array $criteria): Assessment
+    public function addAssessment(AssessmentId $assessmentId,
+                                  Check $check,
+                                  array $criteria): Assessment
     {
         if ($this->isCompleted()) {
             throw new MaxReviewsForMonthReachedException();

@@ -60,7 +60,7 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
 
 
     /**
-     *
+     * 
      * @return array
      */
     public function __sleep()
@@ -73,7 +73,7 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
     }
 
     /**
-     *
+     * 
      */
     public function __wakeup()
     {
@@ -95,7 +95,7 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
     }
 
     /**
-     *
+     * 
      */
     public function __clone()
     {
@@ -175,16 +175,16 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
         return self::$lazyPropertiesDefaults;
     }
 
-
+    
     /**
      * {@inheritDoc}
      */
-    public function addReview(\Domain\Model\Assessment\AssessmentId $assessmentId, \Domain\Model\Assessment\Check $check, array $criteria): \Domain\Model\Assessment\Assessment
+    public function addAssessment(\Domain\Model\Assessment\AssessmentId $assessmentId, \Domain\Model\Assessment\Check $check, array $criteria): \Domain\Model\Assessment\Assessment
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addReview', [$assessmentId, $check, $criteria]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addAssessment', [$assessmentId, $check, $criteria]);
 
-        return parent::addReview($assessmentId, $check, $criteria);
+        return parent::addAssessment($assessmentId, $check, $criteria);
     }
 
     /**
@@ -193,7 +193,7 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
     public function removeAssessment(\Domain\Model\Assessment\AssessmentId $reviewId)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeReview', [$reviewId]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeAssessment', [$reviewId]);
 
         return parent::removeAssessment($reviewId);
     }

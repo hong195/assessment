@@ -27,7 +27,7 @@ class AssessmentCriteriaType extends JsonType
 
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        return $this->deserialize($value);
+        return $value ? $this->deserialize($value) : new ArrayCollection([]);
     }
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform)

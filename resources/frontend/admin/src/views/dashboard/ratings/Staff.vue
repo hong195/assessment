@@ -9,7 +9,7 @@
     >
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
-          Список сотрудников
+          Анализ эффективности сотрудников
         </div>
       </template>
 
@@ -39,20 +39,6 @@
       </v-row>
 
       <v-divider class="mt-3" />
-      <data-table
-        v-if="date"
-        ref="data-table"
-        fetch-url="user-rating"
-        :headers="headers"
-        :search-options="searchParams"
-      >
-        <template v-slot:item.rating="{ item }">
-          <rating-score :rating="item" />
-        </template>
-        <template v-slot:item.conversion="{ item }">
-          <conversion :conversion="item.conversion" />
-        </template>
-      </data-table>
     </base-material-card>
   </v-container>
 </template>
@@ -144,6 +130,11 @@
         this.rating.id = parseInt(this.$route.query.rating_id)
         this.dialog = true
       }
+
+      this.axios.get('efficiency-analyzes')
+        .then(({ response }) => {
+          console.log(response)
+        })
     },
     methods: {
       closeDialog () {

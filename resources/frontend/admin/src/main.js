@@ -28,13 +28,14 @@ function boot () {
   }).$mount('#app')
 }
 // extract user before vue instance created
-store.dispatch('user/fetchUser')
-  .then(() => {
-    store.dispatch('user/refreshToken')
-      .then(() => {
-      boot()
-      })
-  })
-  .catch(() => {
-    boot()
-  })
+boot()
+// store.dispatch('user/fetchUser')
+//   .then(() => {
+//     store.dispatch('user/refreshToken')
+//       .then(() => {
+//       boot()
+//       })
+//   })
+//   .catch(() => {
+//     boot()
+//   })

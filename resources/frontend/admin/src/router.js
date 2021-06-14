@@ -225,28 +225,28 @@ const router = new Router({
   ],
 })
 
-router.beforeEach((to, from, next) => {
-  if (!to.meta.middleware) {
-    return next()
-  }
-
-  if (to.path === '/') {
-    return next({
-      name: 'home',
-    })
-  }
-
-  const middleware = to.meta.middleware
-  const context = {
-    to,
-    from,
-    next,
-    store,
-  }
-
-  return middleware[0]({
-    ...context,
-    next: middlewarePipeline(context, middleware, 1),
-  })
-})
+// router.beforeEach((to, from, next) => {
+//   if (!to.meta.middleware) {
+//     return next()
+//   }
+//
+//   if (to.path === '/') {
+//     return next({
+//       name: 'home',
+//     })
+//   }
+//
+//   const middleware = to.meta.middleware
+//   const context = {
+//     to,
+//     from,
+//     next,
+//     store,
+//   }
+//
+//   return middleware[0]({
+//     ...context,
+//     next: middlewarePipeline(context, middleware, 1),
+//   })
+// })
 export default router

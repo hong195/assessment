@@ -179,7 +179,7 @@ class Criterion extends \Domain\Model\Criterion\Criterion implements \Doctrine\O
     /**
      * {@inheritDoc}
      */
-    public function getOptions(): \Doctrine\Common\Collections\ArrayCollection
+    public function getOptions(): \Doctrine\Common\Collections\Collection
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOptions', []);
@@ -207,6 +207,17 @@ class Criterion extends \Domain\Model\Criterion\Criterion implements \Doctrine\O
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'addOption', [$optionId, $label, $value]);
 
         return parent::addOption($optionId, $label, $value);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function updateOption(\Domain\Model\Criterion\OptionId $optionId, string $name, float $value)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'updateOption', [$optionId, $name, $value]);
+
+        return parent::updateOption($optionId, $name, $value);
     }
 
     /**
@@ -255,6 +266,17 @@ class Criterion extends \Domain\Model\Criterion\Criterion implements \Doctrine\O
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function changeName(string $name)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'changeName', [$name]);
+
+        return parent::changeName($name);
     }
 
 }

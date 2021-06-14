@@ -71,7 +71,7 @@ class EfficiencyAnalysisService
             throw new EntityNotFoundException();
         }
 
-        $analyses->addReview($assessmentId, $check, $criteria);
+        $analyses->addAssessment($assessmentId, $check, $criteria);
         $this->em->flush();
     }
 

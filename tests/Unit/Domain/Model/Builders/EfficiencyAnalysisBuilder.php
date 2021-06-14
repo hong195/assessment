@@ -81,7 +81,7 @@ class EfficiencyAnalysisBuilder
                 $serviceDate = (new \DateTime())->setDate($now->year, $now->month, $now->day);
                 $check = CheckBuilder::aCheck()->withServiceDate($serviceDate)->build();
 
-                $efficiencyAnalysis->addReview($reviewId, $check, $criteria);
+                $efficiencyAnalysis->addAssessment($reviewId, $check, $criteria);
             }
         }
 

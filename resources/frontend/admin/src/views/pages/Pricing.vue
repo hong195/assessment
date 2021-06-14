@@ -72,7 +72,7 @@
         },
         {
           heading: 'Medium Company',
-          icon: 'mdi-domain',
+          icon: 'mdi-src',
           title: '69$',
           text: 'This is good if your company size is between 11 and 99 Persons.',
         },

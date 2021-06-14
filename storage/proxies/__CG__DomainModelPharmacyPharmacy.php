@@ -235,4 +235,37 @@ class Pharmacy extends \Domain\Model\Pharmacy\Pharmacy implements \Doctrine\ORM\
         return parent::getNumber();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function getEmployees(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmployees', []);
+
+        return parent::getEmployees();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addEmployee(\Domain\Model\Employee\Employee $employee)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addEmployee', [$employee]);
+
+        return parent::addEmployee($employee);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function resign(\Domain\Model\Employee\Employee $employee)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'resign', [$employee]);
+
+        return parent::resign($employee);
+    }
+
 }
