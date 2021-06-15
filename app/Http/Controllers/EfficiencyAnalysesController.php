@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\EfficiencyAnalysesResource;
 use Doctrine\ORM\EntityManagerInterface;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\Serializer\Serializer;
 
@@ -22,9 +22,9 @@ class EfficiencyAnalysesController extends Controller
         $this->serializer = $serializer;
     }
 
-    public function index(): \Illuminate\Http\JsonResponse
+    public function index()
     {
-        return JsonResponse::fromJsonString($this->serializer->serialize($this->repository->all(), 'json'));
+        return EfficiencyAnalysesResource::collection($this->repository->all()->toArray());
     }
 
     /**
