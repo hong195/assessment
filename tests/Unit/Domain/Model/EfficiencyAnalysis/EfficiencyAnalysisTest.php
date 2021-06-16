@@ -47,7 +47,7 @@ class EfficiencyAnalysisTest extends TestCase
     public function test_can_add_a_review_to_uncompleted_rating()
     {
         $now = now();
-        $currentMonth = new Month($now->year, $now->month);
+        $currentMonth = new Month(new \DateTime($now->format('Y-m-d')));
         $efficiencyAnalysis = EfficiencyAnalysisBuilder::anAnalysis()
             ->withEmployee($this->employeeId)
             ->withMonth($currentMonth)
@@ -77,7 +77,7 @@ class EfficiencyAnalysisTest extends TestCase
     public function test_fails_when_check_service_date_is_not_between_rating_month()
     {
         $aMonthAgo = Carbon::parse('-1 month');
-        $ratingMonth = new Month($aMonthAgo->year, $aMonthAgo->month);
+        $ratingMonth = new Month(new \DateTime($aMonthAgo->format('Y-m-d')));
 
         $rating = EfficiencyAnalysisBuilder::anAnalysis()
             ->withEmployee($this->employeeId)

@@ -26,8 +26,14 @@ class EfficiencyAnalysisService
         $this->em = $em;
     }
 
-    public function create(EfficiencyAnalysisId $id, EmployeeId $employeeId, Month $month)
+    public function create(string $employeeId, \DateTime $month)
     {
+        $id = EfficiencyAnalysisId::next();
+        $month = new Month($month);
+        $employeeId = new EmployeeId($employeeId);
+
+
+
         $result = $this->getMontlyEmployeeAnalyses($employeeId, $month);
 
         if (!empty($result)) {

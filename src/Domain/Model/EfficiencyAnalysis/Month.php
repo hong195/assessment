@@ -19,16 +19,11 @@ final class Month
      * @ORM\Column (type="datetime")
      */
     private \DateTime $date;
-    /**
-     * Date constructor.
-     * @param int $year
-     * @param int $month
-     * @throws InvalidRatingMonthException
-     */
-    public function __construct(int $year, int $month)
+
+    public function __construct(\DateTime $date)
     {
-        $this->assertValidDate($year, $month);
-        $this->date = (new \DateTime())->setDate($year, $month, 1);
+        $this->assertValidDate($date->format('Y'), $date->format('m'));
+        $this->date = $date;
     }
 
     public function isEqual(Month $month) : bool

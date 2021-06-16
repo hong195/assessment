@@ -33,7 +33,7 @@ class EfficiencyAnalysisBuilder
     {
         $this->analysesId = EfficiencyAnalysisId::next();
         $this->employeeId = new EmployeeId(EmployeeId::next());
-        $this->month = new Month(now()->year, now()->month);
+        $this->month = new Month(new \DateTime(now()->format('Y-m-d')));
     }
 
     public static function anAnalysis(): EfficiencyAnalysisBuilder

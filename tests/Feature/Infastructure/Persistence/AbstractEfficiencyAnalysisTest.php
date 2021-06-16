@@ -45,15 +45,15 @@ abstract class AbstractEfficiencyAnalysisTest extends TestCase
 
     public function test_find_by_month()
     {
-        $analysis = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(2020, 2))->build();
-        $analysisC = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(2020, 2))->build();
-        $analysisB = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(2021, 3))->build();
+        $analysis = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2020-2-10')))->build();
+        $analysisC = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2020-2-12')))->build();
+        $analysisB = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2021-3-10')))->build();
 
         $this->repository->add($analysis);
         $this->repository->add($analysisC);
         $this->repository->add($analysisB);
 
-        $founded = $this->repository->findByMonth(new Month(2020, 2));
+        $founded = $this->repository->findByMonth(new Month(new \DateTime('2020-2-12')));
 
         $this->assertContains($analysis, $founded);
         $this->assertContains($analysisC, $founded);
@@ -63,10 +63,10 @@ abstract class AbstractEfficiencyAnalysisTest extends TestCase
 
     public function test_find_by_employees_ids()
     {
-        $analysis = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(2020, 2))->build();
-        $analysisC = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(2020, 2))->build();
-        $analysisB = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(2021, 3))->build();
-        $analysisD = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(2021, 3))->build();
+        $analysis = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2020-2-10')))->build();
+        $analysisC = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2020-2-12')))->build();
+        $analysisB = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2021-3-10')))->build();
+        $analysisD = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2021-3-12')))->build();
 
         $this->repository->add($analysis);
         $this->repository->add($analysisC);

@@ -8,9 +8,11 @@ use Doctrine\ORM\EntityManagerInterface;
 use Domain\Id;
 use Domain\Model\Assessment\AssessmentId;
 use Domain\Model\Assessment\Criterion;
+use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
 use Domain\Model\EfficiencyAnalysis\Month;
+use Domain\Model\Employee\EmployeeId;
 use Infastructure\Exceptions\EfficiencyAnalysisAlreadyExistsException;
 use Infastructure\Services\EfficiencyAnalysisService;
 use Tests\Feature\DoctrineMigrationsTrait;
@@ -43,25 +45,40 @@ class EfficiencyAnalysesServiceTest extends TestCase
         $this->analysisService = new EfficiencyAnalysisService($this->repository, $this->em);
     }
 
+    private function getMontlyEmployeeAnalyses(EmployeeId $employeeId, \DateTime $month)
+    {
+        $query = $this->em->getRepository(EfficiencyAnalysis::class)
+            ->createQueryBuilder('e')
+            ->where('YEAR(e.month.date) = :year')
+            ->andWhere('MONTH(e.month.date) = :month')
+            ->andWhere('e.employeeId = :employee_id')
+            ->setParameter('year', $month->format('Y'))
+            ->setParameter('month', $month->format('m'))
+            ->setParameter('employee_id', (string) $employeeId)
+            ->getQuery();
+
+        return $query->getResult();
+    }
+
     public function test_can_create_an_efficiency_analyses()
     {
-        $id = new EfficiencyAnalysisId(EfficiencyAnalysisId::next());
         $anEmployeeId = EmployeeBuilder::anEmployee()->build()->getId();
-        $month = new Month(2020, 12);
+        $month = new \DateTime('2020-12-01');
 
-        $this->analysisService->create($id, $anEmployeeId, $month);
-        $addedAnalyses = $this->repository->findById($id);
+        $this->analysisService->create($anEmployeeId, $month);
+        $foundAnalyses = $this->getMontlyEmployeeAnalyses($anEmployeeId, $month);
+        /** @var EfficiencyAnalysis $addedAnalyses */
+        $addedAnalyses = reset($foundAnalyses);
 
-        $this->assertTrue($addedAnalyses->getId()->isEqual($id));
-        $this->assertTrue($addedAnalyses->getMonth()->isEqual($month));
+        $this->assertEquals((string) $addedAnalyses->getMonth(), $month->format('Y-m-d'));
         $this->assertTrue($addedAnalyses->getEmployeeId()->isEqual($anEmployeeId));
     }
 
     public function test_expects_exception_when_employee_has_already_analyses_for_a_certain_month()
     {
-        $id = new EfficiencyAnalysisId(EfficiencyAnalysisId::next());
         $anEmployeeId = EmployeeBuilder::anEmployee()->build()->getId();
-        $aprilMonth = new Month(2020, 4);
+        $date = new \DateTime('2020-4');
+        $aprilMonth = new Month($date);
         $aprilEfficiencyAnalyses = EfficiencyAnalysisBuilder::anAnalysis()
                 ->withEmployee($anEmployeeId)
                 ->withMonth($aprilMonth)
@@ -72,7 +89,7 @@ class EfficiencyAnalysesServiceTest extends TestCase
 
         $this->expectException(EfficiencyAnalysisAlreadyExistsException::class);
 
-        $this->analysisService->create($id, $anEmployeeId, $aprilMonth);
+        $this->analysisService->create($anEmployeeId, $date);
     }
 
     public function test_can_add_assessment()

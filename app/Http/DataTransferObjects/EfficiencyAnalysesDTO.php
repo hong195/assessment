@@ -17,14 +17,9 @@ class EfficiencyAnalysesDTO
         $this->month = $month;
     }
 
-    public function getMonthYear(): int
+    public function getMonth(): \DateTime
     {
-        return $this->month->format('Y');
-    }
-
-    public function getMonthNumber(): int
-    {
-        return $this->month->format('m');
+        return $this->month;
     }
 
     public function getId(): string
