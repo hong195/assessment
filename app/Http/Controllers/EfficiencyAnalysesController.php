@@ -6,6 +6,7 @@ use App\Http\Requests\CreateEfficiencyAnalysesRequest;
 use App\Http\Resources\EfficiencyAnalysesResource;
 use Doctrine\ORM\EntityManagerInterface;
 use Domain\Exceptions\DomainException;
+use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
 use Illuminate\Http\Request;
 use Infastructure\Exceptions\InfrastructureException;
@@ -47,7 +48,7 @@ class EfficiencyAnalysesController extends Controller
 
     public function show($id)
     {
-        //
+        return EfficiencyAnalysesResource::make($this->repository->findOrFail($id));
     }
 
     /**

@@ -13,15 +13,11 @@ use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
 use Domain\Model\EfficiencyAnalysis\Month;
 
-final class DoctrineEmployeeEfficiencyAnalysesRepository implements EfficiencyAnalysisRepository
+final class DoctrineEmployeeEfficiencyAnalysesRepository extends  AbstractRepository implements EfficiencyAnalysisRepository
 {
-    private EntityManagerInterface $em;
-    private ObjectRepository $repository;
-
     public function __construct(EntityManagerInterface $em)
     {
-        $this->repository = $em->getRepository(EfficiencyAnalysis::class);
-        $this->em = $em;
+        parent::__construct($em, EfficiencyAnalysis::class);
     }
 
     public function add(EfficiencyAnalysis $efficiencyAnalysis): void
