@@ -69,6 +69,7 @@ class EfficiencyAnalysis
      * @return Assessment
      * @throws InvalidRatingMonthException
      * @throws MaxReviewsForMonthReachedException
+     * @throws \Domain\Model\Assessment\Exceptions\NotExistingSelectedOptionException
      */
     public function addAssessment(AssessmentId $assessmentId,
                                   Check $check,

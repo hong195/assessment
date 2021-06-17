@@ -4,8 +4,6 @@
 namespace Infastructure\Exceptions;
 
 
-use Mockery\Exception;
-
-class EfficiencyAnalysisAlreadyExistsException extends Exception
+class EfficiencyAnalysisAlreadyExistsException extends InfrastructureException
 {
 }
