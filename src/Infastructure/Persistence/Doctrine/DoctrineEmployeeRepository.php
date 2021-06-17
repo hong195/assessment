@@ -10,15 +10,11 @@ use Domain\Model\Employee\Employee;
 use Domain\Model\Employee\EmployeeId;
 use Domain\Model\Employee\EmployeeRepository;
 
-class DoctrineEmployeeRepository implements EmployeeRepository
+class DoctrineEmployeeRepository extends AbstractRepository implements EmployeeRepository
 {
-    private EntityManagerInterface $em;
-    private \Doctrine\Persistence\ObjectRepository $repository;
-
     public function __construct(EntityManagerInterface $em)
     {
-        $this->em = $em;
-        $this->repository = $em->getRepository(Employee::class);
+        parent::__construct($em, Employee::class);
     }
 
     public function getById(EmployeeId $employeeId): ?Employee

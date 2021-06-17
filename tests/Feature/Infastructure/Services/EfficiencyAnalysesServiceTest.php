@@ -5,7 +5,7 @@ namespace Tests\Feature\Infastructure\Services;
 
 
 use Doctrine\ORM\EntityManagerInterface;
-use Domain\Id;
+use Domain\Exceptions\NotFoundEntityException;
 use Domain\Model\Assessment\AssessmentId;
 use Domain\Model\Assessment\Criterion;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
@@ -13,6 +13,7 @@ use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
 use Domain\Model\EfficiencyAnalysis\Month;
 use Domain\Model\Employee\EmployeeId;
+use Domain\Model\Employee\EmployeeRepository;
 use Infastructure\Exceptions\EfficiencyAnalysisAlreadyExistsException;
 use Infastructure\Services\EfficiencyAnalysisService;
 use Tests\Feature\DoctrineMigrationsTrait;
@@ -20,6 +21,7 @@ use Tests\TestCase;
 use Tests\Unit\Domain\Model\Builders\CheckBuilder;
 use Tests\Unit\Domain\Model\Builders\EfficiencyAnalysisBuilder;
 use Tests\Unit\Domain\Model\Builders\EmployeeBuilder;
+use Tests\Unit\Domain\Model\Builders\PharmacyBuilder;
 
 /**
  * @group integration
@@ -33,6 +35,10 @@ class EfficiencyAnalysesServiceTest extends TestCase
     private EntityManagerInterface $em;
 
     private EfficiencyAnalysisService $analysisService;
+    /**
+     * @var mixed
+     */
+    private $employeeRepository;
 
     protected function setUp(): void
     {
@@ -41,8 +47,9 @@ class EfficiencyAnalysesServiceTest extends TestCase
         $this->resetMigrations();
 
         $this->repository = app()->make(EfficiencyAnalysisRepository::class);
+        $this->employeeRepository = app()->make(EmployeeRepository::class);
         $this->em = app()->make(EntityManagerInterface::class);
-        $this->analysisService = new EfficiencyAnalysisService($this->repository, $this->em);
+        $this->analysisService = new EfficiencyAnalysisService($this->repository, $this->employeeRepository, $this->em);
     }
 
     private function getMontlyEmployeeAnalyses(EmployeeId $employeeId, \DateTime $month)
@@ -64,8 +71,13 @@ class EfficiencyAnalysesServiceTest extends TestCase
     {
         $anEmployeeId = EmployeeBuilder::anEmployee()->build()->getId();
         $month = new \DateTime('2020-12-01');
+        $pharmacy = PharmacyBuilder::aPharmacy()->build();
+        $employee = EmployeeBuilder::anEmployee()->withId($anEmployeeId)->withPharmacy($pharmacy)->build();
 
+        $this->em->persist($pharmacy);
+        $this->em->persist($employee);
         $this->analysisService->create($anEmployeeId, $month);
+        $this->em->flush();
         $foundAnalyses = $this->getMontlyEmployeeAnalyses($anEmployeeId, $month);
         /** @var EfficiencyAnalysis $addedAnalyses */
         $addedAnalyses = reset($foundAnalyses);
@@ -74,11 +86,27 @@ class EfficiencyAnalysesServiceTest extends TestCase
         $this->assertTrue($addedAnalyses->getEmployeeId()->isEqual($anEmployeeId));
     }
 
-    public function test_expects_exception_when_employee_has_already_analyses_for_a_certain_month()
+    public function test_expects_exception_when_employee_doesnt_exists()
     {
         $anEmployeeId = EmployeeBuilder::anEmployee()->build()->getId();
+        $month = new \DateTime('2020-12-01');
+
+        $this->expectException(NotFoundEntityException::class);
+
+        $this->analysisService->create($anEmployeeId, $month);
+    }
+
+    public function test_expects_exception_when_employee_has_already_analyses_for_a_certain_month()
+    {
         $date = new \DateTime('2020-4');
+        $anEmployeeId = EmployeeBuilder::anEmployee()->build()->getId();
+        $pharmacy = PharmacyBuilder::aPharmacy()->build();
+        $employee = EmployeeBuilder::anEmployee()->withId($anEmployeeId)->withPharmacy($pharmacy)->build();
+
+        $this->em->persist($pharmacy);
+        $this->em->persist($employee);
         $aprilMonth = new Month($date);
+
         $aprilEfficiencyAnalyses = EfficiencyAnalysisBuilder::anAnalysis()
                 ->withEmployee($anEmployeeId)
                 ->withMonth($aprilMonth)

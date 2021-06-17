@@ -31,6 +31,12 @@ class EmployeeBuilder
         $this->gender = new Gender('male');
     }
 
+    public function withId(EmployeeId $id) : self
+    {
+        $this->id = $id;
+        return $this;
+    }
+
     public function withName(Name $name): self
     {
         $this->name = $name;

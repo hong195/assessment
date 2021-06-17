@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateEfficiencyAnalysesRequest;
+use App\Http\Requests\UpdateEfficiencyAnalysesRequest;
 use App\Http\Resources\EfficiencyAnalysesResource;
 use Doctrine\ORM\EntityManagerInterface;
 use Domain\Exceptions\DomainException;
-use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
-use Illuminate\Http\Request;
 use Infastructure\Exceptions\InfrastructureException;
 use Infastructure\Services\EfficiencyAnalysisService;
 
@@ -49,28 +48,5 @@ class EfficiencyAnalysesController extends Controller
     public function show($id)
     {
         return EfficiencyAnalysesResource::make($this->repository->findOrFail($id));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

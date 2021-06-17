@@ -6,13 +6,11 @@ namespace App\Http\DataTransferObjects;
 
 class EfficiencyAnalysesDTO
 {
-    private string $id;
     private string $employeeId;
     private \DateTime $month;
 
-    public function __construct(string $id, string $employeeId, \DateTime $month)
+    public function __construct(string $employeeId, \DateTime $month)
     {
-        $this->id = $id;
         $this->employeeId = $employeeId;
         $this->month = $month;
     }
@@ -20,11 +18,6 @@ class EfficiencyAnalysesDTO
     public function getMonth(): \DateTime
     {
         return $this->month;
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
     }
 
     public function getEmployeeId(): string

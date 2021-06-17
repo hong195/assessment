@@ -5,7 +5,7 @@ namespace Infastructure\Persistence\Doctrine;
 
 
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\EntityNotFoundException;
+use Domain\Exceptions\NotFoundEntityException;
 
 abstract class AbstractRepository
 {
@@ -19,12 +19,12 @@ abstract class AbstractRepository
     }
 
     /**
-     * @throws EntityNotFoundException
+     * @throws NotFoundEntityException
      */
     public function findOrFail($id): ?object
     {
         if (!$entity = $this->repository->find($id)) {
-            throw new EntityNotFoundException;
+            throw new NotFoundEntityException();
         }
 
         return $entity;

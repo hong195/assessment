@@ -13,17 +13,22 @@ use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
 use Domain\Model\EfficiencyAnalysis\Month;
 use Domain\Model\Employee\EmployeeId;
+use Domain\Model\Employee\EmployeeRepository;
 use Infastructure\Exceptions\EfficiencyAnalysisAlreadyExistsException;
 
 class EfficiencyAnalysisService
 {
     private EfficiencyAnalysisRepository $repository;
     private EntityManagerInterface $em;
+    private EmployeeRepository $employeeRepository;
 
-    public function __construct(EfficiencyAnalysisRepository $repository, EntityManagerInterface $em)
+    public function __construct(EfficiencyAnalysisRepository $repository,
+                                EmployeeRepository $employeeRepository,
+                                EntityManagerInterface $em)
     {
         $this->repository = $repository;
         $this->em = $em;
+        $this->employeeRepository = $employeeRepository;
     }
 
     public function create(string $employeeId, \DateTime $month)
@@ -32,7 +37,7 @@ class EfficiencyAnalysisService
         $month = new Month($month);
         $employeeId = new EmployeeId($employeeId);
 
-
+        $this->employeeRepository->findOrFail((string) $employeeId);
 
         $result = $this->getMontlyEmployeeAnalyses($employeeId, $month);
 
