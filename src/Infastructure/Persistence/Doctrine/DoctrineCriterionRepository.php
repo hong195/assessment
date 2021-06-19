@@ -10,15 +10,11 @@ use Domain\Model\Criterion\Criterion;
 use Domain\Model\Criterion\CriterionId;
 use Domain\Model\Criterion\CriterionRepository;
 
-class DoctrineCriterionRepository implements CriterionRepository
+class DoctrineCriterionRepository extends AbstractRepository implements CriterionRepository
 {
-    private EntityManagerInterface $em;
-    private ObjectRepository $repository;
-
     public function __construct(EntityManagerInterface $em)
     {
-        $this->repository = $em->getRepository(Criterion::class);
-        $this->em = $em;
+        parent::__construct($em, Criterion::class);
     }
 
     public function all(): ArrayCollection

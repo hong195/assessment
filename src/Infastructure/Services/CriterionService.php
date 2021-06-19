@@ -8,7 +8,7 @@ use Domain\Exceptions\NotFoundEntityException;
 use Domain\Model\Criterion\Criterion;
 use Domain\Model\Criterion\CriterionId;
 use Domain\Model\Criterion\CriterionRepository;
-use Domain\Model\Criterion\Option;
+use Domain\Model\Criterion\Exceptions\CriterionException;
 use Domain\Model\Criterion\OptionId;
 use Infastructure\Exceptions\NotUniqueCriterionNameException;
 
@@ -22,33 +22,29 @@ class CriterionService
     }
 
     /**
-     * @param CriterionId $id
      * @param string $name
      * @throws NotUniqueCriterionNameException
      */
-    public function create(CriterionId $id, string $name)
+    public function create(string $name)
     {
         if ($this->repository->findByName($name)) {
             throw new NotUniqueCriterionNameException();
         }
 
-        $criterion = new Criterion($id, $name);
+        $criterionId = CriterionId::next();
+        $criterion = new Criterion($criterionId, $name);
 
         $this->repository->add($criterion);
     }
 
     /**
-     * @param CriterionId $id
+     * @param string $id
      * @param string $name
      * @throws NotFoundEntityException
      */
-    public function updateName(CriterionId $id, string $name)
+    public function update(string $id, string $name)
     {
-        $criterion = $this->repository->findById($id);
-
-        if (!$criterion) {
-            throw new NotFoundEntityException();
-        }
+        $criterion = $this->repository->findById(new CriterionId($id));
 
         $criterion->changeName($name);
     }
@@ -58,7 +54,7 @@ class CriterionService
      * @param OptionId $optionId
      * @param string $name
      * @param float $value
-     * @throws \Domain\Model\Criterion\Exceptions\CriterionException
+     * @throws CriterionException
      */
     public function addOption(Criterion $criterion, OptionId  $optionId, string $name, float $value)
     {
@@ -70,11 +66,21 @@ class CriterionService
      * @param OptionId $optionId
      * @param string $name
      * @param float $value
-     * @throws \Domain\Model\Criterion\Exceptions\CriterionException
+     * @throws CriterionException
      */
     public function updateOption(Criterion $criterion, OptionId $optionId, string $name, float $value)
     {
         $criterion->updateOption($optionId, $name, $value);
+    }
+
+    /**
+     * @param string $id
+     */
+    public function removeCriterion(string $id)
+    {
+        $criterion = $this->repository->findOrFail($id);
+
+        $this->repository->remove($criterion);
     }
 
     public function removeOption(Criterion $criterion, OptionId $optionId)

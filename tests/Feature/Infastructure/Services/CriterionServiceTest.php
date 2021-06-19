@@ -5,6 +5,7 @@ namespace Tests\Feature\Infastructure\Services;
 
 
 use Doctrine\ORM\EntityManagerInterface;
+use Domain\Exceptions\NotFoundEntityException;
 use Domain\Model\Criterion\CriterionId;
 use Domain\Model\Criterion\CriterionRepository;
 use Domain\Model\Criterion\Option;
@@ -18,7 +19,7 @@ use Tests\Unit\Domain\Model\Builders\CriterionBuilder;
 /**
  * @group integration
  */
-class CriterionTest extends TestCase
+class CriterionServiceTest extends TestCase
 {
     use DoctrineMigrationsTrait;
 
@@ -35,19 +36,17 @@ class CriterionTest extends TestCase
 
         $this->repository = app()->make(CriterionRepository::class);
         $this->em = app()->make(EntityManagerInterface::class);
-        $this->criterionService = new CriterionService($this->repository, $this->em);
+        $this->criterionService = new CriterionService($this->repository);
     }
 
     public function test_can_create_a_criterion()
     {
-        $id = CriterionId::next();
         $name = 'Ethics';
 
-        $this->criterionService->create($id, $name);
+        $this->criterionService->create($name);
         $this->em->flush();
-        $createdCriterion = $this->repository->findById($id);
+        $createdCriterion = $this->repository->findByName($name);
 
-        $this->assertTrue($createdCriterion->getId()->isEqual($id));
         $this->assertEquals($name, $createdCriterion->getName());
     }
 
@@ -59,7 +58,7 @@ class CriterionTest extends TestCase
 
         $this->expectException(NotUniqueCriterionNameException::class);
 
-        $this->criterionService->create(CriterionId::next(), 'aName');
+        $this->criterionService->create('aName');
     }
 
     public function test_can_update_name()
@@ -71,7 +70,7 @@ class CriterionTest extends TestCase
                 ->build();
 
         $this->repository->add($criterion);
-        $this->criterionService->updateName($id, 'newName');
+        $this->criterionService->update($id, 'newName');
         $this->em->flush();
         $updatedCriterion = $this->repository->findById($id);
 
@@ -156,5 +155,30 @@ class CriterionTest extends TestCase
         $this->em->flush();
 
         $this->assertEmpty($criterion->getOptions());
+    }
+
+    public function test_can_remove_criterion()
+    {
+        $id = CriterionId::next();
+        $criterion = CriterionBuilder::aCriterion()
+            ->withId($id)
+            ->withName('aName')
+            ->build();
+        $this->repository->add($criterion);
+
+        $this->criterionService->removeCriterion($id);
+        $this->em->flush();
+        $missingCriterion = $this->repository->findById($id);
+
+        $this->assertNull($missingCriterion);
+    }
+
+    public function test_cannot_remove_not_existing_criterion()
+    {
+        $id = CriterionId::next();
+
+        $this->expectException(NotFoundEntityException::class);
+
+        $this->criterionService->removeCriterion($id);
     }
 }

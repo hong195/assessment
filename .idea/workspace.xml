@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated efficiency analyses service.">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/EfficiencyAnalysesAssessmentsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/DataTransferObjects/AssessmentCriteriaDto.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/DataTransferObjects/AssessmentDto.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/DataTransferObjects/CheckDto.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/AssessmentRequest.php" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated efficiency analyses.">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/CriterionRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/CriterionResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/AbstractJsonRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/AbstractJsonRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Criterion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/CriterionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/CriterionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineCriterionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineCriterionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/CriterionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Services/CriterionService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/EfficiencyAnalysisService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Services/EfficiencyAnalysisService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,25 +273,25 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.EfficiencyAnalysesServiceTest.test_can_remove_assessment">
-    <configuration name="EfficiencyAnalysesServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\EfficiencyAnalysesServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.CriterionServiceTest">
+    <configuration name="CriterionServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="EfficiencyAnalysesServiceTest.test_can_add_assessment" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\EfficiencyAnalysesServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" method="test_can_add_assessment" scope="Method" />
+    <configuration name="CriterionServiceTest.test_can_remove_criterion" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" method="test_can_remove_criterion" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="EfficiencyAnalysesServiceTest.test_can_remove_assessment" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\EfficiencyAnalysesServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" method="test_can_remove_assessment" scope="Method" />
+    <configuration name="CriterionServiceTest.test_can_update_name" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" method="test_can_update_name" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="EfficiencyAnalysesServiceTest.test_expects_exception_when_employee_doesnt_exists" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\EfficiencyAnalysesServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" method="test_expects_exception_when_employee_doesnt_exists" scope="Method" />
+    <configuration name="CriterionServiceTest.test_cannot_remove_not_existing_criterion" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" method="test_cannot_remove_not_existing_criterion" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="EfficiencyAnalysesServiceTest.test_expects_exception_when_employee_has_already_analyses_for_a_certain_month" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\EfficiencyAnalysesServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" method="test_expects_exception_when_employee_has_already_analyses_for_a_certain_month" scope="Method" />
+    <configuration name="CriterionServiceTest.test_criterion_name_must_be_unique" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" method="test_criterion_name_must_be_unique" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -299,11 +300,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.EfficiencyAnalysesServiceTest.test_can_remove_assessment" />
-        <item itemvalue="PHPUnit.EfficiencyAnalysesServiceTest.test_can_add_assessment" />
-        <item itemvalue="PHPUnit.EfficiencyAnalysesServiceTest" />
-        <item itemvalue="PHPUnit.EfficiencyAnalysesServiceTest.test_expects_exception_when_employee_has_already_analyses_for_a_certain_month" />
-        <item itemvalue="PHPUnit.EfficiencyAnalysesServiceTest.test_expects_exception_when_employee_doesnt_exists" />
+        <item itemvalue="PHPUnit.CriterionServiceTest" />
+        <item itemvalue="PHPUnit.CriterionServiceTest.test_criterion_name_must_be_unique" />
+        <item itemvalue="PHPUnit.CriterionServiceTest.test_cannot_remove_not_existing_criterion" />
+        <item itemvalue="PHPUnit.CriterionServiceTest.test_can_remove_criterion" />
+        <item itemvalue="PHPUnit.CriterionServiceTest.test_can_update_name" />
       </list>
     </recent_temporary>
   </component>
@@ -393,14 +394,7 @@
       <workItem from="1623862316138" duration="6229000" />
       <workItem from="1623950070091" duration="3587000" />
       <workItem from="1623993085798" duration="1542000" />
-      <workItem from="1624113371149" duration="11063000" />
-    </task>
-    <task id="LOCAL-00039" summary="Updated EfficiencyAnalysis models.">
-      <created>1621089192042</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1621089192042</updated>
+      <workItem from="1624113371149" duration="16304000" />
     </task>
     <task id="LOCAL-00040" summary="Added entities interfaces.">
       <created>1621090242102</created>
@@ -738,7 +732,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623954116885</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="updated efficiency analyses.">
+      <created>1624126444080</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1624126444080</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -783,7 +784,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added EfficiencyAnalysis mapping." />
     <MESSAGE value="fixed errors bugs." />
     <MESSAGE value="repository 1." />
     <MESSAGE value="changed user yaml to annotations mappings." />
@@ -808,7 +808,8 @@
     <MESSAGE value="changed assessment month signature &amp; updated tests." />
     <MESSAGE value="added abstract repository." />
     <MESSAGE value="updated efficiency analyses service." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated efficiency analyses service." />
+    <MESSAGE value="updated efficiency analyses." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated efficiency analyses." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

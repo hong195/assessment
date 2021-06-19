@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CriteriaController;
 use Doctrine\ORM\EntityManagerInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,6 @@ Route::apiResource('efficiency-analyzes', EfficiencyAnalysesController::class)
 
 Route::apiResource('efficiency-analyzes.assessments', EfficiencyAnalysesAssessmentsController::class)
     ->only(['store', 'update', 'destroy']);
+
+Route::apiResource('criteria', CriteriaController::class)
+    ->only(['index', 'store', 'update', 'destroy']);

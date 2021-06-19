@@ -111,7 +111,7 @@ class EfficiencyAnalysisService
         $criteria = $this->criterionRepository->all();
 
         foreach ($criteria as $criterion) {
-            
+
         }
         return array_map(function ($criterion) {
             return new Criterion($criterion['name'], [], $criterion['selected'], $criterion['description']);

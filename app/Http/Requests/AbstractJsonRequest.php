@@ -15,6 +15,8 @@ abstract class AbstractJsonRequest extends FormRequest
         return true;
     }
 
+    abstract public function rules();
+
     abstract public function getDto();
 
     final protected function failedValidation(Validator $validator)
