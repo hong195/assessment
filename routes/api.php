@@ -4,6 +4,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\EfficiencyAnalysesController;
+use \App\Http\Controllers\EfficiencyAnalysesAssessmentsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,3 +17,6 @@ use \App\Http\Controllers\EfficiencyAnalysesController;
 */
 Route::apiResource('efficiency-analyzes', EfficiencyAnalysesController::class)
     ->only(['index', 'store', 'show']);
+
+Route::apiResource('efficiency-analyzes.assessments', EfficiencyAnalysesAssessmentsController::class)
+    ->only(['store', 'update', 'destroy']);

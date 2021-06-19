@@ -49,7 +49,7 @@ final class Criterion
     }
 
     /**
-     * @return mixed
+     * @return int|float
      * @throws NotExistingSelectedOptionException
      */
     public function getSelectedValue() : float
@@ -65,10 +65,8 @@ final class Criterion
 
     public function getMaxPoint() : float
     {
-        return array_reduce($this->options->toArray(),function($carry, Option $option) {
-            $carry = max($carry, $option->getValue());
-            return $carry;
-        }, 0);
+        return array_reduce($this->options->toArray(),
+            fn($carry, Option $option) => max($carry, $option->getValue()), 0);
     }
 
     public function getDescription(): string
