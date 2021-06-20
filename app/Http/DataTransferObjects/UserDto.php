@@ -4,7 +4,7 @@
 namespace App\Http\DataTransferObjects;
 
 
-class UserDto implements DtoInterface
+class UserDto
 {
     public $name;
 

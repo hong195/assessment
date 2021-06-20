@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated criterion service remove option.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CriterionRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CriterionRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/DataTransferObjects/DtoInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/DataTransferObjects/UserDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/DataTransferObjects/UserDto.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -386,14 +387,7 @@
       <workItem from="1623950070091" duration="3587000" />
       <workItem from="1623993085798" duration="1542000" />
       <workItem from="1624113371149" duration="17059000" />
-      <workItem from="1624177374326" duration="6673000" />
-    </task>
-    <task id="LOCAL-00044" summary="Added participant context.">
-      <created>1621176327812</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1621176327812</updated>
+      <workItem from="1624177374326" duration="7010000" />
     </task>
     <task id="LOCAL-00045" summary="Added user entity yml mapping.">
       <created>1621188008247</created>
@@ -731,7 +725,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624198899869</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="updated criterion service remove option.">
+      <created>1624198999184</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1624198999184</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
