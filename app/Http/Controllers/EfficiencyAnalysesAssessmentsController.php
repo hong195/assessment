@@ -32,7 +32,7 @@ class EfficiencyAnalysesAssessmentsController extends Controller
             $this->analysisService->addAssessment($efficiencyAnalysesId, $assessmentDto);
 
             return response()->json([
-                'message' => 'Deleted'
+                'message' => 'Created'
             ]);
 
         } catch (NotFoundEntityException $e) {
@@ -42,9 +42,21 @@ class EfficiencyAnalysesAssessmentsController extends Controller
         }
     }
 
-    public function update(Request $request, $id)
+    public function update(AssessmentRequest $request, string $id, string $assessmentId)
     {
+        try {
+            $assessmentDto = $request->getDto();
+            $this->analysisService->editAssessment($id,$assessmentId, $assessmentDto);
 
+            return response()->json([
+                'message' => 'Created'
+            ]);
+
+        } catch (DomainException $e) {
+            return response()->json([
+                'message' => $e->getMessage()
+            ], $e->getCode());
+        }
     }
 
     public function destroy(string $efficiencyAnalysesId, string $assessmentId): \Illuminate\Http\JsonResponse

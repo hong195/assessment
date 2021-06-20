@@ -130,7 +130,7 @@ class EfficiencyAnalysisTest extends TestCase
 
         $this->expectException(ModificationratingException::class);
 
-        $rating->editReview($this->assessmentId, CheckBuilder::aCheck()->build(), []);
+        $rating->editAssessment($this->assessmentId, CheckBuilder::aCheck()->build(), []);
     }
 
     public function test_analysis_completed_after_adding_10_reviews_for_one_month()

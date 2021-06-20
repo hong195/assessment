@@ -106,6 +106,41 @@ class EfficiencyAnalysisService
     }
 
     /**
+     * @param string $id
+     * @param string $assessmentId
+     * @param AssessmentDto $dto
+     * @throws ModificationRatingException
+     */
+    public function editAssessment(string $id, string $assessmentId, AssessmentDto $dto)
+    {
+        /** @var EfficiencyAnalysis $analyses */
+        $analyses = $this->repository->findOrFail($id);
+
+        $checkDto = $dto->getCheckDto();
+        $criteriaDto = $dto->getCriteriaDto();
+        $check = new Check($checkDto->getServiceDate(), $checkDto->getAmount(), $checkDto->getSaleConversion());
+        $criteria = $this->mapAssessmentCriteria($criteriaDto);
+
+        $analyses->editAssessment(new AssessmentId($assessmentId),$check, $criteria);
+        $this->em->flush();
+    }
+
+    /**
+     * @param string $analysisId
+     * @param string $assessmentId
+     * @throws NotFoundEntityException
+     * @throws ModificationRatingException
+     */
+    public function removeAssessment(string $analysisId, string $assessmentId)
+    {
+        /** @var EfficiencyAnalysis $analysis */
+        $analysis = $this->repository->findOrFail($analysisId);
+        $assessmentId = new AssessmentId($assessmentId);
+
+        $analysis->removeAssessment($assessmentId);
+    }
+
+    /**
      * @param AssessmentCriteriaDto $criteriaDto
      * @return array
      */
@@ -135,19 +170,5 @@ class EfficiencyAnalysisService
                $selectedCriterion['description'] ?? ''
            );
         })->toArray();
-    }
-    /**
-     * @param string $analysisId
-     * @param string $assessmentId
-     * @throws NotFoundEntityException
-     * @throws ModificationRatingException
-     */
-    public function removeAssessment(string $analysisId, string $assessmentId)
-    {
-        /** @var EfficiencyAnalysis $analysis */
-        $analysis = $this->repository->findOrFail($analysisId);
-        $assessmentId = new AssessmentId($assessmentId);
-
-        $analysis->removeAssessment($assessmentId);
     }
 }

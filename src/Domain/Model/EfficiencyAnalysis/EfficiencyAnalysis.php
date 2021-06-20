@@ -113,20 +113,21 @@ class EfficiencyAnalysis
     }
 
     /**
-     * @param AssessmentId $reviewId
+     * @param AssessmentId $assessmentId
      * @param Check $check
      * @param array $criteria
      * @throws ModificationRatingException
      */
-    public function editReview(AssessmentId $reviewId, Check $check, array $criteria)
+    public function editAssessment(AssessmentId $assessmentId, Check $check, array $criteria)
     {
         if ($this->isCompleted()) {
             throw new ModificationRatingException('Cannot update review from completed assessment');
         }
 
-        foreach ($this->assessments as $review) {
-            if ($reviewId->isEqual($review->getId())) {
-                $review->edit($check, $criteria);
+        /** @var Assessment $assessment */
+        foreach ($this->assessments as $assessment) {
+            if ($assessmentId->isEqual($assessment->getId())) {
+                $assessment->edit($check, $criteria);
                 break;
             }
         }

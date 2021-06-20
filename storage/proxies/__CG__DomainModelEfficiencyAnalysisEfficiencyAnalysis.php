@@ -60,7 +60,7 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
 
 
     /**
-     * 
+     *
      * @return array
      */
     public function __sleep()
@@ -73,7 +73,7 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
     }
 
     /**
-     * 
+     *
      */
     public function __wakeup()
     {
@@ -95,7 +95,7 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
     }
 
     /**
-     * 
+     *
      */
     public function __clone()
     {
@@ -175,7 +175,7 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
         return self::$lazyPropertiesDefaults;
     }
 
-    
+
     /**
      * {@inheritDoc}
      */
@@ -201,12 +201,12 @@ class EfficiencyAnalysis extends \Domain\Model\EfficiencyAnalysis\EfficiencyAnal
     /**
      * {@inheritDoc}
      */
-    public function editReview(\Domain\Model\Assessment\AssessmentId $reviewId, \Domain\Model\Assessment\Check $check, array $criteria)
+    public function editAssessment(\Domain\Model\Assessment\AssessmentId $assessmentId, \Domain\Model\Assessment\Check $check, array $criteria)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'editReview', [$reviewId, $check, $criteria]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'editReview', [$assessmentId, $check, $criteria]);
 
-        return parent::editReview($reviewId, $check, $criteria);
+        return parent::editAssessment($assessmentId, $check, $criteria);
     }
 
     /**
