@@ -24,9 +24,9 @@ class Assessment
      */
     private EfficiencyAnalysis $analysis;
     /**
-     * @ORM\Column (type="assessment_reviewer_id")
+     * @ORM\Column (type="assessment_reviewer_id", nullable=true)
      */
-    private ReviewerId $reviewerId;
+    private ?ReviewerId $reviewerId;
 
     /**
      * @ORM\Embedded (class="Check")
@@ -55,6 +55,7 @@ class Assessment
         $this->id = $id;
         $this->check = $check;
         $this->criteria = new ArrayCollection($criteria);
+        $this->reviewerId = null;
     }
 
     public function edit(Check $check, array $criteria)
@@ -68,7 +69,7 @@ class Assessment
         return $this->id;
     }
 
-    public function getReviewer(): ReviewerId
+    public function getReviewer(): ?ReviewerId
     {
         return $this->reviewerId;
     }

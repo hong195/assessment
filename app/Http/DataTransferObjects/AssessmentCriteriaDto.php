@@ -16,7 +16,7 @@ class AssessmentCriteriaDto
             $criterion = [
                 'name' => $datum['name'],
                 'selected' => $datum['selected'],
-                'description' => $datum['description']
+                'description' => !empty($datum['description']) ? $datum['description'] : null
             ];
 
             $self->criteria[] = $criterion;

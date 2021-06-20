@@ -32,7 +32,7 @@ class AssessmentCriteriaType extends JsonType
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        return $value ? $this->serialize($value) : null;
+        return $value ? $this->serialize($value->toArray()) : null;
     }
 
     public function serialize($data): string
@@ -50,7 +50,7 @@ class AssessmentCriteriaType extends JsonType
                 return new Option($option->name, $option->value);
             }, (array) $criterion->options);
 
-            return new Criterion($criterion->name, $options, $criterion->selectedValue, $criterion->description);
+            return new Criterion($criterion->name, $options, $criterion->selected, $criterion->description);
         });
     }
 

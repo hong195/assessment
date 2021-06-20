@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated criterion service remove option.">
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated user dto:&#10;&#10;- removed &#10;  unnecessary dto interface.">
+      <change afterPath="$PROJECT_DIR$/database/migrations/Version20210620173742.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/DataTransferObjects/DtoInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/DataTransferObjects/UserDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/DataTransferObjects/UserDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/DataTransferObjects/AssessmentCriteriaDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/DataTransferObjects/AssessmentCriteriaDto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/AssessmentRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/AssessmentRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AssessmentResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AssessmentResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentCriteriaType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentCriteriaType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Assessment/Criterion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/EfficiencyAnalysisService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Services/EfficiencyAnalysisService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -387,14 +393,7 @@
       <workItem from="1623950070091" duration="3587000" />
       <workItem from="1623993085798" duration="1542000" />
       <workItem from="1624113371149" duration="17059000" />
-      <workItem from="1624177374326" duration="7010000" />
-    </task>
-    <task id="LOCAL-00045" summary="Added user entity yml mapping.">
-      <created>1621188008247</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1621188008247</updated>
+      <workItem from="1624177374326" duration="19237000" />
     </task>
     <task id="LOCAL-00046" summary="Added user entity yml mapping.">
       <created>1621189161715</created>
@@ -732,7 +731,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624198999184</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="updated user dto:&#10;&#10;- removed &#10;  unnecessary dto interface.">
+      <created>1624199473117</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1624199473117</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -777,7 +783,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="changed pharmacy yaml to annotations mapping." />
     <MESSAGE value="changed criterion yaml to annotations mapping." />
     <MESSAGE value="changed assessment yaml to annotations mapping." />
     <MESSAGE value="changed efficiency analasys yaml to annotations mapping." />
@@ -802,7 +807,8 @@
     <MESSAGE value="added criterion controller." />
     <MESSAGE value="added criterion option end point:&#10;&#10;- added&#10;  added criterion/criterion.options controller.&#10;- updated&#10;  criterion service." />
     <MESSAGE value="updated criterion service remove option." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated criterion service remove option." />
+    <MESSAGE value="updated user dto:&#10;&#10;- removed &#10;  unnecessary dto interface." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated user dto:&#10;&#10;- removed &#10;  unnecessary dto interface." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

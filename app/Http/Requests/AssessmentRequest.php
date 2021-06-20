@@ -14,8 +14,9 @@ class AssessmentRequest extends AbstractJsonRequest
             'service_date' => ['date', 'required'],
             'amount' => ['integer', 'nullable'],
             'conversion' => ['numeric', 'nullable'],
+            'criteria' => ['required'],
             'criteria.*.name' => ['string', 'required'],
-            'criteria.*.selected' => ['numeric', 'required'],
+            'criteria.*.selected' => ['string', 'required'],
             'criteria.*.description' => ['string', 'nullable'],
         ];
     }
@@ -23,7 +24,7 @@ class AssessmentRequest extends AbstractJsonRequest
     public function getDto(): AssessmentDto
     {
         $check = new CheckDto(
-                $this->get(new \DateTime('service_date')),
+                new \DateTime($this->get('service_date')),
                 $this->get('amount') ?? 0,
                 $this->get('conversion') ?? 0);
 

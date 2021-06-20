@@ -28,7 +28,7 @@ class AssessmentResource extends JsonResource
                 'amount' => $this->getCheck()->getAmount(),
                 'conversion' => $this->getCheck()->getSaleConversion(),
             ],
-            'criteria' => self::getSerializer()->serialize($this->getCriteria(), 'json'),
+            'criteria' => self::getSerializer()->normalize($this->getCriteria(), 'array'),
         ];
     }
 

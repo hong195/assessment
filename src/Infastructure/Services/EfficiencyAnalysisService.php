@@ -6,13 +6,16 @@ namespace Infastructure\Services;
 
 use App\Http\DataTransferObjects\AssessmentCriteriaDto;
 use App\Http\DataTransferObjects\AssessmentDto;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\EntityNotFoundException;
 use Domain\Exceptions\NotFoundEntityException;
 use Domain\Model\Assessment\AssessmentId;
 use Domain\Model\Assessment\Check;
 use Domain\Model\Assessment\Criterion;
 use Domain\Model\Assessment\Exceptions\NotExistingSelectedOptionException;
 use Domain\Model\Criterion\CriterionRepository;
+use Domain\Model\Criterion\Option;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
@@ -82,13 +85,13 @@ class EfficiencyAnalysisService
     }
 
     /**
-     * @param EfficiencyAnalysisId $id
+     * @param string $id
      * @param AssessmentDto $dto
      * @throws NotExistingSelectedOptionException
      * @throws InvalidRatingMonthException
      * @throws MaxReviewsForMonthReachedException
      */
-    public function addAssessment(EfficiencyAnalysisId $id, AssessmentDto $dto) : void
+    public function addAssessment(string $id, AssessmentDto $dto) : void
     {
         $analyses = $this->repository->findOrFail($id);
         $checkDto = $dto->getCheckDto();
@@ -109,13 +112,29 @@ class EfficiencyAnalysisService
     private function mapAssessmentCriteria(AssessmentCriteriaDto $criteriaDto): array
     {
         $criteria = $this->criterionRepository->all();
+        $selectedCriteria = new ArrayCollection($criteriaDto->getCriteria());
 
-        foreach ($criteria as $criterion) {
+        return $criteria->map(function (\Domain\Model\Criterion\Criterion $criterion) use ($selectedCriteria){
+           $selectedCriterion = $selectedCriteria->filter(function ($selectedCriterion) use ($criterion){
+               return $selectedCriterion['name'] === $criterion->getName();
+           })->first();
 
-        }
-        return array_map(function ($criterion) {
-            return new Criterion($criterion['name'], [], $criterion['selected'], $criterion['description']);
-        }, $criteriaDto->getCriteria());
+           if (!$selectedCriterion) {
+               throw new EntityNotFoundException(sprintf('Option with %s name doesnt exists',
+                   $criterion->getName()));
+           }
+
+           $options = $criterion->getOptions()->map(function (Option $option) {
+               return new \Domain\Model\Assessment\Option($option->getName(), $option->getValue());
+           })->toArray();
+
+           return new Criterion(
+               $criterion->getName(),
+               $options,
+               $selectedCriterion['selected'],
+               $selectedCriterion['description'] ?? ''
+           );
+        })->toArray();
     }
     /**
      * @param string $analysisId
@@ -125,7 +144,6 @@ class EfficiencyAnalysisService
      */
     public function removeAssessment(string $analysisId, string $assessmentId)
     {
-
         /** @var EfficiencyAnalysis $analysis */
         $analysis = $this->repository->findOrFail($analysisId);
         $assessmentId = new AssessmentId($assessmentId);

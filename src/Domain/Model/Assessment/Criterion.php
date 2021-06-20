@@ -29,7 +29,10 @@ final class Criterion
      */
     private string $description;
 
-    public function __construct(string $name, array $options, $selected, $description = '')
+    public function __construct(string $name,
+                                array $options,
+                                string $selected,
+                                string $description = '')
     {
         $this->name = $name;
         $this->options = new ArrayCollection($options);
@@ -48,6 +51,13 @@ final class Criterion
         return $this->options;
     }
 
+    /**
+     * @return string
+     */
+    public function getSelected() : string
+    {
+        return $this->selected;
+    }
     /**
      * @return int|float
      * @throws NotExistingSelectedOptionException
