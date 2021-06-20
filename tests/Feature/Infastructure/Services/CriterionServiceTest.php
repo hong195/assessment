@@ -141,7 +141,7 @@ class CriterionServiceTest extends TestCase
             return $option->getName() === 'old-name';
         })->first();
 
-        $this->criterionService->removeOption($criterion, $addedOption->getId());
+        $this->criterionService->removeOption((string) $id, (string) $addedOption->getId());
         $this->em->flush();
 
         $updatedCriterion = $this->repository->findById($id);

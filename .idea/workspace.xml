@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added criterion controller.">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CriteriaOptionsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/DataTransferObjects/CriterionOptionDto.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/CriterionOptionRequest.php" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated criterion service remove option.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CriterionRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CriterionRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/Criterion/Criterion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/CriterionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Services/CriterionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,13 +264,17 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.CriterionServiceTest.test_can_remove_criterion">
+  <component name="RunManager" selected="PHPUnit.CriterionServiceTest.test_can_remove_an_option">
     <configuration name="CriterionServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="CriterionServiceTest.test_can_add_an_option" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" method="test_can_add_an_option" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="CriterionServiceTest.test_can_remove_an_option" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" method="test_can_remove_an_option" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="CriterionServiceTest.test_can_remove_criterion" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -287,21 +285,17 @@
       <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" method="test_can_update_option" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="CriterionServiceTest.test_criterion_name_must_be_unique" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" method="test_criterion_name_must_be_unique" scope="Method" />
-      <method v="2" />
-    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.CriterionServiceTest.test_can_remove_criterion" />
+        <item itemvalue="PHPUnit.CriterionServiceTest.test_can_remove_an_option" />
         <item itemvalue="PHPUnit.CriterionServiceTest.test_can_update_option" />
+        <item itemvalue="PHPUnit.CriterionServiceTest.test_can_remove_criterion" />
         <item itemvalue="PHPUnit.CriterionServiceTest" />
         <item itemvalue="PHPUnit.CriterionServiceTest.test_can_add_an_option" />
-        <item itemvalue="PHPUnit.CriterionServiceTest.test_criterion_name_must_be_unique" />
       </list>
     </recent_temporary>
   </component>
@@ -392,28 +386,7 @@
       <workItem from="1623950070091" duration="3587000" />
       <workItem from="1623993085798" duration="1542000" />
       <workItem from="1624113371149" duration="17059000" />
-      <workItem from="1624177374326" duration="6303000" />
-    </task>
-    <task id="LOCAL-00041" summary="Added efficiency analysis repository tests.">
-      <created>1621145503069</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1621145503069</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Updated in memory folder structure.">
-      <created>1621145664941</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1621145664941</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Updated criterion repository tests.">
-      <created>1621146754059</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1621146754059</updated>
+      <workItem from="1624177374326" duration="6673000" />
     </task>
     <task id="LOCAL-00044" summary="Added participant context.">
       <created>1621176327812</created>
@@ -737,7 +710,28 @@
       <option name="project" value="LOCAL" />
       <updated>1624134000749</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="added criterion option end point:&#10;&#10;- added&#10;  added criterion/criterion.options controller.&#10;- updated&#10;  criterion service.">
+      <created>1624198750587</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1624198750587</updated>
+    </task>
+    <task id="LOCAL-00091" summary="updated criterion service remove option.">
+      <created>1624198893993</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1624198893993</updated>
+    </task>
+    <task id="LOCAL-00092" summary="updated criterion service remove option.">
+      <created>1624198899869</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1624198899869</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -782,8 +776,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="repository 1." />
-    <MESSAGE value="changed user yaml to annotations mappings." />
     <MESSAGE value="changed pharmacy yaml to annotations mapping." />
     <MESSAGE value="changed criterion yaml to annotations mapping." />
     <MESSAGE value="changed assessment yaml to annotations mapping." />
@@ -807,7 +799,9 @@
     <MESSAGE value="updated efficiency analyses service." />
     <MESSAGE value="updated efficiency analyses." />
     <MESSAGE value="added criterion controller." />
-    <option name="LAST_COMMIT_MESSAGE" value="added criterion controller." />
+    <MESSAGE value="added criterion option end point:&#10;&#10;- added&#10;  added criterion/criterion.options controller.&#10;- updated&#10;  criterion service." />
+    <MESSAGE value="updated criterion service remove option." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated criterion service remove option." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

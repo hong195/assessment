@@ -94,8 +94,10 @@ class CriterionService
         $this->repository->remove($criterion);
     }
 
-    public function removeOption(Criterion $criterion, OptionId $optionId)
+    public function removeOption(string $criterionId, string $optionId)
     {
-        $criterion->removeOption($optionId);
+        $criterion = $this->repository->findOrFail($criterionId);
+
+        $criterion->removeOption(new OptionId($optionId));
     }
 }
