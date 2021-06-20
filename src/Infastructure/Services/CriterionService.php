@@ -4,6 +4,7 @@
 namespace Infastructure\Services;
 
 
+use App\Http\DataTransferObjects\CriterionOptionDto;
 use Domain\Exceptions\NotFoundEntityException;
 use Domain\Model\Criterion\Criterion;
 use Domain\Model\Criterion\CriterionId;
@@ -50,35 +51,45 @@ class CriterionService
     }
 
     /**
-     * @param Criterion $criterion
-     * @param OptionId $optionId
-     * @param string $name
-     * @param float $value
+     * @param string $criterionId
+     * @param CriterionOptionDto $dto
      * @throws CriterionException
      */
-    public function addOption(Criterion $criterion, OptionId  $optionId, string $name, float $value)
+    public function addOption(string $criterionId, CriterionOptionDto $dto)
     {
-        $criterion->addOption($optionId, $name, $value);
+        /** @var Criterion $criterion */
+        $criterion = $this->repository->findOrFail($criterionId);
+        $optionId = OptionId::next();
+
+        $criterion->addOption($optionId, $dto->getName(), $dto->getValue());
     }
 
     /**
-     * @param Criterion $criterion
-     * @param OptionId $optionId
-     * @param string $name
-     * @param float $value
+     * @param string $criterionId
+     * @param CriterionOptionDto $dto
      * @throws CriterionException
+     * @throws NotFoundEntityException
      */
-    public function updateOption(Criterion $criterion, OptionId $optionId, string $name, float $value)
+    public function updateOption(string $criterionId, string $optionId, CriterionOptionDto $dto)
     {
-        $criterion->updateOption($optionId, $name, $value);
+        /** @var Criterion $criterion */
+        $criterion = $this->repository->findOrFail($criterionId);
+
+        $option = $criterion->findOptionById(new OptionId($optionId));
+
+        if (!$option) {
+            throw new NotFoundEntityException();
+        }
+
+        $criterion->updateOption($option->getId(), $dto->getName(), $dto->getValue());
     }
 
     /**
-     * @param string $id
+     * @param string $criterionId
      */
-    public function removeCriterion(string $id)
+    public function removeCriterion(string $criterionId)
     {
-        $criterion = $this->repository->findOrFail($id);
+        $criterion = $this->repository->findOrFail($criterionId);
 
         $this->repository->remove($criterion);
     }
@@ -86,10 +97,5 @@ class CriterionService
     public function removeOption(Criterion $criterion, OptionId $optionId)
     {
         $criterion->removeOption($optionId);
-    }
-
-    public function removeAllOptions(Criterion $criterion)
-    {
-        $criterion->removeAllOptions();
     }
 }

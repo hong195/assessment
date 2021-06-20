@@ -4,12 +4,12 @@
 namespace Tests\Feature\Infastructure\Services;
 
 
+use App\Http\DataTransferObjects\CriterionOptionDto;
 use Doctrine\ORM\EntityManagerInterface;
 use Domain\Exceptions\NotFoundEntityException;
 use Domain\Model\Criterion\CriterionId;
 use Domain\Model\Criterion\CriterionRepository;
 use Domain\Model\Criterion\Option;
-use Domain\Model\Criterion\OptionId;
 use Infastructure\Exceptions\NotUniqueCriterionNameException;
 use Infastructure\Services\CriterionService;
 use Tests\Feature\DoctrineMigrationsTrait;
@@ -85,12 +85,13 @@ class CriterionServiceTest extends TestCase
             ->withName('aName')
             ->build();
         $this->repository->add($criterion);
-        $optionId = OptionId::next();
         $optionName = 'Yes';
         $optionValue = 1;
+        $criterionOptionDto = new CriterionOptionDto($optionName, $optionValue);
 
-        $this->criterionService->addOption($criterion, $optionId, $optionName, $optionValue);
+        $this->criterionService->addOption((string) $id, $criterionOptionDto);
         $this->em->flush();
+
         $updatedCriterion = $this->repository->findById($id);
         $options = $updatedCriterion->getOptions();
 
@@ -106,16 +107,23 @@ class CriterionServiceTest extends TestCase
             ->withName('aName')
             ->build();
         $this->repository->add($criterion);
-        $optionId = OptionId::next();
 
-        $this->criterionService->addOption($criterion, $optionId, 'old option name', 1);
-        $this->criterionService->updateOption($criterion, $optionId,'new option name', 2);
-        $this->em->flush();
+        $criterionOptionDto = new CriterionOptionDto('old-name', 0.6);
+        $this->criterionService->addOption((string) $id, $criterionOptionDto);
         $updatedCriterion = $this->repository->findById($id);
         $options = $updatedCriterion->getOptions();
 
-        $this->assertEquals('new option name', $options->first()->getName());
-        $this->assertEquals(2, $options->first()->getValue());
+        $addedOption = $updatedCriterion->getOptions()->filter(function (Option $option) {
+            return $option->getName() === 'old-name';
+        })->first();
+
+        $updatedCriterionDto = new CriterionOptionDto('new-name', 1);
+        $this->criterionService->updateOption((string) $id, $addedOption->getId(), $updatedCriterionDto);
+        $this->em->flush();
+
+
+        $this->assertEquals('new-name', $options->first()->getName());
+        $this->assertEquals(1, $options->first()->getValue());
     }
 
     public function test_can_remove_an_option()
@@ -126,10 +134,14 @@ class CriterionServiceTest extends TestCase
             ->withName('aName')
             ->build();
         $this->repository->add($criterion);
-        $optionId = OptionId::next();
+        $criterionOptionDto = new CriterionOptionDto('old-name', 0.6);
 
-        $this->criterionService->addOption($criterion, $optionId, 'old option name', 1);
-        $this->criterionService->removeOption($criterion, $optionId);
+        $this->criterionService->addOption((string) $id, $criterionOptionDto);
+        $addedOption = $criterion->getOptions()->filter(function (Option $option) {
+            return $option->getName() === 'old-name';
+        })->first();
+
+        $this->criterionService->removeOption($criterion, $addedOption->getId());
         $this->em->flush();
 
         $updatedCriterion = $this->repository->findById($id);
@@ -138,23 +150,6 @@ class CriterionServiceTest extends TestCase
         })->isEmpty();
 
         $this->assertTrue($options);
-    }
-
-    public function test_can_remove_all_options()
-    {
-        $id = CriterionId::next();
-        $criterion = CriterionBuilder::aCriterion()
-            ->withId($id)
-            ->withName('aName')
-            ->build();
-        $this->repository->add($criterion);
-        $optionId = OptionId::next();
-
-        $this->criterionService->addOption($criterion, $optionId, 'old option name', 1);
-        $this->criterionService->removeAllOptions($criterion);
-        $this->em->flush();
-
-        $this->assertEmpty($criterion->getOptions());
     }
 
     public function test_can_remove_criterion()
@@ -168,9 +163,8 @@ class CriterionServiceTest extends TestCase
 
         $this->criterionService->removeCriterion($id);
         $this->em->flush();
-        $missingCriterion = $this->repository->findById($id);
 
-        $this->assertNull($missingCriterion);
+        $this->assertNull($this->repository->findById($id));
     }
 
     public function test_cannot_remove_not_existing_criterion()

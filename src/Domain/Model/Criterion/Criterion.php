@@ -6,6 +6,7 @@ namespace Domain\Model\Criterion;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Domain\Exceptions\DomainException;
 use Domain\Model\Criterion\Exceptions\CriterionException;
 
 /**
@@ -82,6 +83,18 @@ class Criterion
                 throw new CriterionException('The option name is already taken!');
             }
         }
+    }
+
+    public function findOptionById(OptionId $optionId) : ?Option
+    {
+        /** @var Option $option */
+        foreach ($this->options as $option) {
+            if ($option->getId()->isEqual($optionId)) {
+                return $option;
+            }
+        }
+
+        return null;
     }
 
     public function removeOption(OptionId $optionId) : void
