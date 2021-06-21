@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\CriteriaOptionsController;
-use Doctrine\ORM\EntityManagerInterface;
-use Illuminate\Http\Request;
+use App\Http\Controllers\EfficiencyAnalysesAssessmentsController;
+use App\Http\Controllers\EfficiencyAnalysesController;
+use App\Http\Controllers\PharmaciesController as PharmaciesControllerAlias;
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\EfficiencyAnalysesController;
-use \App\Http\Controllers\EfficiencyAnalysesAssessmentsController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,3 +28,5 @@ Route::apiResource('criteria', CriteriaController::class)
 
 Route::apiResource('criteria.options', CriteriaOptionsController::class)
     ->only(['store', 'update', 'destroy']);
+
+Route::apiResource('pharmacies', PharmaciesControllerAlias::class);

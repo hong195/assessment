@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="bug fix.">
-      <change afterPath="$PROJECT_DIR$/app/Http/DataTransferObjects/PharmacyDto.php" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated pharmacy service.">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/PharmacyRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/PharmacyResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrinePharmacyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrinePharmacyRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/PharmacyService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Services/PharmacyService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -390,14 +390,7 @@
       <workItem from="1624177374326" duration="20285000" />
       <workItem from="1624252670561" duration="597000" />
       <workItem from="1624254606881" duration="100000" />
-      <workItem from="1624292241541" duration="5495000" />
-    </task>
-    <task id="LOCAL-00049" summary="Updated test entity builders.">
-      <created>1621189617707</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1621189617707</updated>
+      <workItem from="1624292241541" duration="7011000" />
     </task>
     <task id="LOCAL-00050" summary="Added pharmacy yml mappings.">
       <created>1621190250878</created>
@@ -735,7 +728,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624296408826</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="updated pharmacy service.">
+      <created>1624298463461</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1624298463461</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -780,7 +780,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="generated doctrine proxy." />
     <MESSAGE value="added efficiency analyses repository." />
     <MESSAGE value="updated full name embed annotation &amp; added user service to service container." />
     <MESSAGE value="added pharmacy service." />
@@ -805,7 +804,8 @@
     <MESSAGE value="updated efficiency analyses service &amp; mapping." />
     <MESSAGE value="added efficiency analyses update method." />
     <MESSAGE value="bug fix." />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix." />
+    <MESSAGE value="updated pharmacy service." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated pharmacy service." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
