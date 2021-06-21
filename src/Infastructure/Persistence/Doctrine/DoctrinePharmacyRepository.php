@@ -12,15 +12,12 @@ use Domain\Model\Pharmacy\PharmacyId;
 use Domain\Model\Pharmacy\PharmacyNumber;
 use Domain\Model\Pharmacy\PharmacyRepository;
 
-class DoctrinePharmacyRepository implements PharmacyRepository
+class DoctrinePharmacyRepository extends AbstractRepository implements PharmacyRepository
 {
-    private EntityManagerInterface $em;
-    private ObjectRepository $repository;
 
     public function __construct(EntityManagerInterface $em)
     {
-        $this->repository = $em->getRepository(Pharmacy::class);
-        $this->em = $em;
+        parent::__construct($em, Pharmacy::class);
     }
 
     public function all(): ArrayCollection

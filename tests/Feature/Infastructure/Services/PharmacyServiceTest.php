@@ -4,10 +4,10 @@
 namespace Tests\Feature\Infastructure\Services;
 
 
+use App\Http\DataTransferObjects\PharmacyDto;
 use Doctrine\ORM\EntityManagerInterface;
 use Domain\Exceptions\NotFoundEntityException;
-use Domain\Model\Pharmacy\Email;
-use Domain\Model\Pharmacy\PharmacyId;
+use Domain\Model\Pharmacy\Pharmacy;
 use Domain\Model\Pharmacy\PharmacyNumber;
 use Domain\Model\Pharmacy\PharmacyRepository;
 use Infastructure\Exceptions\PharmacyNumberHasBeenAlreadyTakenException;
@@ -41,63 +41,56 @@ class PharmacyServiceTest extends TestCase
 
     public function test_can_add_pharmacy()
     {
-        $aPharmacyId = PharmacyId::next();
-        $aPharmacyNumber = new PharmacyNumber('#1');
-        $aPharmacyEmail = new Email('pharmacy@gmail.com');
+        $pharmacyDto = new PharmacyDto('#1', 'pharmacy@gmail.com');
 
-        $this->service->addPharmacy($aPharmacyId, $aPharmacyNumber, $aPharmacyEmail);
-        $addedPharmacy = $this->repository->findById($aPharmacyId);
+        $this->service->addPharmacy($pharmacyDto);
+        /** @var Pharmacy $addedPharmacy */
+        $addedPharmacy = $this->repository->findByNumber(new PharmacyNumber('#1'))->first();
 
-        $this->assertDatabaseCount('pharmacies',1);
-        $this->assertTrue($addedPharmacy->getId()->isEqual($aPharmacyId));
+        $this->assertEquals('#1', (string) $addedPharmacy->getNumber());
+        $this->assertEquals('pharmacy@gmail.com', (string) $addedPharmacy->getEmail());
     }
 
     public function test_expects_exception_when_pharmacy_number_is_not_unique()
     {
-        $aPharmacyId = PharmacyId::next();
-        $aPharmacyNumber = new PharmacyNumber('#1');
-        $aPharmacyEmail = new Email('pharmacy@gmail.com');
-
-        $this->service->addPharmacy($aPharmacyId, $aPharmacyNumber, $aPharmacyEmail);
+        $dto = new PharmacyDto('#1', 'pharmacy@gmail.com');
+        $this->service->addPharmacy($dto);
 
         $this->expectException(PharmacyNumberHasBeenAlreadyTakenException::class);
 
-        $this->service->addPharmacy($aPharmacyId, $aPharmacyNumber, $aPharmacyEmail);
+        $this->service->addPharmacy($dto);
     }
 
     public function test_can_update()
     {
-        $aPharmacyId = PharmacyId::next();
-        $aPharmacyNumber = new PharmacyNumber('#1');
-        $aPharmacyEmail = new Email('pharmacy@gmail.com');
+        $dto = new PharmacyDto('#1', 'pharmacy@gmail.com');
+        $this->service->addPharmacy($dto);
+        $newDto = new PharmacyDto('#2', 'pharmacy2@gmail.com');
+        $addedPharmacy = $this->repository->findByNumber(new PharmacyNumber('#1'))->first();
 
-        $this->service->addPharmacy($aPharmacyId, $aPharmacyNumber, $aPharmacyEmail);
-        $this->service->updatePharmacy($aPharmacyId, $aPharmacyNumber, $aPharmacyEmail);
-        $updatedPharmacy = $this->repository->findById($aPharmacyId);
+        $this->service->updatePharmacy((string) $addedPharmacy->getId(), $newDto);
+        $updatedPharmacy = $this->repository->findById($addedPharmacy->getId());
 
-        $this->assertEquals((string) $aPharmacyNumber, (string) $updatedPharmacy->getNumber());
-        $this->assertEquals((string) $aPharmacyEmail, (string) $updatedPharmacy->getEmail());
+        $this->assertEquals('#2', (string) $updatedPharmacy->getNumber());
+        $this->assertEquals('pharmacy2@gmail.com', (string) $updatedPharmacy->getEmail());
     }
 
     public function test_can_delete_pharmacy()
     {
-        $aPharmacyId = PharmacyId::next();
-        $aPharmacyNumber = new PharmacyNumber('#1');
-        $aPharmacyEmail = new Email('pharmacy@gmail.com');
-        $this->service->addPharmacy($aPharmacyId, $aPharmacyNumber, $aPharmacyEmail);
-        $this->repository->findById($aPharmacyId);
+        $dto = new PharmacyDto('#1', 'pharmacy@gmail.com');
 
-        $this->service->deletePharmacy($aPharmacyId);
+        $this->service->addPharmacy($dto);
+        $addedPharmacy = $this->repository->findByNumber(new PharmacyNumber($dto->getPharmacyNumber()))->first();
 
-        $this->assertDatabaseCount('pharmacies', 0);
+        $this->service->deletePharmacy((string) $addedPharmacy->getId());
+
+        $this->assertNotContains($addedPharmacy, $this->repository->all());
     }
 
     public function test_cant_delete_not_existing_pharmacy()
     {
-        $aPharmacyId = PharmacyId::next();
-
         $this->expectException(NotFoundEntityException::class);
 
-        $this->service->deletePharmacy($aPharmacyId);
+        $this->service->deletePharmacy('not-existing-pharmacy-id');
     }
 }

@@ -4,6 +4,7 @@
 namespace Infastructure\Services;
 
 
+use App\Http\DataTransferObjects\PharmacyDto;
 use Doctrine\ORM\EntityManagerInterface;
 use Domain\Exceptions\NotFoundEntityException;
 use Domain\Model\Pharmacy\Email;
@@ -26,26 +27,41 @@ class PharmacyService
 
     /**
      * @throws PharmacyNumberHasBeenAlreadyTakenException
+     * @throws \Domain\Model\Pharmacy\Exceptions\InvalidPharmacyEmailException
+     * @throws \Domain\Model\Pharmacy\Exceptions\InvalidPharmacyNumberException
      */
-    public function addPharmacy(PharmacyId $pharmacyId, PharmacyNumber $number, Email $email) : void
+    public function addPharmacy(PharmacyDto $dto) : void
     {
+        $number = new PharmacyNumber($dto->getPharmacyNumber());
         $pharmacies = $this->repository->findByNumber($number);
+
+        $id = PharmacyId::next();
+        $email = new Email($dto->getEmail());
 
         if (!$pharmacies->isEmpty())  {
             throw new PharmacyNumberHasBeenAlreadyTakenException;
         }
 
-        $pharmacy = new Pharmacy($pharmacyId, $number, $email);
+        $pharmacy = new Pharmacy($id, $number, $email);
         $this->repository->add($pharmacy);
         $this->em->flush();
     }
 
-    public function updatePharmacy(PharmacyId $pharmacyId, PharmacyNumber $number, Email $email) : void
+    /**
+     * @throws \Domain\Model\Pharmacy\Exceptions\InvalidPharmacyNumberException
+     * @throws PharmacyNumberHasBeenAlreadyTakenException
+     * @throws \Domain\Model\Pharmacy\Exceptions\InvalidPharmacyEmailException
+     */
+    public function updatePharmacy(string $id, PharmacyDto $dto) : void
     {
+        $number = new PharmacyNumber($dto->getPharmacyNumber());
+        $pharmacyId = new PharmacyId($id);
+        $email = new Email($dto->getEmail());
+
         $pharmacies = $this->repository->findByNumber($number);
         $pharmacy = $this->repository->findById($pharmacyId);
 
-        if (!$pharmacies->contains($pharmacy))  {
+        if (!$pharmacies->contains($pharmacy) && !$pharmacies->isEmpty())  {
             throw new PharmacyNumberHasBeenAlreadyTakenException;
         }
 
@@ -59,9 +75,9 @@ class PharmacyService
     /**
      * @throws NotFoundEntityException
      */
-    public function deletePharmacy(PharmacyId $pharmacyId) : void
+    public function deletePharmacy(string $pharmacyId) : void
     {
-        $pharmacy = $this->repository->findById($pharmacyId);
+        $pharmacy = $this->repository->findOrFail($pharmacyId);
 
         if (!$pharmacy) {
             throw new NotFoundEntityException;

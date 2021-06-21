@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added efficiency analyses update method.">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="bug fix.">
+      <change afterPath="$PROJECT_DIR$/app/Http/DataTransferObjects/PharmacyDto.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EfficiencyAnalysesAssessmentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EfficiencyAnalysesAssessmentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CriterionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/CriterionResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrinePharmacyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrinePharmacyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/PharmacyService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Services/PharmacyService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,38 +266,37 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.CriterionServiceTest.test_can_remove_an_option">
-    <configuration name="CriterionServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.PharmacyServiceTest">
+    <configuration name="PharmacyServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="CriterionServiceTest.test_can_add_an_option" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" method="test_can_add_an_option" scope="Method" />
+    <configuration name="PharmacyServiceTest.test_can_delete_pharmacy" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_can_delete_pharmacy" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="CriterionServiceTest.test_can_remove_an_option" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" method="test_can_remove_an_option" scope="Method" />
+    <configuration name="PharmacyServiceTest.test_can_update" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_can_update" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="CriterionServiceTest.test_can_remove_criterion" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" method="test_can_remove_criterion" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="CriterionServiceTest.test_can_update_option" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\CriterionServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" method="test_can_update_option" scope="Method" />
+    <configuration name="PharmacyServiceTest.test_expects_exception_when_pharmacy_number_is_not_unique" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_expects_exception_when_pharmacy_number_is_not_unique" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="PharmacyService.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/Infastructure/Services/PharmacyService.php">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.CriterionServiceTest.test_can_remove_an_option" />
-        <item itemvalue="PHPUnit.CriterionServiceTest.test_can_update_option" />
-        <item itemvalue="PHPUnit.CriterionServiceTest.test_can_remove_criterion" />
-        <item itemvalue="PHPUnit.CriterionServiceTest" />
-        <item itemvalue="PHPUnit.CriterionServiceTest.test_can_add_an_option" />
+        <item itemvalue="PHPUnit.PharmacyServiceTest" />
+        <item itemvalue="PHPUnit.PharmacyServiceTest.test_can_delete_pharmacy" />
+        <item itemvalue="PHPUnit.PharmacyServiceTest.test_can_update" />
+        <item itemvalue="PHP Script.PharmacyService.php" />
+        <item itemvalue="PHPUnit.PharmacyServiceTest.test_expects_exception_when_pharmacy_number_is_not_unique" />
       </list>
     </recent_temporary>
   </component>
@@ -391,14 +390,7 @@
       <workItem from="1624177374326" duration="20285000" />
       <workItem from="1624252670561" duration="597000" />
       <workItem from="1624254606881" duration="100000" />
-      <workItem from="1624292241541" duration="3918000" />
-    </task>
-    <task id="LOCAL-00048" summary="Removed default migrations.">
-      <created>1621189428481</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1621189428481</updated>
+      <workItem from="1624292241541" duration="5495000" />
     </task>
     <task id="LOCAL-00049" summary="Updated test entity builders.">
       <created>1621189617707</created>
@@ -736,7 +728,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624216241343</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="bug fix.">
+      <created>1624296408825</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1624296408826</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -781,7 +780,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="changed efficiency analasys yaml to annotations mapping." />
     <MESSAGE value="generated doctrine proxy." />
     <MESSAGE value="added efficiency analyses repository." />
     <MESSAGE value="updated full name embed annotation &amp; added user service to service container." />
@@ -806,7 +804,8 @@
     <MESSAGE value="updated user dto:&#10;&#10;- removed &#10;  unnecessary dto interface." />
     <MESSAGE value="updated efficiency analyses service &amp; mapping." />
     <MESSAGE value="added efficiency analyses update method." />
-    <option name="LAST_COMMIT_MESSAGE" value="added efficiency analyses update method." />
+    <MESSAGE value="bug fix." />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
