@@ -7,7 +7,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Domain\Exceptions\DomainException;
 use Domain\Exceptions\NotFoundEntityException;
 use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
-use Illuminate\Http\Request;
 use Infastructure\Services\EfficiencyAnalysisService;
 
 class EfficiencyAnalysesAssessmentsController extends Controller
@@ -42,7 +41,7 @@ class EfficiencyAnalysesAssessmentsController extends Controller
         }
     }
 
-    public function update(AssessmentRequest $request, string $id, string $assessmentId)
+    public function update(AssessmentRequest $request, string $id, string $assessmentId): \Illuminate\Http\JsonResponse
     {
         try {
             $assessmentDto = $request->getDto();

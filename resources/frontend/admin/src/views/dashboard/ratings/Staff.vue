@@ -38,6 +38,8 @@
         </v-col>
       </v-row>
 
+      <v-data-table :headers="headers" />
+
       <v-divider class="mt-3" />
     </base-material-card>
   </v-container>
@@ -66,6 +68,7 @@
         rating: {},
         pharmacyId: null,
         pharmacies: [],
+        ratings: [],
         showRating: [
           {
             id: 0,
@@ -119,22 +122,23 @@
     watch: {
       date (val) {
         const date = moment(val)
-        this.$http.get(`pharmacy-rating?year=${date.format('YYYY')}&month=${date.format('M')}`).then(res => {
-          this.pharmacies = res.data.data
-        })
+        // this.$http.get(`pharmacy-rating?year=${date.format('YYYY')}&month=${date.format('M')}`).then(res => {
+        //   this.pharmacies = res.data.data
+        // })
       },
     },
     mounted () {
+      this.axios.get('efficiency-analyzes')
+        .then(({ data }) => {
+          this.ratings = data
+          console.log(data)
+        })
+
       if (this.$route.query.rating_id) {
         this.rating = {}
         this.rating.id = parseInt(this.$route.query.rating_id)
         this.dialog = true
       }
-
-      this.axios.get('efficiency-analyzes')
-        .then(({ response }) => {
-          console.log(response)
-        })
     },
     methods: {
       closeDialog () {

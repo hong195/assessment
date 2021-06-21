@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated efficiency analyses service &amp; mapping.">
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added efficiency analyses update method.">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EfficiencyAnalysesAssessmentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EfficiencyAnalysesAssessmentsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CriterionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/CriterionResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/EfficiencyAnalysisService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infastructure/Services/EfficiencyAnalysisService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelEfficiencyAnalysisEfficiencyAnalysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelEfficiencyAnalysisEfficiencyAnalysis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -390,14 +388,10 @@
       <workItem from="1623950070091" duration="3587000" />
       <workItem from="1623993085798" duration="1542000" />
       <workItem from="1624113371149" duration="17059000" />
-      <workItem from="1624177374326" duration="20177000" />
-    </task>
-    <task id="LOCAL-00047" summary="Removed default migrations.">
-      <created>1621189282304</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1621189282304</updated>
+      <workItem from="1624177374326" duration="20285000" />
+      <workItem from="1624252670561" duration="597000" />
+      <workItem from="1624254606881" duration="100000" />
+      <workItem from="1624292241541" duration="3918000" />
     </task>
     <task id="LOCAL-00048" summary="Removed default migrations.">
       <created>1621189428481</created>
@@ -735,7 +729,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624215273928</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="added efficiency analyses update method.">
+      <created>1624216241343</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1624216241343</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -780,7 +781,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="changed assessment yaml to annotations mapping." />
     <MESSAGE value="changed efficiency analasys yaml to annotations mapping." />
     <MESSAGE value="generated doctrine proxy." />
     <MESSAGE value="added efficiency analyses repository." />
@@ -805,7 +805,8 @@
     <MESSAGE value="updated criterion service remove option." />
     <MESSAGE value="updated user dto:&#10;&#10;- removed &#10;  unnecessary dto interface." />
     <MESSAGE value="updated efficiency analyses service &amp; mapping." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated efficiency analyses service &amp; mapping." />
+    <MESSAGE value="added efficiency analyses update method." />
+    <option name="LAST_COMMIT_MESSAGE" value="added efficiency analyses update method." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

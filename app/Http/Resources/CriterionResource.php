@@ -12,14 +12,14 @@ class CriterionResource extends JsonResource
     {
         /** @var Criterion $this */
         return [
-            'id' => $this->getId(),
+            'id' => (string) $this->getId(),
             'name' => $this->getName(),
             'options' => $this->getOptions()->map(function (Option $option) {
                 return [
                   'name' => $option->getName(),
                   'value' => $option->getValue()
                 ];
-            }),
+            })->toArray(),
         ];
     }
 }
