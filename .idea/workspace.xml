@@ -4,10 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added employee service.">
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated api endpoints.">
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Create.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Form.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/CheckboxField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/CheckboxField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/DateField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/DateField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/FileField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/FileField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/RadioField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/RadioField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/SelectField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/SelectField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/TextField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/TextField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/TextareaField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/TextareaField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/TreeselectField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/TreeselectField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/FormBase.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/FormBase.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Mixins/FieldMixin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Mixins/FieldMixin.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Mixins/FormActionsMixin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Mixins/FormActionsMixin.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/DefaultForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/DefaultForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/adminItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/adminItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/editorItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/editorItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/subscriberItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/subscriberItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/locales/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/locales/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/checks/Create.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/checks/Index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/staffs/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/staffs/Index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +45,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -220,7 +244,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="12.22.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.20.15" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin/src/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -233,17 +257,17 @@
     <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v12.22.1/bin/node" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/components" />
+      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/final-grade" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/app/Domain" />
       <recent name="$PROJECT_DIR$/app/Http/Requests" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence\Doctrine" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence\Doctrine" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app" />
@@ -386,7 +410,14 @@
       <workItem from="1624254606881" duration="100000" />
       <workItem from="1624292241541" duration="7157000" />
       <workItem from="1624339964783" duration="609000" />
-      <workItem from="1624712330701" duration="9520000" />
+      <workItem from="1624712330701" duration="18258000" />
+    </task>
+    <task id="LOCAL-00057" summary="changed user yaml to annotations mappings.">
+      <created>1621964571491</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1621964571491</updated>
     </task>
     <task id="LOCAL-00058" summary="changed user yaml to annotations mappings.">
       <created>1622051919010</created>
@@ -717,21 +748,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624722614432</updated>
     </task>
-    <task id="LOCAL-00105" summary="added employee service.">
-      <created>1624736508022</created>
+    <task id="LOCAL-00105" summary="updated api endpoints.">
+      <created>1624722682597</created>
       <option name="number" value="00105" />
       <option name="presentableId" value="LOCAL-00105" />
       <option name="project" value="LOCAL" />
-      <updated>1624736508022</updated>
+      <updated>1624722682597</updated>
     </task>
-    <task id="LOCAL-00106" summary="added employee service.">
-      <created>1624737083852</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1624737083852</updated>
-    </task>
-    <option name="localTasksCounter" value="107" />
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -800,8 +824,8 @@
     <MESSAGE value="rename entity efficiency analyses to final grade." />
     <MESSAGE value="updated final grade test." />
     <MESSAGE value="updated doctrine proxy." />
-    <MESSAGE value="added employee service." />
-    <option name="LAST_COMMIT_MESSAGE" value="added employee service." />
+    <MESSAGE value="updated api endpoints." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated api endpoints." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

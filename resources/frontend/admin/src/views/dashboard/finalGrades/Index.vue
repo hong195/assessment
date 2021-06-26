@@ -15,10 +15,7 @@
 
       <v-row justify="end">
         <v-col>
-          <v-btn color="red" :to="{
-            name: 'final-grade-create'
-          }"
-          >
+          <v-btn color="primary" @click="addFinalGrade">
             Добавить
           </v-btn>
         </v-col>
@@ -31,6 +28,16 @@
                     item-text="name"
                     item-value="id"
                     label="Аптека"
+                    clearable
+                    outlined
+          />
+        </v-col>
+        <v-col cols="12" sm="12" md="3" lg="2">
+          <v-select v-model="status"
+                    :items="statuses"
+                    item-text="name"
+                    item-value="id"
+                    label="Статус"
                     clearable
                     outlined
           />
@@ -56,6 +63,7 @@
 
       <v-divider class="mt-3" />
     </base-material-card>
+    <create ref="createPopup" />
   </v-container>
 </template>
 
@@ -66,11 +74,12 @@
   import RatingColor from '@/components/dashboard/mixins/RatingColor'
   import Conversion from '@/components/dashboard/Graphs/table_parts/Conversion'
   import RatingScore from '@/components/dashboard/Graphs/table_parts/RatingScore'
+  import Create from './Create'
   import { mapActions } from 'vuex'
 
   export default {
-    name: 'StaffRating',
-    components: { RatingScore, Conversion, DataTable, MonthPicker },
+    name: 'Index',
+    components: { Create, RatingScore, Conversion, DataTable, MonthPicker },
     mixins: [RatingColor],
     data () {
       return {
@@ -85,14 +94,15 @@
         pharmacyId: null,
         pharmacies: [],
         ratings: [],
-        showRating: [
+        status: 'completed',
+        statuses: [
           {
-            id: 0,
-            label: 'Всех',
+            id: 'completed',
+            name: 'Завершенный',
           },
           {
-            id: 1,
-            label: 'С только тех у кого есть рейтингом',
+            id: 'uncompleted',
+            name: 'Незавершенный',
           },
         ],
         withRating: 0,
@@ -113,12 +123,16 @@
             sortable: false,
           },
           {
-            text: 'Рейтинг',
-            value: 'rating',
+            text: 'Сумма',
+            value: 'amount',
           },
           {
             text: 'Конверсия',
             value: 'conversion',
+          },
+          {
+            text: 'Рейтинг',
+            value: 'rating',
           },
         ],
       }
@@ -138,9 +152,9 @@
     watch: {
       date (val) {
         const date = moment(val)
-        // this.$http.get(`pharmacy-rating?year=${date.format('YYYY')}&month=${date.format('M')}`).then(res => {
-        //   this.pharmacies = res.data.data
-        // })
+      // this.$http.get(`pharmacy-rating?year=${date.format('YYYY')}&month=${date.format('M')}`).then(res => {
+      //   this.pharmacies = res.data.data
+      // })
       },
     },
     mounted () {
@@ -149,11 +163,11 @@
           this.finalGrades = data.data
         })
 
-      // if (this.$route.query.rating_id) {
-      //   this.rating = {}
-      //   this.rating.id = parseInt(this.$route.query.rating_id)
-      //   this.dialog = true
-      // }
+    // if (this.$route.query.rating_id) {
+    //   this.rating = {}
+    //   this.rating.id = parseInt(this.$route.query.rating_id)
+    //   this.dialog = true
+    // }
     },
     methods: {
       ...mapActions('finalGrade', ['fetchAll']),
@@ -167,6 +181,9 @@
       setDate (date, dialog) {
         dialog.save(date)
         this.date = date
+      },
+      addFinalGrade () {
+        this.$refs.createPopup.openPopupForm()
       },
     },
   }

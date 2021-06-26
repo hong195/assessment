@@ -1,36 +1,44 @@
 <template>
   <validation-observer ref="obs" v-slot="{ handleSubmit }">
-    <v-form :data-vv-scope="scope" @submit.prevent="handleSubmit(handle)">
+    <v-form :data-vv-scope="scope" :disabled="disabled" @submit.prevent="handleSubmit(onSubmit)">
       <v-row>
         <v-col
           v-for="(field, index) in schema"
           :key="index"
           :md="field.attributes.cols || 12"
+          :lg="field.attributes.cols || 12"
+          :sm="field.attributes.cols || 12"
+          :cols="12"
         >
-          <component
-            :is="`${field.component}-field`"
-            :scope="scope"
-            :type="field.type"
-            :name="field.name"
-            :label="field.label"
-            :value="field.value"
-            :validation-rule="field.rule"
-            :options="field.options"
-            :attributes="field.attributes"
-            @input="updateFieldValue"
-          />
+          <slot :name="`${field.name}-field`" :field="field" :updateFieldValue="updateFieldValue">
+            <component
+              :is="`${field.component}-field`"
+              :scope="scope"
+              :type="field.type"
+              :name="field.name"
+              :label="field.label"
+              :placeholder="field.placeholder"
+              :hint="field.hint"
+              :value="field.value"
+              :validation-rule="field.rule"
+              :options="field.options"
+              :attributes="field.attributes"
+              @input="updateFieldValue"
+            />
+          </slot>
         </v-col>
       </v-row>
-      <slot :loading="loading" name="actions">
+      <slot :loading="loading" :disabled="disabled" name="actions" :submitText="submitText">
         <v-card-actions align="center" class="pa-0 py-3">
           <v-btn
             :loading="loading"
             color="success"
             default
             large
+            :disabled="disabled"
             type="submit"
           >
-            {{ buttonText }}
+            {{ submitText }}
           </v-btn>
         </v-card-actions>
       </slot>
@@ -48,8 +56,7 @@
   import TreeselectField from './Fields/TreeselectField'
   import FileField from './Fields/FileField'
   import DateField from './Fields/DateField'
-  import FormActionMixin from '@/components/Form/Mixins/FormActionsMixin'
-  import moment from 'moment'
+  import FormActionMixin from './Mixins/FormActionsMixin'
 
   export default {
     name: 'FormBase',
@@ -70,37 +77,24 @@
         type: Array,
         default: () => [],
       },
-      method: {
-        type: String,
-        default: 'post',
-        validator: (method) => {
-          return ['post', 'get', 'put', 'delete'].includes(method.toLowerCase())
-        },
-      },
       scope: {
         type: String,
         required: true,
       },
-      currentItem: {
-        type: Object,
-        default: () => {
-          Promise.resolve()
-        },
+      loading: {
+        type: Boolean,
+        default: false,
+      },
+      disabled: {
+        type: Boolean,
+        default: false,
+      },
+      submitText: {
+        type: String,
+        default: 'Отправить',
       },
     },
-    data: () => ({
-      loading: false,
-    }),
     computed: {
-      buttonText () {
-        let text
-        if (this.method === 'post') {
-          text = 'Добавить'
-        } else if (['put', 'patch'].includes(this.method)) {
-          text = 'Обновить'
-        }
-        return text
-      },
       fieldsValue () {
         const values = {}
         this.schema.forEach((field) => {
@@ -108,6 +102,17 @@
           this.assign(values, name, field.value)
         })
         return values
+      },
+    },
+    watch: {
+      disabled (val) {
+        this.schema.forEach((field) => {
+          if (field.attributes) {
+            field.attributes.disabled = val
+          } else {
+            field.attribute = { disabled: val }
+          }
+        })
       },
     },
     created () {
@@ -137,16 +142,11 @@
       },
       setFieldValue ({ name, value }) {
         const field = this.getFieldByName(name)
-
-        if (value instanceof Date) {
-          value = moment(value).format('YYYY-MM-DD HH:mm')
-        }
-
         field.value = value
       },
       async reset () {
         this.schema.forEach((field) =>
-          this.setFieldValue({ name: field.name, value: null })
+          this.setFieldValue({ name: field.name, value: null }),
         )
         requestAnimationFrame(() => {
           this.$refs.obs.reset()

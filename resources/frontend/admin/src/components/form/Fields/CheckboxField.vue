@@ -24,10 +24,10 @@
         :key="`checkbox-${id}-${index}`"
       >
         <v-checkbox
-          v-model="innerValue"
           :error-messages="errors"
           :value="option.id"
           :label="label"
+          @change="updateValue"
         />
       </v-col>
     </v-row>
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-  import FieldMixin from '@/components/Form/Mixins/FieldMixin'
+  import FieldMixin from '../Mixins/FieldMixin'
   export default {
     name: 'CheckBox',
     mixins: [FieldMixin],

@@ -1,31 +1,53 @@
 <template>
   <validation-provider
-    v-slot="{ errors, required, ariaInput, ariaMsg }"
+    v-slot="{ errors }"
     tag="div"
     :rules="validationRule"
     :name="label"
     class="treeselect-container"
     :vid="name"
   >
-    <label
-      class="treeselect-label"
-      v-text="label"
-    />
-    <treeselect
-      ref="treeSelect"
-      v-model="innerValue"
-      class="treeselect-component"
-      :options="options"
-      :normalizer="normalizer"
-      v-bind="attributes"
-    />
+    <div class="treeselect-component">
+      <label
+        class="treeselect-label"
+        :class="{
+          'has-errors': errors.length
+        }"
+        v-text="label"
+      />
+      <treeselect
+        ref="treeSelect"
+        :class="{
+          'has-errors': errors.length
+        }"
+        :value="value"
+        :options="options"
+        :normalizer="normalizer"
+        no-options-text="Нет доступных опций"
+        no-results-text="Нет доступных опций"
+        v-bind="attributes"
+        :placeholder="label"
+        @input="updateValue"
+      />
+      <div class="v-text-field" style="padding-top: 8px;">
+        <div v-show="errors.length" class="v-text-field__details">
+          <div class="v-messages theme--light error--text" role="alert">
+            <div v-for="(error, index) in errors" :key="index" class="v-messages__wrapper">
+              <div class="v-messages__message pl-3">
+                {{ error }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </validation-provider>
 </template>
 
 <script>
   import Treeselect from '@riophae/vue-treeselect'
   import '@riophae/vue-treeselect/dist/vue-treeselect.css'
-  import FieldMixin from '@/components/Form/Mixins/FieldMixin'
+  import FieldMixin from '../Mixins/FieldMixin'
   export default {
     name: 'TreeselectField',
     components: {
@@ -51,9 +73,23 @@
   }
 </script>
 
-<style>
+<style lang="scss">
 .treeselect-component {
-  margin-bottom: 40px;
+  > * {
+    transition: .25s all;
+  }
+  .vue-treeselect__control {
+    height: 56px;
+  }
+  .vue-treeselect--disabled {
+    .vue-treeselect__control {
+      background-color: #fff;
+      border-color: rgba(0, 0, 0, 0.26);
+    }
+  }
+}
+.treeselect-label.has-errors {
+  color: rgb(255, 82, 82) !important;
 }
 .treeselect-component .vue-treeselect__control {
   padding-top: 15px;
@@ -78,9 +114,33 @@
     padding-right: 3px;
     padding-left: 2px;
   }
-.treeselect-component .vue-treeselect__control {
-  border-color: rgba(0, 0, 0, 0.42);
+.treeselect-component {
+  .vue-treeselect__control {
+    border-color: rgba(0, 0, 0, 0.42);
+  }
+  .has-errors {
+    .treeselect-label {
+      color: rgb(255, 82, 82);
+    }
+    .vue-treeselect__control {
+      border-color: rgb(255, 82, 82);
+      border-width: 2px;
+
+      .vue-treeselect-helper-zoom-effect-off {
+        color: rgb(255, 82, 82);
+      }
+      &:hover {
+        border-color: rgb(255, 82, 82);
+        border-width: 2px;
+      }
+
+      svg {
+        fill: rgb(255, 82, 82);
+      }
+    }
+  }
 }
+
 .treeselect-component.vue-treeselect--open-below:not(.vue-treeselect--append-to-body) .vue-treeselect__menu-container {
   /* position: relative; */
   top: -20%;

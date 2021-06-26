@@ -7,19 +7,22 @@
     :vid="name"
   >
     <v-text-field
-      v-model="innerValue"
+      :value="value"
       :name="name"
       :error-messages="errors"
       :type="type"
       v-bind="attributes"
       :label="label"
+      :hint="hint"
+      :placeholder="placeholder"
+      @input="updateValue"
     />
   </validation-provider>
 </template>
 
 <script>
 
-  import FieldMixin from '@/components/Form/Mixins/FieldMixin'
+  import FieldMixin from '../Mixins/FieldMixin'
   import debounce from 'lodash.debounce'
 
   export default {
@@ -42,15 +45,13 @@
         },
       },
     },
-    watch: {
-      innerValue (newVal) {
-        debounce(() => {
-          this.$emit('input', {
-            name: this.name,
-            value: newVal,
-          })
-        }, 500)
-      },
+    methods: {
+      updateValue: debounce(function (e) {
+        this.$emit('input', {
+          name: this.name,
+          value: e,
+        })
+      }, 1000),
     },
   }
 </script>

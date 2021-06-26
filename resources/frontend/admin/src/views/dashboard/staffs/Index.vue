@@ -46,11 +46,10 @@
 
 <script>
   import Actions from '@/components/dashboard/Actions/StaffActions'
-  import Checks from '@/views/dashboard/checks/Index'
   import DataTable from '@/components/dashboard/DataTable'
   export default {
     name: 'Staff',
-    components: { Checks, Actions, DataTable },
+    components: { Actions, DataTable },
     data () {
       return {
         headers: [

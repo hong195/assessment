@@ -5,8 +5,8 @@ export default [
     to: '/home',
   },
   {
-    to: '/ratings-staff',
+    to: '/final-grades',
     icon: 'mdi-view-comfy',
-    title: 'ratings',
+    title: 'final_grades',
   },
 ]

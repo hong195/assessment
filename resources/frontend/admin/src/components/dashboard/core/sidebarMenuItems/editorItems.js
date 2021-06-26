@@ -44,7 +44,7 @@ export default [
       {
         to: 'ratings-staff',
         icon: 'mdi-view-comfy',
-        title: 'ratings',
+        title: 'final_grades',
       },
     ],
   },

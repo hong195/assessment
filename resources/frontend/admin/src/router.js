@@ -49,6 +49,27 @@ const router = new Router({
           },
         },
         {
+          name: 'final-grades',
+          path: 'final-grades',
+          component: () => import('@/views/dashboard/finalGrades/Index'),
+          meta: {
+            middleware: [
+              // isEditor,
+            ],
+          },
+        },
+
+        {
+          name: 'final-grade-create',
+          path: 'create',
+          component: () => import('@/views/dashboard/finalGrades/Create'),
+          meta: {
+            /* middleware: [
+              isEditor,
+            ], */
+          },
+        },
+        {
           name: 'pharmacy',
           path: 'pharmacy',
           component: () => import('@/views/dashboard/pharmacies/Index'),
@@ -125,26 +146,6 @@ const router = new Router({
           meta: {
             middleware: [
               auth,
-            ],
-          },
-        },
-        {
-          name: 'create-checks',
-          path: 'create-checks',
-          component: () => import('@/views/dashboard/checks/Create'),
-          meta: {
-            middleware: [
-              isEditor,
-            ],
-          },
-        },
-        {
-          name: 'update-checks',
-          path: 'update-checks/:id',
-          component: () => import('@/views/dashboard/checks/Create'),
-          meta: {
-            middleware: [
-              isEditor,
             ],
           },
         },
