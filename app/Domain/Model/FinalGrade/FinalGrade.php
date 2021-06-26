@@ -18,6 +18,7 @@ use App\Domain\Model\Employee\EmployeeId;
 /**
  * Class EfficiencyAnalysis
  * @ORM\Entity
+ * @ORM\Table (name="final_grades")
  */
 class FinalGrade
 {

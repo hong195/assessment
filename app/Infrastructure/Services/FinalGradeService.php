@@ -98,6 +98,7 @@ class FinalGradeService
         $criteriaDto = $dto->getCriteriaDto();
         $check = new Check($checkDto->getServiceDate(), $checkDto->getAmount(), $checkDto->getSaleConversion());
         $criteria = $this->mapAssessmentCriteria($criteriaDto);
+
         $assessmentId = AssessmentId::next();
 
         /** @var FinalGrade $analyses */

@@ -4,23 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated repositories.">
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="rename entity efficiency analyses to final grade.">
+      <change beforePath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTransferObjects/EfficiencyAnalysesDTO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTransferObjects/FinalGradeDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/Assessment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Employee/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Employee/Employee.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Domain/Model/FinalGrade/FinalGrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/FinalGrade/FinalGrade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Pharmacy/Pharmacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Pharmacy/Pharmacy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/EfficiencyAnalysisAlreadyExistsException.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/FinalGradeAlreadyExistsException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EfficiencyAnalysesAssessmentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FinalGradeAssessmentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EfficiencyAnalysesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FinalGradeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CreateEfficiencyAnalysesRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CreateFinalGradeRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/EfficiencyAnalysesResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/FinalGradeResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrineEmployeeEfficiencyAnalysesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrineFinalGradeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/EfficiencyAnalysisService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/FinalGradeServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/Version20210601111722.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/Version20210605163040.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/Version20210606081045.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/Version20210606081305.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/Version20210606144013.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/Version20210606144412.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/Version20210614170941.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/Version20210620173742.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelAssessmentAssessment.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelCriterionCriterion.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelCriterionOption.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelEfficiencyAnalysisEfficiencyAnalysis.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelEmployeeEmployee.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelPharmacyPharmacy.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelUserUser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/FinalGradeServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/FinalGradeServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,9 +206,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
       <path value="$PROJECT_DIR$/vendor/laravel-doctrine/orm" />
       <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
-      <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
-      <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
       <path value="$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts" />
       <path value="$PROJECT_DIR$/vendor/laravel-doctrine/migrations" />
       <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
@@ -274,9 +278,17 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.EfficiencyAnalysisTest">
+  <component name="RunManager" selected="PHPUnit.FinalGradeServiceTest.test_can_remove_assessment">
     <configuration name="EfficiencyAnalysisTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Unit\Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/FinalGrade/FinalGradeTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FinalGradeServiceTest.test_can_add_assessment" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\FinalGradeServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/FinalGradeServiceTest.php" method="test_can_add_assessment" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FinalGradeServiceTest.test_can_remove_assessment" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\FinalGradeServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/FinalGradeServiceTest.php" method="test_can_remove_assessment" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="PharmacyServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -287,24 +299,17 @@
       <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_can_delete_pharmacy" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PharmacyServiceTest.test_can_update" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_can_update" scope="Method" />
-      <method v="2" />
-    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
-    <configuration name="PharmacyService.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/Infastructure/Services/PharmacyService.php">
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.FinalGradeServiceTest.test_can_remove_assessment" />
+        <item itemvalue="PHPUnit.FinalGradeServiceTest.test_can_add_assessment" />
         <item itemvalue="PHPUnit.EfficiencyAnalysisTest" />
         <item itemvalue="PHPUnit.PharmacyServiceTest" />
         <item itemvalue="PHPUnit.PharmacyServiceTest.test_can_delete_pharmacy" />
-        <item itemvalue="PHPUnit.PharmacyServiceTest.test_can_update" />
-        <item itemvalue="PHP Script.PharmacyService.php" />
       </list>
     </recent_temporary>
   </component>
@@ -400,14 +405,7 @@
       <workItem from="1624254606881" duration="100000" />
       <workItem from="1624292241541" duration="7157000" />
       <workItem from="1624339964783" duration="609000" />
-      <workItem from="1624712330701" duration="5918000" />
-    </task>
-    <task id="LOCAL-00053" summary="added EfficiencyAnalysis mapping.">
-      <created>1621793887510</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1621793887510</updated>
+      <workItem from="1624712330701" duration="9426000" />
     </task>
     <task id="LOCAL-00054" summary="added EfficiencyAnalysis mapping.">
       <created>1621793921177</created>
@@ -745,7 +743,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624718292349</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="rename entity efficiency analyses to final grade.">
+      <created>1624719248291</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1624719248291</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -790,7 +795,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added criterion service." />
     <MESSAGE value="updated analyses service." />
     <MESSAGE value="rollback default app namespace." />
     <MESSAGE value="added efficiency analyses controller." />
@@ -815,7 +819,8 @@
     <MESSAGE value="added pharmacy api endpoint" />
     <MESSAGE value="moved Domain &amp; Infrastructure into app folder." />
     <MESSAGE value="updated repositories." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated repositories." />
+    <MESSAGE value="rename entity efficiency analyses to final grade." />
+    <option name="LAST_COMMIT_MESSAGE" value="rename entity efficiency analyses to final grade." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

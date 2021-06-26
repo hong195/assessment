@@ -4,6 +4,12 @@
 namespace Tests\Feature\Infastructure\Services;
 
 
+use App\DataTransferObjects\AssessmentCriteriaDto;
+use App\DataTransferObjects\AssessmentDto;
+use App\DataTransferObjects\CheckDto;
+use App\DataTransferObjects\CriterionOptionDto;
+use App\Domain\Model\Criterion\CriterionRepository;
+use App\Domain\Model\Criterion\OptionId;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Exceptions\NotFoundEntityException;
 use App\Domain\Model\Assessment\AssessmentId;
@@ -16,6 +22,7 @@ use App\Domain\Model\Employee\EmployeeId;
 use App\Domain\Model\Employee\EmployeeRepository;
 use App\Exceptions\FinalGradeAlreadyExistsException;
 use App\Infrastructure\Services\FinalGradeService;
+use Tests\Builders\CriterionBuilder;
 use Tests\Feature\DoctrineMigrationsTrait;
 use Tests\TestCase;
 use Tests\Builders\CheckBuilder;
@@ -35,10 +42,10 @@ class FinalGradeServiceTest extends TestCase
     private EntityManagerInterface $em;
 
     private FinalGradeService $analysisService;
-    /**
-     * @var mixed
-     */
-    private $employeeRepository;
+
+    private EmployeeRepository $employeeRepository;
+
+    private CriterionRepository $criterionRepository;
 
     protected function setUp(): void
     {
@@ -47,9 +54,13 @@ class FinalGradeServiceTest extends TestCase
         $this->resetMigrations();
 
         $this->repository = app()->make(FinalGradeRepository::class);
+        $this->criterionRepository = app()->make(CriterionRepository::class);
         $this->employeeRepository = app()->make(EmployeeRepository::class);
         $this->em = app()->make(EntityManagerInterface::class);
-        $this->analysisService = new FinalGradeService($this->repository, $this->employeeRepository, $this->em);
+        $this->analysisService = new FinalGradeService($this->repository,
+            $this->employeeRepository,
+            $this->criterionRepository,
+            $this->em);
     }
 
     private function getMontlyEmployeeAnalyses(EmployeeId $employeeId, \DateTime $month)
@@ -126,11 +137,25 @@ class FinalGradeServiceTest extends TestCase
 
         $analyses = FinalGradeBuilder::anAnalysis()->withId($id)->build();
         $this->repository->add($analyses);
-        $this->em->flush();
-        $check = CheckBuilder::aCheck()->build();
-        $criteria = [new Criterion('Ethics', [new \App\Domain\Model\Assessment\Option('yes', 1)], 'yes')];
 
-        $this->analysisService->addAssessment($id, $check, $criteria);
+        $criterion = CriterionBuilder::aCriterion()->withName('Ethics')->build();
+        $criterion->addOption(OptionId::next(), 'yes', 1);
+        $this->criterionRepository->add($criterion);
+
+        $this->em->flush();
+
+        $check = CheckBuilder::aCheck()->build();
+        $checkDto = new CheckDto($check->getServiceDate(), $check->getAmount(), $check->getSaleConversion());
+        $criteriaDto = AssessmentCriteriaDto::fromArray([
+            [
+                'name' => 'Ethics',
+                'selected' => 'yes',
+                'description' => 'Test description'
+            ],
+        ]);
+        $dto = new AssessmentDto($checkDto, $criteriaDto);
+
+        $this->analysisService->addAssessment((string) $id, $dto);
 
         $this->assertDatabaseCount('assessments', 1);
     }
@@ -143,10 +168,19 @@ class FinalGradeServiceTest extends TestCase
         $this->repository->add($analyses);
         $this->em->flush();
         $assessmentId =  AssessmentId::next();
-        $check = CheckBuilder::aCheck()->build();
-        $criteria = [new Criterion('Ethics', [new \App\Domain\Model\Assessment\Option('yes', 1)], 'yes')];
 
-        $this->analysisService->addAssessment($id, $check, $criteria);
+        $check = CheckBuilder::aCheck()->build();
+        $checkDto = new CheckDto($check->getServiceDate(), $check->getAmount(), $check->getSaleConversion());
+        $criteriaDto = AssessmentCriteriaDto::fromArray([
+            [
+                'name' => 'Ethics',
+                'selected' => 'yes',
+                'description' => 'Test description'
+            ],
+        ]);
+        $dto = new AssessmentDto($checkDto, $criteriaDto);
+
+        $this->analysisService->addAssessment($id, $dto);
         $this->analysisService->removeAssessment((string) $analyses->getId(), (string) $assessmentId);
 
         $updatedAnalyses = $this->repository->findById($id);
