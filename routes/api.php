@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\CriteriaOptionsController;
+use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\FinalGradeAssessmentsController;
 use App\Http\Controllers\FinalGradeController;
 use App\Http\Controllers\PharmaciesController as PharmaciesControllerAlias;
@@ -25,6 +26,9 @@ Route::apiResource('final-grade.assessments', FinalGradeAssessmentsController::c
 
 Route::apiResource('criteria', CriteriaController::class)
     ->only(['index', 'store', 'update', 'destroy']);
+
+Route::apiResource('employees', EmployeesController::class)
+    ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 Route::apiResource('criteria.options', CriteriaOptionsController::class)
     ->only(['store', 'update', 'destroy']);

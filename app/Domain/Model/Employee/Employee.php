@@ -91,6 +91,11 @@ class Employee
         $this->gender = $gender;
     }
 
+    public function changePharmacy(Pharmacy $pharmacy)
+    {
+        $this->pharmacy = $pharmacy;
+    }
+
     public function getPharmacy(): Pharmacy
     {
         return $this->pharmacy;
