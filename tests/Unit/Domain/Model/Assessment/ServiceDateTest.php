@@ -4,8 +4,8 @@
 namespace Tests\Unit\Domain\Model\Assessment;
 
 use Carbon\Carbon;
-use Domain\Model\Assessment\Exceptions\InvalidServiceDateException;
-use Domain\Model\Assessment\ServiceDate;
+use App\Domain\Model\Assessment\Exceptions\InvalidServiceDateException;
+use App\Domain\Model\Assessment\ServiceDate;
 use PHPUnit\Framework\TestCase;
 
 class ServiceDateTest extends TestCase

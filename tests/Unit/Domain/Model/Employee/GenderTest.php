@@ -3,8 +3,8 @@
 
 namespace Tests\Unit\Domain\Model\Employee;
 
-use Domain\Model\Employee\Exceptions\InvalidGenderValueException;
-use Domain\Model\Employee\Gender;
+use App\Domain\Model\Employee\Exceptions\InvalidGenderValueException;
+use App\Domain\Model\Employee\Gender;
 use PHPUnit\Framework\TestCase;
 
 class GenderTest extends TestCase

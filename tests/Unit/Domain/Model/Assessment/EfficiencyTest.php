@@ -3,9 +3,9 @@
 
 namespace Tests\Unit\Domain\Model\Assessment;
 
-use Domain\Model\Assessment\Criterion;
-use Domain\Model\Assessment\Exceptions\NotExistingSelectedOptionException;
-use Domain\Model\Assessment\Option;
+use App\Domain\Model\Assessment\Criterion;
+use App\Domain\Model\Assessment\Exceptions\NotExistingSelectedOptionException;
+use App\Domain\Model\Assessment\Option;
 use PHPUnit\Framework\TestCase;
 
 class EfficiencyTest extends TestCase

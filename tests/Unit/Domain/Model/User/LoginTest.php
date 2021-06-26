@@ -3,8 +3,8 @@
 
 namespace Tests\Unit\Domain\Model\User;
 
-use Domain\Model\User\Exceptions\EmptyLoginException;
-use Domain\Model\User\Login;
+use App\Exceptions\EmptyLoginException;
+use App\Domain\Model\User\Login;
 use PHPUnit\Framework\TestCase;
 
 class LoginTest extends TestCase

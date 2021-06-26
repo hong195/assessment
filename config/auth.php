@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'doctrine',
-            'model' => Domain\Model\User\User::class,
+            'model' => App\Domain\Model\User\User::class,
         ],
 
         // 'users' => [

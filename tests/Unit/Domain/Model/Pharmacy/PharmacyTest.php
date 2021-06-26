@@ -4,11 +4,11 @@
 namespace Tests\Unit\Domain\Model\Pharmacy;
 
 
-use Domain\Model\Pharmacy\Email;
-use Domain\Model\Pharmacy\PharmacyNumber;
+use App\Domain\Model\Pharmacy\Email;
+use App\Domain\Model\Pharmacy\PharmacyNumber;
 use PHPUnit\Framework\TestCase;
-use Tests\Unit\Domain\Model\Builders\EmployeeBuilder;
-use Tests\Unit\Domain\Model\Builders\PharmacyBuilder;
+use Tests\Builders\EmployeeBuilder;
+use Tests\Builders\PharmacyBuilder;
 
 class PharmacyTest extends TestCase
 {

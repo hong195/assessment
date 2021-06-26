@@ -2,14 +2,14 @@
 
 namespace Tests\Feature\Infastructure\Persistence\InMemory;
 
-use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
-use Infastructure\Persistence\InMemory\InMemoryEfficiencyAnalysisRepository;
+use App\Domain\Model\FinalGrade\FinalGradeRepository;
+use App\Infrastructure\Persistence\InMemory\InMemoryFinalGradeRepository;
 use Tests\Feature\Infastructure\Persistence\AbstractEfficiencyAnalysisTest;
 
 class InMemoryEfficiencyAnalysisTest extends AbstractEfficiencyAnalysisTest
 {
-    public function getRepository() : EfficiencyAnalysisRepository
+    public function getRepository() : FinalGradeRepository
     {
-        return new InMemoryEfficiencyAnalysisRepository();
+        return new InMemoryFinalGradeRepository();
     }
 }

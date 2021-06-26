@@ -4,12 +4,12 @@
 namespace Tests\Unit\Domain\Model\Criterion;
 
 
-use Domain\Model\Criterion\Criterion;
-use Domain\Model\Criterion\Exceptions\CriterionException;
-use Domain\Model\Criterion\Option;
-use Domain\Model\Criterion\OptionId;
+use App\Domain\Model\Criterion\Criterion;
+use App\Exceptions\CriterionException;
+use App\Domain\Model\Criterion\Option;
+use App\Domain\Model\Criterion\OptionId;
 use PHPUnit\Framework\TestCase;
-use Tests\Unit\Domain\Model\Builders\CriterionBuilder;
+use Tests\Builders\CriterionBuilder;
 
 final class CriterionTest extends TestCase
 {

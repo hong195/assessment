@@ -2,8 +2,8 @@
 
 namespace App\Http\Resources;
 
-use Domain\Model\Criterion\Criterion;
-use Domain\Model\Criterion\Option;
+use App\Domain\Model\Criterion\Criterion;
+use App\Domain\Model\Criterion\Option;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CriterionResource extends JsonResource

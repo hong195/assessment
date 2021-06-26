@@ -6,18 +6,18 @@ use App\Http\Requests\CreateEfficiencyAnalysesRequest;
 use App\Http\Requests\UpdateEfficiencyAnalysesRequest;
 use App\Http\Resources\EfficiencyAnalysesResource;
 use Doctrine\ORM\EntityManagerInterface;
-use Domain\Exceptions\DomainException;
-use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
-use Infastructure\Exceptions\InfrastructureException;
-use Infastructure\Services\EfficiencyAnalysisService;
+use App\Exceptions\DomainException;
+use App\Domain\Model\FinalGrade\FinalGradeRepository;
+use App\Exceptions\InfrastructureException;
+use App\Infrastructure\Services\EfficiencyAnalysisService;
 
 class EfficiencyAnalysesController extends Controller
 {
-    private EfficiencyAnalysisRepository $repository;
+    private FinalGradeRepository $repository;
     private EntityManagerInterface $em;
     private EfficiencyAnalysisService $analysisService;
 
-    public function __construct(EfficiencyAnalysisRepository $repository,
+    public function __construct(FinalGradeRepository $repository,
                                 EntityManagerInterface $em,
                                 EfficiencyAnalysisService $analysisService)
     {

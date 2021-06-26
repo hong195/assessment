@@ -4,12 +4,147 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated pharmacy service.">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/PharmacyRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/PharmacyResource.php" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added pharmacy api endpoint">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CriteriaOptionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CriteriaOptionsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EfficiencyAnalysesAssessmentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EfficiencyAnalysesAssessmentsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EfficiencyAnalysesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EfficiencyAnalysesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AssessmentResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AssessmentResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CriterionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/CriterionResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/EfficiencyAnalysesResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/EfficiencyAnalysesResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PharmacyResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/PharmacyResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/doctrine.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Exceptions/DomainException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Exceptions/NotFoundEntityException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Id.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentCriteriaType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentId.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentIdType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/AssessmentReviewerIdType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Check.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Criterion.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/InvalidServiceDateException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/NotExistingSelectedOptionException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Exceptions/TheSameUserException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/Option.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/ReviewerId.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Assessment/ServiceDate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/Criterion.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/CriterionId.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/CriterionIdType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/CriterionOptionIdType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/CriterionRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/Exceptions/CriterionException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/Option.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Criterion/OptionId.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EAIdType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysis.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisId.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Exceptions/InvalidRatingMonthException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Exceptions/MaxReviewsForMonthReachedException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Exceptions/ModificationRatingException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Exceptions/UnknownRatingStatusException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Month.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/EfficiencyAnalysis/Status.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Employee/Employee.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Employee/EmployeeId.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Employee/EmployeeIdType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Employee/EmployeeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Employee/Exceptions/InvalidGenderValueException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Employee/Gender.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Employee/Name.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Email.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Exceptions/InvalidPharmacyEmailException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Exceptions/InvalidPharmacyNumberException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyId.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyIdType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyNumber.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/Pharmacy/PharmacyRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/Exceptions/EmptyLoginException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/Exceptions/InvalidLoginException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/Exceptions/InvalidRoleException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/FullName.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/Login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/PasswordHasher.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/Role.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/UserId.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/UserIdType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Model/User/UserRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Exceptions/EfficiencyAnalysisAlreadyExistsException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Exceptions/InfrastructureException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Exceptions/LoginHasBeenAlreadyTakenException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Exceptions/NotUniqueCriterionNameException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Exceptions/PharmacyNumberHasBeenAlreadyTakenException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/AbstractRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineCriterionRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineEmployeeEfficiencyAnalysesRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineEmployeeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrinePharmacyRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/Doctrine/DoctrineUserRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryCriterionRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryEfficiencyAnalysisRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryEmployeeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryPharmacyRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Persistence/InMemory/InMemoryUserRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/AuthenticationService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/BcryptPasswordHasher.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/CriterionService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/CustomPasswordHasher.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/EfficiencyAnalysisService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/PharmacyService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infastructure/Services/UserService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelAssessmentAssessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelAssessmentAssessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelCriterionCriterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelCriterionCriterion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelCriterionOption.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelCriterionOption.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelEfficiencyAnalysisEfficiencyAnalysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelEfficiencyAnalysisEfficiencyAnalysis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelEmployeeEmployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelEmployeeEmployee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelPharmacyPharmacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelPharmacyPharmacy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelUserUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__DomainModelUserUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractCriterionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractCriterionTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractEfficiencyAnalysisTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractEfficiencyAnalysisTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractUserRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractUserRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/EmployeeRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/EmployeeRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryCriterionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryCriterionTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryEfficiencyAnalysisTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryEfficiencyAnalysisTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryUserRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryUserRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/PharmacyRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/PharmacyRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/AuthenticationServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/AuthenticationServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/EfficiencyAnalysesServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PasswordHashTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PasswordHashTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/EfficiencyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/EfficiencyTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/ServiceDateTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/ServiceDateTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/AssessmentBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Builders/AssessmentBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/CheckBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Builders/CheckBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/CriterionBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Builders/CriterionBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/EfficiencyAnalysisBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Builders/FinalGradeBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/EmployeeBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Builders/EmployeeBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/PharmacyBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Builders/PharmacyBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Builders/UserBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Builders/UserBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Criterion/CriterionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Criterion/CriterionTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/EfficiencyAnalysisTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/FinalGrade/FinalGradeTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/EfficiencyAnalysis/MonthTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/FinalGrade/MonthTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Employee/EmployeeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Employee/EmployeeTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Employee/GenderTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Employee/GenderTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/EmailTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/EmailTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyNumberTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyNumberTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/LoginTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/LoginTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/RoleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/RoleTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,11 +199,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/Domain/Model/Pharmacy/Pharmacy.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Domain/Model/User/User.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Domain/Model/Assessment/Assessment.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
@@ -227,7 +359,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="12.22.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.20.15" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Requests" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -246,18 +378,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/Domain" />
       <recent name="$PROJECT_DIR$/app/Http/Requests" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence\Doctrine" />
       <recent name="C:\OpenServer\domains\hr-project-ddd\tests\Feature\Infastructure\Persistence\Doctrine" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence\InMemory" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/app/Exceptions" />
+      <recent name="$PROJECT_DIR$/app/Domain/Shared" />
+      <recent name="$PROJECT_DIR$/app/Domain" />
       <recent name="$PROJECT_DIR$/domain" />
-      <recent name="$PROJECT_DIR$/app" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Infastructure\Persistence" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings" />
-      <recent name="C:\OpenServer\domains\hr-project-ddd\src\Domain\Model\Mappings\Pharmacy" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -266,7 +398,11 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.PharmacyServiceTest">
+  <component name="RunManager" selected="PHPUnit.EfficiencyAnalysisTest">
+    <configuration name="EfficiencyAnalysisTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/FinalGrade/FinalGradeTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
     <configuration name="PharmacyServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" scope="Class" />
       <method v="2" />
@@ -279,10 +415,6 @@
       <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_can_update" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="PharmacyServiceTest.test_expects_exception_when_pharmacy_number_is_not_unique" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\PharmacyServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/PharmacyServiceTest.php" method="test_expects_exception_when_pharmacy_number_is_not_unique" scope="Method" />
-      <method v="2" />
-    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
@@ -292,11 +424,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.EfficiencyAnalysisTest" />
         <item itemvalue="PHPUnit.PharmacyServiceTest" />
         <item itemvalue="PHPUnit.PharmacyServiceTest.test_can_delete_pharmacy" />
         <item itemvalue="PHPUnit.PharmacyServiceTest.test_can_update" />
         <item itemvalue="PHP Script.PharmacyService.php" />
-        <item itemvalue="PHPUnit.PharmacyServiceTest.test_expects_exception_when_pharmacy_number_is_not_unique" />
       </list>
     </recent_temporary>
   </component>
@@ -390,14 +522,9 @@
       <workItem from="1624177374326" duration="20285000" />
       <workItem from="1624252670561" duration="597000" />
       <workItem from="1624254606881" duration="100000" />
-      <workItem from="1624292241541" duration="7011000" />
-    </task>
-    <task id="LOCAL-00050" summary="Added pharmacy yml mappings.">
-      <created>1621190250878</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1621190250878</updated>
+      <workItem from="1624292241541" duration="7157000" />
+      <workItem from="1624339964783" duration="609000" />
+      <workItem from="1624712330701" duration="2685000" />
     </task>
     <task id="LOCAL-00051" summary="added criterion yaml mapping.">
       <created>1621274246905</created>
@@ -735,7 +862,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624298463461</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="added pharmacy api endpoint">
+      <created>1624299759750</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1624299759750</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -780,7 +914,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added efficiency analyses repository." />
     <MESSAGE value="updated full name embed annotation &amp; added user service to service container." />
     <MESSAGE value="added pharmacy service." />
     <MESSAGE value="added criterion service." />
@@ -805,7 +938,8 @@
     <MESSAGE value="added efficiency analyses update method." />
     <MESSAGE value="bug fix." />
     <MESSAGE value="updated pharmacy service." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated pharmacy service." />
+    <MESSAGE value="added pharmacy api endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="added pharmacy api endpoint" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

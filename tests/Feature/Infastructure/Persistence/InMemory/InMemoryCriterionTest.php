@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\Infastructure\Persistence\InMemory;
 
-use Domain\Model\Criterion\CriterionRepository;
-use Infastructure\Persistence\InMemory\InMemoryCriterionRepository;
+use App\Domain\Model\Criterion\CriterionRepository;
+use App\Infrastructure\Persistence\InMemory\InMemoryCriterionRepository;
 use Tests\Feature\Infastructure\Persistence\AbstractCriterionTest;
 
 class InMemoryCriterionTest extends AbstractCriterionTest

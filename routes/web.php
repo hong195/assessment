@@ -1,9 +1,9 @@
 <?php
 
 use Doctrine\ORM\EntityManagerInterface;
-use Domain\Model\Employee\EmployeeRepository;
-use Domain\Model\Pharmacy\PharmacyId;
-use Domain\Model\User\User;
+use App\Domain\Model\Employee\EmployeeRepository;
+use App\Domain\Model\Pharmacy\PharmacyId;
+use App\Domain\Model\User\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $em = app()->make(EntityManagerInterface::class);
-    $repo = app()->make(\Domain\Model\User\UserRepository::class);
+    $repo = app()->make(\App\Domain\Model\User\UserRepository::class);
 
 
     $user = \Tests\Unit\Domain\Model\Builders\UserBuilder::aUser()->build();

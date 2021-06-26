@@ -4,10 +4,10 @@
 namespace Tests\Feature\Infastructure\Persistence\InMemory;
 
 
-use Infastructure\Persistence\InMemory\InMemoryEmployeeRepository;
+use App\Infrastructure\Persistence\InMemory\InMemoryEmployeeRepository;
 use Tests\TestCase;
-use Tests\Unit\Domain\Model\Builders\EmployeeBuilder;
-use Tests\Unit\Domain\Model\Builders\PharmacyBuilder;
+use Tests\Builders\EmployeeBuilder;
+use Tests\Builders\PharmacyBuilder;
 
 class EmployeeRepositoryTest extends TestCase
 {

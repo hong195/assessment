@@ -4,8 +4,8 @@
 namespace Tests\Feature\Infastructure\Services;
 
 
-use Domain\Model\User\PasswordHasher;
-use Infastructure\Services\CustomPasswordHasher;
+use App\Domain\Model\User\PasswordHasher;
+use App\Infrastructure\Services\CustomPasswordHasher;
 use Tests\TestCase;
 
 class PasswordHashTest extends TestCase

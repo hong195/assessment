@@ -5,18 +5,18 @@ namespace Tests\Feature\Infastructure\Services;
 
 
 use Doctrine\ORM\EntityManagerInterface;
-use Domain\Exceptions\NotFoundEntityException;
-use Domain\Model\User\FullName;
-use Domain\Model\User\Login;
-use Domain\Model\User\PasswordHasher;
-use Domain\Model\User\Role;
-use Domain\Model\User\UserId;
-use Domain\Model\User\UserRepository;
-use Infastructure\Exceptions\LoginHasBeenAlreadyTakenException;
-use Infastructure\Services\UserService;
+use App\Exceptions\NotFoundEntityException;
+use App\Domain\Model\User\FullName;
+use App\Domain\Model\User\Login;
+use App\Domain\Model\User\PasswordHasher;
+use App\Domain\Model\User\Role;
+use App\Domain\Model\User\UserId;
+use App\Domain\Model\User\UserRepository;
+use App\Exceptions\LoginHasBeenAlreadyTakenException;
+use App\Infrastructure\Services\UserService;
 use Tests\Feature\DoctrineMigrationsTrait;
 use Tests\TestCase;
-use Tests\Unit\Domain\Model\Builders\UserBuilder;
+use Tests\Builders\UserBuilder;
 
 /**
  * @group integration

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CriterionOptionRequest;
 use Doctrine\ORM\EntityManagerInterface;
-use Domain\Exceptions\DomainException;
-use Infastructure\Services\CriterionService;
+use App\Exceptions\DomainException;
+use App\Infrastructure\Services\CriterionService;
 
 class CriteriaOptionsController extends Controller
 {

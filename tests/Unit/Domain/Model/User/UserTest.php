@@ -3,12 +3,12 @@
 
 namespace Tests\Unit\Domain\Model\User;
 
-use Domain\Model\User\FullName;
-use Domain\Model\User\Login;
-use Domain\Model\User\Role;
-use Domain\Model\User\UserId;
+use App\Domain\Model\User\FullName;
+use App\Domain\Model\User\Login;
+use App\Domain\Model\User\Role;
+use App\Domain\Model\User\UserId;
 use PHPUnit\Framework\TestCase;
-use Tests\Unit\Domain\Model\Builders\UserBuilder;
+use Tests\Builders\UserBuilder;
 
 
 class UserTest extends TestCase

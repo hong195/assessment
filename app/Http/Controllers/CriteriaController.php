@@ -5,12 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CriterionRequest;
 use App\Http\Resources\CriterionResource;
 use Doctrine\ORM\EntityManagerInterface;
-use Domain\Exceptions\DomainException;
-use Domain\Exceptions\NotFoundEntityException;
-use Domain\Model\Criterion\CriterionRepository;
-use Illuminate\Http\Request;
-use Infastructure\Exceptions\NotUniqueCriterionNameException;
-use Infastructure\Services\CriterionService;
+use App\Exceptions\DomainException;
+use App\Exceptions\NotFoundEntityException;
+use App\Domain\Model\Criterion\CriterionRepository;
+use App\Exceptions\NotUniqueCriterionNameException;
+use App\Infrastructure\Services\CriterionService;
 
 class CriteriaController extends Controller
 {

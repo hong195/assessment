@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-use Domain\Model\Pharmacy\Pharmacy;
+use App\Domain\Model\Pharmacy\Pharmacy;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PharmacyResource extends JsonResource

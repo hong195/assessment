@@ -2,12 +2,12 @@
 
 namespace Tests\Feature\Infastructure\Persistence;
 
-use Domain\Exceptions\DomainException;
-use Domain\Model\User\Login;
-use Domain\Model\User\User;
-use Domain\Model\User\UserRepository;
+use App\Exceptions\DomainException;
+use App\Domain\Model\User\Login;
+use App\Domain\Model\User\User;
+use App\Domain\Model\User\UserRepository;
 use Tests\TestCase;
-use Tests\Unit\Domain\Model\Builders\UserBuilder;
+use Tests\Builders\UserBuilder;
 
 abstract class AbstractUserRepositoryTest extends TestCase
 {

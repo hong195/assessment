@@ -2,12 +2,12 @@
 
 namespace Tests\Feature\Infastructure\Persistence\InMemory;
 
-use Domain\Model\Pharmacy\Pharmacy;
-use Domain\Model\Pharmacy\PharmacyNumber;
-use Domain\Model\Pharmacy\PharmacyRepository;
-use Infastructure\Persistence\InMemory\InMemoryPharmacyRepository;
+use App\Domain\Model\Pharmacy\Pharmacy;
+use App\Domain\Model\Pharmacy\PharmacyNumber;
+use App\Domain\Model\Pharmacy\PharmacyRepository;
+use App\Infrastructure\Persistence\InMemory\InMemoryPharmacyRepository;
 use Tests\TestCase;
-use Tests\Unit\Domain\Model\Builders\PharmacyBuilder;
+use Tests\Builders\PharmacyBuilder;
 
 class PharmacyRepositoryTest extends TestCase
 {

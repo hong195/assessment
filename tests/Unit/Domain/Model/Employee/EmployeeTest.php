@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Domain\Model\Employee;
 
-use Domain\Model\Employee\Gender;
-use Domain\Model\Employee\Name;
+use App\Domain\Model\Employee\Gender;
+use App\Domain\Model\Employee\Name;
 use PHPUnit\Framework\TestCase;
-use Tests\Unit\Domain\Model\Builders\EmployeeBuilder;
+use Tests\Builders\EmployeeBuilder;
 
 class EmployeeTest extends TestCase
 {

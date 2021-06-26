@@ -4,8 +4,8 @@
 namespace Tests\Unit\Domain\Model\User;
 
 
-use Domain\Model\User\Exceptions\InvalidRoleException;
-use Domain\Model\User\Role;
+use App\Exceptions\InvalidRoleException;
+use App\Domain\Model\User\Role;
 use PHPUnit\Framework\TestCase;
 
 class RoleTest extends TestCase

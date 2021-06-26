@@ -6,15 +6,15 @@ namespace Tests\Feature\Infastructure\Services;
 
 use App\Http\DataTransferObjects\CriterionOptionDto;
 use Doctrine\ORM\EntityManagerInterface;
-use Domain\Exceptions\NotFoundEntityException;
-use Domain\Model\Criterion\CriterionId;
-use Domain\Model\Criterion\CriterionRepository;
-use Domain\Model\Criterion\Option;
-use Infastructure\Exceptions\NotUniqueCriterionNameException;
-use Infastructure\Services\CriterionService;
+use App\Exceptions\NotFoundEntityException;
+use App\Domain\Model\Criterion\CriterionId;
+use App\Domain\Model\Criterion\CriterionRepository;
+use App\Domain\Model\Criterion\Option;
+use App\Exceptions\NotUniqueCriterionNameException;
+use App\Infrastructure\Services\CriterionService;
 use Tests\Feature\DoctrineMigrationsTrait;
 use Tests\TestCase;
-use Tests\Unit\Domain\Model\Builders\CriterionBuilder;
+use Tests\Builders\CriterionBuilder;
 
 /**
  * @group integration

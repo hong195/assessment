@@ -4,8 +4,8 @@
 namespace Tests\Unit\Domain\Model\Pharmacy;
 
 
-use Domain\Model\Pharmacy\Email;
-use Domain\Model\Pharmacy\Exceptions\InvalidPharmacyEmailException;
+use App\Domain\Model\Pharmacy\Email;
+use App\Exceptions\InvalidPharmacyEmailException;
 use PHPUnit\Framework\TestCase;
 
 class EmailTest extends TestCase

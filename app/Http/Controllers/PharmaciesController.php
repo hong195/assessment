@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PharmacyRequest;
 use App\Http\Resources\PharmacyResource;
-use Domain\Exceptions\DomainException;
-use Domain\Model\Pharmacy\PharmacyRepository;
-use Infastructure\Exceptions\InfrastructureException;
-use Infastructure\Services\PharmacyService;
+use App\Exceptions\DomainException;
+use App\Domain\Model\Pharmacy\PharmacyRepository;
+use App\Exceptions\InfrastructureException;
+use App\Infrastructure\Services\PharmacyService;
 
 class PharmaciesController extends Controller
 {

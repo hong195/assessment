@@ -3,21 +3,21 @@
 namespace App\Providers;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Domain\Model\Criterion\CriterionRepository;
-use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
-use Domain\Model\Employee\EmployeeRepository;
-use Domain\Model\Pharmacy\PharmacyRepository;
-use Domain\Model\User\PasswordHasher;
-use Domain\Model\User\UserRepository;
+use App\Domain\Model\Criterion\CriterionRepository;
+use App\Domain\Model\FinalGrade\FinalGradeRepository;
+use App\Domain\Model\Employee\EmployeeRepository;
+use App\Domain\Model\Pharmacy\PharmacyRepository;
+use App\Domain\Model\User\PasswordHasher;
+use App\Domain\Model\User\UserRepository;
 use Illuminate\Support\ServiceProvider;
-use Infastructure\Persistence\Doctrine\DoctrineCriterionRepository;
-use Infastructure\Persistence\Doctrine\DoctrineEmployeeEfficiencyAnalysesRepository;
-use Infastructure\Persistence\Doctrine\DoctrineEmployeeRepository;
-use Infastructure\Persistence\Doctrine\DoctrinePharmacyRepository;
-use Infastructure\Persistence\Doctrine\DoctrineUserRepository;
+use App\Infrastructure\Persistence\Doctrine\DoctrineCriterionRepository;
+use App\Infrastructure\Persistence\Doctrine\DoctrineEmployeeEfficiencyAnalysesRepository;
+use App\Infrastructure\Persistence\Doctrine\DoctrineEmployeeRepository;
+use App\Infrastructure\Persistence\Doctrine\DoctrinePharmacyRepository;
+use App\Infrastructure\Persistence\Doctrine\DoctrineUserRepository;
 use Illuminate\Contracts\Hashing\Hasher;
-use Infastructure\Services\BcryptPasswordHasher;
-use Infastructure\Services\UserService;
+use App\Infrastructure\Services\BcryptPasswordHasher;
+use App\Infrastructure\Services\UserService;
 use Symfony\Component\Serializer\Encoder\JsonDecode;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(EfficiencyAnalysisRepository::class, function() {
+        $this->app->bind(FinalGradeRepository::class, function() {
             $em = $this->app->make(EntityManagerInterface::class);
             return new DoctrineEmployeeEfficiencyAnalysesRepository($em);
         });

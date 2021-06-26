@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AssessmentRequest;
 use Doctrine\ORM\EntityManagerInterface;
-use Domain\Exceptions\DomainException;
-use Domain\Exceptions\NotFoundEntityException;
-use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
-use Infastructure\Services\EfficiencyAnalysisService;
+use App\Exceptions\DomainException;
+use App\Exceptions\NotFoundEntityException;
+use App\Domain\Model\FinalGrade\FinalGradeRepository;
+use App\Infrastructure\Services\EfficiencyAnalysisService;
 
 class EfficiencyAnalysesAssessmentsController extends Controller
 {
-    private EfficiencyAnalysisRepository $repository;
+    private FinalGradeRepository $repository;
     private EfficiencyAnalysisService $analysisService;
     private EntityManagerInterface $em;
 
-    public function __construct(EfficiencyAnalysisRepository $repository,
+    public function __construct(FinalGradeRepository $repository,
                                 EntityManagerInterface $em,
                                 EfficiencyAnalysisService $analysisService)
     {

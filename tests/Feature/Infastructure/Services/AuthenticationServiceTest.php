@@ -5,12 +5,12 @@ namespace Tests\Feature\Infastructure\Services;
 
 
 use Doctrine\ORM\EntityManagerInterface;
-use Domain\Model\User\User;
-use Domain\Model\User\UserRepository;
-use Infastructure\Services\AuthenticationService;
+use App\Domain\Model\User\User;
+use App\Domain\Model\User\UserRepository;
+use App\Infrastructure\Services\AuthenticationService;
 use Tests\Feature\DoctrineMigrationsTrait;
 use Tests\TestCase;
-use Tests\Unit\Domain\Model\Builders\UserBuilder;
+use Tests\Builders\UserBuilder;
 
 /**
  * @group integration

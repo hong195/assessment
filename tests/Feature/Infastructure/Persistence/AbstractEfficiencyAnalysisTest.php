@@ -2,18 +2,18 @@
 
 namespace Tests\Feature\Infastructure\Persistence;
 
-use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
-use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
-use Domain\Model\EfficiencyAnalysis\Month;
-use Domain\Model\User\UserId;
-use Tests\Unit\Domain\Model\Builders\EfficiencyAnalysisBuilder;
+use App\Domain\Model\FinalGrade\FinalGrade;
+use App\Domain\Model\FinalGrade\FinalGradeRepository;
+use App\Domain\Model\FinalGrade\Month;
+use App\Domain\Model\User\UserId;
+use Tests\Builders\FinalGradeBuilder;
 use Tests\TestCase;
 
 abstract class AbstractEfficiencyAnalysisTest extends TestCase
 {
-    private EfficiencyAnalysisRepository $repository;
+    private FinalGradeRepository $repository;
 
-    abstract public function getRepository() : EfficiencyAnalysisRepository;
+    abstract public function getRepository() : FinalGradeRepository;
 
     protected function setUp(): void
     {
@@ -23,18 +23,18 @@ abstract class AbstractEfficiencyAnalysisTest extends TestCase
 
     public function test_find_by_id()
     {
-        $analysis = EfficiencyAnalysisBuilder::anAnalysis()->build();
+        $analysis = FinalGradeBuilder::anAnalysis()->build();
         $this->repository->add($analysis);
         $founded = $this->repository->findById($analysis->getId());
 
         $this->assertCount(1, $this->repository->all());
-        $this->assertInstanceOf(EfficiencyAnalysis::class, $founded);
+        $this->assertInstanceOf(FinalGrade::class, $founded);
         $this->assertSame($analysis, $founded);
     }
 
     public function test_find_by_employee_id()
     {
-        $analysis = EfficiencyAnalysisBuilder::anAnalysis()->build();
+        $analysis = FinalGradeBuilder::anAnalysis()->build();
         $employeeId = new UserId($analysis->getEmployeeId());
 
         $this->repository->add($analysis);
@@ -45,9 +45,9 @@ abstract class AbstractEfficiencyAnalysisTest extends TestCase
 
     public function test_find_by_month()
     {
-        $analysis = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2020-2-10')))->build();
-        $analysisC = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2020-2-12')))->build();
-        $analysisB = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2021-3-10')))->build();
+        $analysis = FinalGradeBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2020-2-10')))->build();
+        $analysisC = FinalGradeBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2020-2-12')))->build();
+        $analysisB = FinalGradeBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2021-3-10')))->build();
 
         $this->repository->add($analysis);
         $this->repository->add($analysisC);
@@ -63,10 +63,10 @@ abstract class AbstractEfficiencyAnalysisTest extends TestCase
 
     public function test_find_by_employees_ids()
     {
-        $analysis = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2020-2-10')))->build();
-        $analysisC = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2020-2-12')))->build();
-        $analysisB = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2021-3-10')))->build();
-        $analysisD = EfficiencyAnalysisBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2021-3-12')))->build();
+        $analysis = FinalGradeBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2020-2-10')))->build();
+        $analysisC = FinalGradeBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2020-2-12')))->build();
+        $analysisB = FinalGradeBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2021-3-10')))->build();
+        $analysisD = FinalGradeBuilder::anAnalysis()->withMonth(new Month(new \DateTime('2021-3-12')))->build();
 
         $this->repository->add($analysis);
         $this->repository->add($analysisC);
@@ -78,7 +78,7 @@ abstract class AbstractEfficiencyAnalysisTest extends TestCase
 
         $foundAnalysis = $this->repository->findByEmployeeIds([$idA, $idB,$idC]);
 
-        $foundEmployeeIds = $foundAnalysis->map(function (EfficiencyAnalysis $singleAnalysis) {
+        $foundEmployeeIds = $foundAnalysis->map(function (FinalGrade $singleAnalysis) {
             return $singleAnalysis->getEmployeeId();
         });
 

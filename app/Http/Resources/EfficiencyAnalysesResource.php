@@ -2,8 +2,8 @@
 
 namespace App\Http\Resources;
 
-use Domain\Model\Assessment\Assessment;
-use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
+use App\Domain\Model\Assessment\Assessment;
+use App\Domain\Model\FinalGrade\FinalGrade;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class EfficiencyAnalysesResource extends JsonResource
@@ -16,7 +16,7 @@ class EfficiencyAnalysesResource extends JsonResource
      */
     public function toArray($request)
     {
-        /** @var EfficiencyAnalysis $this */
+        /** @var FinalGrade $this */
         return [
             'id' => (string) $this->getId(),
             'employeeId' => (string) $this->getEmployeeId(),

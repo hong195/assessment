@@ -4,11 +4,11 @@
 namespace Tests\Unit\Domain\Model\Assessment;
 
 
-use Domain\Model\Assessment\Criterion;
-use Domain\Model\Assessment\Option;
-use Domain\Model\Assessment\ReviewerId;
+use App\Domain\Model\Assessment\Criterion;
+use App\Domain\Model\Assessment\Option;
+use App\Domain\Model\Assessment\ReviewerId;
 use PHPUnit\Framework\TestCase;
-use Tests\Unit\Domain\Model\Builders\AssessmentBuilder;
+use Tests\Builders\AssessmentBuilder;
 
 class AssessmentTest extends TestCase
 {

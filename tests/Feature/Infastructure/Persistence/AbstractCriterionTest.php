@@ -4,9 +4,9 @@
 namespace Tests\Feature\Infastructure\Persistence;
 
 
-use Domain\Model\Criterion\CriterionRepository;
+use App\Domain\Model\Criterion\CriterionRepository;
 use Tests\TestCase;
-use Tests\Unit\Domain\Model\Builders\CriterionBuilder;
+use Tests\Builders\CriterionBuilder;
 
 abstract class AbstractCriterionTest extends TestCase
 {

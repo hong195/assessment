@@ -4,8 +4,8 @@
 namespace Tests\Unit\Domain\Model\Pharmacy;
 
 
-use Domain\Model\Pharmacy\Exceptions\InvalidPharmacyNumberException;
-use Domain\Model\Pharmacy\PharmacyNumber;
+use App\Exceptions\InvalidPharmacyNumberException;
+use App\Domain\Model\Pharmacy\PharmacyNumber;
 use PHPUnit\Framework\TestCase;
 
 class PharmacyNumberTest extends TestCase

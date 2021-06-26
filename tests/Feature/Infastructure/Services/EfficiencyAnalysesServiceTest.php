@@ -5,23 +5,23 @@ namespace Tests\Feature\Infastructure\Services;
 
 
 use Doctrine\ORM\EntityManagerInterface;
-use Domain\Exceptions\NotFoundEntityException;
-use Domain\Model\Assessment\AssessmentId;
-use Domain\Model\Assessment\Criterion;
-use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis;
-use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisId;
-use Domain\Model\EfficiencyAnalysis\EfficiencyAnalysisRepository;
-use Domain\Model\EfficiencyAnalysis\Month;
-use Domain\Model\Employee\EmployeeId;
-use Domain\Model\Employee\EmployeeRepository;
-use Infastructure\Exceptions\EfficiencyAnalysisAlreadyExistsException;
-use Infastructure\Services\EfficiencyAnalysisService;
+use App\Exceptions\NotFoundEntityException;
+use App\Domain\Model\Assessment\AssessmentId;
+use App\Domain\Model\Assessment\Criterion;
+use App\Domain\Model\FinalGrade\FinalGrade;
+use App\Domain\Model\FinalGrade\FinalGradeId;
+use App\Domain\Model\FinalGrade\FinalGradeRepository;
+use App\Domain\Model\FinalGrade\Month;
+use App\Domain\Model\Employee\EmployeeId;
+use App\Domain\Model\Employee\EmployeeRepository;
+use App\Exceptions\EfficiencyAnalysisAlreadyExistsException;
+use App\Infrastructure\Services\EfficiencyAnalysisService;
 use Tests\Feature\DoctrineMigrationsTrait;
 use Tests\TestCase;
-use Tests\Unit\Domain\Model\Builders\CheckBuilder;
-use Tests\Unit\Domain\Model\Builders\EfficiencyAnalysisBuilder;
-use Tests\Unit\Domain\Model\Builders\EmployeeBuilder;
-use Tests\Unit\Domain\Model\Builders\PharmacyBuilder;
+use Tests\Builders\CheckBuilder;
+use Tests\Builders\FinalGradeBuilder;
+use Tests\Builders\EmployeeBuilder;
+use Tests\Builders\PharmacyBuilder;
 
 /**
  * @group integration
@@ -30,7 +30,7 @@ class EfficiencyAnalysesServiceTest extends TestCase
 {
     use DoctrineMigrationsTrait;
 
-    private EfficiencyAnalysisRepository $repository;
+    private FinalGradeRepository $repository;
 
     private EntityManagerInterface $em;
 
@@ -46,7 +46,7 @@ class EfficiencyAnalysesServiceTest extends TestCase
 
         $this->resetMigrations();
 
-        $this->repository = app()->make(EfficiencyAnalysisRepository::class);
+        $this->repository = app()->make(FinalGradeRepository::class);
         $this->employeeRepository = app()->make(EmployeeRepository::class);
         $this->em = app()->make(EntityManagerInterface::class);
         $this->analysisService = new EfficiencyAnalysisService($this->repository, $this->employeeRepository, $this->em);
@@ -54,7 +54,7 @@ class EfficiencyAnalysesServiceTest extends TestCase
 
     private function getMontlyEmployeeAnalyses(EmployeeId $employeeId, \DateTime $month)
     {
-        $query = $this->em->getRepository(EfficiencyAnalysis::class)
+        $query = $this->em->getRepository(FinalGrade::class)
             ->createQueryBuilder('e')
             ->where('YEAR(e.month.date) = :year')
             ->andWhere('MONTH(e.month.date) = :month')
@@ -79,7 +79,7 @@ class EfficiencyAnalysesServiceTest extends TestCase
         $this->analysisService->create($anEmployeeId, $month);
         $this->em->flush();
         $foundAnalyses = $this->getMontlyEmployeeAnalyses($anEmployeeId, $month);
-        /** @var EfficiencyAnalysis $addedAnalyses */
+        /** @var FinalGrade $addedAnalyses */
         $addedAnalyses = reset($foundAnalyses);
 
         $this->assertEquals((string) $addedAnalyses->getMonth(), $month->format('Y-m-d'));
@@ -107,7 +107,7 @@ class EfficiencyAnalysesServiceTest extends TestCase
         $this->em->persist($employee);
         $aprilMonth = new Month($date);
 
-        $aprilEfficiencyAnalyses = EfficiencyAnalysisBuilder::anAnalysis()
+        $aprilEfficiencyAnalyses = FinalGradeBuilder::anAnalysis()
                 ->withEmployee($anEmployeeId)
                 ->withMonth($aprilMonth)
                 ->build();
@@ -122,13 +122,13 @@ class EfficiencyAnalysesServiceTest extends TestCase
 
     public function test_can_add_assessment()
     {
-        $id = new EfficiencyAnalysisId(EfficiencyAnalysisId::next());
+        $id = new FinalGradeId(FinalGradeId::next());
 
-        $analyses = EfficiencyAnalysisBuilder::anAnalysis()->withId($id)->build();
+        $analyses = FinalGradeBuilder::anAnalysis()->withId($id)->build();
         $this->repository->add($analyses);
         $this->em->flush();
         $check = CheckBuilder::aCheck()->build();
-        $criteria = [new Criterion('Ethics', [new \Domain\Model\Assessment\Option('yes', 1)], 'yes')];
+        $criteria = [new Criterion('Ethics', [new \App\Domain\Model\Assessment\Option('yes', 1)], 'yes')];
 
         $this->analysisService->addAssessment($id, $check, $criteria);
 
@@ -137,14 +137,14 @@ class EfficiencyAnalysesServiceTest extends TestCase
 
     public function test_can_remove_assessment()
     {
-        $id = new EfficiencyAnalysisId(EfficiencyAnalysisId::next());
+        $id = new FinalGradeId(FinalGradeId::next());
 
-        $analyses = EfficiencyAnalysisBuilder::anAnalysis()->withId($id)->build();
+        $analyses = FinalGradeBuilder::anAnalysis()->withId($id)->build();
         $this->repository->add($analyses);
         $this->em->flush();
         $assessmentId =  AssessmentId::next();
         $check = CheckBuilder::aCheck()->build();
-        $criteria = [new Criterion('Ethics', [new \Domain\Model\Assessment\Option('yes', 1)], 'yes')];
+        $criteria = [new Criterion('Ethics', [new \App\Domain\Model\Assessment\Option('yes', 1)], 'yes')];
 
         $this->analysisService->addAssessment($id, $check, $criteria);
         $this->analysisService->removeAssessment((string) $analyses->getId(), (string) $assessmentId);

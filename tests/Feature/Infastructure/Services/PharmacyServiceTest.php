@@ -6,12 +6,12 @@ namespace Tests\Feature\Infastructure\Services;
 
 use App\Http\DataTransferObjects\PharmacyDto;
 use Doctrine\ORM\EntityManagerInterface;
-use Domain\Exceptions\NotFoundEntityException;
-use Domain\Model\Pharmacy\Pharmacy;
-use Domain\Model\Pharmacy\PharmacyNumber;
-use Domain\Model\Pharmacy\PharmacyRepository;
-use Infastructure\Exceptions\PharmacyNumberHasBeenAlreadyTakenException;
-use Infastructure\Services\PharmacyService;
+use App\Exceptions\NotFoundEntityException;
+use App\Domain\Model\Pharmacy\Pharmacy;
+use App\Domain\Model\Pharmacy\PharmacyNumber;
+use App\Domain\Model\Pharmacy\PharmacyRepository;
+use App\Exceptions\PharmacyNumberHasBeenAlreadyTakenException;
+use App\Infrastructure\Services\PharmacyService;
 use Tests\Feature\DoctrineMigrationsTrait;
 use Tests\TestCase;
 

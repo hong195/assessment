@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-use Domain\Model\Assessment\Assessment;
+use App\Domain\Model\Assessment\Assessment;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Symfony\Component\Serializer\Encoder\JsonDecode;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
