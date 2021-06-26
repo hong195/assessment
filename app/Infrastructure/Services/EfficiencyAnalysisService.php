@@ -4,8 +4,8 @@
 namespace App\Infrastructure\Services;
 
 
-use App\Http\DataTransferObjects\AssessmentCriteriaDto;
-use App\Http\DataTransferObjects\AssessmentDto;
+use App\DataTransferObjects\AssessmentCriteriaDto;
+use App\DataTransferObjects\AssessmentDto;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityNotFoundException;

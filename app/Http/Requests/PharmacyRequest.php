@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Http\DataTransferObjects\PharmacyDto;
+use App\DataTransferObjects\PharmacyDto;
 
 class PharmacyRequest extends AbstractJsonRequest
 {

@@ -4,6 +4,7 @@
 namespace App\Infrastructure\Persistence\InMemory;
 
 
+use App\Exceptions\NotFoundEntityException;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Domain\Model\Employee\Employee;
 use App\Domain\Model\Employee\EmployeeId;
@@ -56,5 +57,16 @@ class InMemoryEmployeeRepository implements EmployeeRepository
     public function all(): ArrayCollection
     {
         return $this->employees;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function findOrFail($id)
+    {
+        return $this->employees->filter(function (Employee $employee) use ($id) {
+            return $employee->getId()->isEqual(new EmployeeId($id));
+        })->first();
     }
 }

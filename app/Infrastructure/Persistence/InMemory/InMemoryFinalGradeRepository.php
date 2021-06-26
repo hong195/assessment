@@ -4,13 +4,12 @@
 namespace App\Infrastructure\Persistence\InMemory;
 
 
-use Doctrine\Common\Collections\ArrayCollection;
-use App\Domain\Shared\Id;
+use App\Domain\Model\Employee\EmployeeId;
 use App\Domain\Model\FinalGrade\FinalGrade;
 use App\Domain\Model\FinalGrade\FinalGradeId;
 use App\Domain\Model\FinalGrade\FinalGradeRepository;
-use App\Domain\Model\FinalGrade\EmployeeId;
 use App\Domain\Model\FinalGrade\Month;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class InMemoryFinalGradeRepository implements FinalGradeRepository
 {
@@ -52,7 +51,7 @@ class InMemoryFinalGradeRepository implements FinalGradeRepository
         });
     }
 
-    public function findByEmployeeId(Id $employeeId): ArrayCollection
+    public function findByEmployeeId(EmployeeId $employeeId): ArrayCollection
     {
         return $this->analysis->filter(function (FinalGrade  $singleAnalysis) use ($employeeId){
            return  (string) $singleAnalysis->getEmployeeId() === (string) $employeeId;
@@ -67,5 +66,9 @@ class InMemoryFinalGradeRepository implements FinalGradeRepository
     public function all(): ArrayCollection
     {
         return $this->analysis;
+    }
+
+    public function findOrFail($id): mixed
+    {
     }
 }

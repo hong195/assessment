@@ -4,9 +4,10 @@
 namespace App\Domain\Model\Pharmacy;
 
 
+use App\Domain\Shared\AbstractRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 
-interface PharmacyRepository
+interface PharmacyRepository extends AbstractRepository
 {
     public function all() : ArrayCollection;
 

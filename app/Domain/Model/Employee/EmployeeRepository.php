@@ -4,10 +4,10 @@
 namespace App\Domain\Model\Employee;
 
 
+use App\Domain\Shared\AbstractRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Domain\Model\Pharmacy\PharmacyId;
 
-interface EmployeeRepository
+interface EmployeeRepository extends AbstractRepository
 {
     public function getById(EmployeeId $employeeId) : ?Employee;
 

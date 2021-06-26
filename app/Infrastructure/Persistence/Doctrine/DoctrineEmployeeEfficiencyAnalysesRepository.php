@@ -4,6 +4,7 @@
 namespace App\Infrastructure\Persistence\Doctrine;
 
 
+use App\Domain\Model\Employee\EmployeeId;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectRepository;
@@ -46,7 +47,7 @@ final class DoctrineEmployeeEfficiencyAnalysesRepository extends  AbstractReposi
         return new ArrayCollection($query->getQuery()->getResult());
     }
 
-    public function findByEmployeeId(Id $employeeId): ArrayCollection
+    public function findByEmployeeId(EmployeeId $employeeId): ArrayCollection
     {
         return new ArrayCollection($this->repository->findBy(['employeeId' => $employeeId]));
     }

@@ -4,6 +4,7 @@
 namespace App\Infrastructure\Persistence\InMemory;
 
 
+use App\Exceptions\NotFoundEntityException;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Domain\Model\Pharmacy\Pharmacy;
 use App\Domain\Model\Pharmacy\PharmacyId;
@@ -56,5 +57,10 @@ class InMemoryPharmacyRepository implements PharmacyRepository
         return $this->pharmacies->filter(function (Pharmacy $pharmacy) use ($number){
             return (string) $pharmacy->getNumber() === (string) $number;
         });
+    }
+
+    public function findOrFail($id): mixed
+    {
+        // TODO: Implement findOrFail() method.
     }
 }

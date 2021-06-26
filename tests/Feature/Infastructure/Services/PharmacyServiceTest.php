@@ -4,7 +4,7 @@
 namespace Tests\Feature\Infastructure\Services;
 
 
-use App\Http\DataTransferObjects\PharmacyDto;
+use App\DataTransferObjects\PharmacyDto;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Exceptions\NotFoundEntityException;
 use App\Domain\Model\Pharmacy\Pharmacy;

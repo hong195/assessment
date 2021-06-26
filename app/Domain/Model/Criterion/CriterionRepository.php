@@ -4,12 +4,13 @@
 namespace App\Domain\Model\Criterion;
 
 
+use App\Domain\Shared\AbstractRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @method findOrFail(string $id)
  */
-interface CriterionRepository
+interface CriterionRepository extends AbstractRepository
 {
     public function all() : ArrayCollection;
 

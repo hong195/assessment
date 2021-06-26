@@ -56,4 +56,8 @@ class InMemoryCriterionRepository implements CriterionRepository
             return $criterion->getName() === $name;
         })->first();
     }
+
+    public function findOrFail($id) : mixed
+    {
+    }
 }

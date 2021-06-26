@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\DataTransferObjects;
+namespace App\DataTransferObjects;
 
 
 class AssessmentCriteriaDto

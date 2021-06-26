@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Http\DataTransferObjects\AssessmentCriteriaDto;
-use App\Http\DataTransferObjects\AssessmentDto;
-use App\Http\DataTransferObjects\CheckDto;
+use App\DataTransferObjects\AssessmentCriteriaDto;
+use App\DataTransferObjects\AssessmentDto;
+use App\DataTransferObjects\CheckDto;
 
 class AssessmentRequest extends AbstractJsonRequest
 {

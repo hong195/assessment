@@ -44,9 +44,9 @@ class InMemoryUserRepository implements UserRepository
      * @return User|null
      * @throws DomainException
      */
-    public function findOrFail(UserId $userId) : User
+    public function findOrFail($id) : User
     {
-        $found = $this->findById($userId);
+        $found = $this->findById(new UserId($id));
 
         if (!$found) {
             throw new DomainException('User Not Found');

@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Http\DataTransferObjects\CriterionOptionDto;
+use App\DataTransferObjects\CriterionOptionDto;
 
 class CriterionOptionRequest extends AbstractJsonRequest
 {

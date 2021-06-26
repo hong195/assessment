@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Infastructure\Persistence;
 
+use App\Domain\Model\Employee\EmployeeId;
 use App\Domain\Model\FinalGrade\FinalGrade;
 use App\Domain\Model\FinalGrade\FinalGradeRepository;
 use App\Domain\Model\FinalGrade\Month;
@@ -35,7 +36,7 @@ abstract class AbstractEfficiencyAnalysisTest extends TestCase
     public function test_find_by_employee_id()
     {
         $analysis = FinalGradeBuilder::anAnalysis()->build();
-        $employeeId = new UserId($analysis->getEmployeeId());
+        $employeeId = new EmployeeId($analysis->getEmployeeId());
 
         $this->repository->add($analysis);
         $founded = $this->repository->findByEmployeeId($employeeId);

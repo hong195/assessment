@@ -4,13 +4,12 @@
 namespace App\Domain\Model\User;
 
 
+use App\Domain\Shared\AbstractRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 
-interface UserRepository
+interface UserRepository extends AbstractRepository
 {
     public function findById(UserId $userId) : ?User;
-
-    public function findOrFail(UserId $userId) : User;
 
     public function remove(User $user) : void;
 

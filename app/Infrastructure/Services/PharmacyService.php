@@ -6,7 +6,7 @@ namespace App\Infrastructure\Services;
 
 use App\Exceptions\InvalidPharmacyEmailException;
 use App\Exceptions\InvalidPharmacyNumberException;
-use App\Http\DataTransferObjects\PharmacyDto;
+use App\DataTransferObjects\PharmacyDto;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Exceptions\NotFoundEntityException;
 use App\Domain\Model\Pharmacy\Email;

@@ -4,7 +4,7 @@
 namespace Tests\Feature\Infastructure\Services;
 
 
-use App\Http\DataTransferObjects\CriterionOptionDto;
+use App\DataTransferObjects\CriterionOptionDto;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Exceptions\NotFoundEntityException;
 use App\Domain\Model\Criterion\CriterionId;

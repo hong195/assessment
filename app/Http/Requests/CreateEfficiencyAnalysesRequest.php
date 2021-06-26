@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Http\DataTransferObjects\EfficiencyAnalysesDTO;
+use App\DataTransferObjects\EfficiencyAnalysesDTO;
 
 class CreateEfficiencyAnalysesRequest extends AbstractJsonRequest
 {
