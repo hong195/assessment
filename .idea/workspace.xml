@@ -5,32 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated api endpoints.">
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Create.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Form.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/CheckboxField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/CheckboxField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/DateField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/DateField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/FileField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/FileField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/RadioField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/RadioField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/SelectField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/SelectField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/TextField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/TextField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/TextareaField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/TextareaField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Fields/TreeselectField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Fields/TreeselectField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/FormBase.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/FormBase.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Mixins/FieldMixin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Mixins/FieldMixin.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/Form/Mixins/FormActionsMixin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/Mixins/FormActionsMixin.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/DefaultForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/DefaultForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/adminItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/adminItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/editorItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/editorItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/subscriberItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/subscriberItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/locales/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/locales/ru.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/checks/Create.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/checks/Index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/ratings/Staff.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/staffs/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/staffs/Index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/employee/actions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -410,7 +385,7 @@
       <workItem from="1624254606881" duration="100000" />
       <workItem from="1624292241541" duration="7157000" />
       <workItem from="1624339964783" duration="609000" />
-      <workItem from="1624712330701" duration="18258000" />
+      <workItem from="1624712330701" duration="18271000" />
     </task>
     <task id="LOCAL-00057" summary="changed user yaml to annotations mappings.">
       <created>1621964571491</created>
