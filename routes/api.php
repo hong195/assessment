@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::apiResource('efficiency-analyzes', FinalGradeController::class)
+Route::apiResource('final-grades', FinalGradeController::class)
     ->only(['index', 'store', 'show']);
 
-Route::apiResource('efficiency-analyzes.assessments', FinalGradeAssessmentsController::class)
+Route::apiResource('final-grade.assessments', FinalGradeAssessmentsController::class)
     ->only(['store', 'update', 'destroy']);
 
 Route::apiResource('criteria', CriteriaController::class)
