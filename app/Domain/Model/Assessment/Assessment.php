@@ -19,7 +19,7 @@ class Assessment
      */
     private AssessmentId $id;
     /**
-     * @ORM\ManyToOne(targetEntity="Domain\Model\EfficiencyAnalysis\EfficiencyAnalysis", inversedBy="assessments", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Domain\Model\FinalGrade\FinalGrade", inversedBy="assessments", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="analysis_id", referencedColumnName="id")
      */
     private FinalGrade $analysis;

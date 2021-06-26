@@ -10,7 +10,7 @@ use App\Domain\Model\User\UserId;
 use Tests\Builders\FinalGradeBuilder;
 use Tests\TestCase;
 
-abstract class AbstractEfficiencyAnalysisTest extends TestCase
+abstract class AbstractFinalGradeTest extends TestCase
 {
     private FinalGradeRepository $repository;
 

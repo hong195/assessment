@@ -6,7 +6,7 @@ use App\Domain\Model\Assessment\Assessment;
 use App\Domain\Model\FinalGrade\FinalGrade;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class EfficiencyAnalysesResource extends JsonResource
+class FinalGradeResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

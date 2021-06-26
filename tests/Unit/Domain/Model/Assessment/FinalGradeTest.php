@@ -8,7 +8,7 @@ use App\Domain\Model\Assessment\Exceptions\NotExistingSelectedOptionException;
 use App\Domain\Model\Assessment\Option;
 use PHPUnit\Framework\TestCase;
 
-class EfficiencyTest extends TestCase
+class FinalGradeTest extends TestCase
 {
     public function test_get_criterion_selected_option()
     {

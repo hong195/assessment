@@ -4,7 +4,7 @@
 namespace App\DataTransferObjects;
 
 
-class EfficiencyAnalysesDTO
+class FinalGradeDto
 {
     private string $employeeId;
     private \DateTime $month;

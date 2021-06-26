@@ -28,7 +28,7 @@ class FinalGrade
      */
     private FinalGradeId $id;
     /**
-     * @ORM\OneToMany(targetEntity="Domain\Model\Assessment\Assessment", mappedBy="analysis", fetch="EAGER", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Domain\Model\Assessment\Assessment", mappedBy="analysis", fetch="EAGER", cascade={"persist", "remove"})
      */
     private Collection  $assessments;
     /**

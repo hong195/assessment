@@ -22,7 +22,7 @@ class Employee
      */
     private Name $name;
     /**
-     * @ORM\ManyToOne(targetEntity="Domain\Model\Pharmacy\Pharmacy", inversedBy="employees")
+     * @ORM\ManyToOne(targetEntity="App\Domain\Model\Pharmacy\Pharmacy", inversedBy="employees")
      * @ORM\JoinColumn(name="pharmacy_id", referencedColumnName="id")
      */
     private Pharmacy $pharmacy;

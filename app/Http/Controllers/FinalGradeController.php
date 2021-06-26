@@ -2,24 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateEfficiencyAnalysesRequest;
-use App\Http\Requests\UpdateEfficiencyAnalysesRequest;
-use App\Http\Resources\EfficiencyAnalysesResource;
+use App\Http\Requests\CreateFinalGradeRequest;
+use App\Http\Resources\FinalGradeResource;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Exceptions\DomainException;
 use App\Domain\Model\FinalGrade\FinalGradeRepository;
 use App\Exceptions\InfrastructureException;
-use App\Infrastructure\Services\EfficiencyAnalysisService;
+use App\Infrastructure\Services\FinalGradeService;
 
-class EfficiencyAnalysesController extends Controller
+class FinalGradeController extends Controller
 {
     private FinalGradeRepository $repository;
     private EntityManagerInterface $em;
-    private EfficiencyAnalysisService $analysisService;
+    private FinalGradeService $analysisService;
 
     public function __construct(FinalGradeRepository $repository,
                                 EntityManagerInterface $em,
-                                EfficiencyAnalysisService $analysisService)
+                                FinalGradeService $analysisService)
     {
         $this->repository = $repository;
         $this->em = $em;
@@ -28,10 +27,10 @@ class EfficiencyAnalysesController extends Controller
 
     public function index(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
-        return EfficiencyAnalysesResource::collection($this->repository->all()->toArray());
+        return FinalGradeResource::collection($this->repository->all()->toArray());
     }
 
-    public function store(CreateEfficiencyAnalysesRequest $request): \Illuminate\Http\JsonResponse
+    public function store(CreateFinalGradeRequest $request): \Illuminate\Http\JsonResponse
     {
         try {
             $dto = $request->getDto();
@@ -47,6 +46,6 @@ class EfficiencyAnalysesController extends Controller
 
     public function show($id)
     {
-        return EfficiencyAnalysesResource::make($this->repository->findOrFail($id));
+        return FinalGradeResource::make($this->repository->findOrFail($id));
     }
 }

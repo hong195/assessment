@@ -5,16 +5,14 @@ namespace App\Infrastructure\Persistence\Doctrine;
 
 
 use App\Domain\Model\Employee\EmployeeId;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ObjectRepository;
-use App\Domain\Shared\Id;
 use App\Domain\Model\FinalGrade\FinalGrade;
 use App\Domain\Model\FinalGrade\FinalGradeId;
 use App\Domain\Model\FinalGrade\FinalGradeRepository;
 use App\Domain\Model\FinalGrade\Month;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\EntityManagerInterface;
 
-final class DoctrineEmployeeEfficiencyAnalysesRepository extends  AbstractRepository implements FinalGradeRepository
+final class DoctrineFinalGradeRepository extends  AbstractRepository implements FinalGradeRepository
 {
     public function __construct(EntityManagerInterface $em)
     {

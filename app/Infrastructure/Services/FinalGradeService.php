@@ -25,9 +25,9 @@ use App\Exceptions\ModificationRatingException;
 use App\Domain\Model\FinalGrade\Month;
 use App\Domain\Model\Employee\EmployeeId;
 use App\Domain\Model\Employee\EmployeeRepository;
-use App\Exceptions\EfficiencyAnalysisAlreadyExistsException;
+use App\Exceptions\FinalGradeAlreadyExistsException;
 
-class EfficiencyAnalysisService
+class FinalGradeService
 {
     private FinalGradeRepository $repository;
     private EntityManagerInterface $em;
@@ -48,7 +48,7 @@ class EfficiencyAnalysisService
     /**
      * @param string $employeeId
      * @param \DateTime $month
-     * @throws EfficiencyAnalysisAlreadyExistsException
+     * @throws FinalGradeAlreadyExistsException
      */
     public function create(string $employeeId, \DateTime $month)
     {
@@ -61,7 +61,7 @@ class EfficiencyAnalysisService
         $result = $this->getMontlyEmployeeAnalyses($employeeId, $month);
 
         if (!empty($result)) {
-            throw new EfficiencyAnalysisAlreadyExistsException;
+            throw new FinalGradeAlreadyExistsException;
         }
 
         $analyses = new FinalGrade($id, $employeeId, $month);

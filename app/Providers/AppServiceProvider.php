@@ -11,7 +11,7 @@ use App\Domain\Model\User\PasswordHasher;
 use App\Domain\Model\User\UserRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Infrastructure\Persistence\Doctrine\DoctrineCriterionRepository;
-use App\Infrastructure\Persistence\Doctrine\DoctrineEmployeeEfficiencyAnalysesRepository;
+use App\Infrastructure\Persistence\Doctrine\DoctrineFinalGradeRepository;
 use App\Infrastructure\Persistence\Doctrine\DoctrineEmployeeRepository;
 use App\Infrastructure\Persistence\Doctrine\DoctrinePharmacyRepository;
 use App\Infrastructure\Persistence\Doctrine\DoctrineUserRepository;
@@ -34,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(FinalGradeRepository::class, function() {
             $em = $this->app->make(EntityManagerInterface::class);
-            return new DoctrineEmployeeEfficiencyAnalysesRepository($em);
+            return new DoctrineFinalGradeRepository($em);
         });
 
         $this->app->bind(UserRepository::class, function() {

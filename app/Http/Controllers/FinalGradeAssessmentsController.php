@@ -7,17 +7,17 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Exceptions\DomainException;
 use App\Exceptions\NotFoundEntityException;
 use App\Domain\Model\FinalGrade\FinalGradeRepository;
-use App\Infrastructure\Services\EfficiencyAnalysisService;
+use App\Infrastructure\Services\FinalGradeService;
 
-class EfficiencyAnalysesAssessmentsController extends Controller
+class FinalGradeAssessmentsController extends Controller
 {
     private FinalGradeRepository $repository;
-    private EfficiencyAnalysisService $analysisService;
+    private FinalGradeService $analysisService;
     private EntityManagerInterface $em;
 
     public function __construct(FinalGradeRepository $repository,
                                 EntityManagerInterface $em,
-                                EfficiencyAnalysisService $analysisService)
+                                FinalGradeService $analysisService)
     {
         $this->repository = $repository;
         $this->em = $em;

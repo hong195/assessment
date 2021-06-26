@@ -25,7 +25,7 @@ class Pharmacy
      */
     private Email $email;
     /**
-     * @ORM\OneToMany(targetEntity="Domain\Model\Employee\Employee", mappedBy="pharmacy", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="App\Domain\Model\Employee\Employee", mappedBy="pharmacy", cascade={"persist","remove"})
      */
     private Collection $employees;
 

@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\CriteriaOptionsController;
-use App\Http\Controllers\EfficiencyAnalysesAssessmentsController;
-use App\Http\Controllers\EfficiencyAnalysesController;
+use App\Http\Controllers\FinalGradeAssessmentsController;
+use App\Http\Controllers\FinalGradeController;
 use App\Http\Controllers\PharmaciesController as PharmaciesControllerAlias;
 use Illuminate\Support\Facades\Route;
 
@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::apiResource('efficiency-analyzes', EfficiencyAnalysesController::class)
+Route::apiResource('efficiency-analyzes', FinalGradeController::class)
     ->only(['index', 'store', 'show']);
 
-Route::apiResource('efficiency-analyzes.assessments', EfficiencyAnalysesAssessmentsController::class)
+Route::apiResource('efficiency-analyzes.assessments', FinalGradeAssessmentsController::class)
     ->only(['store', 'update', 'destroy']);
 
 Route::apiResource('criteria', CriteriaController::class)

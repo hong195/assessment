@@ -14,8 +14,8 @@ use App\Domain\Model\FinalGrade\FinalGradeRepository;
 use App\Domain\Model\FinalGrade\Month;
 use App\Domain\Model\Employee\EmployeeId;
 use App\Domain\Model\Employee\EmployeeRepository;
-use App\Exceptions\EfficiencyAnalysisAlreadyExistsException;
-use App\Infrastructure\Services\EfficiencyAnalysisService;
+use App\Exceptions\FinalGradeAlreadyExistsException;
+use App\Infrastructure\Services\FinalGradeService;
 use Tests\Feature\DoctrineMigrationsTrait;
 use Tests\TestCase;
 use Tests\Builders\CheckBuilder;
@@ -26,7 +26,7 @@ use Tests\Builders\PharmacyBuilder;
 /**
  * @group integration
  */
-class EfficiencyAnalysesServiceTest extends TestCase
+class FinalGradeServiceTest extends TestCase
 {
     use DoctrineMigrationsTrait;
 
@@ -34,7 +34,7 @@ class EfficiencyAnalysesServiceTest extends TestCase
 
     private EntityManagerInterface $em;
 
-    private EfficiencyAnalysisService $analysisService;
+    private FinalGradeService $analysisService;
     /**
      * @var mixed
      */
@@ -49,7 +49,7 @@ class EfficiencyAnalysesServiceTest extends TestCase
         $this->repository = app()->make(FinalGradeRepository::class);
         $this->employeeRepository = app()->make(EmployeeRepository::class);
         $this->em = app()->make(EntityManagerInterface::class);
-        $this->analysisService = new EfficiencyAnalysisService($this->repository, $this->employeeRepository, $this->em);
+        $this->analysisService = new FinalGradeService($this->repository, $this->employeeRepository, $this->em);
     }
 
     private function getMontlyEmployeeAnalyses(EmployeeId $employeeId, \DateTime $month)
@@ -115,7 +115,7 @@ class EfficiencyAnalysesServiceTest extends TestCase
         $this->repository->add($aprilEfficiencyAnalyses);
         $this->em->flush();
 
-        $this->expectException(EfficiencyAnalysisAlreadyExistsException::class);
+        $this->expectException(FinalGradeAlreadyExistsException::class);
 
         $this->analysisService->create($anEmployeeId, $date);
     }
