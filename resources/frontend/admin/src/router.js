@@ -58,7 +58,16 @@ const router = new Router({
             ],
           },
         },
-
+        {
+          name: 'final-grades-assessments',
+          path: 'final-grades/:id/assessments',
+          component: () => import('@/views/dashboard/finalGrades/CreateAssessment'),
+          meta: {
+            middleware: [
+              // isEditor,
+            ],
+          },
+        },
         {
           name: 'criteria',
           path: 'criteria',

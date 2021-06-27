@@ -7,4 +7,7 @@ export default {
   create ({ commit }, params = {}) {
     return axios.post('final-grades', params)
   },
+  createAssessment ({ commit }, { id, params = {} }) {
+    return axios.post(`final-grades/${id}/assessments`, params)
+  },
 }
