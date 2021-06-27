@@ -106,4 +106,14 @@ class Assessment
             return $carry + $criterion->getMaxPoint();
         }, 0);
     }
+
+    public function getSaleConversion(): float
+    {
+        return $this->getCheck()->getSaleConversion();
+    }
+
+    public function getAmount(): int
+    {
+        return $this->getCheck()->getAmount();
+    }
 }

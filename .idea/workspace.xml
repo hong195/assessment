@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added create final grade.">
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/plugins/sweet-alert.js" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated final grade view.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/FormBase.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/FormBase.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/mixins/FieldMixin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/mixins/FieldMixin.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/plugins/vuetify.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/plugins/vuetify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/Assessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/FinalGrade/FinalGrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/FinalGrade/FinalGrade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/FinalGradeResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/FinalGradeResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -395,21 +390,7 @@
       <workItem from="1624292241541" duration="7157000" />
       <workItem from="1624339964783" duration="609000" />
       <workItem from="1624712330701" duration="18271000" />
-      <workItem from="1624769774121" duration="10397000" />
-    </task>
-    <task id="LOCAL-00059" summary="changed pharmacy yaml to annotations mapping.">
-      <created>1622053118826</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1622053118826</updated>
-    </task>
-    <task id="LOCAL-00060" summary="changed criterion yaml to annotations mapping.">
-      <created>1622054590123</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1622054590123</updated>
+      <workItem from="1624769774121" duration="14381000" />
     </task>
     <task id="LOCAL-00061" summary="changed assessment yaml to annotations mapping.">
       <created>1622055309912</created>
@@ -740,7 +721,21 @@
       <option name="project" value="LOCAL" />
       <updated>1624780997606</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="added create final grade.">
+      <created>1624784207080</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1624784207080</updated>
+    </task>
+    <task id="LOCAL-00109" summary="updated final grade view.">
+      <created>1624795526738</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1624795526738</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -785,7 +780,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added EfficiencyAnalysesDTO resource." />
     <MESSAGE value="added default domain &amp; infrastructure code." />
     <MESSAGE value="added abstract json request class." />
     <MESSAGE value="added CreateEfficiencyAnalysesRequest json request class." />
@@ -810,7 +804,8 @@
     <MESSAGE value="updated api endpoints." />
     <MESSAGE value="added final grade vuex module." />
     <MESSAGE value="added create final grade." />
-    <option name="LAST_COMMIT_MESSAGE" value="added create final grade." />
+    <MESSAGE value="updated final grade view." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated final grade view." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

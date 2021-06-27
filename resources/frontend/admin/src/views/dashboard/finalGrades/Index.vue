@@ -54,10 +54,30 @@
       </v-row>
 
       <v-data-table :headers="headers" :items="finalGrades">
+        <template v-slot:item.employee="{ item }">
+          {{ getEmployeeName(item.employeeId) }}
+        </template>
+        <template v-slot:item.scored="{ item }">
+          <template v-if="item.status === 'uncompleted'">
+            Не сформирован
+          </template>
+          <template v-else>
+            {{ item.scored }}
+          </template>
+        </template>
+        <template v-slot:item.month="{ item }">
+          <span style="text-transform: capitalize">{{ formatMonth(item.month) }}</span>
+        </template>
+        <template v-slot:item.status="{ item }">
+          <template v-if="item.status === 'uncompleted'">
+            Не завершен
+          </template>
+          <template v-else>
+            Завершен
+          </template>
+        </template>
         <template v-slot:expanded-item="{ headers, item }">
-          <td :colspan="headers.length">
-            More info about
-          </td>
+          1111
         </template>
       </v-data-table>
 
@@ -88,13 +108,12 @@
         dialog: false,
         items: [],
         search: undefined,
-        checks: [],
-        rating: {},
         finalGrades: [],
         pharmacyId: null,
         pharmacies: [],
         ratings: [],
         status: 'completed',
+        employees: [],
         statuses: [
           {
             id: 'completed',
@@ -108,31 +127,29 @@
         withRating: 0,
         headers: [
           {
-            text: 'Фамилия',
-            value: 'user.last_name',
+            text: 'Сотрудник',
+            value: 'employee',
             sortable: false,
           },
           {
-            text: 'Имя',
-            value: 'user.first_name',
-            sortable: false,
+            text: 'Общаяя Сумма Обслуживани',
+            value: 'total_amount',
           },
           {
-            text: 'Отчество',
-            value: 'user.patronymic',
-            sortable: false,
+            text: 'Общая Конверсия Обслуживания',
+            value: 'total_sale_conversion',
           },
           {
-            text: 'Сумма',
-            value: 'amount',
-          },
-          {
-            text: 'Конверсия',
-            value: 'conversion',
+            text: 'Месяц',
+            value: 'month',
           },
           {
             text: 'Рейтинг',
-            value: 'rating',
+            value: 'scored',
+          },
+          {
+            text: 'Статус',
+            value: 'status',
           },
         ],
       }
@@ -163,6 +180,10 @@
           this.finalGrades = data.data
         })
 
+      this.getEmployees()
+        .then(({ data }) => {
+          this.employees = data.data
+        })
     // if (this.$route.query.rating_id) {
     //   this.rating = {}
     //   this.rating.id = parseInt(this.$route.query.rating_id)
@@ -171,6 +192,9 @@
     },
     methods: {
       ...mapActions('finalGrade', ['fetchAll']),
+      ...mapActions('employee', {
+        getEmployees: 'fetchAll',
+      }),
       closeDialog () {
         this.dialog = false
       },
@@ -184,6 +208,19 @@
       },
       addFinalGrade () {
         this.$refs.createPopup.openPopupForm()
+      },
+      formatMonth (month) {
+        return moment(month).locale('ru').format('MMMM YYYY')
+      },
+      getEmployeeById (employeeId) {
+        return this.employees.find((employee) => {
+          return employee.id === employeeId
+        })
+      },
+      getEmployeeName (employeeId) {
+        const employee = this.getEmployeeById(employeeId)
+
+        return `${employee.first_name} ${employee.middle_name} ${employee.last_name}`
       },
     },
   }

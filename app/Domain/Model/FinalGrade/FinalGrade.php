@@ -196,4 +196,16 @@ class FinalGrade
     {
         return $this->status;
     }
+
+    public function getTotalSaleConversion(): float
+    {
+        return $this->scored = array_reduce($this->assessments->toArray(),
+            fn($carry, Assessment $item) => $carry + $item->getSaleConversion(), 0);
+    }
+
+    public function getTotalAmount(): float
+    {
+        return $this->scored = array_reduce($this->assessments->toArray(),
+            fn($carry, Assessment $item) => $carry + $item->getAmount(), 0);
+    }
 }

@@ -22,6 +22,8 @@ class FinalGradeResource extends JsonResource
             'employeeId' => (string) $this->getEmployeeId(),
             'scored' => $this->getScored(),
             'total' => (string) $this->getTotal(),
+            'total_amount' => $this->getTotalAmount(),
+            'total_sale_conversion' => $this->getTotalSaleConversion(),
             'month' => (string) $this->getMonth(),
             'status' => (string) $this->getStatus(),
             'assessments' => AssessmentResource::collection($this->getAssessments()->toArray())
