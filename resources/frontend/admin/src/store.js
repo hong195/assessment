@@ -6,11 +6,12 @@ import finalGrade from './store_modules/final-grade'
 // eslint-disable-next-line camelcase
 import alert_message from './store_modules/alert_message'
 import employee from './store_modules/employee'
+import criterion from './store_modules/criterion'
 import pharmacy from '@/store_modules/pharmacy'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    ui, alert_message, user, pharmacy, finalGrade, employee,
+    ui, alert_message, user, pharmacy, finalGrade, employee, criterion,
   },
 })

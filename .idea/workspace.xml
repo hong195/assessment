@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added expand row for final grade.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added criteria option.">
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -220,7 +219,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="12.22.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.20.15" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -239,11 +238,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria" />
+      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/store_modules" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/components" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/final-grade" />
       <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/app/Domain" />
-      <recent name="$PROJECT_DIR$/app/Http/Requests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app" />
@@ -387,21 +386,7 @@
       <workItem from="1624292241541" duration="7157000" />
       <workItem from="1624339964783" duration="609000" />
       <workItem from="1624712330701" duration="18271000" />
-      <workItem from="1624769774121" duration="15724000" />
-    </task>
-    <task id="LOCAL-00063" summary="changed efficiency analasys yaml to annotations mapping.">
-      <created>1622480692954</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1622480692954</updated>
-    </task>
-    <task id="LOCAL-00064" summary="generated doctrine proxy.">
-      <created>1622484866725</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1622484866726</updated>
+      <workItem from="1624769774121" duration="22984000" />
     </task>
     <task id="LOCAL-00065" summary="added efficiency analyses repository.">
       <created>1622486175889</created>
@@ -732,7 +717,21 @@
       <option name="project" value="LOCAL" />
       <updated>1624796345020</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="added expand row for final grade.">
+      <created>1624797346657</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1624797346657</updated>
+    </task>
+    <task id="LOCAL-00113" summary="added criteria option.">
+      <created>1624805580776</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1624805580776</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -777,7 +776,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added abstract json request class." />
     <MESSAGE value="added CreateEfficiencyAnalysesRequest json request class." />
     <MESSAGE value="changed assessment month signature &amp; updated tests." />
     <MESSAGE value="added abstract repository." />
@@ -802,7 +800,8 @@
     <MESSAGE value="added create final grade." />
     <MESSAGE value="updated final grade view." />
     <MESSAGE value="added expand row for final grade." />
-    <option name="LAST_COMMIT_MESSAGE" value="added expand row for final grade." />
+    <MESSAGE value="added criteria option." />
+    <option name="LAST_COMMIT_MESSAGE" value="added criteria option." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

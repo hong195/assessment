@@ -60,15 +60,16 @@ const router = new Router({
         },
 
         {
-          name: 'final-grade-create',
-          path: 'create',
-          component: () => import('@/views/dashboard/finalGrades/Create'),
+          name: 'criteria',
+          path: 'criteria',
+          component: () => import('@/views/dashboard/criteria/Index'),
           meta: {
-            /* middleware: [
-              isEditor,
-            ], */
+            middleware: [
+              // isEditor,
+            ],
           },
         },
+
         {
           name: 'pharmacy',
           path: 'pharmacy',

@@ -79,6 +79,13 @@
         <template v-slot:expanded-item="{ headers, item }">
           <td colspan="7" style="padding: 0">
             <v-data-table :headers="assessmentHeaders" :items="items.assessments" class="assessment-list" />
+            <v-container>
+              <v-row justify="center" style="padding: 20px 0;">
+                <v-btn color="primary">
+                  Добавить Оценку Сотрудника
+                </v-btn>
+              </v-row>
+            </v-container>
           </td>
         </template>
       </v-data-table>
@@ -156,7 +163,7 @@
         ],
         assessmentHeaders: [
           {
-            text: 'Сумма Обслуживани',
+            text: 'Сумма Обслуживания',
             value: 'amount',
           },
           {
