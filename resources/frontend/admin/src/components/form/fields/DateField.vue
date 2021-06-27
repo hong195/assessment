@@ -30,14 +30,30 @@
     <v-date-picker
       ref="picker"
       v-model="date"
+      type="month"
       v-bind="attributes"
       :locale="locale"
-      @change="save"
-    />
+      @change="change"
+    >
+      <v-btn
+        text
+        color="primary"
+        @click="menu = false"
+      >
+        Cancel
+      </v-btn>
+      <v-btn
+        text
+        color="primary"
+        @click="$refs.menu.save(date)"
+      >
+        OK
+      </v-btn>
+    </v-date-picker>
   </v-menu>
 </template>
 <script>
-  import FieldMixin from '../Mixins/FieldMixin'
+  import FieldMixin from '@/components/form/mixins/FieldMixin'
   export default {
     name: 'DateField',
     mixins: [FieldMixin],
@@ -56,9 +72,9 @@
       },
     },
     methods: {
-      save (date) {
+      change (date) {
+        console.log(date)
         this.updateValue(date)
-        this.$refs.menu.save(date)
       },
     },
   }

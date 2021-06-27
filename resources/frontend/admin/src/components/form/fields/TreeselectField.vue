@@ -47,7 +47,7 @@
 <script>
   import Treeselect from '@riophae/vue-treeselect'
   import '@riophae/vue-treeselect/dist/vue-treeselect.css'
-  import FieldMixin from '../Mixins/FieldMixin'
+  import FieldMixin from '@/components/form/mixins/FieldMixin'
   export default {
     name: 'TreeselectField',
     components: {

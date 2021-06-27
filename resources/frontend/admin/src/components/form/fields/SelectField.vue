@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import FieldMixin from '../Mixins/FieldMixin'
+  import FieldMixin from '@/components/form/mixins/FieldMixin'
   export default {
     name: 'SelectField',
     mixins: [FieldMixin],
@@ -28,6 +28,11 @@
       options: {
         type: Array,
         default: () => [],
+      },
+    },
+    watch: {
+      value (val) {
+        this.updateValue(val)
       },
     },
   }

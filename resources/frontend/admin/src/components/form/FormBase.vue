@@ -48,15 +48,15 @@
 
 <script>
   import { ValidationObserver } from 'vee-validate'
-  import TextField from './Fields/TextField'
-  import CheckboxField from './Fields/CheckboxField'
-  import RadioField from './Fields/RadioField'
-  import SelectField from './Fields/SelectField'
-  import TextareaField from './Fields/TextareaField'
-  import TreeselectField from './Fields/TreeselectField'
-  import FileField from './Fields/FileField'
-  import DateField from './Fields/DateField'
-  import FormActionMixin from './Mixins/FormActionsMixin'
+  import TextField from './fields/TextField'
+  import CheckboxField from './fields/CheckboxField'
+  import RadioField from './fields/RadioField'
+  import SelectField from './fields/SelectField'
+  import TextareaField from './fields/TextareaField'
+  import TreeselectField from './fields/TreeselectField'
+  import FileField from './fields/FileField'
+  import DateField from './fields/DateField'
+  import FormActionMixin from '@/components/form/mixins/FormActionsMixin'
 
   export default {
     name: 'FormBase',
@@ -94,16 +94,6 @@
         default: 'Отправить',
       },
     },
-    computed: {
-      fieldsValue () {
-        const values = {}
-        this.schema.forEach((field) => {
-          const name = field.name.split('.')
-          this.assign(values, name, field.value)
-        })
-        return values
-      },
-    },
     watch: {
       disabled (val) {
         this.schema.forEach((field) => {
@@ -122,6 +112,14 @@
       })
     },
     methods: {
+      fieldsValue () {
+        const values = {}
+        this.schema.forEach((field) => {
+          const name = field.name.split('.')
+          this.assign(values, name, field.value)
+        })
+        return values
+      },
       assign (obj, keyPath, value) {
         const lastKeyIndex = keyPath.length - 1
         for (var i = 0; i < lastKeyIndex; ++i) {
@@ -138,7 +136,7 @@
       },
       updateFieldValue (fieldData) {
         this.setFieldValue(fieldData)
-        this.$emit('input', this.fieldsValue)
+        this.$emit('input', this.fieldsValue())
       },
       setFieldValue ({ name, value }) {
         const field = this.getFieldByName(name)
@@ -150,7 +148,7 @@
         )
         requestAnimationFrame(() => {
           this.$refs.obs.reset()
-          this.$emit('input', this.fieldsValue)
+          this.$emit('input', this.fieldsValue())
         })
       },
     },

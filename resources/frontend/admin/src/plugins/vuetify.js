@@ -16,9 +16,7 @@ const theme = {
 
 export default new Vuetify({
   lang: {
-    // t: (key, ...params) => i18n.t(key, params),
     locales: { ru },
-    // current: localStorage.getItem('locale') || process.env.VUE_APP_I18N_LOCALE,
     current: 'ru',
   },
   theme: {

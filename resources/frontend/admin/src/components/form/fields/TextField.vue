@@ -22,7 +22,7 @@
 
 <script>
 
-  import FieldMixin from '../Mixins/FieldMixin'
+  import FieldMixin from '@/components/form/mixins/FieldMixin'
   import debounce from 'lodash.debounce'
 
   export default {
