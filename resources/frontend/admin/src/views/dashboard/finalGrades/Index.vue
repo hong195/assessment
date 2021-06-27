@@ -53,7 +53,7 @@
         </v-col>
       </v-row>
 
-      <v-data-table :headers="headers" :items="finalGrades">
+      <v-data-table :headers="headers" :items="finalGrades" show-expand :single-expand="true">
         <template v-slot:item.employee="{ item }">
           {{ getEmployeeName(item.employeeId) }}
         </template>
@@ -77,7 +77,9 @@
           </template>
         </template>
         <template v-slot:expanded-item="{ headers, item }">
-          1111
+          <td colspan="7" style="padding: 0">
+            <v-data-table :headers="assessmentHeaders" :items="items.assessments" class="assessment-list" />
+          </td>
         </template>
       </v-data-table>
 
@@ -150,6 +152,24 @@
           {
             text: 'Статус',
             value: 'status',
+          },
+        ],
+        assessmentHeaders: [
+          {
+            text: 'Сумма Обслуживани',
+            value: 'amount',
+          },
+          {
+            text: 'Конверсия Обслуживания',
+            value: 'sale_conversion',
+          },
+          {
+            text: 'Дата обсулуживания',
+            value: 'service_date',
+          },
+          {
+            text: 'Набранный бал',
+            value: 'scored',
           },
         ],
       }
@@ -230,6 +250,13 @@
   &__btn {
     & .v-btn__content {
       color: #fff;
+    }
+  }
+}
+.assessment-list {
+  .v-data-footer {
+    &__select, &__pagination, &__icons-before, &__icons-after {
+      display: none;
     }
   }
 }
