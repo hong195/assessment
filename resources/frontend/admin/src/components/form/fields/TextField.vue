@@ -5,6 +5,7 @@
     :rules="validationRule"
     :name="label"
     :vid="name"
+    :class="{ 'd-none': type === 'hidden'}"
   >
     <v-text-field
       :value="value"

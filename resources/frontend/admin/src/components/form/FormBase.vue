@@ -1,6 +1,9 @@
 <template>
   <validation-observer ref="obs" v-slot="{ handleSubmit }">
-    <v-form :data-vv-scope="scope" :disabled="disabled" @submit.prevent="handleSubmit(onSubmit)">
+    <v-form :data-vv-scope="scope"
+            :disabled="disabled"
+            @submit.prevent="handleSubmit(onSubmit)"
+    >
       <v-row>
         <v-col
           v-for="(field, index) in schema"

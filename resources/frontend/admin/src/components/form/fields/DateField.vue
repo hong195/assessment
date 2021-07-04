@@ -73,7 +73,6 @@
     },
     methods: {
       change (date) {
-        console.log(date)
         this.updateValue(date)
       },
     },

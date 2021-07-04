@@ -19,14 +19,15 @@ class FinalGradeResource extends JsonResource
         /** @var FinalGrade $this */
         return [
             'id' => (string) $this->getId(),
-            'employeeId' => (string) $this->getEmployeeId(),
+            'employee_id' => (string) $this->getEmployeeId(),
             'scored' => $this->getScored(),
             'total' => (string) $this->getTotal(),
             'total_amount' => $this->getTotalAmount(),
             'total_sale_conversion' => $this->getTotalSaleConversion(),
             'month' => (string) $this->getMonth(),
             'status' => (string) $this->getStatus(),
-            'assessments' => AssessmentResource::collection($this->getAssessments()->toArray())
+            'assessments' => AssessmentResource::collection($this->getAssessments()->toArray()),
+            'assessments_count' => AssessmentResource::collection($this->getAssessments()->toArray())->count()
         ];
     }
 }
