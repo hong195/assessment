@@ -4,22 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added assessment create form.">
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/pharmacy/actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/pharmacy/getters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/pharmacy/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/pharmacy/mutations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/pharmacy/state.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/EmployeeInfo.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeInfo.vue" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/FinalGradeResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/FinalGradeResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/employee/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/employee/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/pharmacy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/CreateAssessment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/CreateAssessment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/StepProgressBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/StepProgressBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AssessmentResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AssessmentResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,11 +247,11 @@
       <recent name="$PROJECT_DIR$/app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/components/base" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/app/Exceptions" />
       <recent name="$PROJECT_DIR$/app/Domain/Shared" />
-      <recent name="$PROJECT_DIR$/app/Domain" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -402,28 +390,9 @@
       <workItem from="1624712330701" duration="18271000" />
       <workItem from="1624769774121" duration="27860000" />
       <workItem from="1624858121161" duration="16000" />
-      <workItem from="1625330920644" duration="27988000" />
-    </task>
-    <task id="LOCAL-00068" summary="added pharmacy service.">
-      <created>1623088984999</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1623088984999</updated>
-    </task>
-    <task id="LOCAL-00069" summary="added pharmacy service.">
-      <created>1623088995741</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1623088995741</updated>
-    </task>
-    <task id="LOCAL-00070" summary="added pharmacy service.">
-      <created>1623517848119</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1623517848119</updated>
+      <workItem from="1625330920644" duration="28005000" />
+      <workItem from="1625462887342" duration="339000" />
+      <workItem from="1625932052742" duration="5563000" />
     </task>
     <task id="LOCAL-00071" summary="added criterion service.">
       <created>1623570223108</created>
@@ -747,7 +716,28 @@
       <option name="project" value="LOCAL" />
       <updated>1625405779665</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="added assessment create form.">
+      <created>1625424402212</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1625424402212</updated>
+    </task>
+    <task id="LOCAL-00118" summary="added swal alert component.">
+      <created>1625934977241</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1625934977242</updated>
+    </task>
+    <task id="LOCAL-00119" summary="added swal alert component.">
+      <created>1625935146514</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1625935146514</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -792,7 +782,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added abstract repository." />
     <MESSAGE value="updated efficiency analyses service." />
     <MESSAGE value="updated efficiency analyses." />
     <MESSAGE value="added criterion controller." />
@@ -817,7 +806,8 @@
     <MESSAGE value="added criteria option." />
     <MESSAGE value="added create assessment page (not ready)." />
     <MESSAGE value="added assessment create form." />
-    <option name="LAST_COMMIT_MESSAGE" value="added assessment create form." />
+    <MESSAGE value="added swal alert component." />
+    <option name="LAST_COMMIT_MESSAGE" value="added swal alert component." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -154,9 +154,10 @@
             if (this.assessmentCount <= 10) {
               ++this.finalGrade.assessments_count
             }
+            this.$store.commit('successMessage', 'Оценка созданая')
           })
           .catch(() => {
-            console.log(1)
+            this.$store.commit('errorMessage', 'Ошибка создания оценки')
           })
       },
     },

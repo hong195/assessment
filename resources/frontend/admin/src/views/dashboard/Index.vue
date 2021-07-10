@@ -6,7 +6,7 @@
 
     <dashboard-core-view />
 
-    <base-snackbar-message />
+    <base-swal />
   </v-app>
 </template>
 

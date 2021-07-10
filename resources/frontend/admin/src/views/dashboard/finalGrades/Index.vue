@@ -55,7 +55,7 @@
 
       <v-data-table :headers="headers" :items="finalGrades" show-expand :single-expand="true">
         <template v-slot:item.employee="{ item }">
-          {{ getEmployeeName(item.employeeId) }}
+          {{ getEmployeeName(item.employee_id) }}
         </template>
         <template v-slot:item.scored="{ item }">
           <template v-if="item.status === 'uncompleted'">
@@ -78,7 +78,7 @@
         </template>
         <template v-slot:expanded-item="{ headers, item }">
           <td colspan="7" style="padding: 0">
-            <v-data-table :headers="assessmentHeaders" :items="items.assessments" class="assessment-list" />
+            <v-data-table :headers="assessmentHeaders" :items="item.assessments" class="assessment-list" />
             <v-container>
               <v-row justify="center" style="padding: 20px 0;">
                 <v-btn color="primary">
@@ -163,16 +163,20 @@
         ],
         assessmentHeaders: [
           {
+            text: '#',
+            value: 'index',
+          },
+          {
             text: 'Сумма Обслуживания',
-            value: 'amount',
+            value: 'check.amount',
           },
           {
             text: 'Конверсия Обслуживания',
-            value: 'sale_conversion',
+            value: 'check.conversion',
           },
           {
             text: 'Дата обсулуживания',
-            value: 'service_date',
+            value: 'check.service_date',
           },
           {
             text: 'Набранный бал',
@@ -196,9 +200,6 @@
     watch: {
       date (val) {
         const date = moment(val)
-      // this.$http.get(`pharmacy-rating?year=${date.format('YYYY')}&month=${date.format('M')}`).then(res => {
-      //   this.pharmacies = res.data.data
-      // })
       },
     },
     mounted () {
@@ -211,11 +212,6 @@
         .then(({ data }) => {
           this.employees = data.data
         })
-    // if (this.$route.query.rating_id) {
-    //   this.rating = {}
-    //   this.rating.id = parseInt(this.$route.query.rating_id)
-    //   this.dialog = true
-    // }
     },
     methods: {
       ...mapActions('finalGrade', ['fetchAll']),
@@ -248,6 +244,9 @@
         const employee = this.getEmployeeById(employeeId)
 
         return `${employee.first_name} ${employee.middle_name} ${employee.last_name}`
+      },
+      getIndex (item) {
+
       },
     },
   }

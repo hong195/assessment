@@ -1,32 +1,32 @@
 export default {
   state: {
     message: '',
-    color: '',
+    icon: '',
     snackBar: '',
   },
   getters: {
     message: (state) => state.message,
-    color: (state) => state.color,
+    icon: (state) => state.icon,
     snackBar: (state) => state.snackBar,
   },
   mutations: {
     errorMessage (state, errorMessage) {
       state.message = errorMessage
-      state.color = 'error'
+      state.icon = 'error'
     },
     successMessage (state, successMessage) {
       state.message = successMessage
-      state.color = 'success'
+      state.icon = 'success'
     },
     infoMessage (state, infoMessage) {
       state.message = infoMessage
-      state.color = 'info'
+      state.icon = 'info'
     },
     message (state, message) {
       state.message = message
     },
-    color (state, color) {
-      state.color = color
+    icon (state, icon) {
+      state.icon = icon
     },
     snackBar (state, snackBar) {
       state.snackBar = snackBar

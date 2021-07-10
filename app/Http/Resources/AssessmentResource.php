@@ -24,7 +24,7 @@ class AssessmentResource extends JsonResource
             'id' => (string) $this->getId(),
             'reviewerId' => (string) $this->getReviewer(),
             'check' => [
-                'service_date' => $this->getCheck()->getServiceDate(),
+                'service_date' =>  $this->getCheck()->getServiceDate()->format('Y-m-d'),
                 'amount' => $this->getCheck()->getAmount(),
                 'conversion' => $this->getCheck()->getSaleConversion(),
             ],
