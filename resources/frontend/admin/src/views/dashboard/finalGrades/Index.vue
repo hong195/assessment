@@ -81,7 +81,14 @@
             <v-data-table :headers="assessmentHeaders" :items="item.assessments" class="assessment-list" />
             <v-container>
               <v-row justify="center" style="padding: 20px 0;">
-                <v-btn color="primary">
+                <v-btn v-show="item.assessments.length < 10" color="primary"
+                       :to="{
+                         name: 'final-grades-assessments',
+                         params: {
+                           id: item.id
+                         }
+                       }"
+                >
                   Добавить Оценку Сотрудника
                 </v-btn>
               </v-row>
