@@ -78,7 +78,16 @@
         </template>
         <template v-slot:expanded-item="{ headers, item }">
           <td colspan="7" style="padding: 0">
-            <v-data-table :headers="assessmentHeaders" :items="item.assessments" class="assessment-list" />
+            <v-data-table :headers="assessmentHeaders" :items="item.assessments" class="assessment-list">
+              <template v-slot:item.actions="{ item }">
+                <v-btn small icon="mdi-delete" color="red" @click="update(item)">
+                  <v-icon>mdi-delete</v-icon>
+                </v-btn>
+                <v-btn small icon="mdi-pencil" color="primary" @click="update(item)">
+                  <v-icon>mdi-pencil</v-icon>
+                </v-btn>
+              </template>
+            </v-data-table>
             <v-container>
               <v-row justify="center" style="padding: 20px 0;">
                 <v-btn v-show="item.assessments.length < 10" color="primary"
@@ -188,6 +197,10 @@
           {
             text: 'Набранный бал',
             value: 'scored',
+          },
+          {
+            text: '',
+            value: 'actions',
           },
         ],
       }
