@@ -78,30 +78,7 @@
         </template>
         <template v-slot:expanded-item="{ headers, item }">
           <td colspan="7" style="padding: 0">
-            <v-data-table :headers="assessmentHeaders" :items="item.assessments" class="assessment-list">
-              <template v-slot:item.actions="{ item }">
-                <v-btn small icon="mdi-delete" color="red" @click="update(item)">
-                  <v-icon>mdi-delete</v-icon>
-                </v-btn>
-                <v-btn small icon="mdi-pencil" color="primary" @click="update(item)">
-                  <v-icon>mdi-pencil</v-icon>
-                </v-btn>
-              </template>
-            </v-data-table>
-            <v-container>
-              <v-row justify="center" style="padding: 20px 0;">
-                <v-btn v-show="item.assessments.length < 10" color="primary"
-                       :to="{
-                         name: 'final-grades-assessments',
-                         params: {
-                           id: item.id
-                         }
-                       }"
-                >
-                  Добавить Оценку Сотрудника
-                </v-btn>
-              </v-row>
-            </v-container>
+            <assessment-table :item="item" :items="item.assessments" />
           </td>
         </template>
       </v-data-table>
@@ -121,10 +98,11 @@
   import RatingScore from '@/components/dashboard/Graphs/table_parts/RatingScore'
   import Create from './Create'
   import { mapActions } from 'vuex'
+  import AssessmentTable from './AssessmentTable'
 
   export default {
     name: 'Index',
-    components: { Create, RatingScore, Conversion, DataTable, MonthPicker },
+    components: { Create, RatingScore, Conversion, DataTable, MonthPicker, AssessmentTable },
     mixins: [RatingColor],
     data () {
       return {
@@ -175,32 +153,6 @@
           {
             text: 'Статус',
             value: 'status',
-          },
-        ],
-        assessmentHeaders: [
-          {
-            text: '#',
-            value: 'index',
-          },
-          {
-            text: 'Сумма Обслуживания',
-            value: 'check.amount',
-          },
-          {
-            text: 'Конверсия Обслуживания',
-            value: 'check.conversion',
-          },
-          {
-            text: 'Дата обсулуживания',
-            value: 'check.service_date',
-          },
-          {
-            text: 'Набранный бал',
-            value: 'scored',
-          },
-          {
-            text: '',
-            value: 'actions',
           },
         ],
       }
@@ -265,9 +217,6 @@
 
         return `${employee.first_name} ${employee.middle_name} ${employee.last_name}`
       },
-      getIndex (item) {
-
-      },
     },
   }
 </script>
@@ -276,13 +225,6 @@
   &__btn {
     & .v-btn__content {
       color: #fff;
-    }
-  }
-}
-.assessment-list {
-  .v-data-footer {
-    &__select, &__pagination, &__icons-before, &__icons-after {
-      display: none;
     }
   }
 }
