@@ -22,7 +22,7 @@ Route::apiResource('final-grades', FinalGradeController::class)
     ->only(['index', 'store', 'show']);
 
 Route::apiResource('final-grade.assessments', FinalGradeAssessmentsController::class)
-    ->only(['store', 'update', 'destroy']);
+    ->only(['store', 'update', 'destroy', 'show']);
 
 Route::apiResource('criteria', CriteriaController::class)
     ->only(['index', 'store', 'update', 'destroy']);

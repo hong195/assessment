@@ -5,14 +5,14 @@
         <v-btn small :icon="true"
                color="red"
                :disabled="(assessmentsCount === 10)"
-               @click="update(item)"
+               @click="remove(item)"
         >
           <v-icon>mdi-delete</v-icon>
         </v-btn>
         <v-btn small :icon="true"
                color="primary"
                :disabled="(assessmentsCount === 10)"
-               @click="remove(item)"
+               @click="update(item)"
         >
           <v-icon>mdi-pencil</v-icon>
         </v-btn>
@@ -24,7 +24,7 @@
                :to="{
                  name: 'final-grades-assessments',
                  params: {
-                   id: item.id
+                   id: item.id,
                  }
                }"
         >
@@ -82,7 +82,13 @@
     },
     methods: {
       update (assessment) {
-        console.log(assessment)
+        this.$router.push({
+          name: 'final-grades-update-assessment',
+          params: {
+            finalGradeId: this.item.id,
+            assessmentId: assessment.id,
+          },
+        })
       },
       remove (assessment) {
         console.log(assessment)

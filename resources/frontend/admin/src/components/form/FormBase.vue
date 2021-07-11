@@ -107,6 +107,14 @@
           }
         })
       },
+      schema (schema) {
+        const values = {}
+        schema.forEach((field) => {
+          const name = field.name.split('.')
+          this.assign(values, name, field.value)
+        })
+        this.$emit('input', this.fieldsValue())
+      },
     },
     created () {
       this.schema.forEach((field) => {

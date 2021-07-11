@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Domain\Model\Assessment\Assessment;
+use App\Domain\Model\Assessment\AssessmentId;
+use App\Domain\Model\FinalGrade\FinalGrade;
 use App\Http\Requests\AssessmentRequest;
+use App\Http\Resources\AssessmentResource;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Exceptions\DomainException;
 use App\Exceptions\NotFoundEntityException;
@@ -39,6 +43,13 @@ class FinalGradeAssessmentsController extends Controller
                 'message' => $e->getMessage()
             ], $e->getCode());
         }
+    }
+
+    public function show(string $id, string $assessmentId)
+    {
+        /** @var FinalGrade $finalGrade */
+        $assessment = $this->analysisService->getAssessment($id, $assessmentId);
+        return AssessmentResource::make($assessment);
     }
 
     public function update(AssessmentRequest $request, string $id, string $assessmentId): \Illuminate\Http\JsonResponse

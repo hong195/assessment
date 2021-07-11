@@ -27,7 +27,7 @@
         <v-col cols="9">
           <v-card outlined class="assessment-form">
             <form-base
-              ref="create-assessment-option"
+              ref="update-assessment-option"
               v-model="formValue"
               scope="create-assessment-option"
               :schema="schema"
@@ -69,54 +69,68 @@
         assessmentCount: 0,
         employee: null,
         pharmacy: null,
+        assessment: null,
       }
     },
     computed: {
       id () {
-        return this.$route.params.id
+        return this.$route.params.finalGradeId
+      },
+      assessmentId () {
+        return this.$route.params.assessmentId
       },
     },
     mounted () {
-      this.fetchCriterion()
+      this.fetchAssessment({
+        finalGradeId: this.id, assessmentId: this.assessmentId,
+      })
         .then(({ data }) => {
-          data.data.forEach((criterion, index) => {
-            this.schema.push({
-              attributes: [],
-              component: 'text',
-              type: 'hidden',
-              name: `criteria.${index}.name`,
-              placeholder: null,
-              rule: 'required',
-              value: criterion.name,
-            })
+          this.assessment = data.data
+          const criteria = this.assessment.criteria
 
-            this.schema.push({
-              attributes: [],
-              component: 'radio',
-              label: criterion.name,
-              name: `criteria.${index}.selected`,
-              placeholder: null,
-              options: criterion.options.map((option) => {
-                return {
-                  id: `${option.name}`,
-                  label: option.name,
-                  value: option.name,
-                }
-              }),
-              rule: 'required',
-              value: null,
-            })
+          this.schema[0].value = this.assessment.check.service_date
 
-            this.schema.push({
-              attributes: [],
-              component: 'textarea',
-              label: 'Примечание',
-              name: `criteria.${index}.description`,
-              placeholder: null,
-              options: [],
-              value: null,
+          this.fetchCriterion()
+            .then(({ data }) => {
+              data.data.forEach((criterion, index) => {
+                this.schema.push({
+                  attributes: [],
+                  component: 'text',
+                  type: 'hidden',
+                  name: `criteria.${index}.name`,
+                  placeholder: null,
+                  rule: 'required',
+                  value: criterion.name,
+                })
+
+                this.schema.push({
+                  attributes: [],
+                  component: 'radio',
+                  label: criterion.name,
+                  name: `criteria.${index}.selected`,
+                  placeholder: null,
+                  options: criterion.options.map((option) => {
+                    return {
+                      id: `${option.name}`,
+                      label: option.name,
+                      value: option.name,
+                    }
+                  }),
+                  rule: 'required',
+                  value: criteria[index].name === criterion.name ? criteria[index].selected : null,
+                })
+
+                this.schema.push({
+                  attributes: [],
+                  component: 'textarea',
+                  label: 'Примечание',
+                  name: `criteria.${index}.description`,
+                  placeholder: null,
+                  options: [],
+                  value: criteria[index].description || null,
+                })
+              })
             })
-          })
         })
 
       this.findById(this.id)
@@ -140,7 +154,7 @@
       ...mapActions('criterion', {
         fetchCriterion: 'fetchAll',
       }),
-      ...mapActions('finalGrade', ['createAssessment', 'findById']),
+      ...mapActions('finalGrade', ['updateAssessment', 'findById', 'fetchAssessment']),
       ...mapActions('employee', {
         findEmployeeById: 'findById',
       }),
@@ -148,14 +162,12 @@
         findPharmacyById: 'findById',
       }),
       submit () {
-        this.createAssessment({
-          id: this.id,
+        this.updateAssessment({
+          finalGradeId: this.id,
+          assessmentId: this.assessmentId,
           params: this.formValue,
         })
           .then(() => {
-            if (this.assessmentCount <= 10) {
-              ++this.finalGrade.assessments_count
-            }
             this.$store.commit('successMessage', 'Оценка созданая')
           })
           .catch(() => {

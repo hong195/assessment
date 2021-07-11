@@ -6,6 +6,8 @@ namespace App\Infrastructure\Services;
 
 use App\DataTransferObjects\AssessmentCriteriaDto;
 use App\DataTransferObjects\AssessmentDto;
+use App\Domain\Model\Assessment\Assessment;
+use App\Domain\Shared\Id;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityNotFoundException;
@@ -171,5 +173,23 @@ class FinalGradeService
                $selectedCriterion['description'] ?? ''
            );
         })->toArray();
+    }
+
+    /**
+     * @param string $finalGradeId
+     * @param string $assessmentId
+     * @return mixed
+     * @throws NotFoundEntityException
+     */
+    public function getAssessment(string $finalGradeId, string $assessmentId)
+    {
+        $finalGrade = $this->repository->findOrFail($finalGradeId);
+
+        return $finalGrade->getAssessments()->filter(function(Assessment $assessment) use ($assessmentId){
+            $assessmentId = new AssessmentId($assessmentId);
+
+            return $assessment->getId()->isEqual($assessmentId);
+        })
+            ->first();
     }
 }

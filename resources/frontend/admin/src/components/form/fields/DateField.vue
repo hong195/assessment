@@ -16,7 +16,7 @@
         :vid="name"
       >
         <v-text-field
-          :value="date"
+          :value="value"
           :name="name"
           v-bind="attributes"
           :error-messages="errors"

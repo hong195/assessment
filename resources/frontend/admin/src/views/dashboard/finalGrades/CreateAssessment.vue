@@ -156,6 +156,8 @@
             if (this.assessmentCount <= 10) {
               ++this.finalGrade.assessments_count
             }
+            this.$refs['update-assessment-option'].reset()
+
             this.$store.commit('successMessage', 'Оценка созданая')
           })
           .catch(() => {
