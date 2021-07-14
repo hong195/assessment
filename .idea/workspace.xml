@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FinalGradeAssessmentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FinalGradeAssessmentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/FormBase.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/FormBase.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/final-grade/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/final-grade/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/AssessmentTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/AssessmentTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/CheckboxField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/CheckboxField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/mixins/FormActionsMixin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/mixins/FormActionsMixin.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/CreateAssessment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/CreateAssessment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/UpdateAssessment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/UpdateAssessment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -405,13 +396,10 @@
       <workItem from="1625330920644" duration="28005000" />
       <workItem from="1625462887342" duration="339000" />
       <workItem from="1625932052742" duration="6104000" />
-    </task>
-    <task id="LOCAL-00073" summary="updated analyses service.">
-      <created>1623572405300</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1623572405300</updated>
+      <workItem from="1626104226836" duration="1027000" />
+      <workItem from="1626168829640" duration="15000" />
+      <workItem from="1626246370265" duration="2382000" />
+      <workItem from="1626249452163" duration="653000" />
     </task>
     <task id="LOCAL-00074" summary="rollback default app namespace.">
       <created>1623573683328</created>
@@ -749,7 +737,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626017359681</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="added update assessment component.">
+      <created>1626027649897</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1626027649897</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -799,7 +794,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated efficiency analyses." />
     <MESSAGE value="added criterion controller." />
     <MESSAGE value="added criterion option end point:&#10;&#10;- added&#10;  added criterion/criterion.options controller.&#10;- updated&#10;  criterion service." />
     <MESSAGE value="updated criterion service remove option." />
@@ -824,7 +818,8 @@
     <MESSAGE value="added assessment create form." />
     <MESSAGE value="added swal alert component." />
     <MESSAGE value="updated final grades table." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated final grades table." />
+    <MESSAGE value="added update assessment component." />
+    <option name="LAST_COMMIT_MESSAGE" value="added update assessment component." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

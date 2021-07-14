@@ -156,7 +156,10 @@
             if (this.assessmentCount <= 10) {
               ++this.finalGrade.assessments_count
             }
-            this.$refs['update-assessment-option'].reset()
+
+            this.$nextTick(() => {
+              this.$refs['create-assessment-option'].reset()
+            })
 
             this.$store.commit('successMessage', 'Оценка созданая')
           })
@@ -164,6 +167,7 @@
             this.$store.commit('errorMessage', 'Ошибка создания оценки')
           })
       },
+
     },
   }
 </script>

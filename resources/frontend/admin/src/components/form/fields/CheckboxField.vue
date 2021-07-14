@@ -24,8 +24,8 @@
         :key="`checkbox-${id}-${index}`"
       >
         <v-checkbox
+          v-model="option.id"
           :error-messages="errors"
-          :value="option.id"
           :label="label"
           @change="updateValue"
         />

@@ -11,9 +11,18 @@
     },
     methods: {
       submit () {
-        return new Promise((resolve, reject) => {
-          this.onSubmit({ resolve: resolve, reject: reject })
-        })
+        this.$refs.obs.validate()
+          .then(success => {
+            console.log(success)
+            if (!success) {
+              return
+            }
+
+            this.onSubmit()
+          })
+          .catch(error => {
+            console.log(error)
+          })
       },
     },
   }

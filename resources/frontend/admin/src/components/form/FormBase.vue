@@ -2,7 +2,7 @@
   <validation-observer ref="obs" v-slot="{ handleSubmit }">
     <v-form :data-vv-scope="scope"
             :disabled="disabled"
-            @submit.prevent="handleSubmit(onSubmit)"
+            @submit.prevent="submit"
     >
       <v-row>
         <v-col
@@ -154,9 +154,11 @@
         field.value = value
       },
       async reset () {
-        this.schema.forEach((field) =>
-          this.setFieldValue({ name: field.name, value: null }),
-        )
+        this.schema.forEach((field) => {
+          if (field.type !== 'hidden') {
+            this.setFieldValue({ name: field.name, value: null })
+          }
+        })
         requestAnimationFrame(() => {
           this.$refs.obs.reset()
           this.$emit('input', this.fieldsValue())
