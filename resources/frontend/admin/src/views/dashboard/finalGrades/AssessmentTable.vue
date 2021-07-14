@@ -1,6 +1,9 @@
 <template>
   <div>
     <v-data-table :headers="headers" :items="items" class="assessment-list">
+      <template v-slot:item.index="{ item }">
+        {{ getElementIndex(item) }}
+      </template>
       <template v-slot:item.actions="{ item }">
         <v-btn small :icon="true"
                color="red"
@@ -52,6 +55,10 @@
       return {
         headers: [
           {
+            text: '№',
+            value: 'index',
+          },
+          {
             text: 'Сумма Обслуживания',
             value: 'check.amount',
           },
@@ -89,6 +96,12 @@
             assessmentId: assessment.id,
           },
         })
+      },
+      getElementIndex (element) {
+        if (!this.items.length) {
+          return
+        }
+        return this.items.findIndex(item => element.id === item.id) + 1
       },
       remove (assessment) {
         console.log(assessment)
