@@ -13,7 +13,6 @@
       submit () {
         this.$refs.obs.validate()
           .then(success => {
-            console.log(success)
             if (!success) {
               return
             }

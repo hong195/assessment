@@ -54,7 +54,9 @@
         formValue: '',
         schema: [
           {
-            attributes: [],
+            attributes: [
+              '',
+            ],
             component: 'date',
             type: 'hidden',
             name: 'service_date',

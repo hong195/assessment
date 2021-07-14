@@ -30,7 +30,6 @@
     <v-date-picker
       ref="picker"
       v-model="date"
-      type="month"
       v-bind="attributes"
       :locale="locale"
       @change="change"
@@ -58,17 +57,12 @@
     name: 'DateField',
     mixins: [FieldMixin],
     data: () => ({
-      date: null,
+      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
       menu: false,
     }),
     computed: {
       locale () {
         return process.env.VUE_APP_I18N_LOCALE || process.env.VUE_APP_I18N_FALLBACK_LOCALE
-      },
-    },
-    watch: {
-      menu (val) {
-        val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
       },
     },
     methods: {
