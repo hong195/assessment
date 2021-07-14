@@ -32,6 +32,8 @@
       v-model="date"
       v-bind="attributes"
       :locale="locale"
+      :max="maxDate"
+      :min="minDate"
       @change="change"
     >
       <v-btn
@@ -53,12 +55,15 @@
 </template>
 <script>
   import FieldMixin from '@/components/form/mixins/FieldMixin'
+  import moment from 'moment'
   export default {
     name: 'DateField',
     mixins: [FieldMixin],
     data: () => ({
       date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
       menu: false,
+      maxDate: moment().format('YYYY-MM-DD'),
+      minDate: '2019-01-01',
     }),
     computed: {
       locale () {
