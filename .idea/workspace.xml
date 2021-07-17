@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeTotalInfo.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/AssessmentTable.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -405,14 +400,7 @@
       <workItem from="1626258964279" duration="2975000" />
       <workItem from="1626272466913" duration="3000" />
       <workItem from="1626326804399" duration="609000" />
-      <workItem from="1626534799657" duration="4722000" />
-    </task>
-    <task id="LOCAL-00078" summary="added EfficiencyAnalyses api resource.">
-      <created>1623769307374</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1623769307374</updated>
+      <workItem from="1626534799657" duration="5427000" />
     </task>
     <task id="LOCAL-00079" summary="added EfficiencyAnalyses api resource.">
       <created>1623769322759</created>
@@ -750,7 +738,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626253519469</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="updated final grade view.">
+      <created>1626539962297</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1626539962297</updated>
+    </task>
+    <option name="localTasksCounter" value="128" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -813,7 +808,6 @@
     <MESSAGE value="updated api endpoints." />
     <MESSAGE value="added final grade vuex module." />
     <MESSAGE value="added create final grade." />
-    <MESSAGE value="updated final grade view." />
     <MESSAGE value="added expand row for final grade." />
     <MESSAGE value="added criteria option." />
     <MESSAGE value="added create assessment page (not ready)." />
@@ -825,7 +819,8 @@
     <MESSAGE value="updated date picker field." />
     <MESSAGE value="added indexes to assessment table items." />
     <MESSAGE value="added allowed dated for date picker field." />
-    <option name="LAST_COMMIT_MESSAGE" value="added allowed dated for date picker field." />
+    <MESSAGE value="updated final grade view." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated final grade view." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -62,7 +62,7 @@
             Не сформирован
           </template>
           <template v-else>
-            {{ item.scored }}
+            {{ item.scored }}/ {{ item.total }}
           </template>
         </template>
         <template v-slot:item.month="{ item }">
