@@ -62,7 +62,9 @@
             Не сформирован
           </template>
           <template v-else>
-            {{ item.scored }}/ {{ item.total }}
+            <v-chip :color="getColor(item.scored, item.total)">
+              {{ item.scored }}/ {{ item.total }}
+            </v-chip>
           </template>
         </template>
         <template v-slot:item.month="{ item }">
@@ -103,17 +105,14 @@
   import moment from 'moment'
   import DataTable from '@/components/dashboard/DataTable'
   import MonthPicker from '@/components/dashboard/MonthPicker'
-  import RatingColor from '@/components/dashboard/mixins/RatingColor'
-  import Conversion from '@/components/dashboard/Graphs/table_parts/Conversion'
-  import RatingScore from '@/components/dashboard/Graphs/table_parts/RatingScore'
+  import FinalGradeColor from '@/components/dashboard/mixins/FinalGradeColor'
   import Create from './Create'
   import { mapActions } from 'vuex'
   import ViewFinalGradeModal from './ViewFinalGradeModal'
-
   export default {
     name: 'Index',
-    components: { Create, RatingScore, Conversion, DataTable, MonthPicker, ViewFinalGradeModal },
-    mixins: [RatingColor],
+    components: { Create, DataTable, MonthPicker, ViewFinalGradeModal },
+    mixins: [FinalGradeColor],
     data () {
       return {
         date: null,

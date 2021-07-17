@@ -30,13 +30,9 @@
   </div>
 </template>
 <script>
-  import RatingColor from '@/components/dashboard/mixins/RatingColor'
-  import SingleUserRating from '@/views/dashboard/ratings/SingleUserRating'
 
   export default {
     name: 'RatingScore',
-    components: { SingleUserRating },
-    mixins: [RatingColor],
     props: {
       rating: {
         required: true,

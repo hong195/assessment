@@ -9,7 +9,7 @@
             <rating-score :rating="rating" />
           </td>
           <td>
-            <conversion :conversion="rating.conversion" />
+            <!--            <conversion :conversion="rating.conversion" />-->
           </td>
         </tr>
         <tr v-for="(user, index2) in userWithoutRating" :key="index2">
@@ -28,11 +28,10 @@
 </template>
 <script>
   import RatingScore from './RatingScore'
-  import Conversion from '@/components/dashboard/Graphs/table_parts/Conversion'
+  // import Conversion from '@/components/dashboard/Graphs/table_parts/Conversion'
   export default {
     name: 'UsersRatingByPharmacy',
     components: {
-      Conversion,
       RatingScore,
     },
     props: {

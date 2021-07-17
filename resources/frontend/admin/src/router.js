@@ -160,16 +160,6 @@ const router = new Router({
           },
         },
         {
-          name: 'ratings-staff',
-          path: 'ratings-staff',
-          component: () => import('@/views/dashboard/ratings/Staff'),
-          meta: {
-            middleware: [
-              auth,
-            ],
-          },
-        },
-        {
           name: 'attributes',
           path: 'attributes',
           component: () => import('@/views/dashboard/attributes/Index'),
