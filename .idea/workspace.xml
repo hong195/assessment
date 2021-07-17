@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeTotalInfo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/AssessmentTable.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +224,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.22.1" />
-    <property name="javascript.nodejs.core.library.typings.version" value="12.20.15" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.20.16" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -396,14 +401,11 @@
       <workItem from="1626104226836" duration="1027000" />
       <workItem from="1626168829640" duration="15000" />
       <workItem from="1626246370265" duration="2382000" />
-      <workItem from="1626249452163" duration="3812000" />
-    </task>
-    <task id="LOCAL-00077" summary="updated doctrine proxies.">
-      <created>1623691892359</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1623691892359</updated>
+      <workItem from="1626249452163" duration="7274000" />
+      <workItem from="1626258964279" duration="2975000" />
+      <workItem from="1626272466913" duration="3000" />
+      <workItem from="1626326804399" duration="609000" />
+      <workItem from="1626534799657" duration="4722000" />
     </task>
     <task id="LOCAL-00078" summary="added EfficiencyAnalyses api resource.">
       <created>1623769307374</created>
@@ -741,7 +743,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626252136343</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="added allowed dated for date picker field.">
+      <created>1626253519469</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1626253519469</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -791,7 +800,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated user dto:&#10;&#10;- removed &#10;  unnecessary dto interface." />
     <MESSAGE value="updated efficiency analyses service &amp; mapping." />
     <MESSAGE value="added efficiency analyses update method." />
     <MESSAGE value="bug fix." />
@@ -816,7 +824,8 @@
     <MESSAGE value="updated assessment adding." />
     <MESSAGE value="updated date picker field." />
     <MESSAGE value="added indexes to assessment table items." />
-    <option name="LAST_COMMIT_MESSAGE" value="added indexes to assessment table items." />
+    <MESSAGE value="added allowed dated for date picker field." />
+    <option name="LAST_COMMIT_MESSAGE" value="added allowed dated for date picker field." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

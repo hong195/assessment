@@ -53,7 +53,7 @@
         </v-col>
       </v-row>
 
-      <v-data-table :headers="headers" :items="finalGrades" show-expand :single-expand="true">
+      <v-data-table :headers="headers" :items="finalGrades" :single-expand="true">
         <template v-slot:item.employee="{ item }">
           {{ getEmployeeName(item.employee_id) }}
         </template>
@@ -76,16 +76,26 @@
             Завершен
           </template>
         </template>
-        <template v-slot:expanded-item="{ headers, item }">
-          <td colspan="7" style="padding: 0">
-            <assessment-table :item="item" :items="item.assessments" />
-          </td>
+        <template v-slot:item.actions="{ item }">
+          <v-btn small :icon="true"
+                 color="green"
+                 @click="view(item)"
+          >
+            <v-icon>mdi-eye</v-icon>
+          </v-btn>
+          <v-btn small :icon="true"
+                 color="red"
+                 :disabled="(item.status === 'completed')"
+                 @click="remove(item)"
+          >
+            <v-icon>mdi-delete</v-icon>
+          </v-btn>
         </template>
       </v-data-table>
-
       <v-divider class="mt-3" />
     </base-material-card>
     <create ref="createPopup" />
+    <view-final-grade-modal ref="finalGradeModal" :final-grade="activeFinalGrade" />
   </v-container>
 </template>
 
@@ -98,11 +108,11 @@
   import RatingScore from '@/components/dashboard/Graphs/table_parts/RatingScore'
   import Create from './Create'
   import { mapActions } from 'vuex'
-  import AssessmentTable from './AssessmentTable'
+  import ViewFinalGradeModal from './ViewFinalGradeModal'
 
   export default {
     name: 'Index',
-    components: { Create, RatingScore, Conversion, DataTable, MonthPicker, AssessmentTable },
+    components: { Create, RatingScore, Conversion, DataTable, MonthPicker, ViewFinalGradeModal },
     mixins: [RatingColor],
     data () {
       return {
@@ -111,6 +121,7 @@
         dialog: false,
         items: [],
         search: undefined,
+        activeFinalGrade: null,
         finalGrades: [],
         pharmacyId: null,
         pharmacies: [],
@@ -153,6 +164,10 @@
           {
             text: 'Статус',
             value: 'status',
+          },
+          {
+            text: 'Действия',
+            value: 'actions',
           },
         ],
       }
@@ -216,6 +231,12 @@
         const employee = this.getEmployeeById(employeeId)
 
         return `${employee.first_name} ${employee.middle_name} ${employee.last_name}`
+      },
+      view (finalGrade) {
+        this.activeFinalGrade = finalGrade
+        this.$refs.finalGradeModal.openModal()
+      },
+      remove (finalGrade) {
       },
     },
   }
