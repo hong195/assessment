@@ -4,9 +4,18 @@
       color="success"
       icon="mdi-clipboard-text"
       inline
-      title="Список аптек с рейтингом"
+      title="Список аптек"
       class="px-5 py-3 my-6"
     >
+      <v-row>
+        <v-col>
+          <v-btn :to="{name: 'create-pharmacy'}"
+                 color="success"
+          >
+            Создать Аптеку
+          </v-btn>
+        </v-col>
+      </v-row>
       <data-table
         ref="data-table"
         fetch-url="pharmacies"
@@ -14,7 +23,7 @@
         :search-options="searchParams"
       >
         <template v-slot:item.actions="{ item }">
-          <actions :item="item" @actionDeletedResponse="actionDeletedResponse" />
+          <actions :pharmacy="item" @deleted-pharmacy="actionDeletedResponse" />
         </template>
         <template v-slot:item.address="{ item }">
           <a v-if="item.coordinates" :href="`http://www.google.com/maps/place/${item.coordinates[1]},${item.coordinates[0]}`"
@@ -44,21 +53,16 @@
     data: () => ({
       headers: [
         {
-          text: 'Название аптеки',
-          value: 'name',
+          text: 'Номкер аптеки',
+          value: 'number',
         },
         {
           text: 'Количество сотрудников',
-          value: 'users_count',
+          value: 'employeeCount',
         },
         {
           text: 'Электронная почта',
           value: 'email',
-          sortable: false,
-        },
-        {
-          text: 'Адрес аптеки',
-          value: 'address',
           sortable: false,
         },
         {
@@ -74,11 +78,8 @@
       },
     }),
     methods: {
-      actionDeletedResponse (val) {
-        this.items.splice(
-          this.items.findIndex(({ id }) => id === val),
-          1,
-        )
+      actionDeletedResponse () {
+        this.$refs['data-table'].fetchPosts()
       },
     },
   }

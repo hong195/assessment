@@ -15,10 +15,10 @@
         <table class="table-detail">
           <tr>
             <td>
-              Название аптеки
+              Номер аптеки
             </td>
             <td>
-              {{ item.name }}
+              {{ pharmacy.number }}
             </td>
           </tr>
           <tr>
@@ -26,7 +26,7 @@
               Количество сотрудников
             </td>
             <td>
-              {{ item.users_count }}
+              {{ pharmacy.employeeCount }}
             </td>
           </tr>
           <tr>
@@ -34,17 +34,7 @@
               Адрес аптеки
             </td>
             <td>
-              {{ item.address }}
-            </td>
-          </tr>
-          <tr v-if="item.meta && item.meta.length">
-            <td>
-              Дополнительно
-            </td>
-            <td>
-              <div v-for="meta in item.meta" :key="meta.name">
-                <span class="meta">{{ $t(meta.name) }}:</span> {{ meta.value }}
-              </div>
+              {{ pharmacy.address }}
             </td>
           </tr>
         </table>
@@ -53,7 +43,7 @@
           Список сотрудников
         </h3>
         <v-data-table
-          :items="users"
+          :items="employees"
           :headers="headers"
           :loading="loading"
         >
@@ -67,14 +57,20 @@
 </template>
 <script>
   import Actions from '@/components/dashboard/Actions/StaffActions'
+  import { mapActions } from 'vuex'
 
   export default {
     name: 'PharmacyDetail',
     components: { Actions },
-    props: ['item'],
+    props: {
+      pharmacy: {
+        type: Object,
+        default: () => {},
+      },
+    },
     data () {
       return {
-        users: [],
+        employees: [],
         dialog: false,
         loading: false,
         headers: [
@@ -88,11 +84,7 @@
           },
           {
             text: 'Отчество',
-            value: 'patronymic',
-          },
-          {
-            text: 'Электронная почта',
-            value: 'email',
+            value: 'middle_name',
           },
           {
             sortable: false,
@@ -102,14 +94,22 @@
         ],
       }
     },
+    watch: {
+      pharmacy () {
+        this.getEmployees()
+      },
+    },
     methods: {
-      getUsers () {
+      ...mapActions('pharmacy', ['getPharmacyEmployees']),
+      getEmployees () {
         this.loading = true
-        this.$http.get('users-by-pharmacy?pharmacy_id=' + this.item.id).then(response => {
-          this.users = response.data.data
-        }).finally(() => {
-          this.loading = false
-        })
+        this.getPharmacyEmployees(this.pharmacy.id)
+          .then(({ data }) => {
+            this.employees = data.data
+          })
+          .finally(() => {
+            this.loading = false
+          })
       },
       actionDeletedResponse (val) {
         this.items.splice(

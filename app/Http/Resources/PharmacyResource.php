@@ -20,7 +20,7 @@ class PharmacyResource extends JsonResource
             'id' => (string) $this->getId(),
             'number' => (string) $this->getNumber(),
             'email' => (string) $this->getEmail(),
-            'employee' => []
+            'employeeCount' => $this->getEmployees()->count()
         ];
     }
 }

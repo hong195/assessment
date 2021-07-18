@@ -3,7 +3,6 @@
     <v-btn
       v-for="(action, i) in actions"
       :key="i"
-      v-can="action.can"
       dark
       class="px-2 ml-1"
       :color="action.color"
@@ -13,13 +12,14 @@
     >
       <v-icon small v-text="action.icon" />
     </v-btn>
-    <pharmacy-detail ref="pharmacyDetail" :item="item" />
+    <pharmacy-detail ref="pharmacyDetail" :pharmacy="activePharmacy" />
   </div>
 </template>
 
 <script>
   import can from '@/plugins/directives/v-can'
   import PharmacyDetail from '@/views/dashboard/pharmacies/Detail'
+  import { mapActions } from 'vuex'
 
   export default {
     name: 'Actions',
@@ -28,14 +28,14 @@
       can: can,
     },
     props: {
-      item: {
+      pharmacy: {
         type: Object,
         default: () => ({}),
       },
     },
     data () {
       return {
-        activeItem: {},
+        activePharmacy: {},
         actions: [
           {
             color: 'info',
@@ -53,35 +53,33 @@
             color: 'error',
             icon: 'mdi-close',
             can: 'delete',
-            method: 'deleteItem',
+            method: 'deletePharmacy',
           },
         ],
       }
     },
     methods: {
+      ...mapActions('pharmacy', ['removePharmacy']),
       actionMethod (funcName, item) {
         this[funcName](item)
       },
       viewItem () {
-        this.activeItem = this.item
+        this.activePharmacy = this.pharmacy
         this.$refs.pharmacyDetail.dialog = true
-        this.$refs.pharmacyDetail.getUsers()
       },
       editItem () {
         this.$router.push({
           name: 'update-pharmacy',
-          params: { id: this.item.id },
+          params: { id: this.pharmacy.id },
         })
       },
-      deleteItem () {
-        this.$http
-          .delete(`pharmacies/${this.item.id}`)
+      deletePharmacy () {
+        this.removePharmacy(this.pharmacy.id)
           .then((response) => {
-            this.$emit('actionDeletedResponse', this.item.id)
+            this.$emit('deleted-pharmacy', this.pharmacy.id)
             this.$store.commit('successMessage', response.data.message)
           })
           .catch(error => {
-            console.error(error)
             this.$store.commit('errorMessage', error)
           })
       },

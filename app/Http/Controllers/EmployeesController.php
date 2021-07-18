@@ -27,7 +27,7 @@ class EmployeesController extends Controller
         return EmployeeResource::collection($this->employeeRepository->all()->toArray());
     }
 
-    public function store(EmployeeRequest $request)
+    public function store(EmployeeRequest $request): \Illuminate\Http\JsonResponse
     {
         try {
             $this->employeeService->create($request->getDto());
@@ -60,8 +60,17 @@ class EmployeesController extends Controller
         }
     }
 
-    public function destroy($id)
+    public function destroy($id): \Illuminate\Http\JsonResponse
     {
-        //
+        try {
+            $this->employeeService->destroy($id);
+            return response()->json([
+                'message' => 'Destroyed'
+            ]);
+        }catch (\Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage()
+            ], $e->getCode());
+        }
     }
 }

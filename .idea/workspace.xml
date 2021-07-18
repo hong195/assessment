@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/pharmacies/Update.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/PharmacyActions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/PharmacyActions.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/DefaultForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/DefaultForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/pharmacy/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/pharmacy/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/pharmacies/CreateUpdate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/pharmacies/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/pharmacies/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/pharmacies/Index.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -397,21 +406,9 @@
       <workItem from="1626258964279" duration="2975000" />
       <workItem from="1626272466913" duration="3000" />
       <workItem from="1626326804399" duration="609000" />
-      <workItem from="1626534799657" duration="34504000" />
-    </task>
-    <task id="LOCAL-00085" summary="updated efficiency analyses service.">
-      <created>1623951142024</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1623951142025</updated>
-    </task>
-    <task id="LOCAL-00086" summary="added abstract repository.">
-      <created>1623952174627</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1623952174627</updated>
+      <workItem from="1626534799657" duration="42685000" />
+      <workItem from="1626630603299" duration="8089000" />
+      <workItem from="1626672350102" duration="12000" />
     </task>
     <task id="LOCAL-00087" summary="updated efficiency analyses service.">
       <created>1623954116885</created>
@@ -742,7 +739,21 @@
       <option name="project" value="LOCAL" />
       <updated>1626620215570</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="added criteria to admin menu.">
+      <created>1626620255659</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1626620255660</updated>
+    </task>
+    <task id="LOCAL-00135" summary="added pharmacy index view.">
+      <created>1626627516925</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1626627516925</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -782,6 +793,36 @@
             </State>
           </value>
         </entry>
+        <entry key="f5ff0c3a-706a-42df-a77b-707b98c818d5">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/Users/aleksejem/Sites/assessment/resources/frontend/admin/src/components/dashboard/Actions" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="f5ff0c3a-706a-42df-a77b-707b98c818d5" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
@@ -792,7 +833,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated pharmacy service." />
     <MESSAGE value="added pharmacy api endpoint" />
     <MESSAGE value="moved Domain &amp; Infrastructure into app folder." />
     <MESSAGE value="updated repositories." />
@@ -817,7 +857,8 @@
     <MESSAGE value="clean up code." />
     <MESSAGE value="updated criteria management." />
     <MESSAGE value="added criteria to admin menu." />
-    <option name="LAST_COMMIT_MESSAGE" value="added criteria to admin menu." />
+    <MESSAGE value="added pharmacy index view." />
+    <option name="LAST_COMMIT_MESSAGE" value="added pharmacy index view." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

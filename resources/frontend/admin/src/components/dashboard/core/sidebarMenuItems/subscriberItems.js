@@ -11,7 +11,12 @@ export default [
   },
   {
     to: '/criteria',
-    icon: 'mdi-view-comfy',
+    icon: 'mdi-select-marker',
     title: 'criteria',
+  },
+  {
+    to: '/pharmacies',
+    icon: 'mdi-hospital-building',
+    title: 'pharmacies',
   },
 ]

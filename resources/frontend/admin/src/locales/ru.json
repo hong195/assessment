@@ -38,5 +38,6 @@
         "noDataText": "Нет данных"
     },
     "pharmacyRating": "Рейтинг аптеки",
-    "criteria": "Критерии"
+    "criteria": "Критерии",
+    "pharmacies": "Аптеки"
 }

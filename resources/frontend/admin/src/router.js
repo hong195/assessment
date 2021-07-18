@@ -90,8 +90,8 @@ const router = new Router({
         },
 
         {
-          name: 'pharmacy',
-          path: 'pharmacy',
+          name: 'pharmacies',
+          path: 'pharmacies',
           component: () => import('@/views/dashboard/pharmacies/Index'),
           meta: {
             middleware: [
@@ -101,8 +101,8 @@ const router = new Router({
         },
         {
           name: 'create-pharmacy',
-          path: 'create-pharmacy',
-          component: () => import('@/views/dashboard/pharmacies/CreateUpdate'),
+          path: 'pharmacies/create',
+          component: () => import('@/views/dashboard/pharmacies/Create'),
           meta: {
             middleware: [
               isEditor,
@@ -121,8 +121,8 @@ const router = new Router({
         },
         {
           name: 'update-pharmacy',
-          path: 'update-pharmacy/:id',
-          component: () => import('@/views/dashboard/pharmacies/CreateUpdate'),
+          path: 'pharmacies/:id',
+          component: () => import('@/views/dashboard/pharmacies/Update'),
           meta: {
             middleware: [
               isEditor,
