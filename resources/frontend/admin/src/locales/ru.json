@@ -37,5 +37,6 @@
         "loading": "Загрузка",
         "noDataText": "Нет данных"
     },
-    "pharmacyRating": "Рейтинг аптеки"
+    "pharmacyRating": "Рейтинг аптеки",
+    "criteria": "Критерии"
 }

@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/DetailView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Update.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Criterion/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Criterion/Criterion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CriteriaOptionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CriteriaOptionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/CriterionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/CriterionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/base/Swal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/base/Swal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/criterion/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/criterion/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/CreateOption.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/CreateOption.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-    </list>
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -412,28 +397,7 @@
       <workItem from="1626258964279" duration="2975000" />
       <workItem from="1626272466913" duration="3000" />
       <workItem from="1626326804399" duration="609000" />
-      <workItem from="1626534799657" duration="32681000" />
-    </task>
-    <task id="LOCAL-00082" summary="added abstract json request class.">
-      <created>1623864884946</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1623864884946</updated>
-    </task>
-    <task id="LOCAL-00083" summary="added CreateEfficiencyAnalysesRequest json request class.">
-      <created>1623864907008</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1623864907008</updated>
-    </task>
-    <task id="LOCAL-00084" summary="changed assessment month signature &amp; updated tests.">
-      <created>1623867221476</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1623867221476</updated>
+      <workItem from="1626534799657" duration="34504000" />
     </task>
     <task id="LOCAL-00085" summary="updated efficiency analyses service.">
       <created>1623951142024</created>
@@ -757,7 +721,28 @@
       <option name="project" value="LOCAL" />
       <updated>1626541562496</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="updated criteria management.">
+      <created>1626617888275</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1626617888275</updated>
+    </task>
+    <task id="LOCAL-00132" summary="added criteria to admin menu.">
+      <created>1626618599824</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1626618599824</updated>
+    </task>
+    <task id="LOCAL-00133" summary="added criteria to admin menu.">
+      <created>1626620215570</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1626620215570</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -807,8 +792,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added efficiency analyses update method." />
-    <MESSAGE value="bug fix." />
     <MESSAGE value="updated pharmacy service." />
     <MESSAGE value="added pharmacy api endpoint" />
     <MESSAGE value="moved Domain &amp; Infrastructure into app folder." />
@@ -832,7 +815,9 @@
     <MESSAGE value="added allowed dated for date picker field." />
     <MESSAGE value="updated final grade view." />
     <MESSAGE value="clean up code." />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up code." />
+    <MESSAGE value="updated criteria management." />
+    <MESSAGE value="added criteria to admin menu." />
+    <option name="LAST_COMMIT_MESSAGE" value="added criteria to admin menu." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -78,8 +78,7 @@
             this.$emit('updated-criterion')
             this.dialog = false
           })
-          .catch((data) => {
-            console.log(data)
+          .catch(() => {
             this.$store.commit('errorMessage', 'Ошибка удаления')
           })
       },

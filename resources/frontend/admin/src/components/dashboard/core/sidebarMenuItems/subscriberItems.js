@@ -9,4 +9,9 @@ export default [
     icon: 'mdi-view-comfy',
     title: 'final_grades',
   },
+  {
+    to: '/criteria',
+    icon: 'mdi-view-comfy',
+    title: 'criteria',
+  },
 ]
