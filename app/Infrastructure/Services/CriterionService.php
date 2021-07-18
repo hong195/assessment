@@ -12,16 +12,25 @@ use App\Domain\Model\Criterion\CriterionRepository;
 use App\Exceptions\CriterionException;
 use App\Domain\Model\Criterion\OptionId;
 use App\Exceptions\NotUniqueCriterionNameException;
+use Doctrine\ORM\EntityManagerInterface;
 
 class CriterionService
 {
     private CriterionRepository $repository;
+    private EntityManagerInterface $em;
 
-    public function __construct(CriterionRepository $repository)
+    public function __construct(CriterionRepository $repository, EntityManagerInterface $em)
     {
         $this->repository = $repository;
+        $this->em = $em;
     }
 
+    public function getOptions(string $criterionId): \Doctrine\Common\Collections\Collection
+    {
+        /** @var Criterion $criterion */
+        $criterion = $this->repository->findOrFail($criterionId);
+        return $criterion->getOptions();
+    }
     /**
      * @param string $name
      * @throws NotUniqueCriterionNameException
@@ -96,8 +105,10 @@ class CriterionService
 
     public function removeOption(string $criterionId, string $optionId)
     {
+        /** @var Criterion $criterion */
         $criterion = $this->repository->findOrFail($criterionId);
 
         $criterion->removeOption(new OptionId($optionId));
+        $this->em->flush();
     }
 }

@@ -31,6 +31,6 @@ Route::apiResource('employees', EmployeesController::class)
     ->only(['index', 'store', 'show', 'update', 'destroy']);
 
 Route::apiResource('criteria.options', CriteriaOptionsController::class)
-    ->only(['store', 'update', 'destroy']);
+    ->only(['store', 'update', 'index', 'destroy']);
 
 Route::apiResource('pharmacies', PharmaciesControllerAlias::class);

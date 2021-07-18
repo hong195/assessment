@@ -21,41 +21,54 @@
         </v-col>
       </v-row>
 
-      <v-data-table :headers="headers" :items="criteria" show-expand :single-expand="true">
-        <template v-slot:expanded-item="{ headers, item }">
-          <td colspan="7" style="padding: 0">
-            переместить в попап
-            <v-container style="padding: 20px 0;">
-              <v-data-table :headers="optionsHeaders" :items="item.options" class="options-list" />
-
-              <v-row justify="center">
-                <v-btn color="primary" @click="openCreateOptionForm(item)">
-                  Добавить Опцию
-                </v-btn>
-              </v-row>
-            </v-container>
-          </td>
+      <v-data-table :headers="headers" :items="criteria" :single-expand="true">
+        <template v-slot:item.actions="{ item }">
+          <v-btn small :icon="true"
+                 color="info"
+                 @click="view(item)"
+          >
+            <v-icon>mdi-eye</v-icon>
+          </v-btn>
+          <v-btn small :icon="true"
+                 color="success"
+                 @click="edit(item)"
+          >
+            <v-icon>mdi-pencil</v-icon>
+          </v-btn>
+          <v-btn small :icon="true"
+                 color="red"
+                 :disabled="(item.status === 'completed')"
+                 @click="remove(item)"
+          >
+            <v-icon>mdi-delete</v-icon>
+          </v-btn>
         </template>
       </v-data-table>
 
       <v-divider class="mt-3" />
     </base-material-card>
-    <create-criterion-popup ref="createPopup" />
-    <create-option-popup :id="activeCriterionId" ref="crateOptionPopup" />
+    <create-criterion-popup ref="createPopup" @added-criterion="fetchCriteria" />
+    <update-criterion-popup ref="updatePopup"
+                            :criterion="activeCriterion"
+                            @updated-criterion="fetchCriteria"
+    />
+    <detail-view ref="detailView" :criterion="activeCriterion" />
   </v-container>
 </template>
 
 <script>
   import { mapActions } from 'vuex'
   import CreateCriterionPopup from './Create'
-  import CreateOptionPopup from './CreateOption'
+  import DetailView from './DetailView'
+  import UpdateCriterionPopup from './Update'
   export default {
     name: 'CriteriaList',
-    components: { CreateCriterionPopup, CreateOptionPopup },
+    components: { UpdateCriterionPopup, CreateCriterionPopup, DetailView },
     data () {
       return {
         criteria: [],
         activeCriterionId: '',
+        activeCriterion: null,
         headers: [
           {
             text: 'Название критерия',
@@ -66,36 +79,47 @@
             value: 'order',
           },
           {
-            text: 'Дата создания',
-            value: 'created_at',
-          },
-        ],
-        optionsHeaders: [
-          {
-            text: 'Название опции',
-            value: 'name',
-          },
-          {
-            text: 'Значение',
-            value: 'value',
+            text: 'Действия',
+            value: 'actions',
           },
         ],
       }
     },
     mounted () {
-      this.fetchAll()
-        .then(({ data }) => {
-          this.criteria = data.data
-        })
+      this.fetchCriteria()
     },
     methods: {
-      ...mapActions('criterion', ['fetchAll']),
-      openCreateForm (criterion) {
+      ...mapActions('criterion', ['fetchAll', 'deleteCriterion', 'updateCriterion']),
+      openCreateForm () {
         this.$refs.createPopup.openPopupForm()
+      },
+      fetchCriteria () {
+        this.fetchAll()
+          .then(({ data }) => {
+            this.criteria = data.data
+          })
       },
       openCreateOptionForm (criterion) {
         this.activeCriterionId = criterion.id
         this.$refs.crateOptionPopup.openPopupForm()
+      },
+      view (criterion) {
+        this.activeCriterion = criterion
+        this.$refs.detailView.openModal()
+      },
+      edit (criterion) {
+        this.activeCriterion = criterion
+        this.$refs.updatePopup.openPopupForm()
+      },
+      remove (criterion) {
+        this.deleteCriterion({ criterionId: criterion.id })
+          .then(() => {
+            this.$store.commit('successMessage', 'Критерий удален')
+            this.fetchCriteria()
+          })
+          .catch(() => {
+            this.$store.commit('errorMessage', 'Ошибка удаления')
+          })
       },
     },
   }

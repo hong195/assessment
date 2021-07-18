@@ -24,7 +24,7 @@ class Criterion
      */
     private string $name;
     /**
-     * @ORM\OneToMany(targetEntity="Option", mappedBy="criterion", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="Option", mappedBy="criterion", orphanRemoval=true, cascade={"persist","remove"})
      */
     private Collection $options;
 

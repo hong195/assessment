@@ -159,67 +159,6 @@ const router = new Router({
             ],
           },
         },
-        {
-          name: 'attributes',
-          path: 'attributes',
-          component: () => import('@/views/dashboard/attributes/Index'),
-          meta: {
-            middleware: [
-              isAdmin,
-            ],
-          },
-        },
-        {
-          name: 'create-attributes',
-          path: 'create-attributes',
-          component: () => import('@/views/dashboard/attributes/CreateUpdate'),
-          meta: {
-            middleware: [
-              isAdmin,
-            ],
-          },
-        },
-        {
-          name: 'update-attributes',
-          path: 'update-attributes/:id',
-          component: () => import('@/views/dashboard/attributes/CreateUpdate'),
-          meta: {
-            middleware: [
-              isAdmin,
-            ],
-          },
-        },
-        {
-          name: 'attribute-options',
-          path: 'attribute-options',
-          component: () => import('@/views/dashboard/options/Index'),
-          meta: {
-            middleware: [
-              isAdmin,
-            ],
-          },
-        },
-        {
-          name: 'create-attribute-options',
-          path: 'create-attribute-options',
-          component: () => import('@/views/dashboard/options/Create'),
-          meta: {
-            middleware: [
-              isAdmin,
-            ],
-          },
-        },
-        {
-          name: 'update-attribute-options',
-          path: 'update-attribute-options/:id',
-          component: () => import('@/views/dashboard/options/Create'),
-          meta: {
-            middleware: [
-              isAdmin,
-            ],
-          },
-        },
-
       ],
     },
     {

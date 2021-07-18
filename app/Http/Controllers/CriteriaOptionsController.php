@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Domain\Model\Criterion\Option;
 use App\Http\Requests\CriterionOptionRequest;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Exceptions\DomainException;
@@ -18,6 +19,18 @@ class CriteriaOptionsController extends Controller
         $this->em = $em;
     }
 
+    public function index(string $criterionId): \Illuminate\Http\JsonResponse
+    {
+        $options = $this->criterionService->getOptions($criterionId)->toArray();
+        return response()->json(collect($options)->map(function (Option $option) {
+            return [
+                'id' => (string)$option->getId(),
+                'name' => $option->getName(),
+                'value' => $option->getValue()
+            ];
+        }));
+    }
+
     public function store(CriterionOptionRequest $request, $id): \Illuminate\Http\JsonResponse
     {
         try {
@@ -28,7 +41,7 @@ class CriteriaOptionsController extends Controller
                 'message' => 'Created'
             ]);
 
-        }catch (DomainException $e) {
+        } catch (DomainException $e) {
             return response()->json([
                 'message' => $e->getMessage()
             ], $e->getCode());
@@ -45,15 +58,25 @@ class CriteriaOptionsController extends Controller
                 'message' => 'Updated'
             ]);
 
-        }catch (DomainException $e) {
+        } catch (DomainException $e) {
             return response()->json([
                 'message' => $e->getMessage()
             ], $e->getCode());
         }
     }
 
-    public function destroy($id)
+    public function destroy($criterionId, $optionId): \Illuminate\Http\JsonResponse
     {
-        //
+        try {
+            $this->criterionService->removeOption($criterionId, $optionId);
+
+            return response()->json([
+                'message' => 'Deleted'
+            ]);
+        } catch (DomainException $e) {
+            return response()->json([
+                'message' => $e->getMessage()
+            ], $e->getCode());
+        }
     }
 }

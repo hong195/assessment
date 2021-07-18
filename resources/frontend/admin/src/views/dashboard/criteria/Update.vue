@@ -6,19 +6,20 @@
     >
       <v-card>
         <v-card-title class="text-h5 grey lighten-2">
-          Создание опции
+          Обновление критерия
         </v-card-title>
         <v-card-text>
           <v-container>
             <form-base
-              ref="create-criterion-option"
+              ref="create-criterion-form"
               v-model="formValue"
-              scope="create-criterion-option"
+              scope="create-criterion-form"
               :schema="schema"
               :on-submit="submit"
             />
           </v-container>
         </v-card-text>
+
         <v-divider />
       </v-card>
     </v-dialog>
@@ -30,68 +31,56 @@
   import FormBase from '@/components/form/FormBase'
   import { mapActions } from 'vuex'
   export default {
-    name: 'Create',
+    name: 'Update',
     components: {
       FormBase,
     },
     props: {
-      id: {
-        type: String,
-        required: true,
+      criterion: {
+        type: Object,
       },
     },
     data () {
       return {
         formValue: null,
         dialog: false,
-        employees: [],
-      }
-    },
-    computed: {
-      schema () {
-        return [
+        schema: [
           {
-            attributes: [],
+            attributes: {},
             component: 'text',
-            label: 'Название опции',
+            label: 'Название критерия',
             name: 'name',
             placeholder: null,
             options: [],
             rule: 'required',
-            type: 'text',
             value: null,
           },
-          {
-            attributes: [],
-            component: 'text',
-            label: 'Значение',
-            name: 'value',
-            placeholder: null,
-            options: [],
-            rule: 'required',
-            type: 'number',
-            value: null,
-          },
-        ]
+        ],
+      }
+    },
+    watch: {
+      criterion (val) {
+        this.schema[0].value = val.name
       },
     },
     methods: {
-      ...mapActions('criterion', ['createOption']),
+      ...mapActions('criterion', ['updateCriterion']),
       openPopupForm () {
         this.dialog = true
       },
       submit () {
-        this.createOption({ id: this.id, params: this.formValue })
+        this.updateCriterion({
+          criterionId: this.criterion.id,
+          params: this.formValue,
+        })
           .then(() => {
-            this.$store.commit('successMessage', 'Критерий создан')
-          })
-          .catch(() => {
-            this.$store.commit('successMessage', 'Ошибка создания опции криетрия')
-          })
-          .finally(() => {
-            this.$refs['create-criterion-option'].reset()
-            this.$emit('option-added')
+            this.$store.commit('successMessage', 'Критерий Обновлен')
+            this.$emit('updated-criterion')
             this.dialog = false
+          })
+          .catch((data) => {
+            console.log(data)
+            this.$store.commit('errorMessage', 'Ошибка удаления')
           })
       },
     },

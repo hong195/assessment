@@ -23,6 +23,7 @@
         }
         Swal.fire({
           text: value,
+          icon: this.$store.getters.icon,
         })
           .then(() => {
             this.message = ''

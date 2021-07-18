@@ -5,12 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/DetailView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Update.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/TableChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/TableChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/table_parts/Conversion.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/table_parts/UsersRatingByPharmacy.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/table_parts/UsersRatingByPharmacy.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/mixins/RatingColor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/mixins/FinalGradeColor.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Criterion/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Criterion/Criterion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CriteriaOptionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CriteriaOptionsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/CriterionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/CriterionService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/base/Swal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/base/Swal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/criterion/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/criterion/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/CreateOption.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/CreateOption.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +233,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="12.22.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.20.16" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -244,9 +252,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/store_modules" />
-      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/components" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/final-grade" />
     </key>
@@ -404,14 +412,7 @@
       <workItem from="1626258964279" duration="2975000" />
       <workItem from="1626272466913" duration="3000" />
       <workItem from="1626326804399" duration="609000" />
-      <workItem from="1626534799657" duration="6337000" />
-    </task>
-    <task id="LOCAL-00081" summary="added default domain &amp; infrastructure code.">
-      <created>1623864856977</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1623864856977</updated>
+      <workItem from="1626534799657" duration="32681000" />
     </task>
     <task id="LOCAL-00082" summary="added abstract json request class.">
       <created>1623864884946</created>
@@ -749,7 +750,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626541109563</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="clean up code.">
+      <created>1626541562496</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1626541562496</updated>
+    </task>
+    <option name="localTasksCounter" value="131" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

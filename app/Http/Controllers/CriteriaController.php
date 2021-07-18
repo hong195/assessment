@@ -65,7 +65,7 @@ class CriteriaController extends Controller
 
         } catch (DomainException $e) {
             return response()->json([
-                'message' => 'Error creating'
+                'message' => 'Error Updating'
             ], $e->getCode());
         }
     }

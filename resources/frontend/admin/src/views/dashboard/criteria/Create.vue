@@ -6,14 +6,14 @@
     >
       <v-card>
         <v-card-title class="text-h5 grey lighten-2">
-          Создать Итоговую Оценку
+          Создание критерия
         </v-card-title>
         <v-card-text>
           <v-container>
             <form-base
-              ref="create-final-grade"
+              ref="create-criterion-form"
               v-model="formValue"
-              scope="create-final-grade"
+              scope="create-criterion-form"
               :schema="schema"
               :on-submit="submit"
             />
@@ -30,18 +30,15 @@
   import Swal from 'sweetalert2'
   import FormBase from '@/components/form/FormBase'
   import { mapActions } from 'vuex'
-  import SelectField from '../../../components/form/fields/SelectField'
   export default {
     name: 'Create',
     components: {
-      SelectField,
       FormBase,
     },
     data () {
       return {
         formValue: null,
         dialog: false,
-        employees: [],
       }
     },
     computed: {
@@ -70,17 +67,18 @@
 
         this.create(this.formValue)
           .then(() => {
-            swalOptions.text = 'Итоговая оценка создана'
+            swalOptions.text = 'Критерий создан'
             swalOptions.icon = 'success'
           })
           .catch(() => {
-            swalOptions.text = 'Ошибка создания итоговой оценки'
+            swalOptions.text = 'Ошибка создания критерия'
             swalOptions.icon = 'error'
           })
           .finally(() => {
             Swal.fire(swalOptions)
               .then(() => {
-                this.$refs['create-final-grade'].reset()
+                this.$emit('added-criterion')
+                this.$refs['create-criterion-form'].reset()
                 this.dialog = false
               })
           })
