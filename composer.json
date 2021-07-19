@@ -26,7 +26,7 @@
         "symfony/property-access": "^5.2",
         "symfony/serializer": "^5.2",
         "symfony/yaml": "^5.2",
-        "tymon/jwt-auth": "^1.0"
+        "tymon/jwt-auth": "dev-develop"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
