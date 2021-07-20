@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,9 +177,6 @@
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
-      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
-      <path value="$PROJECT_DIR$/vendor/tymon/jwt-auth" />
-      <path value="$PROJECT_DIR$/vendor/namshi/jose" />
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/vendor/doctrine/common" />
@@ -201,6 +205,9 @@
       <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/itsgoingd/clockwork" />
       <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/vendor/tymon/jwt-auth" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
     </include_path>
   </component>
   <component name="ProjectId" id="1nrxeNhC18QtC5cBgCdJxgcBOTV" />
@@ -214,7 +221,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.22.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.20.16" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
@@ -400,14 +412,8 @@
       <workItem from="1626534799657" duration="42685000" />
       <workItem from="1626630603299" duration="8089000" />
       <workItem from="1626672350102" duration="12000" />
-      <workItem from="1626712599321" duration="333000" />
-    </task>
-    <task id="LOCAL-00088" summary="updated efficiency analyses.">
-      <created>1624126444080</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1624126444080</updated>
+      <workItem from="1626712599321" duration="4878000" />
+      <workItem from="1626774984942" duration="1194000" />
     </task>
     <task id="LOCAL-00089" summary="added criterion controller.">
       <created>1624134000749</created>
@@ -745,7 +751,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626712611102</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="updated support for jwt php 8.">
+      <created>1626713240176</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1626713240176</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -825,7 +838,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added pharmacy api endpoint" />
     <MESSAGE value="moved Domain &amp; Infrastructure into app folder." />
     <MESSAGE value="updated repositories." />
     <MESSAGE value="rename entity efficiency analyses to final grade." />
@@ -850,7 +862,8 @@
     <MESSAGE value="updated criteria management." />
     <MESSAGE value="added criteria to admin menu." />
     <MESSAGE value="added pharmacy index view." />
-    <option name="LAST_COMMIT_MESSAGE" value="added pharmacy index view." />
+    <MESSAGE value="updated support for jwt php 8." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated support for jwt php 8." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

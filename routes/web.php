@@ -19,12 +19,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $em = app()->make(EntityManagerInterface::class);
-    $repo = app()->make(\App\Domain\Model\User\UserRepository::class);
-
-
-    $user = \Tests\Unit\Domain\Model\Builders\UserBuilder::aUser()->build();
-    $repo->add($user);
-    $em->flush();
     return view('welcome');
 });
