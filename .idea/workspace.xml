@@ -5,11 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -413,14 +408,7 @@
       <workItem from="1626630603299" duration="8089000" />
       <workItem from="1626672350102" duration="12000" />
       <workItem from="1626712599321" duration="4878000" />
-      <workItem from="1626774984942" duration="1194000" />
-    </task>
-    <task id="LOCAL-00089" summary="added criterion controller.">
-      <created>1624134000749</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1624134000749</updated>
+      <workItem from="1626774984942" duration="1250000" />
     </task>
     <task id="LOCAL-00090" summary="added criterion option end point:&#10;&#10;- added&#10;  added criterion/criterion.options controller.&#10;- updated&#10;  criterion service.">
       <created>1624198750587</created>
@@ -758,7 +746,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626713240176</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="added domain config variable.">
+      <created>1626777060842</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1626777060842</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -794,6 +789,11 @@
                 <map>
                   <entry key="Show.Git.Branches" value="false" />
                 </map>
+              </option>
+              <option name="TEXT_FILTER_SETTINGS">
+                <TextFilterSettings>
+                  <option name="REGEX" value="true" />
+                </TextFilterSettings>
               </option>
             </State>
           </value>
@@ -838,7 +838,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="moved Domain &amp; Infrastructure into app folder." />
     <MESSAGE value="updated repositories." />
     <MESSAGE value="rename entity efficiency analyses to final grade." />
     <MESSAGE value="updated final grade test." />
@@ -863,7 +862,8 @@
     <MESSAGE value="added criteria to admin menu." />
     <MESSAGE value="added pharmacy index view." />
     <MESSAGE value="updated support for jwt php 8." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated support for jwt php 8." />
+    <MESSAGE value="added domain config variable." />
+    <option name="LAST_COMMIT_MESSAGE" value="added domain config variable." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
