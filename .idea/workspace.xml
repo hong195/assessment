@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated .gitignore">
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/.env.production" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -408,14 +409,7 @@
       <workItem from="1626630603299" duration="8089000" />
       <workItem from="1626672350102" duration="12000" />
       <workItem from="1626712599321" duration="4878000" />
-      <workItem from="1626774984942" duration="1589000" />
-    </task>
-    <task id="LOCAL-00092" summary="updated criterion service remove option.">
-      <created>1624198899869</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1624198899869</updated>
+      <workItem from="1626774984942" duration="3548000" />
     </task>
     <task id="LOCAL-00093" summary="updated criterion service remove option.">
       <created>1624198999184</created>
@@ -753,7 +747,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626777397420</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="updated vue .env api endpoint url.">
+      <created>1626777472166</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1626777472166</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -838,7 +839,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated final grade test." />
     <MESSAGE value="updated doctrine proxy." />
     <MESSAGE value="updated api endpoints." />
     <MESSAGE value="added final grade vuex module." />
@@ -863,7 +863,8 @@
     <MESSAGE value="added domain config variable." />
     <MESSAGE value="set admin.blade.php as main app view." />
     <MESSAGE value="updated .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated .gitignore" />
+    <MESSAGE value="updated vue .env api endpoint url." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated vue .env api endpoint url." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

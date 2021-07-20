@@ -19,22 +19,25 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::apiResource('final-grades', FinalGradeController::class)
-    ->only(['index', 'store', 'show']);
+Route::group([], function() {
+    Route::apiResource('final-grades', FinalGradeController::class)
+        ->only(['index', 'store', 'show']);
 
-Route::apiResource('final-grade.assessments', FinalGradeAssessmentsController::class)
-    ->only(['store', 'update', 'destroy', 'show']);
+    Route::apiResource('final-grade.assessments', FinalGradeAssessmentsController::class)
+        ->only(['store', 'update', 'destroy', 'show']);
 
-Route::apiResource('criteria', CriteriaController::class)
-    ->only(['index', 'store', 'update', 'destroy']);
+    Route::apiResource('criteria', CriteriaController::class)
+        ->only(['index', 'store', 'update', 'destroy']);
 
-Route::apiResource('pharmacy.employees', PharmacyEmployeesController::class)
-    ->only(['index']);
+    Route::apiResource('pharmacy.employees', PharmacyEmployeesController::class)
+        ->only(['index']);
 
-Route::apiResource('employees', EmployeesController::class)
-    ->only(['index', 'store', 'show', 'update', 'destroy']);
+    Route::apiResource('employees', EmployeesController::class)
+        ->only(['index', 'store', 'show', 'update', 'destroy']);
 
-Route::apiResource('criteria.options', CriteriaOptionsController::class)
-    ->only(['store', 'update', 'index', 'destroy']);
+    Route::apiResource('criteria.options', CriteriaOptionsController::class)
+        ->only(['store', 'update', 'index', 'destroy']);
 
-Route::apiResource('pharmacies', PharmaciesControllerAlias::class);
+    Route::apiResource('pharmacies', PharmaciesControllerAlias::class);
+});
+
