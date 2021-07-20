@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated .gitignore">
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/.env.production" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -408,14 +408,7 @@
       <workItem from="1626630603299" duration="8089000" />
       <workItem from="1626672350102" duration="12000" />
       <workItem from="1626712599321" duration="4878000" />
-      <workItem from="1626774984942" duration="1535000" />
-    </task>
-    <task id="LOCAL-00091" summary="updated criterion service remove option.">
-      <created>1624198893993</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1624198893993</updated>
+      <workItem from="1626774984942" duration="1589000" />
     </task>
     <task id="LOCAL-00092" summary="updated criterion service remove option.">
       <created>1624198899869</created>
@@ -753,7 +746,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626777273987</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="updated .gitignore">
+      <created>1626777397420</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1626777397420</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -838,7 +838,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="rename entity efficiency analyses to final grade." />
     <MESSAGE value="updated final grade test." />
     <MESSAGE value="updated doctrine proxy." />
     <MESSAGE value="updated api endpoints." />
@@ -863,7 +862,8 @@
     <MESSAGE value="updated support for jwt php 8." />
     <MESSAGE value="added domain config variable." />
     <MESSAGE value="set admin.blade.php as main app view." />
-    <option name="LAST_COMMIT_MESSAGE" value="set admin.blade.php as main app view." />
+    <MESSAGE value="updated .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated .gitignore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
