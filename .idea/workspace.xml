@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/locales/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/locales/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/EmployeeInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/EmployeeInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeInfo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/StepProgressBar.vue" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -410,21 +414,7 @@
       <workItem from="1626672350102" duration="12000" />
       <workItem from="1626712599321" duration="4878000" />
       <workItem from="1626774984942" duration="4388000" />
-      <workItem from="1626871986346" duration="1420000" />
-    </task>
-    <task id="LOCAL-00094" summary="updated user dto:&#10;&#10;- removed &#10;  unnecessary dto interface.">
-      <created>1624199473117</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1624199473117</updated>
-    </task>
-    <task id="LOCAL-00095" summary="updated efficiency analyses service &amp; mapping.">
-      <created>1624215273928</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1624215273928</updated>
+      <workItem from="1626871986346" duration="1747000" />
     </task>
     <task id="LOCAL-00096" summary="added efficiency analyses update method.">
       <created>1624216241343</created>
@@ -755,7 +745,21 @@
       <option name="project" value="LOCAL" />
       <updated>1626779679256</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="added redirect button to create assessment.">
+      <created>1626874332603</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1626874332604</updated>
+    </task>
+    <task id="LOCAL-00144" summary="added redirect button to create assessment.">
+      <created>1626874340158</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1626874340158</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -840,7 +844,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated api endpoints." />
     <MESSAGE value="added final grade vuex module." />
     <MESSAGE value="added create final grade." />
     <MESSAGE value="added expand row for final grade." />
@@ -865,7 +868,8 @@
     <MESSAGE value="updated .gitignore" />
     <MESSAGE value="updated vue .env api endpoint url." />
     <MESSAGE value="updated api routes." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated api routes." />
+    <MESSAGE value="added redirect button to create assessment." />
+    <option name="LAST_COMMIT_MESSAGE" value="added redirect button to create assessment." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

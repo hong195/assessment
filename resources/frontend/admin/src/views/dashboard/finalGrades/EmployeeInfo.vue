@@ -13,7 +13,7 @@
           </tr>
           <tr>
             <td>Пол</td>
-            <td>{{ employee.gender }}</td>
+            <td>{{ $t(employee.gender) }}</td>
           </tr>
           <tr>
             <td>Аптека</td>

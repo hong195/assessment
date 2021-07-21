@@ -71,12 +71,7 @@
           <span style="text-transform: capitalize">{{ formatMonth(item.month) }}</span>
         </template>
         <template v-slot:item.status="{ item }">
-          <template v-if="item.status === 'uncompleted'">
-            Не завершен
-          </template>
-          <template v-else>
-            Завершен
-          </template>
+          {{ $t(item.status) }}
         </template>
         <template v-slot:item.actions="{ item }">
           <v-btn small :icon="true"

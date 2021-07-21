@@ -12,7 +12,7 @@
         </tr>
         <tr>
           <td>Статус</td>
-          <td>{{ finalGrade.status }}</td>
+          <td>{{ $t(finalGrade.status) }}</td>
         </tr>
       </tbody>
     </template>

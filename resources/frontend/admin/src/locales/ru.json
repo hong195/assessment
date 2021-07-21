@@ -39,5 +39,9 @@
     },
     "pharmacyRating": "Рейтинг аптеки",
     "criteria": "Критерии",
-    "pharmacies": "Аптеки"
+    "pharmacies": "Аптеки",
+    "uncompleted" : "Незавершен",
+    "completed" : "Завершен",
+    "male": "Женский",
+    "female": "Мужской"
 }
