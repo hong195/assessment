@@ -60,7 +60,7 @@
     name: 'DateField',
     mixins: [FieldMixin],
     data: () => ({
-      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+      date: null,
       menu: false,
       attrs: {},
     }),
@@ -73,14 +73,22 @@
           return moment().format('YYYY-MM-DD')
         }
 
-        return null
+        return this.attributes.max
       },
       minDate () {
         if (_.isEmpty(this.attributes.min)) {
           return '2019-01-01'
         }
-        return null
+        return this.attributes.min
       },
+    },
+    watch: {
+      value (value) {
+        this.date = value
+      },
+    },
+    mounted () {
+      this.date = this.value || (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)
     },
     methods: {
       change (date) {

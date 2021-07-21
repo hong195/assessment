@@ -45,6 +45,7 @@
   import FormBase from '@/components/form/FormBase'
   import EmployeeInfo from './EmployeeInfo'
   import FinalGradeInfo from './FinalGradeInfo'
+  import moment from 'moment'
 
   export default {
     name: 'CreateAssessment',
@@ -54,9 +55,7 @@
         formValue: '',
         schema: [
           {
-            attributes: [
-              '',
-            ],
+            attributes: {},
             component: 'date',
             type: 'hidden',
             name: 'service_date',
@@ -64,6 +63,30 @@
             placeholder: null,
             rule: 'required',
             value: null,
+          },
+          {
+            attributes: {
+              cols: 6,
+            },
+            component: 'text',
+            type: 'number',
+            name: 'amount',
+            label: 'Сумма обслуживания',
+            placeholder: null,
+            rule: '',
+            value: 0,
+          },
+          {
+            attributes: {
+              cols: 6,
+            },
+            component: 'text',
+            type: 'number',
+            name: 'conversion',
+            label: 'Конверсия',
+            placeholder: null,
+            rule: '',
+            value: 0,
           },
         ],
         criteria: [],
@@ -124,6 +147,15 @@
       this.findById(this.id)
         .then(({ data }) => {
           this.finalGrade = data.data
+
+          const startMonth = moment(this.finalGrade.month).startOf('month').format('YYYY-MM-DD')
+          const endMonth = moment(this.finalGrade.month).endOf('month').format('YYYY-MM-DD')
+          this.schema[0].attributes = {
+            min: startMonth,
+            max: endMonth,
+          }
+
+          this.schema[0].value = startMonth
         })
         .then(() => {
           return this.findEmployeeById(this.finalGrade.employee_id)

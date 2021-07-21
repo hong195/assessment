@@ -45,6 +45,7 @@
   import FormBase from '@/components/form/FormBase'
   import EmployeeInfo from './EmployeeInfo'
   import FinalGradeInfo from './FinalGradeInfo'
+  import moment from 'moment'
 
   export default {
     name: 'CreateAssessment',
@@ -62,6 +63,30 @@
             placeholder: null,
             rule: 'required',
             value: null,
+          },
+          {
+            attributes: {
+              cols: 6,
+            },
+            component: 'text',
+            type: 'number',
+            name: 'amount',
+            label: 'Сумма обслуживания',
+            placeholder: null,
+            rule: '',
+            value: 0,
+          },
+          {
+            attributes: {
+              cols: 6,
+            },
+            component: 'text',
+            type: 'number',
+            name: 'conversion',
+            label: 'Конверсия',
+            placeholder: null,
+            rule: '',
+            value: 0,
           },
         ],
         criteria: [],
@@ -89,6 +114,8 @@
           const criteria = this.assessment.criteria
 
           this.schema[0].value = this.assessment.check.service_date
+          this.schema[1].value = this.assessment.check.amount
+          this.schema[2].value = this.assessment.check.conversion
 
           this.fetchCriterion()
             .then(({ data }) => {
@@ -136,6 +163,13 @@
       this.findById(this.id)
         .then(({ data }) => {
           this.finalGrade = data.data
+
+          const startMonth = moment(this.finalGrade.month).startOf('month').format('YYYY-MM-DD')
+          const endMonth = moment(this.finalGrade.month).endOf('month').format('YYYY-MM-DD')
+          this.schema[0].attributes = {
+            min: startMonth,
+            max: endMonth,
+          }
         })
         .then(() => {
           return this.findEmployeeById(this.finalGrade.employee_id)
@@ -168,10 +202,10 @@
           params: this.formValue,
         })
           .then(() => {
-            this.$store.commit('successMessage', 'Оценка созданая')
+            this.$store.commit('successMessage', 'Оценка обновлена')
           })
           .catch(() => {
-            this.$store.commit('errorMessage', 'Ошибка создания оценки')
+            this.$store.commit('errorMessage', 'Ошибка обновления оценки')
           })
       },
     },
