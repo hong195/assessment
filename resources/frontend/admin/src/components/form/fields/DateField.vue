@@ -31,7 +31,7 @@
       ref="picker"
       v-model="date"
       v-bind="attributes"
-      :locale="locale"
+      locale="ru"
       :max="maxDate"
       :min="minDate"
       @change="change"
@@ -67,7 +67,7 @@
     }),
     computed: {
       locale () {
-        return process.env.VUE_APP_I18N_LOCALE || process.env.VUE_APP_I18N_FALLBACK_LOCALE
+        return 'ru'
       },
       maxDate () {
         if (_.isEmpty(this.attributes.max)) {

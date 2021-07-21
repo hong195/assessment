@@ -92,7 +92,7 @@
       </v-data-table>
       <v-divider class="mt-3" />
     </base-material-card>
-    <create ref="createPopup" />
+    <create ref="createPopup" @refresh="fetchFinalGrades" />
     <view-final-grade-modal ref="finalGradeModal" :final-grade="activeFinalGrade" />
   </v-container>
 </template>
@@ -185,10 +185,7 @@
       },
     },
     mounted () {
-      this.fetchAll()
-        .then(({ data }) => {
-          this.finalGrades = data.data
-        })
+      this.fetchFinalGrades()
 
       this.getEmployees()
         .then(({ data }) => {
@@ -244,6 +241,12 @@
             id: item.id,
           },
         })
+      },
+      fetchFinalGrades () {
+        this.fetchAll()
+          .then(({ data }) => {
+            this.finalGrades = data.data
+          })
       },
     },
   }

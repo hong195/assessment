@@ -17,12 +17,23 @@
               :schema="schema"
               :on-submit="submit"
             >
+              <template v-slot:pharmacy_id-field="{ field, updateFieldValue }">
+                <select-field
+                  v-model="field.value"
+                  :name="field.name"
+                  :label="field.label"
+                  :options="pharmacies"
+                  validation-rule="required"
+                  :attributes="field.attributes"
+                  @input="updateFieldValue"
+                />
+              </template>
               <template v-slot:employee_id-field="{ field, updateFieldValue }">
                 <select-field
                   v-model="field.value"
                   :name="field.name"
                   :label="field.label"
-                  :options="employees"
+                  :options="filteredEmployees"
                   validation-rule="required"
                   :attributes="field.attributes"
                   @input="updateFieldValue"
@@ -54,11 +65,30 @@
         formValue: null,
         dialog: false,
         employees: [],
+        pharmacies: [],
       }
     },
     computed: {
+      filteredEmployees () {
+        if (!this.formValue) {
+          return []
+        }
+        return this.employees.filter(employee => {
+          return this.formValue.pharmacy_id === employee.pharmacy_id
+        })
+      },
       schema () {
         return [
+          {
+            attributes: [],
+            component: 'select',
+            label: 'Аптеки',
+            name: 'pharmacy_id',
+            placeholder: null,
+            options: [],
+            rule: 'required',
+            value: null,
+          },
           {
             attributes: [],
             component: 'select',
@@ -70,7 +100,9 @@
             value: null,
           },
           {
-            attributes: [],
+            attributes: {
+              type: 'month',
+            },
             component: 'date',
             label: 'Месяц',
             name: 'month',
@@ -83,31 +115,36 @@
     },
     mounted () {
       this.getEmployees()
+      this.fetchPharmacies()
+        .then(({ data }) => {
+          this.pharmacies = data.data.map((pharmacy) => {
+            return {
+              id: pharmacy.id,
+              name: pharmacy.number,
+            }
+          })
+        })
     },
     methods: {
       ...mapActions('employee', ['fetchAll']),
+      ...mapActions('pharmacy', {
+        fetchPharmacies: 'fetchAll',
+      }),
       ...mapActions('finalGrade', ['create']),
       openPopupForm () {
         this.dialog = true
       },
       submit () {
-        const swalOptions = {}
-
-        this.create(this.formValue)
+        this.create({
+          employee_id: this.formValue.employee_id,
+          month: this.formValue.month,
+        })
           .then(() => {
-            swalOptions.text = 'Итоговая оценка создана'
-            swalOptions.icon = 'success'
+            this.$store.commit('successMessage', 'Итоговая оценка создана')
+            this.$emit('refresh')
           })
           .catch(() => {
-            swalOptions.text = 'Ошибка создания итоговой оценки'
-            swalOptions.icon = 'error'
-          })
-          .finally(() => {
-            Swal.fire(swalOptions)
-              .then(() => {
-                this.$refs['create-final-grade'].reset()
-                this.dialog = false
-              })
+            this.$store.commit('errorMessage', 'Ошибка создания итоговой оценки')
           })
       },
       getEmployees () {
@@ -116,7 +153,8 @@
             this.employees = data.data.map((employee) => {
               return {
                 id: employee.id,
-                name: employee.id,
+                name: `${employee.first_name} ${employee.last_name} ${employee.middle_name}`,
+                ...employee,
               }
             })
           })
@@ -124,6 +162,3 @@
     },
   }
 </script>
-<style lang="scss">
-//@import '~sweetalert2/src/sweetalert2.scss';
-</style>
