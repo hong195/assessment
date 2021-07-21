@@ -135,7 +135,7 @@ const router = new Router({
           component: () => import('@/views/dashboard/users/Index'),
           meta: {
             middleware: [
-              isEditor,
+              // isEditor,
             ],
           },
         },
@@ -145,7 +145,7 @@ const router = new Router({
           component: () => import('@/views/dashboard/users/CreateUpdate'),
           meta: {
             middleware: [
-              isEditor,
+              // isEditor,
             ],
           },
         },
@@ -155,7 +155,27 @@ const router = new Router({
           component: () => import('@/views/dashboard/users/CreateUpdate'),
           meta: {
             middleware: [
-              auth,
+              // auth,
+            ],
+          },
+        },
+        {
+          name: 'create-employee',
+          path: 'employee/create',
+          component: () => import('@/views/dashboard/users/CreateUpdate'),
+          meta: {
+            middleware: [
+              // isEditor,
+            ],
+          },
+        },
+        {
+          name: 'update-employee',
+          path: 'employee/:id',
+          component: () => import('@/views/dashboard/users/CreateUpdate'),
+          meta: {
+            middleware: [
+              // auth,
             ],
           },
         },
