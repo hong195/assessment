@@ -161,8 +161,8 @@ const router = new Router({
         },
         {
           name: 'create-employee',
-          path: 'employee/create',
-          component: () => import('@/views/dashboard/users/CreateUpdate'),
+          path: 'pharmacy/:pharmacyId/employee/create',
+          component: () => import('@/views/dashboard/employees/Create'),
           meta: {
             middleware: [
               // isEditor,
@@ -171,8 +171,8 @@ const router = new Router({
         },
         {
           name: 'update-employee',
-          path: 'employee/:id',
-          component: () => import('@/views/dashboard/users/CreateUpdate'),
+          path: 'pharmacy/:pharmacyId/employee/:employeeId',
+          component: () => import('@/views/dashboard/employees/Update'),
           meta: {
             middleware: [
               // auth,

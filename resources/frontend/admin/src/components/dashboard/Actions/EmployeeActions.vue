@@ -19,14 +19,12 @@
 <script>
   import can from '@/plugins/directives/v-can'
 
-  import StaffDetail from '@/views/dashboard/staffs/Detail'
   import { mapActions } from 'vuex'
   export default {
     name: 'EmployeeActions',
     directives: {
       can,
     },
-    components: { StaffDetail },
     props: {
       item: {
         type: Object,

@@ -42,6 +42,17 @@
         <h3 class="display-2">
           Список сотрудников
         </h3>
+        <div class="my-3">
+          <v-btn color="success" :to="{
+            name: 'create-employee',
+            params: {
+              pharmacyId: pharmacy.id
+            }
+          }"
+          >
+            Добавить сотрудника
+          </v-btn>
+        </div>
         <v-data-table
           :items="employees"
           :headers="headers"

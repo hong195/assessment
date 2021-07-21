@@ -7,6 +7,9 @@ export default {
   findById ({ commit }, id) {
     return axios.get(`employees/${id}`)
   },
+  createEmployee ({ commit }, params = {}) {
+    return axios.post('employees', params)
+  },
   removeEmployee ({ commit }, employeeId) {
     return axios.delete(`employees/${employeeId}`)
   },
