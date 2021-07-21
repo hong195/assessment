@@ -7,8 +7,6 @@
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -412,14 +410,7 @@
       <workItem from="1626672350102" duration="12000" />
       <workItem from="1626712599321" duration="4878000" />
       <workItem from="1626774984942" duration="4388000" />
-      <workItem from="1626871986346" duration="12912000" />
-    </task>
-    <task id="LOCAL-00103" summary="updated final grade test.">
-      <created>1624722587193</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1624722587193</updated>
+      <workItem from="1626871986346" duration="15146000" />
     </task>
     <task id="LOCAL-00104" summary="updated doctrine proxy.">
       <created>1624722614432</created>
@@ -757,7 +748,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626885335482</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="bugfix.">
+      <created>1626887920793</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1626887920793</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -861,13 +859,13 @@
     <MESSAGE value="updated api routes." />
     <MESSAGE value="added redirect button to create assessment." />
     <MESSAGE value="added translations." />
-    <MESSAGE value="bugfix." />
     <MESSAGE value="added user view." />
     <MESSAGE value="added routes for employee." />
     <MESSAGE value="added employee creation." />
     <MESSAGE value="updated date field." />
     <MESSAGE value="updated employees view." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated employees view." />
+    <MESSAGE value="bugfix." />
+    <option name="LAST_COMMIT_MESSAGE" value="bugfix." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -31,7 +31,6 @@
       ref="picker"
       v-model="date"
       v-bind="attributes"
-      locale="ru"
       :max="maxDate"
       :min="minDate"
       @change="change"
