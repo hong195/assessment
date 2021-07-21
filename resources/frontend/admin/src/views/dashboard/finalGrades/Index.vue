@@ -62,7 +62,7 @@
             Не сформирован
           </template>
           <template v-else>
-            <v-chip :color="getColor(item.scored, item.total)">
+            <v-chip :color="getColor(item.scored, item.total)" @click="view(item)">
               {{ item.scored }}/ {{ item.total }}
             </v-chip>
           </template>
@@ -81,9 +81,10 @@
         <template v-slot:item.actions="{ item }">
           <v-btn small :icon="true"
                  color="green"
-                 @click="view(item)"
+                 :disabled="(item.status === 'completed')"
+                 @click="addAssessment(item)"
           >
-            <v-icon>mdi-eye</v-icon>
+            <v-icon>mdi-plus</v-icon>
           </v-btn>
           <v-btn small :icon="true"
                  color="red"
@@ -236,6 +237,14 @@
         this.$refs.finalGradeModal.openModal()
       },
       remove (finalGrade) {
+      },
+      addAssessment (item) {
+        this.$router.push({
+          name: 'final-grades-assessments',
+          params: {
+            id: item.id,
+          },
+        })
       },
     },
   }
