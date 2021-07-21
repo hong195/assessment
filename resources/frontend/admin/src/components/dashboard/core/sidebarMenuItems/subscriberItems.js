@@ -19,4 +19,9 @@ export default [
     icon: 'mdi-hospital-building',
     title: 'pharmacies',
   },
+  {
+    to: '/users',
+    icon: 'mdi-account-box',
+    title: 'users',
+  },
 ]

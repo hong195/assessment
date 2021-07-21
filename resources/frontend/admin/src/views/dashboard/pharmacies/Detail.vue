@@ -48,7 +48,7 @@
           :loading="loading"
         >
           <template v-slot:item.actions="{ item }">
-            <employee-actions :item="item" @actionDeletedResponse="actionDeletedResponse" />
+            <employee-actions :item="item" @actionDeletedResponse="getEmployees" />
           </template>
         </v-data-table>
       </v-card-text>
@@ -110,12 +110,6 @@
           .finally(() => {
             this.loading = false
           })
-      },
-      actionDeletedResponse (val) {
-        this.items.splice(
-          this.items.findIndex(({ id }) => id === val),
-          1,
-        )
       },
     },
   }

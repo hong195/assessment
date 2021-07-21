@@ -130,9 +130,9 @@ const router = new Router({
           },
         },
         {
-          name: 'staff',
-          path: 'staff',
-          component: () => import('@/views/dashboard/staffs/Index'),
+          name: 'users',
+          path: 'users',
+          component: () => import('@/views/dashboard/users/Index'),
           meta: {
             middleware: [
               isEditor,
@@ -140,9 +140,9 @@ const router = new Router({
           },
         },
         {
-          name: 'create-staff',
-          path: 'create-staff',
-          component: () => import('@/views/dashboard/staffs/CreateUpdate'),
+          name: 'create-user',
+          path: 'users/create',
+          component: () => import('@/views/dashboard/users/CreateUpdate'),
           meta: {
             middleware: [
               isEditor,
@@ -150,9 +150,9 @@ const router = new Router({
           },
         },
         {
-          name: 'update-staff',
-          path: 'update-staff/:id',
-          component: () => import('@/views/dashboard/staffs/CreateUpdate'),
+          name: 'update-user',
+          path: 'users/:id',
+          component: () => import('@/views/dashboard/users/CreateUpdate'),
           meta: {
             middleware: [
               auth,
