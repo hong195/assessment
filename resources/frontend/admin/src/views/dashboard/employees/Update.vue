@@ -7,8 +7,9 @@
   >
     <default-form
       v-model="formValue"
-      title="Добавить сотрудника"
+      title="Обновление сотрудника"
       :schema="schema"
+      :model="model"
       :submit="onSubmit"
     />
   </v-container>
@@ -95,6 +96,7 @@
         },
       ],
       formValue: null,
+      model: null,
       pharmacies: [],
     }),
     computed: {
@@ -110,16 +112,28 @@
       },
     },
     mounted () {
+      this.findById(this.$route.params.employeeId)
+        .then(({ data }) => {
+          this.model = data.data
+        })
+        .catch(() => {
+          this.$store.commit('errorMessage', 'Сотрудник не найден')
+        })
       this.fetchAll()
         .then(({ data }) => {
-          this.pharmacies = data.data
+          this.schema[0].options = data.data.map(pharmacy => {
+            return {
+              id: pharmacy.id,
+              name: pharmacy.number,
+            }
+          })
         })
     },
     methods: {
-      ...mapActions('employee', ['createEmployee']),
+      ...mapActions('employee', ['updateEmployee', 'findById']),
       ...mapActions('pharmacy', ['fetchAll']),
       onSubmit () {
-        this.createEmployee(this.formValue)
+        this.updateEmployee(this.formValue)
           .then(() => {
             this.$store.commit('successMessage', 'Сотрудник создан')
           })

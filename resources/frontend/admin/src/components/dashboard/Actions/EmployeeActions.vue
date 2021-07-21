@@ -12,7 +12,6 @@
     >
       <v-icon small v-text="action.icon" />
     </v-btn>
-    <staff-detail ref="staffDetail" :item="item" />
   </div>
 </template>
 
@@ -57,13 +56,12 @@
       },
       editItem () {
         this.$router.push({
-          name: 'update-staff',
-          params: { id: this.item.id },
+          name: 'update-employee',
+          params: {
+            employeeId: this.item.id,
+            pharmacyId: this.item.pharmacy_id,
+          },
         })
-      },
-      viewItem () {
-        this.activeItem = this.item
-        this.$refs.staffDetail.dialog = true
       },
       deleteItem () {
         this.removeEmployee(this.item.id)

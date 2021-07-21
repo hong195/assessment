@@ -10,6 +10,9 @@ export default {
   createEmployee ({ commit }, params = {}) {
     return axios.post('employees', params)
   },
+  updateEmployee ({ commit }, { id, params = {} }) {
+    return axios.post(`employees/${id}`, params)
+  },
   removeEmployee ({ commit }, employeeId) {
     return axios.delete(`employees/${employeeId}`)
   },
