@@ -48,7 +48,7 @@
           :loading="loading"
         >
           <template v-slot:item.actions="{ item }">
-            <actions :item="item" @actionDeletedResponse="actionDeletedResponse" />
+            <employee-actions :item="item" @actionDeletedResponse="actionDeletedResponse" />
           </template>
         </v-data-table>
       </v-card-text>
@@ -56,12 +56,12 @@
   </v-dialog>
 </template>
 <script>
-  import Actions from '@/components/dashboard/Actions/StaffActions'
+  import EmployeeActions from '@/components/dashboard/Actions/EmployeeActions'
   import { mapActions } from 'vuex'
 
   export default {
     name: 'PharmacyDetail',
-    components: { Actions },
+    components: { EmployeeActions },
     props: {
       pharmacy: {
         type: Object,

@@ -31,7 +31,7 @@
         :search-options="searchParams"
       >
         <template v-slot:item.actions="{ item }">
-          <actions :item="item" @actionDeletedResponse="actionDeletedResponse" />
+          <employee-actions :item="item" @actionDeletedResponse="actionDeletedResponse" />
         </template>
         <template v-slot:item.check="{ item }">
           <v-btn color="info" outlined @click="openChecksDialog(item.id)">
@@ -45,11 +45,11 @@
 </template>
 
 <script>
-  import Actions from '@/components/dashboard/Actions/StaffActions'
+  import EmployeeActions from '@/components/dashboard/Actions/EmployeeActions'
   import DataTable from '@/components/dashboard/DataTable'
   export default {
     name: 'Staff',
-    components: { Actions, DataTable },
+    components: { EmployeeActions, DataTable },
     data () {
       return {
         headers: [

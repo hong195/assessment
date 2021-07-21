@@ -10,6 +10,7 @@ use App\Domain\Model\Employee\EmployeeId;
 use App\Domain\Model\Employee\EmployeeRepository;
 use App\Domain\Model\Employee\Gender;
 use App\Domain\Model\Employee\Name;
+use App\Domain\Model\FinalGrade\FinalGradeRepository;
 use App\Domain\Model\Pharmacy\PharmacyRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -18,12 +19,17 @@ class EmployeeService
     private EmployeeRepository $employeeRepository;
     private EntityManagerInterface $em;
     private PharmacyRepository $pharmacyRepository;
+    private FinalGradeRepository $finalGradeRepository;
 
-    public function __construct(EmployeeRepository $employeeRepository, PharmacyRepository $pharmacyRepository,EntityManagerInterface $em)
+    public function __construct(EmployeeRepository $employeeRepository,
+                                FinalGradeRepository $finalGradeRepository,
+                                PharmacyRepository $pharmacyRepository,
+                                EntityManagerInterface $em)
     {
         $this->employeeRepository = $employeeRepository;
         $this->em = $em;
         $this->pharmacyRepository = $pharmacyRepository;
+        $this->finalGradeRepository = $finalGradeRepository;
     }
 
     public function create(EmployeeDto $employeeDto)
@@ -58,8 +64,12 @@ class EmployeeService
 
     public function destroy(string $id)
     {
+        /** @var Employee $employee */
         $employee = $this->employeeRepository->findOrFail($id);
 
+        $this->finalGradeRepository->findByEmployeeId($employee->getId());
+
         $this->employeeRepository->remove($employee);
+        $this->em->flush();
     }
 }

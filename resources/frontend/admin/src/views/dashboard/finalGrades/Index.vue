@@ -225,6 +225,10 @@
       getEmployeeName (employeeId) {
         const employee = this.getEmployeeById(employeeId)
 
+        if (!employee) {
+          return null
+        }
+
         return `${employee.first_name} ${employee.middle_name} ${employee.last_name}`
       },
       view (finalGrade) {

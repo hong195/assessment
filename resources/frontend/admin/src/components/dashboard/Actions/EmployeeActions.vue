@@ -3,7 +3,6 @@
     <v-btn
       v-for="(action, i) in actions"
       :key="i"
-      v-can="action.can"
       dark
       class="px-2 ml-1"
       :color="action.color"
@@ -21,8 +20,9 @@
   import can from '@/plugins/directives/v-can'
 
   import StaffDetail from '@/views/dashboard/staffs/Detail'
+  import { mapActions } from 'vuex'
   export default {
-    name: 'Actions',
+    name: 'EmployeeActions',
     directives: {
       can,
     },
@@ -37,12 +37,6 @@
       return {
         activeItem: {},
         actions: [
-          {
-            color: 'info',
-            icon: 'mdi-eye',
-            can: 'read',
-            method: 'viewItem',
-          },
           {
             color: 'success',
             icon: 'mdi-pencil',
@@ -59,6 +53,7 @@
       }
     },
     methods: {
+      ...mapActions('employee', ['removeEmployee']),
       actionMethod (funcName, item) {
         this[funcName](item)
       },
@@ -73,15 +68,13 @@
         this.$refs.staffDetail.dialog = true
       },
       deleteItem () {
-        this.$http
-          .delete(`users/${this.item.id}`)
+        this.removeEmployee(this.item.id)
           .then((response) => {
             this.$emit('actionDeletedResponse', this.item.id)
             this.$store.commit('successMessage', response.data.message)
           })
           .catch(error => {
             this.$store.commit('errorMessage', error)
-            console.error(error)
           })
       },
     },
