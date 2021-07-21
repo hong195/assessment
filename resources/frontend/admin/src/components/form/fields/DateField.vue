@@ -56,18 +56,31 @@
 <script>
   import FieldMixin from '@/components/form/mixins/FieldMixin'
   import moment from 'moment'
+  import _ from 'lodash'
   export default {
     name: 'DateField',
     mixins: [FieldMixin],
     data: () => ({
       date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
       menu: false,
-      maxDate: moment().format('YYYY-MM-DD'),
-      minDate: '2019-01-01',
+      attrs: {},
     }),
     computed: {
       locale () {
         return process.env.VUE_APP_I18N_LOCALE || process.env.VUE_APP_I18N_FALLBACK_LOCALE
+      },
+      maxDate () {
+        if (_.isEmpty(this.attributes.max)) {
+          return moment().format('YYYY-MM-DD')
+        }
+
+        return null
+      },
+      minDate () {
+        if (_.isEmpty(this.attributes.min)) {
+          return '2019-01-01'
+        }
+        return null
       },
     },
     methods: {

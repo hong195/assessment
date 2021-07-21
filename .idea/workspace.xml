@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/employees/Update.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/EmployeeActions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/EmployeeActions.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/employee/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/employee/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/pharmacies/Detail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/pharmacies/Detail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/staffs/CreateUpdate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/employees/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/staffs/Detail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/employees/Detail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/staffs/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/employees/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/employees/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/employees/Create.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -417,14 +411,7 @@
       <workItem from="1626672350102" duration="12000" />
       <workItem from="1626712599321" duration="4878000" />
       <workItem from="1626774984942" duration="4388000" />
-      <workItem from="1626871986346" duration="8856000" />
-    </task>
-    <task id="LOCAL-00100" summary="moved Domain &amp; Infrastructure into app folder.">
-      <created>1624715263808</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1624715263808</updated>
+      <workItem from="1626871986346" duration="9775000" />
     </task>
     <task id="LOCAL-00101" summary="updated repositories.">
       <created>1624718292349</created>
@@ -762,7 +749,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626879733448</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="added employee creation.">
+      <created>1626883690646</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1626883690646</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -847,7 +841,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added create assessment page (not ready)." />
     <MESSAGE value="added assessment create form." />
     <MESSAGE value="added swal alert component." />
     <MESSAGE value="updated final grades table." />
@@ -872,7 +865,8 @@
     <MESSAGE value="bugfix." />
     <MESSAGE value="added user view." />
     <MESSAGE value="added routes for employee." />
-    <option name="LAST_COMMIT_MESSAGE" value="added routes for employee." />
+    <MESSAGE value="added employee creation." />
+    <option name="LAST_COMMIT_MESSAGE" value="added employee creation." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

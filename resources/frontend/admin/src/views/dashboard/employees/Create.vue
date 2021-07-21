@@ -65,7 +65,9 @@
           value: null,
         },
         {
-          attributes: [],
+          attributes: {
+            min: '1960-01-01',
+          },
           component: 'date',
           label: 'Дата рождения',
           name: 'birthdate',
