@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/DetailView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/DetailView.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +226,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="12.22.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.20.16" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/employees" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -245,9 +245,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/employees" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users" />
-      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/store_modules" />
     </key>
@@ -412,21 +412,7 @@
       <workItem from="1626774984942" duration="4388000" />
       <workItem from="1626871986346" duration="17600000" />
       <workItem from="1626930799006" duration="18000" />
-      <workItem from="1627127819486" duration="910000" />
-    </task>
-    <task id="LOCAL-00106" summary="added final grade vuex module.">
-      <created>1624737282486</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1624737282486</updated>
-    </task>
-    <task id="LOCAL-00107" summary="added create final grade.">
-      <created>1624780997606</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1624780997606</updated>
+      <workItem from="1627127819486" duration="6339000" />
     </task>
     <task id="LOCAL-00108" summary="added create final grade.">
       <created>1624784207080</created>
@@ -757,7 +743,21 @@
       <option name="project" value="LOCAL" />
       <updated>1626892416492</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="added final grade month format.">
+      <created>1627128753563</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1627128753564</updated>
+    </task>
+    <task id="LOCAL-00156" summary="added updating option functionality.">
+      <created>1627133933219</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1627133933220</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -837,8 +837,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated assessment adding." />
-    <MESSAGE value="updated date picker field." />
     <MESSAGE value="added indexes to assessment table items." />
     <MESSAGE value="added allowed dated for date picker field." />
     <MESSAGE value="updated final grade view." />
@@ -862,7 +860,9 @@
     <MESSAGE value="bugfix." />
     <MESSAGE value="updated date-field localization." />
     <MESSAGE value="added assessment service date limitations." />
-    <option name="LAST_COMMIT_MESSAGE" value="added assessment service date limitations." />
+    <MESSAGE value="added final grade month format." />
+    <MESSAGE value="added updating option functionality." />
+    <option name="LAST_COMMIT_MESSAGE" value="added updating option functionality." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

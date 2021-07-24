@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center">
+  <div v-if="criterion" class="text-center">
     <v-dialog
       v-model="dialog"
       max-width="600"
@@ -69,15 +69,23 @@
                          ref="optionFormDialog"
                          @option-added="reFetchOptions"
     />
+    <update-option-popup
+      v-if="activeOption"
+      ref="optionUpdateFormDialog"
+      :criteria-id="criterion.id"
+      :option-id="activeOption.id"
+      @option-updated="reFetchOptions"
+    />
   </div>
 </template>
 
 <script>
   import CreateOptionPopup from './CreateOption'
+  import UpdateOptionPopup from './UpdateOption'
   import { mapActions } from 'vuex'
   export default {
     name: 'DetailView',
-    components: { CreateOptionPopup },
+    components: { CreateOptionPopup, UpdateOptionPopup },
     props: {
       criterion: {
         type: Object,
@@ -102,6 +110,7 @@
           },
         ],
         options: [],
+        activeOption: {},
       }
     },
     watch: {
@@ -127,7 +136,8 @@
         this.fetchOptions(this.criterion)
       },
       update (option) {
-
+        this.activeOption = option
+        this.$refs.optionUpdateFormDialog.openPopupForm()
       },
       remove (option) {
         this.deleteOption({

@@ -60,6 +60,16 @@ class CriterionService
     }
 
     /**
+     * @throws NotFoundEntityException
+     */
+    public function getOption(string $criterionId, string $optionId): ?\App\Domain\Model\Criterion\Option
+    {
+        /** @var Criterion $criterion */
+        $criterion = $this->repository->findOrFail($criterionId);
+
+        return $criterion->findOptionById(new OptionId($optionId));
+    }
+    /**
      * @param string $criterionId
      * @param CriterionOptionDto $dto
      * @throws CriterionException

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Domain\Model\Criterion\Criterion;
+use App\Domain\Model\Criterion\CriterionRepository;
 use App\Domain\Model\Criterion\Option;
 use App\Http\Requests\CriterionOptionRequest;
 use Doctrine\ORM\EntityManagerInterface;
@@ -12,6 +14,7 @@ class CriteriaOptionsController extends Controller
 {
     private CriterionService $criterionService;
     private EntityManagerInterface $em;
+    private CriterionRepository $criterionRepository;
 
     public function __construct(CriterionService $criterionService, EntityManagerInterface $em)
     {
@@ -46,6 +49,20 @@ class CriteriaOptionsController extends Controller
                 'message' => $e->getMessage()
             ], $e->getCode());
         }
+    }
+
+    /**
+     * @throws \App\Exceptions\NotFoundEntityException
+     */
+    public function show(string $criterionId, string $optionId)
+    {
+        $option = $this->criterionService->getOption($criterionId, $optionId);
+
+        return [
+            'id' => (string) $option->getId(),
+            'name' => $option->getName(),
+            'value' => $option->getValue()
+        ];
     }
 
     public function update(CriterionOptionRequest $request, $criterionId, $optionId): \Illuminate\Http\JsonResponse

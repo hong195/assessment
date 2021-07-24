@@ -10,8 +10,14 @@ export default {
   create ({ commit }, params = {}) {
     return axios.post('criteria', params)
   },
+  fetchOption ({ commit }, { criterionId, optionId, params = {} }) {
+    return axios.get(`criteria/${criterionId}/options/${optionId}`, params)
+  },
   createOption ({ commit }, { id, params = {} },) {
     return axios.post(`criteria/${id}/options`, params)
+  },
+  updateOption ({ commit }, { criterionId, optionId, params = {} },) {
+    return axios.put(`criteria/${criterionId}/options/${optionId}`, params)
   },
   deleteOption ({ commit }, { criterionId, optionId }) {
     return axios.delete(`criteria/${criterionId}/options/${optionId}`)

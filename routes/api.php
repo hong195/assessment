@@ -36,7 +36,7 @@ Route::group([], function() {
         ->only(['index', 'store', 'show', 'update', 'destroy']);
 
     Route::apiResource('criteria.options', CriteriaOptionsController::class)
-        ->only(['store', 'update', 'index', 'destroy']);
+        ->only(['store', 'show', 'update', 'index', 'destroy']);
 
     Route::apiResource('pharmacies', PharmaciesControllerAlias::class);
 });
