@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/form/fields/DateField.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/CreateAssessment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/CreateAssessment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/UpdateAssessment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/UpdateAssessment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeInfo.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -412,14 +410,9 @@
       <workItem from="1626672350102" duration="12000" />
       <workItem from="1626712599321" duration="4878000" />
       <workItem from="1626774984942" duration="4388000" />
-      <workItem from="1626871986346" duration="16955000" />
-    </task>
-    <task id="LOCAL-00105" summary="updated api endpoints.">
-      <created>1624722682597</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1624722682597</updated>
+      <workItem from="1626871986346" duration="17600000" />
+      <workItem from="1626930799006" duration="18000" />
+      <workItem from="1627127819486" duration="910000" />
     </task>
     <task id="LOCAL-00106" summary="added final grade vuex module.">
       <created>1624737282486</created>
@@ -757,7 +750,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626890573496</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="added assessment service date limitations.">
+      <created>1626892416492</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1626892416492</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -829,11 +829,6 @@
         </entry>
       </map>
     </option>
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="f5ff0c3a-706a-42df-a77b-707b98c818d5" value="TOOL_WINDOW" />
-      </map>
-    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
@@ -842,7 +837,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added update assessment component." />
     <MESSAGE value="updated assessment adding." />
     <MESSAGE value="updated date picker field." />
     <MESSAGE value="added indexes to assessment table items." />
@@ -867,7 +861,8 @@
     <MESSAGE value="updated employees view." />
     <MESSAGE value="bugfix." />
     <MESSAGE value="updated date-field localization." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated date-field localization." />
+    <MESSAGE value="added assessment service date limitations." />
+    <option name="LAST_COMMIT_MESSAGE" value="added assessment service date limitations." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -4,7 +4,9 @@
       <tbody>
         <tr>
           <td>Месяц</td>
-          <td>{{ finalGrade.month }}</td>
+          <td style="text-transform: capitalize">
+            {{ formattedMonth }}
+          </td>
         </tr>
         <tr>
           <td>Количество проверок</td>
@@ -20,6 +22,7 @@
 </template>
 
 <script>
+  import moment from 'moment'
   export default {
     name: 'FinalGradeInfo',
     props: {
@@ -30,6 +33,11 @@
       assessmentCount: {
         type: Number,
         required: false,
+      },
+    },
+    computed: {
+      formattedMonth () {
+        return moment(this.finalGrade.month).locale('ru').format('MMMM YYYY')
       },
     },
   }
