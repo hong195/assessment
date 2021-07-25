@@ -28,11 +28,22 @@
           subheader
         >
           <v-row class="main-content">
-            <v-col md="12" xl="2" offset-md="1" class="mr-auto">
+            <v-col v-if="activeAssessment" md="12" xl="2" offset-md="1" class="mr-auto">
               <h3>Список чеков</h3>
-              <v-list>
+              <v-list v-if="assessments.length">
                 <v-select v-model="activeAssessment.id" :items="assessments" item-text="check.service_date" item-value="id" />
+                <v-row v-show="assessmentsCount < 10" class="my-3" justify="space-between">
+                  <v-btn small :to="updateAssessmentRouteParam">
+                    Редактировать проверку
+                  </v-btn>
+                  <v-btn small :to="addAssessmentRouteParams" color="success">
+                    Добавить проверку
+                  </v-btn>
+                </v-row>
               </v-list>
+              <div v-else class="mt-5">
+                Нет добавленных проверок
+              </div>
             </v-col>
             <v-col md="12" xl="5">
               <h3>Информация о чеке</h3>
@@ -60,6 +71,9 @@
                   </v-list-item-content>
                 </v-list-item>
               </v-list>
+              <div v-else class="mt-5">
+                Нет добавленных проверок
+              </div>
             </v-col>
             <v-col md="12" xl="3">
               <h3>Итоговый рейтинг</h3>
@@ -92,13 +106,36 @@
       activeAssessmentId: null,
     }),
     computed: {
+      updateAssessmentRouteParam () {
+        return {
+          name: 'final-grades-update-assessment',
+          params: {
+            finalGradeId: this.finalGrade.id,
+            assessmentId: this.activeAssessment.id,
+          },
+        }
+      },
+      addAssessmentRouteParams () {
+        return {
+          name: 'final-grades-create-assessments',
+          params: {
+            finalGradeId: this.finalGrade.id,
+          },
+        }
+      },
       assessments () {
         if (!this.finalGrade) {
           return []
         }
         return this.finalGrade.assessments
       },
+      assessmentsCount () {
+        return this.assessments.length
+      },
       activeAssessment () {
+        if (!this.assessments.length) {
+          return {}
+        }
         if (!this.activeAssessmentId) {
           return this.assessments[0]
         }

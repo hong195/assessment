@@ -59,8 +59,8 @@ const router = new Router({
           },
         },
         {
-          name: 'final-grades-assessments',
-          path: 'final-grades/:id/assessments',
+          name: 'final-grades-create-assessments',
+          path: 'final-grades/:finalGradeId/assessments',
           component: () => import('@/views/dashboard/finalGrades/CreateAssessment'),
           meta: {
             middleware: [

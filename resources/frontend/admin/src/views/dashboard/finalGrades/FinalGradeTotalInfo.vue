@@ -15,7 +15,7 @@
         <v-row>
           <v-col>Набранно баллов:</v-col>
           <v-col class="font-weight-medium">
-            {{ finalGrade.scored }}
+            {{ finalGrade.scored || 0 }}
           </v-col>
         </v-row>
       </v-list-item-title>
@@ -45,7 +45,7 @@
         <v-row>
           <v-col>Максимальное кол-во баллов:</v-col>
           <v-col class="font-weight-medium">
-            {{ finalGrade.total }}
+            {{ finalGrade.total || 0 }}
           </v-col>
         </v-row>
       </v-list-item-title>

@@ -73,6 +73,11 @@
         <template v-slot:item.status="{ item }">
           {{ $t(item.status) }}
         </template>
+        <template v-slot:item.assessment_count="{ item }">
+          <div @click="view(item)">
+            <assessment-btn-count :added-count="item.assessments_count" />
+          </div>
+        </template>
         <template v-slot:item.actions="{ item }">
           <v-btn small :icon="true"
                  color="green"
@@ -99,15 +104,15 @@
 
 <script>
   import moment from 'moment'
-  import DataTable from '@/components/dashboard/DataTable'
   import MonthPicker from '@/components/dashboard/MonthPicker'
   import FinalGradeColor from '@/components/dashboard/mixins/FinalGradeColor'
   import Create from './Create'
   import { mapActions } from 'vuex'
   import ViewFinalGradeModal from './ViewFinalGradeModal'
+  import AssessmentBtnCount from './AssessmentBtnCount'
   export default {
     name: 'Index',
-    components: { Create, DataTable, MonthPicker, ViewFinalGradeModal },
+    components: { Create, AssessmentBtnCount, MonthPicker, ViewFinalGradeModal },
     mixins: [FinalGradeColor],
     data () {
       return {
@@ -151,6 +156,10 @@
           {
             text: 'Месяц',
             value: 'month',
+          },
+          {
+            text: 'Кол-во проверок',
+            value: 'assessment_count',
           },
           {
             text: 'Рейтинг',
@@ -236,9 +245,9 @@
       },
       addAssessment (item) {
         this.$router.push({
-          name: 'final-grades-assessments',
+          name: 'final-grades-create-assessments',
           params: {
-            id: item.id,
+            finalGradeId: item.id,
           },
         })
       },
@@ -247,6 +256,9 @@
           .then(({ data }) => {
             this.finalGrades = data.data
           })
+      },
+      showAssessments (finalGrade) {
+        this.activeFinalGrade = finalGrade
       },
     },
   }
