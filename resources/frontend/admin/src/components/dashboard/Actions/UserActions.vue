@@ -12,21 +12,18 @@
     >
       <v-icon small v-text="action.icon" />
     </v-btn>
-    <staff-detail ref="staffDetail" :item="item" />
   </div>
 </template>
 
 <script>
   import can from '@/plugins/directives/v-can'
 
-  import StaffDetail from '@/views/dashboard/staffs/Detail'
   import { mapActions } from 'vuex'
   export default {
     name: 'EmployeeActions',
     directives: {
       can,
     },
-    components: { StaffDetail },
     props: {
       item: {
         type: Object,
@@ -53,22 +50,18 @@
       }
     },
     methods: {
-      ...mapActions('employee', ['removeEmployee']),
+      ...mapActions('user', ['removeUser']),
       actionMethod (funcName, item) {
         this[funcName](item)
       },
       editItem () {
         this.$router.push({
-          name: 'update-staff',
-          params: { id: this.item.id },
+          name: 'update-user',
+          params: { userId: this.item.id },
         })
       },
-      viewItem () {
-        this.activeItem = this.item
-        this.$refs.staffDetail.dialog = true
-      },
       deleteItem () {
-        this.removeEmployee(this.item.id)
+        this.removeUser(this.item.id)
           .then((response) => {
             this.$emit('actionDeletedResponse', this.item.id)
             this.$store.commit('successMessage', response.data.message)

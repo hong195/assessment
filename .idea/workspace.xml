@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users/Update.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTransferObjects/UserDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTransferObjects/UserDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/User/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/User/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/User/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/UserResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users/CreateUpdate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users/CreateUpdate.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/UserActions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/UserActions.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/DefaultForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/DefaultForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users/CreateUpdate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users/Index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +233,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="12.22.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.20.16" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -253,10 +252,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/employees" />
-      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -420,14 +419,7 @@
       <workItem from="1626871986346" duration="17600000" />
       <workItem from="1626930799006" duration="18000" />
       <workItem from="1627127819486" duration="8155000" />
-      <workItem from="1627210144291" duration="14078000" />
-    </task>
-    <task id="LOCAL-00112" summary="added expand row for final grade.">
-      <created>1624797346657</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1624797346657</updated>
+      <workItem from="1627210144291" duration="17414000" />
     </task>
     <task id="LOCAL-00113" summary="added criteria option.">
       <created>1624805580776</created>
@@ -765,7 +757,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627223189803</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="added user api controller.">
+      <created>1627226537062</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1627226537062</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -845,7 +844,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated final grade view." />
     <MESSAGE value="clean up code." />
     <MESSAGE value="updated criteria management." />
     <MESSAGE value="added criteria to admin menu." />
@@ -870,7 +868,8 @@
     <MESSAGE value="added assessments management links." />
     <MESSAGE value="bugfix." />
     <MESSAGE value="added create user form." />
-    <option name="LAST_COMMIT_MESSAGE" value="added create user form." />
+    <MESSAGE value="added user api controller." />
+    <option name="LAST_COMMIT_MESSAGE" value="added user api controller." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

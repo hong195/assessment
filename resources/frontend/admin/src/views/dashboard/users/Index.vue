@@ -19,7 +19,7 @@
         :headers="headers"
       >
         <template v-slot:item.actions="{ item }">
-          <employee-actions :item="item" />
+          <user-actions :item="item" @actionDeletedResponse="fetchUsers" />
         </template>
       </data-table>
     </base-material-card>
@@ -27,11 +27,12 @@
 </template>
 
 <script>
-  import EmployeeActions from '@/components/dashboard/Actions/EmployeeActions'
+  import UserActions from '@/components/dashboard/Actions/UserActions'
   import DataTable from '@/components/dashboard/DataTable'
+  import { mapActions } from 'vuex'
   export default {
     name: 'Users',
-    components: { EmployeeActions, DataTable },
+    components: { UserActions, DataTable },
     data () {
       return {
         headers: [
@@ -77,10 +78,8 @@
       },
     },
     methods: {
-      openChecksDialog (id) {
-        this.$refs.checksDialog.dialog = true
-        this.$refs.checksDialog.userId = id
-        this.$refs.checksDialog.fetchUserChecks()
+      fetchUsers () {
+        this.$refs['data-table'].fetchPosts()
       },
     },
   }

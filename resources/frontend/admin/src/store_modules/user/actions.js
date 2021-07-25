@@ -62,4 +62,13 @@ export default {
   createUser ({ commit }, params) {
     return axios.post('users', params)
   },
+  updateUser ({ commit }, { userId, params = {} }) {
+    return axios.put(`users/${userId}`, params)
+  },
+  finById ({ commit }, userId) {
+    return axios.get(`users/${userId}`)
+  },
+  removeUser ({ commit }, userId) {
+    return axios.delete(`users/${userId}`)
+  },
 }

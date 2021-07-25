@@ -55,8 +55,9 @@
         this.schema.forEach((field) => {
           if (val[field.name]) {
             field.value = val[field.name]
-            this.defaultSchema.push(field)
           }
+
+          this.defaultSchema.push(field)
         })
       },
       formValue (val) {

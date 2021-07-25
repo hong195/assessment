@@ -89,7 +89,7 @@ class UserService
     /**
      * @throws NotFoundEntityException
      */
-    public function deleteUser(UserId $id)
+    public function deleteUser(string $id)
     {
         $userId = new UserId($id);
 

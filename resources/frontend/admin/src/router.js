@@ -142,7 +142,7 @@ const router = new Router({
         {
           name: 'create-user',
           path: 'users/create',
-          component: () => import('@/views/dashboard/users/CreateUpdate'),
+          component: () => import('@/views/dashboard/users/Create'),
           meta: {
             middleware: [
               // isEditor,
@@ -151,8 +151,8 @@ const router = new Router({
         },
         {
           name: 'update-user',
-          path: 'users/:id',
-          component: () => import('@/views/dashboard/users/CreateUpdate'),
+          path: 'users/:userId',
+          component: () => import('@/views/dashboard/users/Update'),
           meta: {
             middleware: [
               // auth,

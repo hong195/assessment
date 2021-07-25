@@ -8,6 +8,7 @@
     <default-form
       v-model="formValue"
       title="Добавить сотрудника"
+      :model="user"
       :schema="schema"
       :submit="onSubmit"
     />
@@ -72,7 +73,7 @@
           name: 'password',
           placeholder: null,
           options: [],
-          rule: 'required',
+          rule: '',
           value: null,
         },
         {
@@ -96,19 +97,31 @@
         },
       ],
       formValue: null,
-      pharmacies: [],
+      user: null,
     }),
     computed: {
       ...mapGetters('user', ['currentUser']),
+      userId () {
+        return this.$route.params.userId
+      },
+    },
+    mounted () {
+      this.finById(this.userId)
+        .then(({ data }) => {
+          this.user = data.data
+        })
     },
     methods: {
-      ...mapActions('user', ['createUser']),
+      ...mapActions('user', ['updateUser', 'finById']),
       onSubmit () {
-        this.createUser(this.formValue)
+        this.updateUser({
+          userId: this.userId,
+          params: this.formValue,
+        })
           .then(() => {
             this.$store.commit('successMessage', 'Пользователь создан')
             this.$router.push({
-              name: 'pharmacies',
+              name: 'users',
             })
           })
           .catch(() => {
