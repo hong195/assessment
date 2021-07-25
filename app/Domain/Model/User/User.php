@@ -35,7 +35,7 @@ class User implements Authenticatable, JWTSubject
      */
     private string $password;
 
-    public function __construct(UserId $userId, Login $login, $password, FullName $name, Role $role)
+    public function __construct(UserId $userId, Login $login, string $password, FullName $name, Role $role)
     {
         $this->id = $userId;
         $this->login = $login;

@@ -5,8 +5,9 @@ use App\Http\Controllers\CriteriaOptionsController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\FinalGradeAssessmentsController;
 use App\Http\Controllers\FinalGradeController;
-use App\Http\Controllers\PharmaciesController as PharmaciesControllerAlias;
+use App\Http\Controllers\PharmaciesController;
 use App\Http\Controllers\PharmacyEmployeesController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,8 @@ Route::group([], function() {
     Route::apiResource('criteria.options', CriteriaOptionsController::class)
         ->only(['store', 'show', 'update', 'index', 'destroy']);
 
-    Route::apiResource('pharmacies', PharmaciesControllerAlias::class);
+    Route::apiResource('pharmacies', PharmaciesController::class);
+
+    Route::apiResource('users', UsersController::class);
 });
 

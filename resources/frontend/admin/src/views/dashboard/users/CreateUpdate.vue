@@ -65,6 +65,17 @@
           value: null,
         },
         {
+          attributes: {},
+          component: 'text',
+          type: 'password',
+          label: 'Пароль',
+          name: 'password',
+          placeholder: null,
+          options: [],
+          rule: 'required',
+          value: null,
+        },
+        {
           attributes: [],
           component: 'select',
           label: 'Роль',
@@ -77,7 +88,7 @@
             },
             {
               id: 'editor',
-              name: 'Редактор',
+              name: 'Проверяющий',
             },
           ],
           rule: 'required',

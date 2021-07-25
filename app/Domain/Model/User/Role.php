@@ -11,9 +11,9 @@ use App\Exceptions\InvalidRoleException;
  */
 final class Role
 {
-    public const REVIEWER = '1';
-    public const PHARMACIST = '2';
-    public const ADMIN = '3';
+    public const REVIEWER = 'reviewer';
+    public const EDITOR = 'editor';
+    public const ADMIN = 'admin';
 
     /**
      * @ORM\Column(type="string", name="role")
@@ -48,7 +48,7 @@ final class Role
      */
     private function validateRole(string $role) : void
     {
-        if (!in_array($role, [self::REVIEWER, self::PHARMACIST, self::ADMIN])) {
+        if (!in_array($role, [self::REVIEWER, self::EDITOR, self::ADMIN])) {
             throw new InvalidRoleException;
         }
     }

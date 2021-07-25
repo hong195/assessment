@@ -4,16 +4,17 @@
 namespace App\Infrastructure\Services;
 
 
-use App\Exceptions\NotFoundEntityException;
-use App\Domain\Model\User\User;
-use Doctrine\ORM\EntityManagerInterface;
+use App\DataTransferObjects\UserDto;
 use App\Domain\Model\User\FullName;
 use App\Domain\Model\User\Login;
 use App\Domain\Model\User\PasswordHasher;
 use App\Domain\Model\User\Role;
+use App\Domain\Model\User\User;
 use App\Domain\Model\User\UserId;
 use App\Domain\Model\User\UserRepository;
 use App\Exceptions\LoginHasBeenAlreadyTakenException;
+use App\Exceptions\NotFoundEntityException;
+use Doctrine\ORM\EntityManagerInterface;
 
 class UserService
 {
@@ -30,16 +31,21 @@ class UserService
 
     /**
      * @throws LoginHasBeenAlreadyTakenException
+     * @throws \App\Exceptions\InvalidRoleException
      */
-    public function addUser(UserId $id, Login $login, string $unHashedPassword, FullName $fullName, Role $role)
+    public function addUser(UserDto $userDto)
     {
+        $login = new Login($userDto->getLogin());
+
         if ($this->repository->findByLogin($login)) {
             throw new LoginHasBeenAlreadyTakenException();
         }
 
-        $hashedPassword = $this->hasher->hash($unHashedPassword);
+        $fullName = new FullName($userDto->getName(), $userDto->getLastName(), $userDto->getMiddleName());
+        $role = new Role($userDto->getRole());
+        $hashedPassword = $this->hasher->hash($userDto->getPassword());
 
-        $user = new User($id, $login, $hashedPassword, $fullName, $role);
+        $user = new User(UserId::next(), $login, $hashedPassword, $fullName, $role);
 
         $this->repository->add($user);
         $this->em->flush();
@@ -48,13 +54,24 @@ class UserService
     /**
      * @throws NotFoundEntityException|LoginHasBeenAlreadyTakenException
      */
-    public function updateUser(UserId $id, Login $login, FullName $fullName, Role $role, string $unHashedPassword = null)
+    public function updateUser(string $userId, UserDto $userDto)
     {
-        $user = $this->repository->findOrFail($id);
+        /** @var User $user */
 
-        if ($this->repository->findByLogin($login)) {
-            throw new LoginHasBeenAlreadyTakenException();
+        $user = $this->repository->findOrFail($userId);
+        $login = new Login($userDto->getLogin());
+
+        if ((string) $user->getLogin() !== (string) $login) {
+            $login = $this->repository->findByLogin($login);
+
+            if ($login) {
+                throw new LoginHasBeenAlreadyTakenException();
+            }
         }
+
+        $fullName = new FullName($userDto->getName(), $userDto->getLastName(), $userDto->getMiddleName());
+        $role = new Role($userDto->getRole());
+        $unHashedPassword = $userDto->getPassword();
 
         $user->updateName($fullName);
         $user->changeLogin($login);
@@ -69,9 +86,14 @@ class UserService
         $this->em->flush();
     }
 
+    /**
+     * @throws NotFoundEntityException
+     */
     public function deleteUser(UserId $id)
     {
-        $user = $this->repository->findOrFail($id);
+        $userId = new UserId($id);
+
+        $user = $this->repository->findOrFail($userId);
 
         $this->repository->remove($user);
         $this->em->flush();
