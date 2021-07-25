@@ -7,7 +7,7 @@
       class="px-5 py-3 mt-6"
     >
       <div class="d-flex align-center">
-        <v-btn color="success">
+        <v-btn color="success" :to="addUserRouteParams">
           Добавить пользователя
         </v-btn>
       </div>
@@ -23,7 +23,6 @@
         </template>
       </data-table>
     </base-material-card>
-    <checks ref="checksDialog" />
   </v-container>
 </template>
 
@@ -31,7 +30,7 @@
   import EmployeeActions from '@/components/dashboard/Actions/EmployeeActions'
   import DataTable from '@/components/dashboard/DataTable'
   export default {
-    name: 'Staff',
+    name: 'Users',
     components: { EmployeeActions, DataTable },
     data () {
       return {
@@ -69,6 +68,13 @@
           },
         ],
       }
+    },
+    computed: {
+      addUserRouteParams () {
+        return {
+          name: 'create-user',
+        }
+      },
     },
     methods: {
       openChecksDialog (id) {

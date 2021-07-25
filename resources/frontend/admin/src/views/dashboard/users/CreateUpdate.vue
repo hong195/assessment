@@ -6,34 +6,103 @@
     class="mt-3"
   >
     <default-form
-      title="Добавление пользователя"
+      v-model="formValue"
+      title="Добавить сотрудника"
+      :schema="schema"
+      :submit="onSubmit"
     />
   </v-container>
 </template>
 
 <script>
   import DefaultForm from '@/components/dashboard/DefaultForm'
-  import { mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
   export default {
     name: 'CreateUpdate',
     components: {
       DefaultForm,
     },
     data: () => ({
-      schema: [],
+      schema: [
+        {
+          attributes: [],
+          component: 'text',
+          label: 'Имя',
+          name: 'first_name',
+          placeholder: null,
+          options: [],
+          rule: 'required',
+          value: null,
+        },
+        {
+          attributes: [],
+          component: 'text',
+          label: 'Фамилия',
+          name: 'last_name',
+          placeholder: null,
+          options: [],
+          rule: 'required',
+          value: null,
+        },
+        {
+          attributes: [],
+          component: 'text',
+          label: 'Отчество',
+          name: 'middle_name',
+          placeholder: null,
+          options: [],
+          rule: 'required',
+          value: null,
+        },
+        {
+          attributes: {},
+          component: 'text',
+          label: 'Логин',
+          name: 'login',
+          placeholder: null,
+          options: [],
+          rule: 'required',
+          value: null,
+        },
+        {
+          attributes: [],
+          component: 'select',
+          label: 'Роль',
+          name: 'role',
+          placeholder: null,
+          options: [
+            {
+              id: 'admin',
+              name: 'Админ',
+            },
+            {
+              id: 'editor',
+              name: 'Редактор',
+            },
+          ],
+          rule: 'required',
+          value: null,
+        },
+      ],
       formValue: null,
-      baseUrl: 'users',
+      pharmacies: [],
     }),
     computed: {
       ...mapGetters('user', ['currentUser']),
-      isUpdate () {
-        return !!this.$route.params.id
-      },
-      redirectUrl () {
-        if (this.currentUser.role.id === 2) {
-          return 'home'
-        }
-        return 'staff'
+    },
+    methods: {
+      ...mapActions('user', ['createUser']),
+      onSubmit () {
+        this.createUser(this.formValue)
+          .then(() => {
+            this.$store.commit('successMessage', 'Пользователь создан')
+            this.$router.push({
+              name: 'pharmacies',
+            })
+          })
+          .catch(() => {
+            this.$store.commit('errorMessage', 'Ошибка создания пользователя')
+          })
       },
     },
   }

@@ -56,4 +56,10 @@ export default {
         return Promise.reject(error)
       })
   },
+  fetchUsers () {
+    return axios.get('users')
+  },
+  createUser ({ commit }, params) {
+    return axios.post('users', params)
+  },
 }
