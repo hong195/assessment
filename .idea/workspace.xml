@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="added updating option functionality.">
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/AssessmentBtnCount.vue" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/CreateAssessment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/CreateAssessment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeTotalInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeTotalInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -417,14 +412,7 @@
       <workItem from="1626871986346" duration="17600000" />
       <workItem from="1626930799006" duration="18000" />
       <workItem from="1627127819486" duration="8155000" />
-      <workItem from="1627210144291" duration="7993000" />
-    </task>
-    <task id="LOCAL-00109" summary="updated final grade view.">
-      <created>1624795526738</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1624795526738</updated>
+      <workItem from="1627210144291" duration="9681000" />
     </task>
     <task id="LOCAL-00110" summary="updated final grade view.">
       <created>1624796149760</created>
@@ -762,7 +750,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627134278036</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="added assessments management links.">
+      <created>1627219845187</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1627219845188</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -842,7 +837,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added indexes to assessment table items." />
     <MESSAGE value="added allowed dated for date picker field." />
     <MESSAGE value="updated final grade view." />
     <MESSAGE value="clean up code." />
@@ -867,7 +861,8 @@
     <MESSAGE value="added assessment service date limitations." />
     <MESSAGE value="added final grade month format." />
     <MESSAGE value="added updating option functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="added updating option functionality." />
+    <MESSAGE value="added assessments management links." />
+    <option name="LAST_COMMIT_MESSAGE" value="added assessments management links." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

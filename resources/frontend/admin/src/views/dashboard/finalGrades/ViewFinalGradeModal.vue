@@ -31,7 +31,7 @@
             <v-col v-if="activeAssessment" md="12" xl="2" offset-md="1" class="mr-auto">
               <h3>Список чеков</h3>
               <v-list v-if="assessments.length">
-                <v-select v-model="activeAssessment.id" :items="assessments" item-text="check.service_date" item-value="id" />
+                <v-select v-model="activeAssessmentId" :items="assessments" item-text="check.service_date" item-value="id" />
                 <v-row v-show="assessmentsCount < 10" class="my-3" justify="space-between">
                   <v-btn small :to="updateAssessmentRouteParam">
                     Редактировать проверку
@@ -54,12 +54,12 @@
                       {{ index + 1 }}. {{ criteria.name }}
                     </v-list-item-title>
                     <v-row>
-                      <v-col v-for="(option) in criteria.options" :key="`option-${option.name}-${option.value}`">
+                      <v-col v-for="(option) in criteria.options" :key="`option-${criteria.name}-${option.name}-${option.value}`">
                         <v-radio-group
-                          :value="option.selected"
+                          :value="criteria.selectedValue"
                           column
                         >
-                          <v-radio :value="option.value" :label="option.name" readonly disabled />
+                          <v-radio :value="option.value" :label="option.name" disabled />
                         </v-radio-group>
                       </v-col>
                       <v-col v-show="criteria.description" cols="12">
@@ -88,7 +88,6 @@
 
 <script>
   import moment from 'moment'
-  import _ from 'lodash'
   import FinalGradeTotalInfo from './FinalGradeTotalInfo'
   export default {
     name: 'SingleUserRating',
@@ -144,8 +143,10 @@
         })
       },
     },
-    mounted () {
-      this.activeAssessmentId = this.activeAssessment.id
+    watch: {
+      finalGrade () {
+        this.activeAssessmentId = this.activeAssessment.id
+      },
     },
     methods: {
       openModal () {
