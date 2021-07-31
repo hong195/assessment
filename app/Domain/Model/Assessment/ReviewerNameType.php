@@ -17,7 +17,7 @@ class ReviewerNameType extends StringType
 
     protected function getValueObjectClassName(): string
     {
-        return ReviverName::class;
+        return ReviewerName::class;
     }
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform): string
@@ -27,8 +27,12 @@ class ReviewerNameType extends StringType
 
     public function convertToPHPValue($value, AbstractPlatform $platform): ?ReviewerNameType
     {
+        if (empty($name)) {
+            return null;
+        }
+
         $name = explode($value, ' ');
 
-        return !empty($value) ? new ReviverName($name[0], $name[1],$name[2] || null) : null;
+        return !empty($value) ? new ReviewerName($name[0], $name[1],$name[2] || null) : null;
     }
 }

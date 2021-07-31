@@ -9,7 +9,7 @@ use App\Domain\Model\Assessment\Criterion;
 use App\Domain\Model\Assessment\Option;
 use App\Domain\Model\Assessment\Reviewer;
 use App\Domain\Model\Assessment\ReviewerId;
-use App\Domain\Model\Assessment\ReviverName;
+use App\Domain\Model\Assessment\ReviewerName;
 use PHPUnit\Framework\TestCase;
 use Tests\Builders\AssessmentBuilder;
 
@@ -75,7 +75,7 @@ class AssessmentTest extends TestCase
     {
         $assessment = AssessmentBuilder::aReview()->build();
         $reviewerId = new ReviewerId(ReviewerId::next());
-        $reviewerName = new ReviverName('test', 'test');
+        $reviewerName = new ReviewerName('test', 'test');
         $reviewer = new Reviewer($reviewerId, $reviewerName);
 
         $assessment->assignReviewer($reviewer);

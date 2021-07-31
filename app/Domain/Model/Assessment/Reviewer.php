@@ -18,9 +18,9 @@ class Reviewer
     /**
      * @ORM\Column (type="reviewer_name", nullable=true)
      */
-    private ReviverName $name;
+    private ReviewerName $name;
 
-    public function __construct(ReviewerId $reviewerId, ReviverName $name)
+    public function __construct(ReviewerId $reviewerId, ReviewerName $name)
     {
         $this->reviewerId = $reviewerId;
         $this->name = $name;
@@ -35,9 +35,9 @@ class Reviewer
     }
 
     /**
-     * @return ReviverName
+     * @return ReviewerName
      */
-    public function getName(): ReviverName
+    public function getName(): ReviewerName
     {
         return $this->name;
     }

@@ -5,7 +5,7 @@ namespace App\Domain\Model\Assessment;
 
 
 
-final class ReviverName
+final class ReviewerName
 {
     private string $firstName;
 

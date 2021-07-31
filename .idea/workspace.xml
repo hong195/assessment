@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="Updated role test.">
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="Updated app tests.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/CriterionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/CriterionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Builders/UserBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Builders/UserBuilder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/CriterionServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/RoleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/RoleTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Assessment/Reviewer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/Reviewer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Assessment/ReviewerNameType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/ReviewerNameType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Assessment/ReviverName.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/ReviewerName.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AssessmentResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AssessmentResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeTotalInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeTotalInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +58,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="onto" value="2a8c20a32b53e5844e98f1b6236004e11a342482" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -423,14 +426,7 @@
       <workItem from="1627276139447" duration="687000" />
       <workItem from="1627650434775" duration="661000" />
       <workItem from="1627713437382" duration="17000" />
-      <workItem from="1627748472624" duration="8725000" />
-    </task>
-    <task id="LOCAL-00120" summary="added swal alert component.">
-      <created>1625937713674</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1625937713674</updated>
+      <workItem from="1627748472624" duration="10918000" />
     </task>
     <task id="LOCAL-00121" summary="updated final grades table.">
       <created>1626017359681</created>
@@ -768,7 +764,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627757232221</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="Uptade app tests.">
+      <created>1627758243372</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1627758243372</updated>
+    </task>
+    <option name="localTasksCounter" value="170" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -848,7 +851,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated .gitignore" />
     <MESSAGE value="updated vue .env api endpoint url." />
     <MESSAGE value="updated api routes." />
     <MESSAGE value="added redirect button to create assessment." />
@@ -873,7 +875,8 @@
     <MESSAGE value="Updated role test." />
     <MESSAGE value="Updated final grade test." />
     <MESSAGE value="Updated migrations." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated migrations." />
+    <MESSAGE value="Uptade app tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Uptade app tests." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

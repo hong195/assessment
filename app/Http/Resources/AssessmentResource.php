@@ -22,7 +22,10 @@ class AssessmentResource extends JsonResource
         /** @var Assessment $this */
         return [
             'id' => (string) $this->getId(),
-            'reviewerId' => (string) $this->getReviewer(),
+            'reviewer' => [
+                'id' => (string) $this->getReviewer()->getReviewerId(),
+                'name' => (string) $this->getReviewer()->getName()
+            ],
             'check' => [
                 'service_date' =>  $this->getCheck()->getServiceDate()->format('Y-m-d'),
                 'amount' => $this->getCheck()->getAmount(),

@@ -7,6 +7,9 @@ namespace App\Infrastructure\Services;
 use App\DataTransferObjects\AssessmentCriteriaDto;
 use App\DataTransferObjects\AssessmentDto;
 use App\Domain\Model\Assessment\Assessment;
+use App\Domain\Model\Assessment\Reviewer;
+use App\Domain\Model\Assessment\ReviewerId;
+use App\Domain\Model\Assessment\ReviewerName;
 use App\Domain\Shared\Id;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
@@ -28,6 +31,7 @@ use App\Domain\Model\FinalGrade\Month;
 use App\Domain\Model\Employee\EmployeeId;
 use App\Domain\Model\Employee\EmployeeRepository;
 use App\Exceptions\FinalGradeAlreadyExistsException;
+use Illuminate\Support\Facades\Auth;
 
 class FinalGradeService
 {
@@ -104,7 +108,9 @@ class FinalGradeService
         $assessmentId = AssessmentId::next();
 
         /** @var FinalGrade $analyses */
-        $analyses->addAssessment($assessmentId, $check, $criteria);
+        $assessment = $analyses->addAssessment($assessmentId, $check, $criteria);
+        $assessment->assignReviewer($this->getReviewer());
+
         $this->em->flush();
     }
 
@@ -191,5 +197,17 @@ class FinalGradeService
             return $assessment->getId()->isEqual($assessmentId);
         })
             ->first();
+    }
+
+    private function getReviewer(): Reviewer
+    {
+        $firstName = (string) Auth::user()->getFullName()->firstName();
+        $lastName = (string) Auth::user()->getFullName()->lastName();
+        $middleName = (string) Auth::user()->getFullName()->patronymic();
+
+        $reviewerId = new ReviewerId((string) Auth::user()->getId());
+        $reviewerName = new ReviewerName($firstName, $lastName, $middleName);
+
+        return new Reviewer($reviewerId, $reviewerName);
     }
 }
