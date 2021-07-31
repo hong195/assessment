@@ -6,7 +6,6 @@ namespace App\Domain\Model\Criterion;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Exceptions\DomainException;
 use App\Exceptions\CriterionException;
 
 /**
@@ -27,12 +26,17 @@ class Criterion
      * @ORM\OneToMany(targetEntity="Option", mappedBy="criterion", orphanRemoval=true, cascade={"persist","remove"})
      */
     private Collection $options;
+    /**
+     * @ORM\Column (name="`order`", type="integer")
+     */
+    private int $order;
 
-    public function __construct(CriterionId $criteriaId, string $name)
+    public function __construct(CriterionId $criteriaId, string $name, int $order = 0)
     {
         $this->name = $name;
         $this->options = new ArrayCollection([]);
         $this->id = $criteriaId;
+        $this->order = $order;
     }
 
     public function getOptions(): Collection
@@ -79,13 +83,14 @@ class Criterion
                 $this->options[$k]->changeName($name);
                 $this->options[$k]->changeValue($value);
                 break;
-            }if ($option->isNameEquals($name)) {
+            }
+            if ($option->isNameEquals($name)) {
                 throw new CriterionException('The option name is already taken!');
             }
         }
     }
 
-    public function findOptionById(OptionId $optionId) : ?Option
+    public function findOptionById(OptionId $optionId): ?Option
     {
         /** @var Option $option */
         foreach ($this->options as $option) {
@@ -97,7 +102,7 @@ class Criterion
         return null;
     }
 
-    public function removeOption(OptionId $optionId) : void
+    public function removeOption(OptionId $optionId): void
     {
         /** @var Option $option */
         foreach ($this->options as $k => $option) {
@@ -108,10 +113,11 @@ class Criterion
         }
     }
 
-    public function removeAllOptions() : void
+    public function removeAllOptions(): void
     {
         $this->options = new ArrayCollection([]);
     }
+
     /**
      * @param string $name
      * @throws CriterionException
@@ -131,5 +137,15 @@ class Criterion
     public function changeName(string $name)
     {
         $this->name = $name;
+    }
+
+    public function getOrder(): int
+    {
+        return $this->order;
+    }
+
+    public function setOrder(int $order): void
+    {
+        $this->order = $order;
     }
 }

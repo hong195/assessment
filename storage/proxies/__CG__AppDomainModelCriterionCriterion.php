@@ -66,10 +66,10 @@ class Criterion extends \App\Domain\Model\Criterion\Criterion implements \Doctri
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'id', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'name', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'options'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'id', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'name', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'options', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'order'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'id', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'name', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'options'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'id', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'name', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'options', '' . "\0" . 'App\\Domain\\Model\\Criterion\\Criterion' . "\0" . 'order'];
     }
 
     /**
@@ -288,6 +288,28 @@ class Criterion extends \App\Domain\Model\Criterion\Criterion implements \Doctri
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'changeName', [$name]);
 
         return parent::changeName($name);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOrder(): int
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOrder', []);
+
+        return parent::getOrder();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setOrder(int $order): void
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOrder', [$order]);
+
+        parent::setOrder($order);
     }
 
 }

@@ -55,12 +55,24 @@
             rule: 'required',
             value: null,
           },
+          {
+            attributes: [],
+            component: 'text',
+            type: 'number',
+            label: 'Порядок',
+            name: 'order',
+            placeholder: null,
+            options: [],
+            rule: '',
+            value: null,
+          },
         ],
       }
     },
     watch: {
       criterion (val) {
         this.schema[0].value = val.name
+        this.schema[1].value = val.order
       },
     },
     methods: {

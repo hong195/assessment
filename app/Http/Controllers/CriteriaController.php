@@ -37,7 +37,7 @@ class CriteriaController extends Controller
         $dto = $request->getDto();
 
         try {
-            $this->criterionService->create($dto->name);
+            $this->criterionService->create($dto->name, $dto->order);
             $this->em->flush();
 
             return response()->json([
@@ -56,7 +56,7 @@ class CriteriaController extends Controller
         $dto = $request->getDto();
 
         try {
-            $this->criterionService->update($id, $dto->name);
+            $this->criterionService->update($id, $dto->name, $dto->order);
             $this->em->flush();
 
             return response()->json([

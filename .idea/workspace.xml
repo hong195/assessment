@@ -4,16 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users/Update.vue" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated user management.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/UserActions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/UserActions.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/DefaultForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/DefaultForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users/CreateUpdate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Criterion/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Criterion/Criterion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CriterionRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CriterionRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CriterionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/CriterionResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/CriterionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/CriterionService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Update.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Update.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelAssessmentAssessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelAssessmentAssessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelCriterionCriterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelCriterionCriterion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelEmployeeEmployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelEmployeeEmployee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelFinalGradeFinalGrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelFinalGradeFinalGrade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,13 +276,13 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.UserServiceTest">
-    <configuration name="AuthenticationServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\AuthenticationServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/AuthenticationServiceTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.FinalGradeTest.test_is_max_reviews_added">
     <configuration name="AuthenticationServiceTest.test_user_can_sign_in_by_token" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Infastructure\Services\AuthenticationServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/AuthenticationServiceTest.php" method="test_user_can_sign_in_by_token" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FinalGradeTest.test_is_max_reviews_added" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domain\Model\FinalGrade\FinalGradeTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/FinalGrade/FinalGradeTest.php" method="test_is_max_reviews_added" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="UserServiceTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -298,11 +302,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.FinalGradeTest.test_is_max_reviews_added" />
         <item itemvalue="PHPUnit.UserServiceTest" />
         <item itemvalue="PHP Script.CreatesApplication.php" />
         <item itemvalue="PHPUnit.UserServiceTest.test_create_a_user" />
         <item itemvalue="PHPUnit.AuthenticationServiceTest.test_user_can_sign_in_by_token" />
-        <item itemvalue="PHPUnit.AuthenticationServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -419,14 +423,11 @@
       <workItem from="1626871986346" duration="17600000" />
       <workItem from="1626930799006" duration="18000" />
       <workItem from="1627127819486" duration="8155000" />
-      <workItem from="1627210144291" duration="17414000" />
-    </task>
-    <task id="LOCAL-00113" summary="added criteria option.">
-      <created>1624805580776</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1624805580776</updated>
+      <workItem from="1627210144291" duration="24751000" />
+      <workItem from="1627276139447" duration="687000" />
+      <workItem from="1627650434775" duration="661000" />
+      <workItem from="1627713437382" duration="17000" />
+      <workItem from="1627748472624" duration="5000" />
     </task>
     <task id="LOCAL-00114" summary="added criteria option.">
       <created>1624805677586</created>
@@ -764,7 +765,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627226537062</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="updated user management.">
+      <created>1627233857629</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1627233857629</updated>
+    </task>
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -844,7 +852,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="clean up code." />
     <MESSAGE value="updated criteria management." />
     <MESSAGE value="added criteria to admin menu." />
     <MESSAGE value="added pharmacy index view." />
@@ -869,7 +876,19 @@
     <MESSAGE value="bugfix." />
     <MESSAGE value="added create user form." />
     <MESSAGE value="added user api controller." />
-    <option name="LAST_COMMIT_MESSAGE" value="added user api controller." />
+    <MESSAGE value="updated user management." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated user management." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Domain/Model/Criterion/CriterionRepository.php</url>
+          <line>18</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

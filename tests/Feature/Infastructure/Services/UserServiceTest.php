@@ -4,6 +4,7 @@
 namespace Tests\Feature\Infastructure\Services;
 
 
+use App\DataTransferObjects\UserDto;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Exceptions\NotFoundEntityException;
 use App\Domain\Model\User\FullName;
@@ -106,7 +107,7 @@ class UserServiceTest extends TestCase
         $id = UserId::next();
         $login = new Login('login');
         $name = new FullName('first', 'last', 'middle');
-        $role = new Role(Role::PHARMACIST);
+        $role = new Role(Role::REVIEWER);
         $password = 'user-pass';
 
         $this->expectException(NotFoundEntityException::class);

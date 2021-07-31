@@ -268,4 +268,26 @@ class Assessment extends \App\Domain\Model\Assessment\Assessment implements \Doc
         return parent::getTotalPoints();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function getSaleConversion(): float
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSaleConversion', []);
+
+        return parent::getSaleConversion();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getAmount(): int
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAmount', []);
+
+        return parent::getAmount();
+    }
+
 }

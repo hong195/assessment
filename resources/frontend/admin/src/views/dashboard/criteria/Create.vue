@@ -54,6 +54,17 @@
             rule: 'required',
             value: null,
           },
+          {
+            attributes: [],
+            component: 'text',
+            type: 'number',
+            label: 'Порядок',
+            name: 'order',
+            placeholder: null,
+            options: [],
+            rule: '',
+            value: null,
+          },
         ]
       },
     },

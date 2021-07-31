@@ -323,4 +323,26 @@ class FinalGrade extends \App\Domain\Model\FinalGrade\FinalGrade implements \Doc
         return parent::getStatus();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function getTotalSaleConversion(): float
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTotalSaleConversion', []);
+
+        return parent::getTotalSaleConversion();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTotalAmount(): float
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTotalAmount', []);
+
+        return parent::getTotalAmount();
+    }
+
 }

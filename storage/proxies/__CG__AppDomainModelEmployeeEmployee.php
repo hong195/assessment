@@ -260,6 +260,17 @@ class Employee extends \App\Domain\Model\Employee\Employee implements \Doctrine\
     /**
      * {@inheritDoc}
      */
+    public function changePharmacy(\App\Domain\Model\Pharmacy\Pharmacy $pharmacy)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'changePharmacy', [$pharmacy]);
+
+        return parent::changePharmacy($pharmacy);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getPharmacy(): \App\Domain\Model\Pharmacy\Pharmacy
     {
 
