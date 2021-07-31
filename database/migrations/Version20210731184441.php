@@ -5,7 +5,7 @@ namespace Database\Migrations;
 use Doctrine\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema as Schema;
 
-class Version20210626152405 extends AbstractMigration
+class Version20210731184441 extends AbstractMigration
 {
     /**
      * @param Schema $schema
@@ -14,8 +14,8 @@ class Version20210626152405 extends AbstractMigration
     {
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE assessments (id CHAR(36) NOT NULL COMMENT \'(DC2Type:assessment_id)\', analysis_id CHAR(36) DEFAULT NULL, reviewer_id CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:assessment_reviewer_id)\', criteria JSON DEFAULT NULL, check_service_date DATETIME NOT NULL, check_amount INT NOT NULL, check_sale_conversion DOUBLE PRECISION NOT NULL, INDEX IDX_4BFCEC0A7941003F (analysis_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE criteria (id CHAR(36) NOT NULL COMMENT \'(DC2Type:criterion_id)\', name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE assessments (id CHAR(36) NOT NULL COMMENT \'(DC2Type:assessment_id)\', analysis_id CHAR(36) DEFAULT NULL, criteria JSON DEFAULT NULL, reviewer_reviewer_id VARCHAR(255) DEFAULT NULL, reviewer_name VARCHAR(255) DEFAULT NULL, check_service_date DATETIME NOT NULL, check_amount INT NOT NULL, check_sale_conversion DOUBLE PRECISION NOT NULL, INDEX IDX_4BFCEC0A7941003F (analysis_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE criteria (id CHAR(36) NOT NULL COMMENT \'(DC2Type:criterion_id)\', name VARCHAR(255) NOT NULL, `order` INT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE employees (id CHAR(36) NOT NULL COMMENT \'(DC2Type:employee_id)\', pharmacy_id CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:pharmacy_id)\', birthdate DATETIME NOT NULL, name_first_name VARCHAR(255) NOT NULL, name_middle VARCHAR(255) DEFAULT NULL, name_last_name VARCHAR(255) NOT NULL, gender_gender VARCHAR(255) NOT NULL, INDEX IDX_BA82C3008A94ABE2 (pharmacy_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE final_grades (id CHAR(36) NOT NULL, scored DOUBLE PRECISION DEFAULT NULL, total DOUBLE PRECISION DEFAULT NULL, employee_id CHAR(36) NOT NULL COMMENT \'(DC2Type:employee_id)\', month_date DATETIME NOT NULL, status_status VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE options (id CHAR(36) NOT NULL, criterion_id CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:criterion_id)\', name VARCHAR(255) NOT NULL, value DOUBLE PRECISION DEFAULT NULL, INDEX IDX_D035FA8797766307 (criterion_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');

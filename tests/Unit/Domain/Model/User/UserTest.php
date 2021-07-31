@@ -20,7 +20,7 @@ class UserTest extends TestCase
             ->withId($userId)
             ->withLogin(new Login('user-login'))
             ->withName(new FullName('Alex', 'Patrick', 'Black'))
-            ->withRole(new Role(Role::PHARMACIST))
+            ->withRole(new Role(Role::EDITOR))
             ->build();
 
         $this->assertInstanceOf(UserId::class, $user->getId());

@@ -75,22 +75,23 @@ class FinalGradeTest extends TestCase
 
     public function test_fails_when_check_service_date_is_not_between_rating_month()
     {
-        $aMonthAgo = Carbon::parse('-1 month');
-        $ratingMonth = new Month(new \DateTime($aMonthAgo->format('Y-m-d')));
+        $aMonthAgo = Carbon::parse('-2 month');
+        $now = now();
+        $finalGradeMonth = new Month(new \DateTime($aMonthAgo->format('Y-m-d')));
 
-        $rating = FinalGradeBuilder::anAnalysis()
+        $finalGrade = FinalGradeBuilder::anAnalysis()
             ->withEmployee($this->employeeId)
-            ->withMonth($ratingMonth)
+            ->withMonth($finalGradeMonth)
             ->build();
 
         $outDatedCheck = CheckBuilder::aCheck()->withServiceDate(
-            (new \DateTime())->setDate(now()->year, now()->month, now()->day)
+            (new \DateTime())->setDate($now->year, $now->month, $now->day)
         )
             ->build();
 
         $this->expectException(InvalidratingMonthException::class);
 
-        $rating->addAssessment($this->assessmentId, $outDatedCheck, []);
+        $finalGrade->addAssessment($this->assessmentId, $outDatedCheck, []);
     }
 
     public function test_can_remove_a_review_from_uncompleted_rating()

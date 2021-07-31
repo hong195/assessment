@@ -37,7 +37,6 @@ class UserServiceTest extends TestCase
         parent::setUp();
 
         $this->resetMigrations();
-
         $this->repository = app()->make(UserRepository::class);
         $this->em = app()->make(EntityManagerInterface::class);
         $hasher = app()->make(PasswordHasher::class);
@@ -46,60 +45,66 @@ class UserServiceTest extends TestCase
 
     public function test_create_a_user()
     {
-        $id = UserId::next();
-        $login = new Login('user-login');
-        $name = new FullName('first', 'last', 'middle');
-        $role = new Role(Role::PHARMACIST);
-        $password = 'user-pass';
+        $this->userService->addUser(new UserDto(
+            'Jhon',
+            'Doe',
+            'Smith',
+            'user-login',
+            Role::REVIEWER,
+            'user-pass'
+        ));
 
-        $this->userService->addUser($id, $login, $password, $name, $role);
-        $createdUser = $this->repository->findById($id);
+        $createdUser = $this->repository->findByLogin(new Login('user-login'));
 
-        $this->assertTrue($createdUser->getId()->isEqual($id));
-        $this->assertEquals((string) $login, $createdUser->getLogin());
-        $this->assertEquals((string) $name, $createdUser->getFullName());
-        $this->assertEquals((string) $role, $createdUser->getRole());
+        $this->assertEquals('user-login', $createdUser->getLogin());
+        $this->assertEquals('Jhon Doe Smith', $createdUser->getFullName());
+        $this->assertEquals(Role::REVIEWER, $createdUser->getRole());
     }
 
     public function test_user_login_must_be_unique()
     {
-        $login = new Login('user-login');
-        $user = UserBuilder::aUser()->withLogin($login)->build();
+        $duplicateLogin = new Login('user-login');
+        $user = UserBuilder::aUser()->withLogin($duplicateLogin)->build();
 
         $this->repository->add($user);
         $this->em->flush();
 
-        $id = UserId::next();
-        $name = new FullName('first', 'last', 'middle');
-        $role = new Role(Role::PHARMACIST);
-        $password = 'user-pass';
-
         $this->expectException(LoginHasBeenAlreadyTakenException::class);
 
-        $this->userService->addUser($id, $login, $password, $name, $role);
+        $this->userService->addUser(new UserDto(
+            'Jhon',
+            'Doe',
+            'Smith',
+            (string) $duplicateLogin,
+            Role::REVIEWER,
+            'user-pass'
+        ));
     }
 
     public function test_can_update_user()
     {
-        $id = UserId::next();
-        $oldLogin = new Login('user-login');
-        $oldName = new FullName('first', 'last', 'middle');
-        $oldRole = new Role(Role::PHARMACIST);
-        $oldPassword = 'user-pass';
-        $this->userService->addUser($id, $oldLogin, $oldPassword, $oldName, $oldRole);
+        $this->userService->addUser(new UserDto(
+            'Jhon',
+            'Doe',
+            'Smith',
+            'old-login',
+            Role::REVIEWER,
+            'user-pass'
+        ));
 
-        $newLogin = new Login('new-user-login');
-        $newName = new FullName('new-first', 'new-last', 'new-middle');
-        $newRole = new Role(Role::ADMIN);
-        $newPassword = 'new-user-pass';
-        $this->userService->updateUser($id, $newLogin, $newName, $newRole, $newPassword);
+        $found = $this->repository->findByLogin(new Login('old-login'));
 
-        $found = $this->repository->findById($id);
+        $this->userService->updateUser((string) $found->getId(), new UserDto(
+            'Tim',
+            'Cook',
+            'Cooper',
+            'new-login',
+            Role::ADMIN
+        ));
 
-        $this->assertEquals((string) $id, $found->getId());
-        $this->assertEquals((string) $newLogin, $found->getLogin());
-        $this->assertEquals((string) $newName, $found->getFullName());
-        $this->assertEquals((string) $newRole, $found->getRole());
+        $this->assertEquals('new-login', $found->getLogin());
+        $this->assertEquals('Tim Cook Cooper', $found->getFullName());
+        $this->assertEquals(Role::ADMIN, $found->getRole());
     }
 
     public function test_cannot_update_non_existing_user()
@@ -107,12 +112,19 @@ class UserServiceTest extends TestCase
         $id = UserId::next();
         $login = new Login('login');
         $name = new FullName('first', 'last', 'middle');
-        $role = new Role(Role::REVIEWER);
-        $password = 'user-pass';
 
         $this->expectException(NotFoundEntityException::class);
 
-        $this->userService->updateUser($id, $login, $name, $role, $password);
+        $userDto = new UserDto(
+            $name->firstName(),
+            (string) $name->lastName(),
+            $name->patronymic(),
+            (string) $login,
+            Role::REVIEWER,
+            'user-pass'
+        );
+
+        $this->userService->updateUser((string) $id, $userDto);
     }
 
     public function test_cannot_delete_non_existing_user()

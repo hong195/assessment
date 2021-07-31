@@ -69,12 +69,12 @@ class Assessment
         return $this->id;
     }
 
-    public function getReviewer(): ?ReviewerId
+    public function getReviewer(): ?Reviewer
     {
-        return $this->reviewerId;
+        return $this->reviewer;
     }
 
-    public function assignReviewer(ReviewerNameType $reviewer)
+    public function assignReviewer(Reviewer $reviewer)
     {
         $this->reviewer = $reviewer;
     }

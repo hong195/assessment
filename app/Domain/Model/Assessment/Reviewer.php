@@ -35,9 +35,9 @@ class Reviewer
     }
 
     /**
-     * @return string
+     * @return ReviverName
      */
-    public function getName(): string
+    public function getName(): ReviverName
     {
         return $this->name;
     }

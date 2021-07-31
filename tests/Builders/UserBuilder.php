@@ -32,7 +32,7 @@ class UserBuilder
         $this->id = UserId::next();
         $this->login = new Login('user-login');
         $this->fullName = new FullName('Test', 'Test', 'Test');
-        $this->role = new Role(Role::PHARMACIST);
+        $this->role = new Role(Role::EDITOR);
         $this->passHasher = new CustomPasswordHasher();
         $this->password = $this->passHasher->hash('test');
     }

@@ -62,9 +62,9 @@ class UserService
         $login = new Login($userDto->getLogin());
 
         if ((string) $user->getLogin() !== (string) $login) {
-            $login = $this->repository->findByLogin($login);
+            $exists = $this->repository->findByLogin($login);
 
-            if ($login) {
+            if ($exists) {
                 throw new LoginHasBeenAlreadyTakenException();
             }
         }

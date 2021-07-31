@@ -45,6 +45,7 @@ class CriterionService
         $criterion = new Criterion($criterionId, $name, $order);
 
         $this->repository->add($criterion);
+        $this->em->flush();
     }
 
     /**
@@ -58,6 +59,7 @@ class CriterionService
 
         $criterion->changeName($name);
         $criterion->setOrder($order);
+        $this->em->flush();
     }
 
     /**
@@ -82,6 +84,7 @@ class CriterionService
         $optionId = OptionId::next();
 
         $criterion->addOption($optionId, $dto->getName(), $dto->getValue());
+        $this->em->flush();
     }
 
     /**
@@ -102,6 +105,7 @@ class CriterionService
         }
 
         $criterion->updateOption($option->getId(), $dto->getName(), $dto->getValue());
+        $this->em->flush();
     }
 
     /**
@@ -112,6 +116,7 @@ class CriterionService
         $criterion = $this->repository->findOrFail($criterionId);
 
         $this->repository->remove($criterion);
+        $this->em->flush();
     }
 
     public function removeOption(string $criterionId, string $optionId)

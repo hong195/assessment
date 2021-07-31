@@ -20,20 +20,20 @@ class RoleTest extends TestCase
     {
         $reviewerRole = new Role(Role::REVIEWER);
         $adminRole = new Role(Role::ADMIN);
-        $pharmacistRole = new Role(Role::PHARMACIST);
+        $editorRole = new Role(Role::EDITOR);
 
         $this->assertTrue($reviewerRole->isEqualsTo(Role::REVIEWER));
         $this->assertFalse($reviewerRole->isEqualsTo(Role::ADMIN));
-        $this->assertFalse($reviewerRole->isEqualsTo(Role::PHARMACIST));
+        $this->assertFalse($reviewerRole->isEqualsTo(Role::EDITOR));
 
 
         $this->assertTrue($adminRole->isEqualsTo(Role::ADMIN));
-        $this->assertFalse($adminRole->isEqualsTo(Role::PHARMACIST));
+        $this->assertFalse($adminRole->isEqualsTo(Role::EDITOR));
         $this->assertFalse($adminRole->isEqualsTo(Role::REVIEWER));
 
 
-        $this->assertTrue($pharmacistRole->isEqualsTo(Role::PHARMACIST));
-        $this->assertFalse($pharmacistRole->isEqualsTo(Role::ADMIN));
-        $this->assertFalse($pharmacistRole->isEqualsTo(Role::REVIEWER));
+        $this->assertTrue($editorRole->isEqualsTo(Role::EDITOR));
+        $this->assertFalse($editorRole->isEqualsTo(Role::ADMIN));
+        $this->assertFalse($editorRole->isEqualsTo(Role::REVIEWER));
     }
 }

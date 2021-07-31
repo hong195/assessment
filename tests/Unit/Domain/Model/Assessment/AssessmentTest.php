@@ -4,9 +4,12 @@
 namespace Tests\Unit\Domain\Model\Assessment;
 
 
+use App\Domain\Model\Assessment\Assessment;
 use App\Domain\Model\Assessment\Criterion;
 use App\Domain\Model\Assessment\Option;
+use App\Domain\Model\Assessment\Reviewer;
 use App\Domain\Model\Assessment\ReviewerId;
+use App\Domain\Model\Assessment\ReviverName;
 use PHPUnit\Framework\TestCase;
 use Tests\Builders\AssessmentBuilder;
 
@@ -71,10 +74,13 @@ class AssessmentTest extends TestCase
     public function test_can_assign_reviewer()
     {
         $assessment = AssessmentBuilder::aReview()->build();
-        $reviewer = new ReviewerId(ReviewerId::next());
+        $reviewerId = new ReviewerId(ReviewerId::next());
+        $reviewerName = new ReviverName('test', 'test');
+        $reviewer = new Reviewer($reviewerId, $reviewerName);
 
         $assessment->assignReviewer($reviewer);
 
-        $this->assertEquals($reviewer, $assessment->getReviewer());
+        $this->assertTrue($assessment->getReviewer()->getReviewerId()->isEqual($reviewerId));
+        $this->assertEquals((string) $reviewerName, (string) $assessment->getReviewer()->getName());
     }
 }
