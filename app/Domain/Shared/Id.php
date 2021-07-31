@@ -7,9 +7,9 @@ use Ramsey\Uuid\Uuid;
 
 class Id
 {
-    protected string $id;
+    protected ?string $id;
 
-    public function __construct(string $id)
+    public function __construct(string $id = null)
     {
         $this->id = $id;
     }

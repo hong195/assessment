@@ -24,9 +24,9 @@ class Assessment
      */
     private FinalGrade $analysis;
     /**
-     * @ORM\Column (type="assessment_reviewer_id", nullable=true)
+     * @ORM\Embedded (class="Reviewer")
      */
-    private ?ReviewerId $reviewerId;
+    private ?Reviewer $reviewer;
 
     /**
      * @ORM\Embedded (class="Check")
@@ -74,9 +74,9 @@ class Assessment
         return $this->reviewerId;
     }
 
-    public function assignReviewer(ReviewerId $reviewer)
+    public function assignReviewer(ReviewerNameType $reviewer)
     {
-        $this->reviewerId = $reviewer;
+        $this->reviewer = $reviewer;
     }
 
     public function getCheck(): Check

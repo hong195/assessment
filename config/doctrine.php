@@ -171,6 +171,8 @@ return [
         'efficiency_analysis_id' => \App\Domain\Model\FinalGrade\FinalGradeIdType::class,
         'employee_id' => \App\Domain\Model\Employee\EmployeeIdType::class,
         'assessment_criteria' => \App\Domain\Model\Assessment\AssessmentCriteriaType::class,
+        'reviewer_id' => \App\Domain\Model\Assessment\ReviewerIdType::class,
+        'reviewer_name' => \App\Domain\Model\Assessment\ReviewerNameType::class,
     ],
     /*
     |--------------------------------------------------------------------------

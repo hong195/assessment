@@ -4,20 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="updated user management.">
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="Added criterion order field.">
+      <change afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/Reviewer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/ReviewerIdType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/ReviewerNameType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/ReviverName.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Criterion/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Criterion/Criterion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CriterionRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CriterionRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CriterionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/CriterionResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/CriterionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/CriterionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Update.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Update.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelAssessmentAssessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelAssessmentAssessment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelCriterionCriterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelCriterionCriterion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelEmployeeEmployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelEmployeeEmployee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelFinalGradeFinalGrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/proxies/__CG__AppDomainModelFinalGradeFinalGrade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Assessment/Assessment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/Assessment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Assessment/ReviewerId.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/ReviewerId.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Shared/Id.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Shared/Id.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/doctrine.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +233,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="12.22.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.20.16" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Domain/Model/Assessment" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -256,18 +252,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Domain/Model/Assessment" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/users" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/employees" />
-      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Domain/Model/Assessment" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/components/base" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/app/Exceptions" />
-      <recent name="$PROJECT_DIR$/app/Domain/Shared" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -427,14 +423,7 @@
       <workItem from="1627276139447" duration="687000" />
       <workItem from="1627650434775" duration="661000" />
       <workItem from="1627713437382" duration="17000" />
-      <workItem from="1627748472624" duration="5000" />
-    </task>
-    <task id="LOCAL-00114" summary="added criteria option.">
-      <created>1624805677586</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1624805677586</updated>
+      <workItem from="1627748472624" duration="5537000" />
     </task>
     <task id="LOCAL-00115" summary="added create assessment page (not ready).">
       <created>1624813120975</created>
@@ -772,7 +761,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627233857629</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="Added criterion order field.">
+      <created>1627748763636</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1627748763636</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -852,7 +848,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated criteria management." />
     <MESSAGE value="added criteria to admin menu." />
     <MESSAGE value="added pharmacy index view." />
     <MESSAGE value="updated support for jwt php 8." />
@@ -877,7 +872,8 @@
     <MESSAGE value="added create user form." />
     <MESSAGE value="added user api controller." />
     <MESSAGE value="updated user management." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated user management." />
+    <MESSAGE value="Added criterion order field." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added criterion order field." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
