@@ -69,7 +69,6 @@
         deep: true,
         handler () {
           const date = moment(this.filters.date)
-          console.log(date.month())
           this.$emit('filters-changed', {
             ...this.filters,
             year: date.year(),

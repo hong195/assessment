@@ -205,7 +205,11 @@
         })
       },
       fetchFinalGrades (filters) {
-        this.fetchAll({ params: filters })
+        if (filters) {
+          this.filters = filters
+        }
+
+        this.fetchAll({ params: this.filters })
           .then(({ data }) => {
             this.finalGrades = data.data
           })
