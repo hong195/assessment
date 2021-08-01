@@ -19,11 +19,12 @@ class AssessmentResource extends JsonResource
      */
     public function toArray($request)
     {
+//        dd((string) $this->getReviewer()->getReviewerId());
         /** @var Assessment $this */
         return [
             'id' => (string) $this->getId(),
             'reviewer' => [
-                'id' => (string) $this->getReviewer()->getReviewerId(),
+                'id' => $this->getReviewer()->getReviewerId(),
                 'name' => (string) $this->getReviewer()->getName()
             ],
             'check' => [

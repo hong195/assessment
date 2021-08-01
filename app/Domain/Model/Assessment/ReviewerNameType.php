@@ -5,6 +5,7 @@ namespace App\Domain\Model\Assessment;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
+use JetBrains\PhpStorm\Pure;
 
 class ReviewerNameType extends StringType
 {
@@ -25,13 +26,13 @@ class ReviewerNameType extends StringType
         return (string) $value;
     }
 
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?ReviewerNameType
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?ReviewerName
     {
-        if (empty($name)) {
+        if (empty($value)) {
             return null;
         }
 
-        $name = explode($value, ' ');
+        $name = explode(' ', $value);
 
         return !empty($value) ? new ReviewerName($name[0], $name[1],$name[2] || null) : null;
     }
