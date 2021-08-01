@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="Updated final grade filters component.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Filters.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Filters.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/subscriberItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/subscriberItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/pharmacies/PharmacyByYear.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/pharmacies/PharmacyByYear.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -422,14 +424,7 @@
       <workItem from="1627276139447" duration="687000" />
       <workItem from="1627650434775" duration="661000" />
       <workItem from="1627713437382" duration="17000" />
-      <workItem from="1627748472624" duration="33462000" />
-    </task>
-    <task id="LOCAL-00129" summary="clean up code.">
-      <created>1626541109563</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1626541109563</updated>
+      <workItem from="1627748472624" duration="34388000" />
     </task>
     <task id="LOCAL-00130" summary="clean up code.">
       <created>1626541562496</created>
@@ -767,7 +762,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627838808413</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="Updated final grade filters component.">
+      <created>1627839050488</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1627839050488</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

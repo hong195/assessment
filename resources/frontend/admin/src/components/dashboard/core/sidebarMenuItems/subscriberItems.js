@@ -18,6 +18,14 @@ export default [
     to: '/pharmacies',
     icon: 'mdi-hospital-building',
     title: 'pharmacies',
+    group: '',
+    children: [
+      {
+        to: 'pharmacy-rating',
+        avatar: 'mdi-clipboard-outline',
+        title: 'pharmacyRating',
+      },
+    ],
   },
   {
     to: '/users',

@@ -24,7 +24,7 @@
         <v-col cols="3">
           <v-select v-model="pharmacyId"
                     :items="pharmacies"
-                    item-text="name"
+                    item-text="number"
                     item-value="id"
                     label="Аптека"
                     clearable
@@ -59,10 +59,10 @@
         year: parseInt(moment().format('YYYY')),
         items: [],
         isLoading: true,
+        pharmacies: [],
       }
     },
     computed: {
-      ...mapGetters({ pharmacies: 'getPharmacies' }),
       years () {
         const years = new Date().getFullYear()
         const arr = []
@@ -72,11 +72,32 @@
         return arr
       },
     },
+    watch: {
+      year () {
+        this.fetchData()
+      },
+    },
+    mounted () {
+      moment.locale('ru')
+      this.fetchPharmacies()
+        .then(({ data }) => {
+          this.pharmacies = data.data
+          this.pharmacyId = this.pharmacies[0].id
+        })
+        .then(() => {
+          this.fetchData()
+        })
+    },
     methods: {
-      ...mapActions(['fetchAllPharmacies']),
+      ...mapActions('pharmacy', {
+        fetchPharmacies: 'fetchAll',
+      }),
+      ...mapActions('finalGrade', {
+        fetchFinalGrades: 'fetchAll',
+      }),
       fetchData () {
         this.isLoading = true
-        this.axios.get(`pharmacy-rating/${this.pharmacyId}`, {
+        this.fetchFinalGrades({
           params: {
             year: this.year,
           },
@@ -91,16 +112,10 @@
             this.$refs.barChart.updateChart()
           }).catch(e => {
             this.isLoading = false
-            console.error(e)
+            throw e
           })
       },
 
-    },
-    async mounted () {
-      moment.locale('ru')
-      await this.fetchAllPharmacies()
-      this.pharmacyId = this.pharmacies[0].id
-      this.fetchData()
     },
   }
 </script>

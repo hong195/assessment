@@ -115,7 +115,7 @@ const router = new Router({
           component: () => import('@/views/dashboard/pharmacies/PharmacyByYear'),
           meta: {
             middleware: [
-              isEditor,
+              // isEditor,
             ],
           },
         },
