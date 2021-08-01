@@ -19,38 +19,7 @@
             Добавить
           </v-btn>
         </v-col>
-        <v-col cols="12" sm="12" md="3" lg="2">
-          <month-picker v-model="date" />
-        </v-col>
-        <v-col cols="12" sm="12" md="3" lg="2">
-          <v-select v-model="pharmacyId"
-                    :items="pharmacies"
-                    item-text="name"
-                    item-value="id"
-                    label="Аптека"
-                    clearable
-                    outlined
-          />
-        </v-col>
-        <v-col cols="12" sm="12" md="3" lg="2">
-          <v-select v-model="status"
-                    :items="statuses"
-                    item-text="name"
-                    item-value="id"
-                    label="Статус"
-                    clearable
-                    outlined
-          />
-        </v-col>
-        <v-col cols="12" sm="12" md="3" lg="2">
-          <v-text-field
-            v-model.lazy="search"
-            class="ml-auto"
-            label="Поиск"
-            single-line
-            outlined
-          />
-        </v-col>
+        <filters @filters-changed="fetchFinalGrades" />
       </v-row>
 
       <v-data-table :headers="headers" :items="finalGrades" :single-expand="true">
@@ -104,15 +73,15 @@
 
 <script>
   import moment from 'moment'
-  import MonthPicker from '@/components/dashboard/MonthPicker'
   import FinalGradeColor from '@/components/dashboard/mixins/FinalGradeColor'
   import Create from './Create'
   import { mapActions } from 'vuex'
   import ViewFinalGradeModal from './ViewFinalGradeModal'
   import AssessmentBtnCount from './AssessmentBtnCount'
+  import Filters from './Filters'
   export default {
     name: 'Index',
-    components: { Create, AssessmentBtnCount, MonthPicker, ViewFinalGradeModal },
+    components: { Create, AssessmentBtnCount, Filters, ViewFinalGradeModal },
     mixins: [FinalGradeColor],
     data () {
       return {
@@ -128,17 +97,8 @@
         ratings: [],
         status: 'completed',
         employees: [],
-        statuses: [
-          {
-            id: 'completed',
-            name: 'Завершенный',
-          },
-          {
-            id: 'uncompleted',
-            name: 'Незавершенный',
-          },
-        ],
         withRating: 0,
+        filters: null,
         headers: [
           {
             text: 'Сотрудник',
@@ -188,14 +148,7 @@
         }
       },
     },
-    watch: {
-      date (val) {
-        const date = moment(val)
-      },
-    },
     mounted () {
-      this.fetchFinalGrades()
-
       this.getEmployees()
         .then(({ data }) => {
           this.employees = data.data
@@ -251,14 +204,11 @@
           },
         })
       },
-      fetchFinalGrades () {
-        this.fetchAll()
+      fetchFinalGrades (filters) {
+        this.fetchAll({ params: filters })
           .then(({ data }) => {
             this.finalGrades = data.data
           })
-      },
-      showAssessments (finalGrade) {
-        this.activeFinalGrade = finalGrade
       },
     },
   }

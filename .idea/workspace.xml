@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradesQuery.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Filters.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FinalGradeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FinalGradeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/final-grade/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/final-grade/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -425,14 +424,7 @@
       <workItem from="1627276139447" duration="687000" />
       <workItem from="1627650434775" duration="661000" />
       <workItem from="1627713437382" duration="17000" />
-      <workItem from="1627748472624" duration="30836000" />
-    </task>
-    <task id="LOCAL-00126" summary="added allowed dated for date picker field.">
-      <created>1626253519469</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1626253519469</updated>
+      <workItem from="1627748472624" duration="33048000" />
     </task>
     <task id="LOCAL-00127" summary="updated final grade view.">
       <created>1626539962297</created>
@@ -770,7 +762,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627824627135</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL-00175" summary="Added final grade query.">
+      <created>1627831407984</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1627831407984</updated>
+    </task>
+    <option name="localTasksCounter" value="176" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -850,7 +849,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added user view." />
     <MESSAGE value="added routes for employee." />
     <MESSAGE value="added employee creation." />
     <MESSAGE value="updated date field." />
@@ -875,7 +873,8 @@
     <MESSAGE value="updated api authorization." />
     <MESSAGE value="Updated user tests." />
     <MESSAGE value="Updated reviewer cast." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated reviewer cast." />
+    <MESSAGE value="Added final grade query." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added final grade query." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
