@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateFinalGradeRequest;
 use App\Http\Resources\FinalGradeResource;
+use App\Infrastructure\Services\FinalGradesQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Exceptions\DomainException;
 use App\Domain\Model\FinalGrade\FinalGradeRepository;
@@ -18,16 +19,19 @@ class FinalGradeController extends Controller
 
     public function __construct(FinalGradeRepository $repository,
                                 EntityManagerInterface $em,
-                                FinalGradeService $analysisService)
+                                FinalGradeService $analysisService,
+
+    )
     {
         $this->repository = $repository;
         $this->em = $em;
         $this->analysisService = $analysisService;
     }
 
-    public function index(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+
+    public function index(FinalGradesQuery $finalGradesQuery): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
-        return FinalGradeResource::collection($this->repository->all()->toArray());
+        return FinalGradeResource::collection($finalGradesQuery->execute());
     }
 
     public function store(CreateFinalGradeRequest $request): \Illuminate\Http\JsonResponse
@@ -39,12 +43,12 @@ class FinalGradeController extends Controller
 
             return response()->json(['message' => 'Created!']);
 
-        }catch (DomainException|InfrastructureException $e) {
+        } catch (DomainException | InfrastructureException $e) {
             return response()->json(['message' => $e->getMessage()], $e->getCode());
         }
     }
 
-    public function show($id)
+    public function show($id): FinalGradeResource
     {
         return FinalGradeResource::make($this->repository->findOrFail($id));
     }

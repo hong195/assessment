@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Infrastructure\Services\FinalGradesQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Domain\Model\Criterion\CriterionRepository;
 use App\Domain\Model\FinalGrade\FinalGradeRepository;
@@ -75,6 +76,29 @@ class AppServiceProvider extends ServiceProvider
             $normalizers = [new ObjectNormalizer()];
 
             return new Serializer($normalizers, $encoders);
+        });
+
+        $this->app->bind(FinalGradesQuery::class, function() {
+            $em = $this->app->make(EntityManagerInterface::class);
+            $finalGradeQuery = new FinalGradesQuery($em);
+
+            if ($year = request('year')) {
+                $finalGradeQuery->byYear($year);
+            }
+
+            if ($month = request('month')) {
+                $finalGradeQuery->byMonth($month);
+            }
+
+            if ($status = request('status')) {
+                $finalGradeQuery->byStatus($status);
+            }
+
+            if ($pharmacyId = request('pharmacyId')) {
+                $finalGradeQuery->byPharmacy($pharmacyId);
+            }
+
+            return $finalGradeQuery;
         });
     }
 
