@@ -23,9 +23,10 @@ abstract class AbstractUserRepositoryTest extends TestCase
 
     public function test_add_user()
     {
-        $aUser = UserBuilder::aUser()->build();
+        $login = new Login('login');
+        $aUser = UserBuilder::aUser()->withLogin($login)->build();
         $this->userRepository->add($aUser);
-        $addedUser = $this->userRepository->findById($aUser->getId());
+        $addedUser = $this->userRepository->findByLogin($login);
 
         $this->assertNotEmpty($this->userRepository->getAll());
         $this->assertInstanceOf(User::class, $addedUser);
@@ -34,11 +35,9 @@ abstract class AbstractUserRepositoryTest extends TestCase
 
     public function test_find_or_fail()
     {
-        $aUserId = UserBuilder::aUser()->build()->getId();
-
         $this->expectException(DomainException::class);
 
-        $this->userRepository->findOrFail($aUserId);
+        $this->userRepository->findOrFail(1000000);
     }
 
     public function test_remove()
@@ -65,22 +64,6 @@ abstract class AbstractUserRepositoryTest extends TestCase
         $this->assertNotEmpty($this->userRepository->getAll());
         $this->assertContains($aUser, $this->userRepository->getAll());
         $this->assertContains($aUser2, $this->userRepository->getAll());
-    }
-
-    public function test_get_by_ids()
-    {
-        $aUser = UserBuilder::aUser()->build();
-        $aUser2 = UserBuilder::aUser()->build();
-
-
-        $this->userRepository->add($aUser);
-        $this->userRepository->add($aUser2);
-
-        $foundUsers = $this->userRepository->findByIds([$aUser->getId(), $aUser2->getId()]);
-
-        $this->assertNotEmpty($this->userRepository);
-        $this->assertContains($aUser, $foundUsers);
-        $this->assertContains($aUser2, $foundUsers);
     }
 
     public function test_can_find_by_login()

@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hr-project-ddd.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Domain/Model/User/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/User/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/User/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/User/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Shared/Id.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Shared/Id.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrineUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrineUserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/AuthenticationService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/AuthenticationService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Persistence/InMemory/InMemoryUserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Persistence/InMemory/InMemoryUserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/AuthenticationService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/UserService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Builders/UserBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Builders/UserBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractUserRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/AbstractUserRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/AuthenticationServiceTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/FinalGradeServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/FinalGradeServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domain/Model/User/UserTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +78,7 @@
     <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
@@ -256,7 +254,7 @@
     <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v12.22.1/bin/node" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -282,17 +280,13 @@
       <command value="php artisan" />
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.UserServiceTest.test_can_update_user">
-    <configuration name="FinalGradeTest.test_fails_when_check_service_date_is_not_between_rating_month" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\Domain\Model\FinalGrade\FinalGradeTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/FinalGrade/FinalGradeTest.php" method="test_fails_when_check_service_date_is_not_between_rating_month" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.FinalGradeServiceTest.test_can_add_assessment">
+    <configuration name="FinalGradeServiceTest.test_can_add_assessment" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Services\FinalGradeServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/FinalGradeServiceTest.php" method="test_can_add_assessment" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="RoleTest.test_can_create_different_user_roles" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\Domain\Model\User\RoleTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Domain/Model/User/RoleTest.php" method="test_can_create_different_user_roles" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="UserServiceTest.test_can_update_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Infastructure\Services\UserServiceTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Services/UserServiceTest.php" method="test_can_update_user" scope="Method" />
+    <configuration name="InMemoryUserRepositoryTest.test_remove" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Infastructure\Persistence\InMemory\InMemoryUserRepositoryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Infastructure/Persistence/InMemory/InMemoryUserRepositoryTest.php" method="test_remove" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="UserServiceTest.test_cannot_update_non_existing_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -307,13 +301,16 @@
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="InMemoryUserRepository.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/app/Infrastructure/Persistence/InMemory/InMemoryUserRepository.php">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.UserServiceTest.test_can_update_user" />
-        <item itemvalue="PHPUnit.FinalGradeTest.test_fails_when_check_service_date_is_not_between_rating_month" />
-        <item itemvalue="PHPUnit.UserServiceTest.test_create_a_user" />
-        <item itemvalue="PHPUnit.UserServiceTest.test_cannot_update_non_existing_user" />
-        <item itemvalue="PHPUnit.RoleTest.test_can_create_different_user_roles" />
+        <item itemvalue="PHPUnit.FinalGradeServiceTest.test_can_add_assessment" />
+        <item itemvalue="PHP Script.InMemoryUserRepository.php" />
+        <item itemvalue="PHPUnit.InMemoryUserRepositoryTest.test_remove" />
+        <item itemvalue="PHPUnit.InMemoryUserRepositoryTest.test_remove" />
+        <item itemvalue="PHPUnit.InMemoryUserRepositoryTest.test_remove" />
       </list>
     </recent_temporary>
   </component>
@@ -434,14 +431,7 @@
       <workItem from="1627276139447" duration="687000" />
       <workItem from="1627650434775" duration="661000" />
       <workItem from="1627713437382" duration="17000" />
-      <workItem from="1627748472624" duration="20644000" />
-    </task>
-    <task id="LOCAL-00122" summary="added update assessment component.">
-      <created>1626027649897</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1626027649897</updated>
+      <workItem from="1627748472624" duration="22499000" />
     </task>
     <task id="LOCAL-00123" summary="updated assessment adding.">
       <created>1626250156075</created>
@@ -779,7 +769,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627760679458</updated>
     </task>
-    <option name="localTasksCounter" value="171" />
+    <task id="LOCAL-00171" summary="updated api authorization.">
+      <created>1627821157759</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1627821157760</updated>
+    </task>
+    <option name="localTasksCounter" value="172" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -859,7 +856,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated api routes." />
     <MESSAGE value="added redirect button to create assessment." />
     <MESSAGE value="added translations." />
     <MESSAGE value="added user view." />
@@ -884,7 +880,8 @@
     <MESSAGE value="Updated migrations." />
     <MESSAGE value="Uptade app tests." />
     <MESSAGE value="Added assigning reviewer to assessment." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added assigning reviewer to assessment." />
+    <MESSAGE value="updated api authorization." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated api authorization." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

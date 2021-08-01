@@ -27,10 +27,10 @@ class InMemoryUserRepository implements UserRepository
      * @param UserId $userId
      * @return User|null
      */
-    public function findById(UserId $userId): ?User
+    public function findById(int $userId): ?User
     {
         $collection = $this->users->filter(function ($user) use ($userId) {
-            if ($userId->isEqual($user->getId())) {
+            if ($user === $user->getId()) {
                 return $user;
             }
             return null;
@@ -46,7 +46,7 @@ class InMemoryUserRepository implements UserRepository
      */
     public function findOrFail($id) : User
     {
-        $found = $this->findById(new UserId($id));
+        $found = $this->findById($id);
 
         if (!$found) {
             throw new DomainException('User Not Found');
@@ -61,20 +61,13 @@ class InMemoryUserRepository implements UserRepository
      */
     public function add(User $user) : void
     {
-        /** @var User $aUser */
-        foreach ($this->users as $aUser) {
-            if ($user->getId()->isEqual($aUser->getId())) {
-                throw new DomainException('User with this uuid is already added!');
-            }
-        }
-
         $this->users->add($user);
     }
 
     public function remove(User $user) : void
     {
         foreach ($this->users as $key => $user2) {
-            if ($user2->getId()->isEqual($user->getId())) {
+            if ((string) $user2->getLogin() === (string) $user->getLogin()) {
                 unset($this->users[$key]);
                 break;
             }

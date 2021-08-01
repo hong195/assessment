@@ -109,7 +109,7 @@ class UserServiceTest extends TestCase
 
     public function test_cannot_update_non_existing_user()
     {
-        $id = UserId::next();
+        $notExistingId = 1000;
         $login = new Login('login');
         $name = new FullName('first', 'last', 'middle');
 
@@ -124,16 +124,16 @@ class UserServiceTest extends TestCase
             'user-pass'
         );
 
-        $this->userService->updateUser((string) $id, $userDto);
+        $this->userService->updateUser($notExistingId, $userDto);
     }
 
     public function test_cannot_delete_non_existing_user()
     {
-        $aUser = UserBuilder::aUser()->build();
+        $notExistingUserId = 1000000;
 
         $this->expectException(NotFoundEntityException::class);
 
-        $this->userService->deleteUser($aUser->getId());
+        $this->userService->deleteUser($notExistingUserId);
     }
 
     public function test_can_delete_a_user()

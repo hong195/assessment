@@ -23,6 +23,7 @@ use App\Domain\Model\Employee\EmployeeRepository;
 use App\Exceptions\FinalGradeAlreadyExistsException;
 use App\Infrastructure\Services\FinalGradeService;
 use Tests\Builders\CriterionBuilder;
+use Tests\Builders\UserBuilder;
 use Tests\Feature\DoctrineMigrationsTrait;
 use Tests\TestCase;
 use Tests\Builders\CheckBuilder;
@@ -133,6 +134,12 @@ class FinalGradeServiceTest extends TestCase
 
     public function test_can_add_assessment()
     {
+        $user = UserBuilder::aUser()->build();
+        $this->em->persist($user);
+        $this->em->flush();
+
+        $this->actingAs($user);
+
         $id = new FinalGradeId(FinalGradeId::next());
 
         $analyses = FinalGradeBuilder::anAnalysis()->withId($id)->build();
@@ -162,6 +169,12 @@ class FinalGradeServiceTest extends TestCase
 
     public function test_can_remove_assessment()
     {
+        $user = UserBuilder::aUser()->build();
+        $this->em->persist($user);
+        $this->em->flush();
+
+        $this->actingAs($user);
+
         $id = new FinalGradeId(FinalGradeId::next());
 
         $analyses = FinalGradeBuilder::anAnalysis()->withId($id)->build();

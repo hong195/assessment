@@ -15,19 +15,15 @@ class UserTest extends TestCase
 {
     public function test_user()
     {
-        $userId = new UserId(UserId::next());
         $user = UserBuilder::aUser()
-            ->withId($userId)
             ->withLogin(new Login('user-login'))
             ->withName(new FullName('Alex', 'Patrick', 'Black'))
             ->withRole(new Role(Role::EDITOR))
             ->build();
 
-        $this->assertInstanceOf(UserId::class, $user->getId());
         $this->assertInstanceOf(Login::class, $user->getLogin());
         $this->assertInstanceOf(FullName::class, $user->getFullName());
 
-        $this->assertEquals((string) $userId, (string) $user->getId());
         $this->assertEquals('user-login', (string) $user->getLogin());
         $this->assertEquals('Alex Patrick Black', (string) $user->getFullName());
     }

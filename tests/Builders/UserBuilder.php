@@ -13,7 +13,7 @@ use App\Infrastructure\Services\CustomPasswordHasher;
 
 class UserBuilder
 {
-    private UserId $id;
+    private int $id;
     /**
      * @var Login
      */
@@ -29,7 +29,6 @@ class UserBuilder
 
     public function __construct()
     {
-        $this->id = UserId::next();
         $this->login = new Login('user-login');
         $this->fullName = new FullName('Test', 'Test', 'Test');
         $this->role = new Role(Role::EDITOR);
@@ -40,12 +39,6 @@ class UserBuilder
     public static function aUser(): UserBuilder
     {
         return new self();
-    }
-
-    public function withId(UserId $userId): UserBuilder
-    {
-        $this->id = $userId;
-        return $this;
     }
 
     public function withLogin(Login $login): UserBuilder
@@ -75,6 +68,6 @@ class UserBuilder
 
     public function build(): User
     {
-        return new User($this->id, $this->login, $this->password, $this->fullName, $this->role);
+        return new User($this->login, $this->password, $this->fullName, $this->role);
     }
 }

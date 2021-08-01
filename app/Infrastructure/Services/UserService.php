@@ -10,7 +10,6 @@ use App\Domain\Model\User\Login;
 use App\Domain\Model\User\PasswordHasher;
 use App\Domain\Model\User\Role;
 use App\Domain\Model\User\User;
-use App\Domain\Model\User\UserId;
 use App\Domain\Model\User\UserRepository;
 use App\Exceptions\LoginHasBeenAlreadyTakenException;
 use App\Exceptions\NotFoundEntityException;
@@ -45,7 +44,7 @@ class UserService
         $role = new Role($userDto->getRole());
         $hashedPassword = $this->hasher->hash($userDto->getPassword());
 
-        $user = new User(UserId::next(), $login, $hashedPassword, $fullName, $role);
+        $user = new User($login, $hashedPassword, $fullName, $role);
 
         $this->repository->add($user);
         $this->em->flush();
@@ -54,7 +53,7 @@ class UserService
     /**
      * @throws NotFoundEntityException|LoginHasBeenAlreadyTakenException
      */
-    public function updateUser(string $userId, UserDto $userDto)
+    public function updateUser(int $userId, UserDto $userDto)
     {
         /** @var User $user */
 
@@ -89,11 +88,9 @@ class UserService
     /**
      * @throws NotFoundEntityException
      */
-    public function deleteUser(string $id)
+    public function deleteUser(int $id)
     {
-        $userId = new UserId($id);
-
-        $user = $this->repository->findOrFail($userId);
+        $user = $this->repository->findOrFail($id);
 
         $this->repository->remove($user);
         $this->em->flush();
