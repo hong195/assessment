@@ -7,7 +7,6 @@
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Filters.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Filters.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -423,14 +422,7 @@
       <workItem from="1627276139447" duration="687000" />
       <workItem from="1627650434775" duration="661000" />
       <workItem from="1627713437382" duration="17000" />
-      <workItem from="1627748472624" duration="33188000" />
-    </task>
-    <task id="LOCAL-00128" summary="updated final grade view.">
-      <created>1626540890084</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1626540890084</updated>
+      <workItem from="1627748472624" duration="33462000" />
     </task>
     <task id="LOCAL-00129" summary="clean up code.">
       <created>1626541109563</created>
@@ -768,7 +760,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627838635018</updated>
     </task>
-    <option name="localTasksCounter" value="177" />
+    <task id="LOCAL-00177" summary="Updated final grade filters component.">
+      <created>1627838808413</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1627838808413</updated>
+    </task>
+    <option name="localTasksCounter" value="178" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -848,7 +847,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added employee creation." />
     <MESSAGE value="updated date field." />
     <MESSAGE value="updated employees view." />
     <MESSAGE value="updated date-field localization." />
@@ -873,7 +871,8 @@
     <MESSAGE value="Updated reviewer cast." />
     <MESSAGE value="Added final grade query." />
     <MESSAGE value="Added final grade filters component." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added final grade filters component." />
+    <MESSAGE value="Updated final grade filters component." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated final grade filters component." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

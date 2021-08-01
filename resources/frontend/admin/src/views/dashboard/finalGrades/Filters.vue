@@ -6,7 +6,7 @@
     <v-col cols="12" sm="12" md="3" lg="2">
       <v-select v-model="filters.pharmacyId"
                 :items="pharmacies"
-                item-text="name"
+                item-text="number"
                 item-value="id"
                 label="Аптека"
                 clearable
@@ -23,21 +23,22 @@
                 outlined
       />
     </v-col>
-    <v-col cols="12" sm="12" md="3" lg="2">
-      <v-text-field
-        v-model.lazy="filters.search"
-        class="ml-auto"
-        label="Поиск"
-        single-line
-        outlined
-      />
-    </v-col>
+    <!--    <v-col cols="12" sm="12" md="3" lg="2">-->
+    <!--      <v-text-field-->
+    <!--        v-model.lazy="filters.search"-->
+    <!--        class="ml-auto"-->
+    <!--        label="Поиск"-->
+    <!--        single-line-->
+    <!--        outlined-->
+    <!--      />-->
+    <!--    </v-col>-->
   </v-row>
 </template>
 
 <script>
   import MonthPicker from '@/components/dashboard/MonthPicker'
   import moment from 'moment'
+  import { mapActions } from 'vuex'
   export default {
     name: 'Filters',
     components: {
@@ -76,6 +77,18 @@
           })
         },
       },
+    },
+    mounted () {
+      this.fetchPharmacies()
+        .then(({ data }) => {
+          this.pharmacies = data.data
+          console.log(data.data)
+        })
+    },
+    methods: {
+      ...mapActions('pharmacy', {
+        fetchPharmacies: 'fetchAll',
+      }),
     },
   }
 </script>
