@@ -18,7 +18,7 @@ final class DoctrineUserRepository extends AbstractRepository implements UserRep
         parent::__construct($em, User::class);
     }
 
-    public function findById(UserId $userId): ?User
+    public function findById(int $userId): ?User
     {
         return $this->repository->find($userId);
     }

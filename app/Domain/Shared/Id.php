@@ -19,7 +19,7 @@ class Id
         return $this->id;
     }
 
-    public static function next()
+    public static function next(): static
     {
         return new static(Uuid::uuid4()->toString());
     }

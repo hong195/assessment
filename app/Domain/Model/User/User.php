@@ -13,10 +13,11 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class User implements Authenticatable, JWTSubject
 {
     /**
-     * @ORM\Column(type="user_id")
      * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    private UserId $id;
+    private string $id;
     /**
      * @ORM\Embedded(class="FullName")
      */
@@ -35,7 +36,7 @@ class User implements Authenticatable, JWTSubject
      */
     private string $password;
 
-    public function __construct(UserId $userId, Login $login, string $password, FullName $name, Role $role)
+    public function __construct(string $userId, Login $login, string $password, FullName $name, Role $role)
     {
         $this->id = $userId;
         $this->login = $login;
@@ -59,7 +60,7 @@ class User implements Authenticatable, JWTSubject
         $this->role = $role;
     }
 
-    public function getId(): UserId
+    public function getId(): string
     {
         return $this->id;
     }
@@ -106,7 +107,7 @@ class User implements Authenticatable, JWTSubject
 
     public function getJWTIdentifier()
     {
-        return $this->getId();
+        return $this->id;
     }
 
     public function getJWTCustomClaims() : array

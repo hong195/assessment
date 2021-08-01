@@ -6,8 +6,9 @@ namespace App\Infrastructure\Services;
 
 use App\Domain\Model\User\Login;
 use Illuminate\Auth\AuthManager;
+use Tymon\JWTAuth\Providers\User\UserInterface;
 
-class AuthenticationService
+class AuthenticationService implements JWTSubject, AuthenticatableContract
 {
     private AuthManager $guard;
 
@@ -34,5 +35,15 @@ class AuthenticationService
     public function getToken() : ?string
     {
         return $this->token;
+    }
+
+    public function getJWTIdentifier()
+    {
+        // TODO: Implement getJWTIdentifier() method.
+    }
+
+    public function getJWTCustomClaims()
+    {
+        // TODO: Implement getJWTCustomClaims() method.
     }
 }

@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 interface UserRepository extends AbstractRepository
 {
-    public function findById(UserId $userId) : ?User;
+    public function findById(int $userId) : ?User;
 
     public function remove(User $user) : void;
 

@@ -18,6 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin');
+//Route::get('/', function () {
+//    return view('admin');
+//});
+
+Route::get('/test', function () {
+    $repo = app()->make(\App\Domain\Model\User\UserRepository::class);
+
+    dd($repo->findById(1));
+
 });

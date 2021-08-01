@@ -20,27 +20,36 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group([], function() {
-    Route::apiResource('final-grades', FinalGradeController::class)
-        ->only(['index', 'store', 'show']);
-
-    Route::apiResource('final-grade.assessments', FinalGradeAssessmentsController::class)
-        ->only(['store', 'update', 'destroy', 'show']);
-
-    Route::apiResource('criteria', CriteriaController::class)
-        ->only(['index', 'store', 'update', 'destroy']);
-
-    Route::apiResource('pharmacy.employees', PharmacyEmployeesController::class)
-        ->only(['index']);
-
-    Route::apiResource('employees', EmployeesController::class)
-        ->only(['index', 'store', 'show', 'update', 'destroy']);
-
-    Route::apiResource('criteria.options', CriteriaOptionsController::class)
-        ->only(['store', 'show', 'update', 'index', 'destroy']);
-
-    Route::apiResource('pharmacies', PharmaciesController::class);
-
-    Route::apiResource('users', UsersController::class);
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth',
+    'namespace' => 'App\Http\Controllers\Auth'
+], function () {
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
 });
+
+Route::apiResource('final-grades', FinalGradeController::class)
+    ->only(['index', 'store', 'show']);
+
+Route::apiResource('final-grade.assessments', FinalGradeAssessmentsController::class)
+    ->only(['store', 'update', 'destroy', 'show']);
+
+Route::apiResource('criteria', CriteriaController::class)
+    ->only(['index', 'store', 'update', 'destroy']);
+
+Route::apiResource('pharmacy.employees', PharmacyEmployeesController::class)
+    ->only(['index']);
+
+Route::apiResource('employees', EmployeesController::class)
+    ->only(['index', 'store', 'show', 'update', 'destroy']);
+
+Route::apiResource('criteria.options', CriteriaOptionsController::class)
+    ->only(['store', 'show', 'update', 'index', 'destroy']);
+
+Route::apiResource('pharmacies', PharmaciesController::class);
+
+Route::apiResource('users', UsersController::class);
 
