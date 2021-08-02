@@ -21,6 +21,11 @@ export default [
     group: '',
     children: [
       {
+        to: 'pharmacies',
+        avatar: 'mdi-clipboard-outline',
+        title: 'pharmacies',
+      },
+      {
         to: 'pharmacy-rating',
         avatar: 'mdi-clipboard-outline',
         title: 'pharmacyRating',

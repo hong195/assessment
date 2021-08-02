@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="Updated pharmacies final grade component.">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CompletedPharmacyFinalGradeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Infrastructure/Services/PharmacyFinalGradeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradesQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradesQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/pharmacy/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/pharmacy/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/pharmacies/PharmacyByYear.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/pharmacies/PharmacyByYear.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/subscriberItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/subscriberItems.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -429,14 +423,7 @@
       <workItem from="1627713437382" duration="17000" />
       <workItem from="1627748472624" duration="38911000" />
       <workItem from="1627882689425" duration="8000" />
-      <workItem from="1627919264846" duration="914000" />
-    </task>
-    <task id="LOCAL-00131" summary="updated criteria management.">
-      <created>1626617888275</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1626617888275</updated>
+      <workItem from="1627919264846" duration="1016000" />
     </task>
     <task id="LOCAL-00132" summary="added criteria to admin menu.">
       <created>1626618599824</created>
@@ -774,7 +761,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627839989733</updated>
     </task>
-    <option name="localTasksCounter" value="180" />
+    <task id="LOCAL-00180" summary="Added pharmacy yearly final grade analytics.">
+      <created>1627927078636</created>
+      <option name="number" value="00180" />
+      <option name="presentableId" value="LOCAL-00180" />
+      <option name="project" value="LOCAL" />
+      <updated>1627927078636</updated>
+    </task>
+    <option name="localTasksCounter" value="181" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -854,7 +848,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated employees view." />
     <MESSAGE value="updated date-field localization." />
     <MESSAGE value="added assessment service date limitations." />
     <MESSAGE value="added final grade month format." />
@@ -879,7 +872,8 @@
     <MESSAGE value="Added final grade filters component." />
     <MESSAGE value="Updated final grade filters component." />
     <MESSAGE value="Updated pharmacies final grade component." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated pharmacies final grade component." />
+    <MESSAGE value="Added pharmacy yearly final grade analytics." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pharmacy yearly final grade analytics." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
