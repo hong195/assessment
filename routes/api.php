@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompletedPharmacyFinalGradeController;
 use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\CriteriaOptionsController;
 use App\Http\Controllers\EmployeesController;
@@ -30,6 +31,8 @@ Route::group([
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
 });
+
+Route::get('pharmacy/{pharmacyId}/final-grade', [CompletedPharmacyFinalGradeController::class, 'show']);
 
 Route::apiResource('final-grades', FinalGradeController::class)
     ->only(['index', 'store', 'show']);

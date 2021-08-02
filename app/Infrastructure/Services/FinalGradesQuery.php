@@ -52,7 +52,7 @@ class FinalGradesQuery
         return $this;
     }
 
-    public function execute()
+    public function execute(int $perPage = 10000)
     {
         $queryBuilder = $this->entityManager
             ->getRepository(FinalGrade::class)
@@ -83,6 +83,10 @@ class FinalGradesQuery
                 ->andWhere('e.pharmacy = :pharmacyId')
                 ->setParameter('pharmacyId', $this->pharmacyId);
         }
+
+        $queryBuilder->setMaxResults($perPage);
+
+        $queryBuilder->orderBy('f.scored/f.total', 'ASC');
 
         return $queryBuilder->getQuery()->getResult();
     }

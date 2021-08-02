@@ -72,11 +72,6 @@
         return arr
       },
     },
-    watch: {
-      year () {
-        this.fetchData()
-      },
-    },
     mounted () {
       moment.locale('ru')
       this.fetchPharmacies()
@@ -91,18 +86,20 @@
     methods: {
       ...mapActions('pharmacy', {
         fetchPharmacies: 'fetchAll',
+        fetchYearlyFinalGrade: 'fetchYearlyFinalGrade',
       }),
       ...mapActions('finalGrade', {
         fetchFinalGrades: 'fetchAll',
       }),
       fetchData () {
         this.isLoading = true
-        this.fetchFinalGrades({
+        this.fetchYearlyFinalGrade({
+          pharmacyId: this.pharmacyId,
           params: {
             year: this.year,
           },
         })
-          .then(({ data }) => {
+          .then((data) => {
             this.isLoading = false
             this.items = data.data
             const filteredData = data.data

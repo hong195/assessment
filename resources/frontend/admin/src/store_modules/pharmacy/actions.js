@@ -19,4 +19,9 @@ export default {
   removePharmacy ({ commit }, pharmacyId) {
     return axios.delete(`pharmacies/${pharmacyId}`)
   },
+  fetchYearlyFinalGrade ({ commit }, { pharmacyId, params = {} }) {
+    return axios.get(`pharmacy/${pharmacyId}/final-grade`, {
+      params,
+    })
+  },
 }
