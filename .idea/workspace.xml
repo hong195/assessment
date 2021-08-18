@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/subscriberItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/subscriberItems.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesCompletedFinalGradeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrineEmployeeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrineEmployeeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrinePharmacyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrinePharmacyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradesQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradesQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/PharmacyRating.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/PharmacyRating.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/TableChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/TableChart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/table_parts/RatingScore.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/table_parts/RatingScore.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/table_parts/UsersRatingByPharmacy.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/table_parts/UsersRatingByPharmacy.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeTotalInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeTotalInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +74,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8">
@@ -220,6 +230,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="NEW_TOOLWINDOW_STRIPE_DEFAULTS" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -229,7 +240,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.22.1" />
-    <property name="javascript.nodejs.core.library.typings.version" value="12.20.16" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.20.19" />
     <property name="js.linters.configure.manually.selectedeslint" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Domain/Model/Assessment" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -423,14 +434,13 @@
       <workItem from="1627713437382" duration="17000" />
       <workItem from="1627748472624" duration="38911000" />
       <workItem from="1627882689425" duration="8000" />
-      <workItem from="1627919264846" duration="1016000" />
-    </task>
-    <task id="LOCAL-00132" summary="added criteria to admin menu.">
-      <created>1626618599824</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1626618599824</updated>
+      <workItem from="1627919264846" duration="1383000" />
+      <workItem from="1627968780047" duration="380000" />
+      <workItem from="1629037921955" duration="68000" />
+      <workItem from="1629037997318" duration="7814000" />
+      <workItem from="1629046022776" duration="8521000" />
+      <workItem from="1629091114312" duration="1307000" />
+      <workItem from="1629217833685" duration="23824000" />
     </task>
     <task id="LOCAL-00133" summary="added criteria to admin menu.">
       <created>1626620215570</created>
@@ -768,7 +778,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627927078636</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="Added pharmacies index route in sidebar.">
+      <created>1627927286351</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1627927286351</updated>
+    </task>
+    <option name="localTasksCounter" value="182" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -848,7 +865,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated date-field localization." />
     <MESSAGE value="added assessment service date limitations." />
     <MESSAGE value="added final grade month format." />
     <MESSAGE value="added updating option functionality." />
@@ -873,7 +889,8 @@
     <MESSAGE value="Updated final grade filters component." />
     <MESSAGE value="Updated pharmacies final grade component." />
     <MESSAGE value="Added pharmacy yearly final grade analytics." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added pharmacy yearly final grade analytics." />
+    <MESSAGE value="Added pharmacies index route in sidebar." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pharmacies index route in sidebar." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

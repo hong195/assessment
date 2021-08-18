@@ -36,4 +36,12 @@ class DoctrineEmployeeRepository extends AbstractRepository implements EmployeeR
     {
         return new ArrayCollection($this->repository->findAll());
     }
+
+    public function findByIds(array $ids): ArrayCollection
+    {
+        $qb = $this->repository->createQueryBuilder('e');
+        $query = $qb->select('e')->add('where', $qb->expr()->in('e.id', $ids))->getQuery();
+
+        return new ArrayCollection($query->getResult());
+    }
 }

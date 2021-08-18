@@ -7,7 +7,7 @@
           {{ asc ? 'mdi-menu-up' : 'mdi-menu-down' }}
         </v-icon>
       </v-btn>
-      <export-to-pdf :excel-data="excelData" :max="items[0].rating.out_of" :date="date" />
+      <!--      <export-to-pdf :excel-data="excelData" :max="items[0].final_grades.total" :date="date" />-->
     </div>
     <v-data-table
       :items="items"
@@ -15,21 +15,31 @@
       :loading="isLoading"
       :disable-sort="true"
       :single-expand="true"
-      item-key="name"
+      item-key="number"
       :expanded.sync="expanded"
       show-expand
     >
       <template v-slot:item.rating="{ item }">
-        <rating-score :rating="item.rating" />
+        <rating-score :rating="item.employees[0].final_grade" />
+      </template>
+      <template v-slot:item.conversion="{ item }">
+        <v-btn
+          :color="getColor(item.employees[0].final_grade.conversion)"
+          rounded
+          class="rating__btn"
+          depressed
+        >
+          <span style="color: #fff;">
+            {{ item.employees[0].final_grade.conversion ?
+              item.employees[0].final_grade.conversion : 0 }} %
+          </span>
+        </v-btn>
       </template>
       <template v-slot:expanded-item="{ headers, item }">
         <td class="pa-3" :colspan="headers.length">
-          <users-rating-by-pharmacy :ratings="item.ratings" :users="item.users" />
+          <users-rating-by-pharmacy :pharmacy="item" />
         </td>
       </template>
-      <!--      <template v-slot:item.rating.conversion="{ item }">-->
-      <!--        <conversion :conversion="item.rating.conversion" />-->
-      <!--      </template>-->
     </v-data-table>
   </div>
 </template>
@@ -38,14 +48,16 @@
   import ExportToPdf from '@/components/dashboard/ExportToPdf'
   import UsersRatingByPharmacy from '@/components/dashboard/Graphs/table_parts/UsersRatingByPharmacy'
   import RatingScore from '@/components/dashboard/Graphs/table_parts/RatingScore'
-  // import Conversion from '@/components/dashboard/Graphs/table_parts/Conversion'
+  import FinalGradeColor from '../mixins/FinalGradeColor'
+
   export default {
     name: 'TableChart',
     components: { RatingScore, UsersRatingByPharmacy, ExportToPdf },
+    mixins: [FinalGradeColor],
     props: {
       items: {
         type: Array,
-        default: () => ([]),
+        default: () => [],
       },
       isLoading: {
         type: Boolean,
@@ -60,7 +72,7 @@
         headers: [
           {
             text: 'Аптека',
-            value: 'name',
+            value: 'number',
             width: '450',
           },
           {
@@ -70,7 +82,7 @@
           },
           {
             text: 'Конверсия',
-            value: 'rating.conversion',
+            value: 'conversion',
           },
           { text: '', value: 'data-table-expand' },
         ],
@@ -81,18 +93,20 @@
     computed: {
       excelData () {
         var copy = []
-        let arr = []
-        this.items.forEach((item) => {
-          item.ratings.forEach((el, key) => {
-            arr = []
-            arr.length = item.ratings.length
-            arr.pharmacy = item.name
-            arr.user = el.user.last_name + ' ' + el.user.first_name
-            arr.index = key + 1
-            arr.scored = el.scored
-            copy.push(arr)
-          })
-        })
+        const arr = []
+        // this.items.forEach((item) => {
+        //   item.employees.forEach((el, key, arr2) => {
+        //     el.final_grade.forEach((el2, key, arr2) => {
+        //       arr = []
+        //       arr.length = arr2.length
+        //       arr.pharmacy = item.name
+        //       arr.user = el.employee.name
+        //       arr.index = key + 1
+        //       arr.scored = el.scored
+        //       copy.push(arr)
+        //     })
+        //   })
+        // })
         return copy
       },
     },
@@ -100,9 +114,9 @@
       sortRatings () {
         this.asc = this.asc ? 0 : 1
         if (this.asc === 0) {
-          this.items = this.items.sort((a, b) => (a.rating.scored > b.rating.scored) ? 1 : ((b.rating.scored > a.rating.scored) ? -1 : 0))
+          this.items = this.items.sort((a, b) => (a.employees[0].final_grade.scored > b.employees[0].scored) ? 1 : ((b.employees[0].scored > a.employees[0].scored) ? -1 : 0))
         } else {
-          this.items = this.items.sort((a, b) => (a.rating.scored < b.rating.scored) ? 1 : ((b.rating.scored < a.rating.scored) ? -1 : 0))
+          this.items = this.items.sort((a, b) => (a.employees[0].scored < b.employees[0].scored) ? 1 : ((b.employees[0].scored < a.employees[0].scored) ? -1 : 0))
         }
       },
     },

@@ -6,6 +6,7 @@ use App\Http\Controllers\CriteriaOptionsController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\FinalGradeAssessmentsController;
 use App\Http\Controllers\FinalGradeController;
+use App\Http\Controllers\PharmaciesCompletedFinalGradeController;
 use App\Http\Controllers\PharmaciesController;
 use App\Http\Controllers\PharmacyEmployeesController;
 use App\Http\Controllers\UsersController;
@@ -33,6 +34,7 @@ Route::group([
 });
 
 Route::get('pharmacy/{pharmacyId}/final-grade', [CompletedPharmacyFinalGradeController::class, 'show']);
+Route::get('pharmacies-final-grade', [PharmaciesCompletedFinalGradeController::class, 'index']);
 
 Route::apiResource('final-grades', FinalGradeController::class)
     ->only(['index', 'store', 'show']);

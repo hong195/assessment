@@ -34,7 +34,7 @@
             <bar-chart v-if="date" ref="barChart" :chart-data="chart" />
           </v-tab-item>
           <v-tab-item :value="'table'">
-            <table-chart :date="date" :items="items" :is-loading="isLoading" />
+            <table-chart v-if="items.length" :date="date" :items="items" :is-loading="isLoading" />
           </v-tab-item>
         </v-tabs-items>
       </v-tabs>
@@ -119,22 +119,24 @@
       },
     },
     methods: {
+      // fetchPharmacies()
+
       fetchData () {
         const date = moment(this.date)
         this.isLoading = true
-        this.axios.get('pharmacy-rating', {
+        this.axios.get('pharmacies-final-grade', {
           params: {
             year: date.format('YYYY'),
             month: date.format('M'),
           },
         })
-          .then(({ data }) => {
+          .then((data) => {
             this.isLoading = false
             this.items = data.data
-            const filteredData = data.data.filter(item => item.rating.scored)
-            this.chart.labels = filteredData.map((pharmacy) => ([pharmacy.name]))
-            this.chart.datasets[0].data = filteredData.map((pharmacy) => pharmacy.rating.scored)
-            this.chart.datasets[0].backgroundColor = this.poolColors(filteredData.length)
+            this.chart.labels = this.items.map((pharmacy) => pharmacy.number)
+            this.chart.datasets[0].data = this.items.map(pharmacy => pharmacy.employees[0].final_grade.scored)
+
+            this.chart.datasets[0].backgroundColor = this.poolColors(this.items.length)
             this.$refs.barChart.updateChart()
           }).catch(e => {
             this.isLoading = false
@@ -160,38 +162,38 @@
         })
       },
       async fetchCheckStatistics () {
-        const date = moment(this.date)
-        this.isLoading = true
-        await this.axios.get('checks-analytics', {
-          params: {
-            year: date.format('YYYY'),
-            month: date.format('M'),
-          },
-        })
-          .then(({ data }) => {
-            if (data.length) {
-              const criteria = data[0].criteria
-
-              Object.values(criteria).forEach(el => {
-                if (el.use_in_rating) {
-                  this.criteria[el.name] = { label: el.label, count: 0 }
-                }
-              })
-
-              data.forEach(item => {
-                this.sortCriteria(item.criteria)
-              })
-
-              this.polarChart.labels = Object.values(this.criteria).map((el) => ([el.label]))
-              this.polarChart.datasets[0].data = Object.values(this.criteria).map((el) => el.count)
-              this.polarChart.datasets[0].backgroundColor = this.poolColors(Object.values(this.criteria).length)
-              this.$refs.polarChart.updateChart()
-            }
-            this.isLoading = false
-          }).catch(e => {
-            this.isLoading = false
-            console.error(e)
-          })
+        // const date = moment(this.date)
+        // this.isLoading = true
+        // await this.axios.get('checks-analytics', {
+        //   params: {
+        //     year: date.format('YYYY'),
+        //     month: date.format('M'),
+        //   },
+        // })
+        //   .then(({ data }) => {
+        //     if (data.length) {
+        //       const criteria = data[0].criteria
+        //
+        //       Object.values(criteria).forEach(el => {
+        //         if (el.use_in_rating) {
+        //           this.criteria[el.name] = { label: el.label, count: 0 }
+        //         }
+        //       })
+        //
+        //       data.forEach(item => {
+        //         this.sortCriteria(item.criteria)
+        //       })
+        //
+        //       this.polarChart.labels = Object.values(this.criteria).map((el) => ([el.label]))
+        //       this.polarChart.datasets[0].data = Object.values(this.criteria).map((el) => el.count)
+        //       this.polarChart.datasets[0].backgroundColor = this.poolColors(Object.values(this.criteria).length)
+        //       this.$refs.polarChart.updateChart()
+        //     }
+        //     this.isLoading = false
+        //   }).catch(e => {
+        //     this.isLoading = false
+        //     console.error(e)
+        //   })
       },
     },
   }

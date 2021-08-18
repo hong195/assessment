@@ -52,6 +52,10 @@ class FinalGradesQuery
         return $this;
     }
 
+    /**
+     * @param int $perPage
+     * @return FinalGrade[]
+     */
     public function execute(int $perPage = 10000)
     {
         $queryBuilder = $this->entityManager

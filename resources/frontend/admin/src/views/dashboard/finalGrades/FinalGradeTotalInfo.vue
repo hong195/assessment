@@ -4,9 +4,6 @@
       <v-list-item-title>
         <v-row>
           <v-col>Дата создания рейтинга:</v-col>
-          <pre>
-            {{ finalGrade }}
-          </pre>
           <v-col class="font-weight-medium creation_date">
             {{ formattedDate(finalGrade.month) }}
           </v-col>

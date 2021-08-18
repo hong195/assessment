@@ -4,9 +4,9 @@
 namespace App\Infrastructure\Persistence\Doctrine;
 
 
+use App\Domain\Model\Employee\Employee;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ObjectRepository;
 use App\Domain\Model\Pharmacy\Pharmacy;
 use App\Domain\Model\Pharmacy\PharmacyId;
 use App\Domain\Model\Pharmacy\PharmacyNumber;
@@ -43,5 +43,18 @@ class DoctrinePharmacyRepository extends AbstractRepository implements PharmacyR
     public function findByNumber(PharmacyNumber $number): ArrayCollection
     {
         return new ArrayCollection($this->repository->findBy(['number.number' => (string) $number]));
+    }
+    public function findByEmployeeIds(array $ids): ArrayCollection
+    {
+        $qb = $this->repository->createQueryBuilder('p');
+
+        $query = $qb->select('p')
+            ->leftJoin(Employee::class, 'e',
+                \Doctrine\ORM\Query\Expr\Join::WITH,
+                'p.id = e.pharmacy')
+            ->add('where', $qb->expr()->in('e.id', $ids))
+            ->getQuery();
+
+        return new ArrayCollection($query->getResult());
     }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="display: flex; justify-content: center; align-items: center;">
     <v-tooltip v-if="rating.id" bottom>
       <template v-slot:activator="{ on, attrs }">
         <span
@@ -11,9 +11,9 @@
             rounded
             class="rating__btn"
             depressed
-            @click.prevent="getRating(rating.id)"
+            @click.prevent="getRating(rating)"
           >
-            <span style="color: white;">{{ `${rating.scored}/${rating.out_of}` }}</span>
+            <span style="color: white;">{{ `${rating.scored}/${rating.total}` }}</span>
           </v-btn>
         </span>
       </template>
@@ -22,21 +22,24 @@
     <div v-else>
       Нет Рейтинга
     </div>
-    <single-user-rating
-      :show-dialog="dialog"
-      :rating-id="ratingId"
-      @close-dialog="dialog = false"
+    <view-final-grade-modal
+      ref="finalGrade"
+      :final-grade="rating"
     />
   </div>
 </template>
 <script>
 
+  import FinalGradeColor from '../../mixins/FinalGradeColor'
+  import ViewFinalGradeModal from '../../../../views/dashboard/finalGrades/ViewFinalGradeModal'
   export default {
     name: 'RatingScore',
+    components: { ViewFinalGradeModal },
+    mixins: [FinalGradeColor],
     props: {
       rating: {
         required: true,
-        type: Object,
+        type: [Array, Object],
       },
     },
     data () {
@@ -46,9 +49,9 @@
       }
     },
     methods: {
-      getRating (ratingId) {
-        this.ratingId = ratingId
-        this.dialog = true
+      getRating (rating) {
+        this.rating = rating
+        this.$refs.finalGrade.openModal()
       },
     },
   }
