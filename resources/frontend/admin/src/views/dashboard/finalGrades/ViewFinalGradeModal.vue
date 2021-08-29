@@ -32,7 +32,7 @@
               <h3>Список чеков</h3>
               <v-list v-if="assessments.length">
                 <v-select v-model="activeAssessmentId" :items="assessments" item-text="check.service_date" item-value="id" />
-                <v-row v-show="assessmentsCount < 10" class="my-3" justify="space-between">
+                <v-row v-if="canManage" v-show="assessmentsCount < 10" class="my-3" justify="space-between">
                   <v-btn small :to="updateAssessmentRouteParam">
                     Редактировать проверку
                   </v-btn>
@@ -89,11 +89,14 @@
 <script>
   import moment from 'moment'
   import FinalGradeTotalInfo from './FinalGradeTotalInfo'
+  import canManage from '@/mixins/RoleMixin'
+
   export default {
     name: 'SingleUserRating',
     components: {
       FinalGradeTotalInfo,
     },
+    mixins: [canManage],
     props: {
       finalGrade: {
         type: Object,

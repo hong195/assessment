@@ -48,14 +48,16 @@
           </div>
         </template>
         <template v-slot:item.actions="{ item }">
-          <v-btn small :icon="true"
+          <v-btn v-if="canManage" small
+                 :icon="true"
                  color="green"
                  :disabled="(item.status === 'completed')"
                  @click="addAssessment(item)"
           >
             <v-icon>mdi-plus</v-icon>
           </v-btn>
-          <v-btn small :icon="true"
+          <v-btn v-if="canManage" small
+                 :icon="true"
                  color="red"
                  :disabled="(item.status === 'completed')"
                  @click="remove(item)"
@@ -79,10 +81,12 @@
   import ViewFinalGradeModal from './ViewFinalGradeModal'
   import AssessmentBtnCount from './AssessmentBtnCount'
   import Filters from './Filters'
+  import canManage from '@/mixins/RoleMixin'
+
   export default {
     name: 'Index',
     components: { Create, AssessmentBtnCount, Filters, ViewFinalGradeModal },
-    mixins: [FinalGradeColor],
+    mixins: [FinalGradeColor, canManage],
     data () {
       return {
         date: null,

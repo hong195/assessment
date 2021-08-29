@@ -1,29 +1,29 @@
 <template>
   <div>
-    <v-btn
-      v-for="(action, i) in actions"
-      :key="i"
-      dark
-      class="px-2 ml-1"
-      :color="action.color"
-      min-width="0"
-      small
-      @click="actionMethod(action.method)"
-    >
-      <v-icon small v-text="action.icon" />
-    </v-btn>
+    <template v-for="(action, i) in actions">
+      <v-btn
+        v-if="canManage"
+        :key="i"
+        dark
+        class="px-2 ml-1"
+        :color="action.color"
+        min-width="0"
+        small
+        @click="actionMethod(action.method)"
+      >
+        <v-icon small v-text="action.icon" />
+      </v-btn>
+    </template>
   </div>
 </template>
 
 <script>
-  import can from '@/plugins/directives/v-can'
+  import canManage from '@/mixins/RoleMixin'
 
   import { mapActions } from 'vuex'
   export default {
     name: 'EmployeeActions',
-    directives: {
-      can,
-    },
+    mixins: [canManage],
     props: {
       item: {
         type: Object,

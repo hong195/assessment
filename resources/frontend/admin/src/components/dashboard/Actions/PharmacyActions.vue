@@ -1,17 +1,19 @@
 <template>
   <div>
-    <v-btn
-      v-for="(action, i) in actions"
-      :key="i"
-      dark
-      class="px-2 ml-1"
-      :color="action.color"
-      min-width="0"
-      small
-      @click="actionMethod(action.method)"
-    >
-      <v-icon small v-text="action.icon" />
-    </v-btn>
+    <template v-for="(action, i) in actions">
+      <v-btn
+        v-if="canManage"
+        :key="i"
+        dark
+        class="px-2 ml-1"
+        :color="action.color"
+        min-width="0"
+        small
+        @click="actionMethod(action.method)"
+      >
+        <v-icon small v-text="action.icon" />
+      </v-btn>
+    </template>
     <pharmacy-detail ref="pharmacyDetail" :pharmacy="activePharmacy" />
   </div>
 </template>
@@ -20,13 +22,11 @@
   import can from '@/plugins/directives/v-can'
   import PharmacyDetail from '@/views/dashboard/pharmacies/Detail'
   import { mapActions } from 'vuex'
-
+  import canManage from '@/mixins/RoleMixin'
   export default {
     name: 'Actions',
     components: { PharmacyDetail },
-    directives: {
-      can: can,
-    },
+    mixins: [canManage],
     props: {
       pharmacy: {
         type: Object,

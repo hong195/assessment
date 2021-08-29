@@ -15,17 +15,19 @@
         class="options-table"
       >
         <template v-slot:item.actions="{ item }">
-          <v-btn
-            v-for="(action, i) in actions"
-            :key="i"
-            class="px-2 ml-1"
-            :color="action.color"
-            min-width="0"
-            small
-            @click="actionMethod(action.method, item)"
-          >
-            <v-icon small v-text="action.icon" />
-          </v-btn>
+          <template v-for="(action, i) in actions">
+            <v-btn
+              v-if="canManage"
+              :key="i"
+              class="px-2 ml-1"
+              :color="action.color"
+              min-width="0"
+              small
+              @click="actionMethod(action.method, item)"
+            >
+              <v-icon small v-text="action.icon" />
+            </v-btn>
+          </template>
         </template>
       </data-table>
     </base-material-card>
@@ -35,9 +37,13 @@
 
 <script>
   import DataTable from '@/components/dashboard/DataTable'
+  import canManage from '@/mixins/RoleMixin'
+
   export default {
     name: 'Index',
     components: { DataTable },
+    mixins: [canManage],
+
     data: () => ({
       options: [],
       dialog: false,

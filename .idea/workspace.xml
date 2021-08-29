@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/mixins/RoleMixin.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/adminItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/adminItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/editorItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/editorItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/subscriberItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/subscriberItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/EmployeeActions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/EmployeeActions.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/PharmacyActions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/PharmacyActions.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/UserActions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/UserActions.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/options/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/options/Index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +74,6 @@
     <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Pharmacy/PharmacyTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Unit/Domain/Model/Assessment/AssessmentTest.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
@@ -440,14 +441,7 @@
       <workItem from="1629389429282" duration="4190000" />
       <workItem from="1629869287889" duration="597000" />
       <workItem from="1629954323076" duration="483000" />
-      <workItem from="1630252773121" duration="8479000" />
-    </task>
-    <task id="LOCAL-00137" summary="updated support for jwt php 8.">
-      <created>1626713240176</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1626713240176</updated>
+      <workItem from="1630252773121" duration="9389000" />
     </task>
     <task id="LOCAL-00138" summary="added domain config variable.">
       <created>1626777060842</created>
@@ -785,7 +779,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630261380788</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="Updated menu items for (admin, editor, subscriber).">
+      <created>1630262116116</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1630262116116</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -865,7 +866,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="bugfix." />
     <MESSAGE value="added create user form." />
     <MESSAGE value="added user api controller." />
     <MESSAGE value="updated user management." />
@@ -890,7 +890,8 @@
     <MESSAGE value="Added polar chart." />
     <MESSAGE value="Updated translations." />
     <MESSAGE value="Updated Drawer users component," />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Drawer users component," />
+    <MESSAGE value="Updated menu items for (admin, editor, subscriber)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated menu items for (admin, editor, subscriber)." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
