@@ -21,5 +21,12 @@ export default {
   },
   setUser (state, payload) {
     state.currentUser = payload.user
+
+    if (state.currentUser.role === 'admin') {
+      state.isAdmin = true
+      state.isEditor = true
+    } else if (state.currentUser.role === 'editor') {
+      state.isEditor = true
+    }
   },
 }

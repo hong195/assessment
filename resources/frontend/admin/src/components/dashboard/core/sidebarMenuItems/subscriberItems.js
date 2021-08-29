@@ -10,11 +10,6 @@ export default [
     title: 'final_grades',
   },
   {
-    to: '/criteria',
-    icon: 'mdi-select-marker',
-    title: 'criteria',
-  },
-  {
     to: '/pharmacies',
     icon: 'mdi-hospital-building',
     title: 'pharmacies',
@@ -31,10 +26,5 @@ export default [
         title: 'pharmacyRating',
       },
     ],
-  },
-  {
-    to: '/users',
-    icon: 'mdi-account-box',
-    title: 'users',
   },
 ]

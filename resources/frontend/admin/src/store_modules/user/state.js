@@ -3,6 +3,7 @@ export default () => ({
   isActive: null,
   isLoggedIn: null,
   authError: null,
-  isAdmin: null,
+  isAdmin: false,
+  isEditor: false,
   permissions: [],
 })
