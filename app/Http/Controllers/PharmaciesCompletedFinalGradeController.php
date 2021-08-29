@@ -31,7 +31,9 @@ class PharmaciesCompletedFinalGradeController extends Controller
     {
         $month = $request->get('month');
         $year = $request->get('year');
-        $finalGrades = $this->finalGradesQuery->byMonth($month)->byYear($year)->execute();
+        $finalGrades = $this->finalGradesQuery
+            ->byStatus('completed')
+            ->byMonth($month)->byYear($year)->execute();
         $employeesIds = array_map(function(FinalGrade $finalGrade) {
             return (string) $finalGrade->getEmployeeId();
         }, $finalGrades);

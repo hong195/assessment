@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssessmentAnalyticsController;
 use App\Http\Controllers\CompletedPharmacyFinalGradeController;
 use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\CriteriaOptionsController;
@@ -35,6 +36,7 @@ Route::group([
 
 Route::get('pharmacy/{pharmacyId}/final-grade', [CompletedPharmacyFinalGradeController::class, 'show']);
 Route::get('pharmacies-final-grade', [PharmaciesCompletedFinalGradeController::class, 'index']);
+Route::get('assessments-analytics', [AssessmentAnalyticsController::class, 'index']);
 
 Route::apiResource('final-grades', FinalGradeController::class)
     ->only(['index', 'store', 'show']);

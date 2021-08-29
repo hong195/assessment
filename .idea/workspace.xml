@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesCompletedFinalGradeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AssessmentAnalyticsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrineEmployeeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrineEmployeeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrinePharmacyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrinePharmacyRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradesQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradesQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesCompletedFinalGradeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesCompletedFinalGradeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/PharmacyRating.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/PharmacyRating.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/TableChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/TableChart.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/table_parts/RatingScore.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/table_parts/RatingScore.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/table_parts/UsersRatingByPharmacy.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/table_parts/UsersRatingByPharmacy.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeTotalInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeTotalInfo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -440,14 +435,12 @@
       <workItem from="1629037997318" duration="7814000" />
       <workItem from="1629046022776" duration="8521000" />
       <workItem from="1629091114312" duration="1307000" />
-      <workItem from="1629217833685" duration="23824000" />
-    </task>
-    <task id="LOCAL-00133" summary="added criteria to admin menu.">
-      <created>1626620215570</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1626620215570</updated>
+      <workItem from="1629217833685" duration="30439000" />
+      <workItem from="1629373906785" duration="646000" />
+      <workItem from="1629389429282" duration="4190000" />
+      <workItem from="1629869287889" duration="597000" />
+      <workItem from="1629954323076" duration="483000" />
+      <workItem from="1630252773121" duration="3922000" />
     </task>
     <task id="LOCAL-00134" summary="added criteria to admin menu.">
       <created>1626620255659</created>
@@ -785,7 +778,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627927286351</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="Added pharmacy bar chart graph.">
+      <created>1629307238500</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1629307238500</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -865,7 +865,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added assessment service date limitations." />
     <MESSAGE value="added final grade month format." />
     <MESSAGE value="added updating option functionality." />
     <MESSAGE value="added assessments management links." />
@@ -890,7 +889,8 @@
     <MESSAGE value="Updated pharmacies final grade component." />
     <MESSAGE value="Added pharmacy yearly final grade analytics." />
     <MESSAGE value="Added pharmacies index route in sidebar." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added pharmacies index route in sidebar." />
+    <MESSAGE value="Added pharmacy bar chart graph." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pharmacy bar chart graph." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex; justify-content: center; align-items: center;">
+  <div style="display: flex; justify-content: center;">
     <v-tooltip v-if="rating.id" bottom>
       <template v-slot:activator="{ on, attrs }">
         <span
@@ -19,7 +19,7 @@
       </template>
       <span>Нажмите, чтобы просмотреть подробную информацию о рейтинге</span>
     </v-tooltip>
-    <div v-else>
+    <div v-else style="margin-right: auto;">
       Нет Рейтинга
     </div>
     <view-final-grade-modal
