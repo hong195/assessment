@@ -47,6 +47,7 @@
   import subscriberItems from './sidebarMenuItems/subscriberItems'
   import adminItems from './sidebarMenuItems/adminItems'
   import editorItems from './sidebarMenuItems/editorItems'
+  import _isEmpty from 'lodash'
 
   export default {
     name: 'DashboardCoreDrawer',
@@ -91,7 +92,18 @@
       },
       profile () {
         if (!this.user) {
-          return {}
+          return {
+            avatar: true,
+            group: '',
+            title: 'Гость',
+            children: [
+              {
+                to: 'pages/login',
+                name: 'login',
+                title: 'Войти',
+              },
+            ],
+          }
         }
         return {
           avatar: true,
@@ -99,7 +111,7 @@
           title: this.user.first_name + ' ' + this.user.last_name,
           children: [
             {
-              to: `update-staff/${this.user.id}`,
+              to: `users/${this.user.id}`,
               title: this.$t('edit_profile'),
             },
             {

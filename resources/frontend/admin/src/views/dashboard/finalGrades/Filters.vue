@@ -82,7 +82,6 @@
       this.fetchPharmacies()
         .then(({ data }) => {
           this.pharmacies = data.data
-          console.log(data.data)
         })
     },
     methods: {

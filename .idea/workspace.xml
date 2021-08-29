@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
+    <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="Updated translations.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/locales/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/locales/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/Drawer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/Drawer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/mutations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Filters.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Filters.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -436,14 +438,7 @@
       <workItem from="1629389429282" duration="4190000" />
       <workItem from="1629869287889" duration="597000" />
       <workItem from="1629954323076" duration="483000" />
-      <workItem from="1630252773121" duration="4743000" />
-    </task>
-    <task id="LOCAL-00135" summary="added pharmacy index view.">
-      <created>1626627516925</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1626627516925</updated>
+      <workItem from="1630252773121" duration="7876000" />
     </task>
     <task id="LOCAL-00136" summary="added pharmacy index view.">
       <created>1626712611100</created>
@@ -781,7 +776,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630256730754</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="Updated translations.">
+      <created>1630257550731</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1630257550731</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -861,7 +863,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added updating option functionality." />
     <MESSAGE value="added assessments management links." />
     <MESSAGE value="bugfix." />
     <MESSAGE value="added create user form." />
@@ -886,7 +887,8 @@
     <MESSAGE value="Added pharmacies index route in sidebar." />
     <MESSAGE value="Added pharmacy bar chart graph." />
     <MESSAGE value="Added polar chart." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added polar chart." />
+    <MESSAGE value="Updated translations." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated translations." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
