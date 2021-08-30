@@ -36,6 +36,7 @@ class PharmacyService
     {
         $number = new PharmacyNumber($dto->getPharmacyNumber());
         $pharmacies = $this->repository->findByNumber($number);
+        $address = $dto->getAddress();
 
         $id = PharmacyId::next();
         $email = new Email($dto->getEmail());
@@ -44,7 +45,7 @@ class PharmacyService
             throw new PharmacyNumberHasBeenAlreadyTakenException;
         }
 
-        $pharmacy = new Pharmacy($id, $number, $email);
+        $pharmacy = new Pharmacy($id, $number, $email, $address);
         $this->repository->add($pharmacy);
         $this->em->flush();
     }
@@ -59,6 +60,7 @@ class PharmacyService
         $number = new PharmacyNumber($dto->getPharmacyNumber());
         $pharmacyId = new PharmacyId($id);
         $email = new Email($dto->getEmail());
+        $address = $dto->getAddress();
 
         $pharmacies = $this->repository->findByNumber($number);
         $pharmacy = $this->repository->findById($pharmacyId);
@@ -69,6 +71,7 @@ class PharmacyService
 
         $pharmacy->changeNumber($number);
         $pharmacy->changeEmail($email);
+        $pharmacy->setAddress($address);
 
         $this->em->persist($pharmacy);
         $this->em->flush();

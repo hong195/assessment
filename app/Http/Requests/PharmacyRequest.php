@@ -10,12 +10,14 @@ class PharmacyRequest extends AbstractJsonRequest
     {
         return [
             'email' => ['string', 'required'],
-            'number' => ['string', 'required']
+            'number' => ['string', 'required'],
+            'address' => ['string', 'required']
         ];
     }
 
     public function getDto(): PharmacyDto
     {
-        return new PharmacyDto($this->get('number'), $this->get('email'));
+        return new PharmacyDto($this->get('number'),
+            $this->get('email'), $this->get('address'));
     }
 }

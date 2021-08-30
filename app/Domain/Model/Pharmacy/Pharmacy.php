@@ -34,12 +34,18 @@ class Pharmacy
      */
     private PharmacyNumber $number;
 
-    public function __construct(PharmacyId $pharmacyId, PharmacyNumber $number, Email $email)
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private ?string $address;
+
+    public function __construct(PharmacyId $pharmacyId, PharmacyNumber $number, Email $email, string $address = null)
     {
         $this->email = $email;
         $this->employees = new ArrayCollection([]);
         $this->id = $pharmacyId;
         $this->number = $number;
+        $this->address = $address;
     }
 
     public function getEmail(): Email
@@ -85,5 +91,21 @@ class Pharmacy
                 break;
             }
         }
+    }
+
+    /**
+     * @param ?string $address
+     */
+    public function setAddress(?string $address): void
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getAddress(): ?string
+    {
+        return $this->address;
     }
 }

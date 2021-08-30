@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/mixins/RoleMixin.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/EmployeeActions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/EmployeeActions.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/PharmacyActions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/PharmacyActions.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/UserActions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Actions/UserActions.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/options/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/options/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Pharmacy/Pharmacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Pharmacy/Pharmacy.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -441,35 +434,9 @@
       <workItem from="1629389429282" duration="4190000" />
       <workItem from="1629869287889" duration="597000" />
       <workItem from="1629954323076" duration="483000" />
-      <workItem from="1630252773121" duration="9389000" />
-    </task>
-    <task id="LOCAL-00138" summary="added domain config variable.">
-      <created>1626777060842</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1626777060842</updated>
-    </task>
-    <task id="LOCAL-00139" summary="set admin.blade.php as main app view.">
-      <created>1626777273987</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1626777273987</updated>
-    </task>
-    <task id="LOCAL-00140" summary="updated .gitignore">
-      <created>1626777397420</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL-00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1626777397420</updated>
-    </task>
-    <task id="LOCAL-00141" summary="updated vue .env api endpoint url.">
-      <created>1626777472166</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1626777472166</updated>
+      <workItem from="1630252773121" duration="9730000" />
+      <workItem from="1630305075160" duration="10000" />
+      <workItem from="1630340367907" duration="2246000" />
     </task>
     <task id="LOCAL-00142" summary="updated api routes.">
       <created>1626779679256</created>
@@ -786,7 +753,35 @@
       <option name="project" value="LOCAL" />
       <updated>1630262116116</updated>
     </task>
-    <option name="localTasksCounter" value="187" />
+    <task id="LOCAL-00187" summary="Updated user managment persmissions.">
+      <created>1630262943210</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1630262943210</updated>
+    </task>
+    <task id="LOCAL-00188" summary="Added pharmacy address field.">
+      <created>1630340989023</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1630340989024</updated>
+    </task>
+    <task id="LOCAL-00189" summary="Added pharmacy address field.">
+      <created>1630342853922</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1630342853922</updated>
+    </task>
+    <task id="LOCAL-00190" summary="Added pharmacy address field.">
+      <created>1630342978038</created>
+      <option name="number" value="00190" />
+      <option name="presentableId" value="LOCAL-00190" />
+      <option name="project" value="LOCAL" />
+      <updated>1630342978038</updated>
+    </task>
+    <option name="localTasksCounter" value="191" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -866,8 +861,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added create user form." />
-    <MESSAGE value="added user api controller." />
     <MESSAGE value="updated user management." />
     <MESSAGE value="Added criterion order field." />
     <MESSAGE value="Added reviewer info." />
@@ -891,7 +884,9 @@
     <MESSAGE value="Updated translations." />
     <MESSAGE value="Updated Drawer users component," />
     <MESSAGE value="Updated menu items for (admin, editor, subscriber)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated menu items for (admin, editor, subscriber)." />
+    <MESSAGE value="Updated user managment persmissions." />
+    <MESSAGE value="Added pharmacy address field." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pharmacy address field." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
