@@ -2,12 +2,7 @@
   <div>
     <div class="d-flex">
       <v-spacer />
-      <v-btn outlined large class="mr-3" @click="sortRatings">
-        Сортировать рейтинги <v-icon>
-          {{ asc ? 'mdi-menu-up' : 'mdi-menu-down' }}
-        </v-icon>
-      </v-btn>
-      <!--      <export-to-pdf :excel-data="excelData" :max="items[0].final_grades.total" :date="date" />-->
+      <export-to-pdf :excel-data="excelData" :max="'100'" :date="date" />
     </div>
     <v-data-table
       :items="items"
@@ -92,21 +87,18 @@
     },
     computed: {
       excelData () {
-        var copy = []
-        const arr = []
-        // this.items.forEach((item) => {
-        //   item.employees.forEach((el, key, arr2) => {
-        //     el.final_grade.forEach((el2, key, arr2) => {
-        //       arr = []
-        //       arr.length = arr2.length
-        //       arr.pharmacy = item.name
-        //       arr.user = el.employee.name
-        //       arr.index = key + 1
-        //       arr.scored = el.scored
-        //       copy.push(arr)
-        //     })
-        //   })
-        // })
+        const copy = []
+        this.items.forEach((item) => {
+          item.employees.forEach((el, key, arr2) => {
+            const arr = {}
+            arr.length = arr2.length
+            arr.pharmacy = item.number
+            arr.user = el.name
+            arr.index = key + 1
+            arr.scored = el.final_grade.scored
+            copy.push(arr)
+          })
+        })
         return copy
       },
     },

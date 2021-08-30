@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c51a62b-cb44-43f8-812b-54b4d3dc4cec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Pharmacy/Pharmacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Pharmacy/Pharmacy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/TableChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/TableChart.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -436,14 +437,7 @@
       <workItem from="1629954323076" duration="483000" />
       <workItem from="1630252773121" duration="9730000" />
       <workItem from="1630305075160" duration="10000" />
-      <workItem from="1630340367907" duration="2246000" />
-    </task>
-    <task id="LOCAL-00142" summary="updated api routes.">
-      <created>1626779679256</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1626779679256</updated>
+      <workItem from="1630340367907" duration="4497000" />
     </task>
     <task id="LOCAL-00143" summary="added redirect button to create assessment.">
       <created>1626874332603</created>
@@ -781,7 +775,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630342978038</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="Added pharmacy address field.">
+      <created>1630343068841</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1630343068841</updated>
+    </task>
+    <option name="localTasksCounter" value="192" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
