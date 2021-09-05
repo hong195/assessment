@@ -203,6 +203,9 @@
         })
           .then(() => {
             this.$store.commit('successMessage', 'Оценка обновлена')
+            this.$router.push({
+              name: 'final-grades',
+            })
           })
           .catch(() => {
             this.$store.commit('errorMessage', 'Ошибка обновления оценки')

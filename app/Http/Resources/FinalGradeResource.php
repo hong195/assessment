@@ -27,7 +27,8 @@ class FinalGradeResource extends JsonResource
             'month' => (string) $this->getMonth(),
             'status' => (string) $this->getStatus(),
             'assessments' => AssessmentResource::collection($this->getAssessments()->toArray()),
-            'assessments_count' => AssessmentResource::collection($this->getAssessments()->toArray())->count()
+            'assessments_count' => AssessmentResource::collection($this->getAssessments()->toArray())->count(),
+            'description' => $this->getDescription()
         ];
     }
 }

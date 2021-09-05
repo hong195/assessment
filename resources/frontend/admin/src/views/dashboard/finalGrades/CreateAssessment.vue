@@ -37,6 +37,11 @@
         </v-col>
       </v-row>
     </base-material-card>
+    <the-description-adding
+      ref="the-adding-description"
+      :final-grade-id="id"
+      @description-added="descriptionAdded"
+    />
   </v-container>
 </template>
 
@@ -46,10 +51,12 @@
   import EmployeeInfo from './EmployeeInfo'
   import FinalGradeInfo from './FinalGradeInfo'
   import moment from 'moment'
+  import Swal from 'sweetalert2'
+  import TheDescriptionAdding from './TheDescriptionAdding'
 
   export default {
     name: 'CreateAssessment',
-    components: { FormBase, EmployeeInfo, FinalGradeInfo },
+    components: { FormBase, EmployeeInfo, FinalGradeInfo, TheDescriptionAdding },
     data () {
       return {
         formValue: '',
@@ -181,6 +188,9 @@
       ...mapActions('pharmacy', {
         findPharmacyById: 'findById',
       }),
+      descriptionAdded () {
+        console.log('added description')
+      },
       submit () {
         this.createAssessment({
           id: this.id,
@@ -195,7 +205,17 @@
               this.$refs['create-assessment-option'].reset()
             })
 
-            this.$store.commit('successMessage', 'Оценка созданая')
+            if (this.finalGrade.assessments_count === 10) {
+              Swal.fire({
+                text: 'Итогоая оценка создана',
+                icon: 'success',
+              })
+                .then(() => {
+                  this.$refs['the-adding-description'].openDialog()
+                })
+            } else {
+              this.$store.commit('successMessage', 'Оценка созданая')
+            }
           })
           .catch(() => {
             this.$store.commit('errorMessage', 'Ошибка создания оценки')

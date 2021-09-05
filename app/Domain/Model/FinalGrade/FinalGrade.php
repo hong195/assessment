@@ -3,6 +3,7 @@
 
 namespace App\Domain\Model\FinalGrade;
 
+use App\Exceptions\UncompletedFinalGradeException;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -53,6 +54,10 @@ class FinalGrade
      */
     private Status $status;
 
+    /**
+     * @ORM\Column  (type="text", nullable=true)
+     */
+    private ?string $description;
 
     public function __construct(FinalGradeId $analysisId, EmployeeId $employee, Month $date)
     {
@@ -207,5 +212,26 @@ class FinalGrade
     {
         return $this->scored = array_reduce($this->assessments->toArray(),
             fn($carry, Assessment $item) => $carry + $item->getAmount(), 0);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string|null $description
+     * @throws UncompletedFinalGradeException
+     */
+    public function addDescription(?string $description): void
+    {
+        if (!$this->isCompleted()) {
+            throw new UncompletedFinalGradeException;
+        }
+
+        $this->description = $description;
     }
 }

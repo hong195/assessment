@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddFinalGradeDescription;
 use App\Http\Controllers\AssessmentAnalyticsController;
 use App\Http\Controllers\CompletedPharmacyFinalGradeController;
 use App\Http\Controllers\CriteriaController;
@@ -59,4 +60,6 @@ Route::apiResource('criteria.options', CriteriaOptionsController::class)
 Route::apiResource('pharmacies', PharmaciesController::class);
 
 Route::apiResource('users', UsersController::class);
+
+Route::post('final-grade/{finalGradeId}/description', [AddFinalGradeDescription::class, 'store']);
 

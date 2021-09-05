@@ -67,6 +67,16 @@
         </v-row>
       </v-list-item-title>
     </v-list-item>
+    <v-list-item>
+      <v-row>
+        <v-col class="font-weight-medium">
+          <span>Примечание:</span>
+          <div>
+            {{ finalGrade.description }}
+          </div>
+        </v-col>
+      </v-row>
+    </v-list-item>
   </v-list>
 </template>
 

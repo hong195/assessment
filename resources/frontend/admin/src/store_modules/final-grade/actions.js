@@ -21,4 +21,9 @@ export default {
   updateAssessment ({ commit }, { finalGradeId, assessmentId, params = {} }) {
     return axios.put(`final-grade/${finalGradeId}/assessments/${assessmentId}`, params)
   },
+  addDescription ({ commit }, { finalGradeId, description }) {
+    return axios.post(`final-grade/${finalGradeId}/description`, {
+      description: description,
+    })
+  },
 }

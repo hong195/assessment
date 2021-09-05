@@ -210,4 +210,17 @@ class FinalGradeService
 
         return new Reviewer($reviewerId, $reviewerName);
     }
+
+    /**
+     * @throws NotFoundEntityException
+     * @throws \App\Exceptions\UncompletedFinalGradeException
+     */
+    public function addDescription(string $finalGradeId, string $description)
+    {
+        /** @var FinalGrade $finalGrade */
+        $finalGrade = $this->repository->findOrFail($finalGradeId);
+
+        $finalGrade->addDescription($description);
+        $this->em->flush();
+    }
 }
