@@ -17,7 +17,7 @@
           Аптека
         </th>
         <th style="font-size: 12pt;">
-          Балл из {{ max }}
+          Набранно баллов
         </th>
       </thead>
       <tbody>
