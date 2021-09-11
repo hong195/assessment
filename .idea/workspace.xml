@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="Added adding description after 10 assessments.">
-      <change afterPath="$PROJECT_DIR$/app/Exceptions/UncompletedFinalGradeException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AddFinalGradeDescription.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/Version20210905121126.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/TheDescriptionAdding.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="Added sale manager model &amp; user listener.">
+      <change afterPath="$PROJECT_DIR$/database/migrations/Version20210912061542.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/FinalGrade/FinalGrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/FinalGrade/FinalGrade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/FinalGradeResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/FinalGradeResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/final-grade/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/final-grade/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/CreateAssessment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/CreateAssessment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeTotalInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/FinalGradeTotalInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/UpdateAssessment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/UpdateAssessment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Listeners/UserListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Listeners/UserListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Pharmacy/Pharmacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Pharmacy/Pharmacy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/SaleManager/SaleManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/SaleManager/SaleManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/SaleManager/SaleManagerId.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/SaleManager/SaleManagerTranslator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Shared/AbstractRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Shared/AbstractRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/AbstractRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/AbstractRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/SaleManagerTranstalor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/UserService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,14 +202,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Domain/Listeners" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Domain/Listeners" />
+      <recent name="$PROJECT_DIR$/app/Domain/Model/User" />
+      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/salesManager" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -229,7 +235,25 @@
       <option name="presentableId" value="Default" />
       <updated>1630837966471</updated>
       <workItem from="1630837969192" duration="738000" />
+      <workItem from="1630925773974" duration="8912000" />
+      <workItem from="1631032335882" duration="2599000" />
+      <workItem from="1631369616026" duration="21768000" />
     </task>
+    <task id="LOCAL-00001" summary="Added adding description after 10 assessments.">
+      <created>1630847703621</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1630847703621</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added sale manager model &amp; user listener.">
+      <created>1631387052071</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1631387052071</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,12 +264,25 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Added adding description after 10 assessments." />
+    <MESSAGE value="Added sale manager model &amp; user listener." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sale manager model &amp; user listener." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

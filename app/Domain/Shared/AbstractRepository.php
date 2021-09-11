@@ -14,4 +14,10 @@ interface AbstractRepository
      * @return mixed
      */
     public function findOrFail($id);
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function find($id);
 }

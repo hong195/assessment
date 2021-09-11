@@ -11,6 +11,7 @@ use App\Http\Controllers\FinalGradeController;
 use App\Http\Controllers\PharmaciesCompletedFinalGradeController;
 use App\Http\Controllers\PharmaciesController;
 use App\Http\Controllers\PharmacyEmployeesController;
+use App\Http\Controllers\SaleManagerPharmaciesController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -60,6 +61,8 @@ Route::apiResource('criteria.options', CriteriaOptionsController::class)
 Route::apiResource('pharmacies', PharmaciesController::class);
 
 Route::apiResource('users', UsersController::class);
+
+Route::apiResource('sale-manager.pharmacies', SaleManagerPharmaciesController::class);
 
 Route::post('final-grade/{finalGradeId}/description', [AddFinalGradeDescription::class, 'store']);
 

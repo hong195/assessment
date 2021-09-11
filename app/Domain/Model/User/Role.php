@@ -14,6 +14,7 @@ final class Role
     public const REVIEWER = 'reviewer';
     public const EDITOR = 'editor';
     public const ADMIN = 'admin';
+    public const SALE_MANAGER = 'sale_manager';
 
     /**
      * @ORM\Column(type="string", name="role")
@@ -48,7 +49,7 @@ final class Role
      */
     private function validateRole(string $role) : void
     {
-        if (!in_array($role, [self::REVIEWER, self::EDITOR, self::ADMIN])) {
+        if (!in_array($role, [self::REVIEWER, self::EDITOR, self::ADMIN, self::SALE_MANAGER])) {
             throw new InvalidRoleException;
         }
     }

@@ -88,46 +88,35 @@ const router = new Router({
             ],
           },
         },
-
+        {
+          name: 'sale-mangers',
+          path: 'sale-managers/:id',
+          component: () => import('@/views/dashboard/salesManager/Index'),
+        },
+        {
+          name: 'sale-mangers-pharmacies',
+          path: 'sale-managers/:id',
+          component: () => import('@/views/dashboard/pharmacies/Update'),
+        },
         {
           name: 'pharmacies',
           path: 'pharmacies',
           component: () => import('@/views/dashboard/pharmacies/Index'),
-          meta: {
-            middleware: [
-              isEditor,
-            ],
-          },
         },
         {
           name: 'create-pharmacy',
           path: 'pharmacies/create',
           component: () => import('@/views/dashboard/pharmacies/Create'),
-          meta: {
-            middleware: [
-              isEditor,
-            ],
-          },
         },
         {
           name: 'pharmacy-rating',
           path: 'pharmacy-rating',
           component: () => import('@/views/dashboard/pharmacies/PharmacyByYear'),
-          meta: {
-            middleware: [
-              // isEditor,
-            ],
-          },
         },
         {
           name: 'update-pharmacy',
           path: 'pharmacies/:id',
           component: () => import('@/views/dashboard/pharmacies/Update'),
-          meta: {
-            middleware: [
-              isEditor,
-            ],
-          },
         },
         {
           name: 'users',

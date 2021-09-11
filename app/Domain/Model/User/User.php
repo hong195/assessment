@@ -9,6 +9,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 
 /**
  * @ORM\Entity
+ * @ORM\EntityListeners({"App\Domain\Listeners\UserListener"})
  */
 class User implements Authenticatable, JWTSubject
 {

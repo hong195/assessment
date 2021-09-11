@@ -4,10 +4,11 @@
 namespace App\Domain\Model\Pharmacy;
 
 
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Domain\Model\Employee\Employee;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * @ORM\Entity
@@ -30,6 +31,11 @@ class Pharmacy
     private Collection $employees;
 
     /**
+     * @ORM\OneToMany(targetEntity="App\Domain\Model\SaleManager\SaleManager", mappedBy="pharmacies", cascade={"persist","remove"})
+     */
+    private Collection $saleManagers;
+
+    /**
      * @ORM\Embedded (class="PharmacyNumber")
      */
     private PharmacyNumber $number;
@@ -39,10 +45,11 @@ class Pharmacy
      */
     private ?string $address;
 
-    public function __construct(PharmacyId $pharmacyId, PharmacyNumber $number, Email $email, string $address = null)
+    #[Pure] public function __construct(PharmacyId $pharmacyId, PharmacyNumber $number, Email $email, string $address = null)
     {
         $this->email = $email;
         $this->employees = new ArrayCollection([]);
+        $this->saleManagers = new ArrayCollection([]);
         $this->id = $pharmacyId;
         $this->number = $number;
         $this->address = $address;
@@ -107,5 +114,13 @@ class Pharmacy
     public function getAddress(): ?string
     {
         return $this->address;
+    }
+
+    /**
+     * @return ArrayCollection|Collection
+     */
+    public function getSaleManagers(): ArrayCollection|Collection
+    {
+        return $this->saleManagers;
     }
 }

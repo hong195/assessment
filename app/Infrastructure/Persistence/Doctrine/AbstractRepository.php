@@ -18,6 +18,10 @@ abstract class AbstractRepository
         $this->repository = $this->em->getRepository($entity);
     }
 
+    public function find($id)
+    {
+        return $this->repository->find($id);
+    }
     /**
      * @throws NotFoundEntityException
      */
