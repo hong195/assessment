@@ -90,13 +90,13 @@ const router = new Router({
         },
         {
           name: 'sale-mangers',
-          path: 'sale-managers/:id',
+          path: 'sale-managers',
           component: () => import('@/views/dashboard/salesManager/Index'),
         },
         {
           name: 'sale-mangers-pharmacies',
           path: 'sale-managers/:id',
-          component: () => import('@/views/dashboard/pharmacies/Update'),
+          component: () => import('@/views/dashboard/salesManager/Update'),
         },
         {
           name: 'pharmacies',
@@ -184,28 +184,4 @@ const router = new Router({
   ],
 })
 
-// router.beforeEach((to, from, next) => {
-//   if (!to.meta.middleware) {
-//     return next()
-//   }
-//
-//   if (to.path === '/') {
-//     return next({
-//       name: 'home',
-//     })
-//   }
-//
-//   const middleware = to.meta.middleware
-//   const context = {
-//     to,
-//     from,
-//     next,
-//     store,
-//   }
-//
-//   return middleware[0]({
-//     ...context,
-//     next: middlewarePipeline(context, middleware, 1),
-//   })
-// })
 export default router

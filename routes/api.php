@@ -62,7 +62,8 @@ Route::apiResource('pharmacies', PharmaciesController::class);
 
 Route::apiResource('users', UsersController::class);
 
-Route::apiResource('sale-manager.pharmacies', SaleManagerPharmaciesController::class);
+Route::apiResource('sale-manager-pharmacies', SaleManagerPharmaciesController::class)
+    ->only(['index', 'store', 'show']);
 
 Route::post('final-grade/{finalGradeId}/description', [AddFinalGradeDescription::class, 'store']);
 

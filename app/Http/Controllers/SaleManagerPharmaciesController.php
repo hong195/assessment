@@ -2,62 +2,54 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Domain\Model\SaleManager\SaleManagerRepository;
+use App\Http\Requests\SaleManagerPharmaciesRequest;
+use App\Http\Resources\SaleManagerResource;
+use App\Infrastructure\Services\SaleManagerService;
 
 class SaleManagerPharmaciesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    private SaleManagerService $managerService;
+    private SaleManagerRepository $repository;
+
+    public function __construct(SaleManagerService $managerService, SaleManagerRepository $repository)
     {
-        //
+        $this->managerService = $managerService;
+        $this->repository = $repository;
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function store(Request $request)
+    public function index(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
-        //
+        return SaleManagerResource::collection($this->managerService->getSaleManagerList());
+    }
+
+    public function store(SaleManagerPharmaciesRequest $request): \Illuminate\Http\JsonResponse
+    {
+        $dto = $request->getDto();
+
+        try {
+            $this->managerService->assingPharmacies($dto);
+
+            return response()->json([
+                'message' => 'Список аптек РОП`а обновлены'
+            ]);
+
+        }catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Ошибка при назначении аптек, повторите позже',
+                'tet' => $e::class
+            ], $e->getCode());
+        }
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @throws \App\Exceptions\NotFoundEntityException
      */
-    public function show($id)
+    public function show(int $id): SaleManagerResource
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return SaleManagerResource::make($this->repository->findOrFail($id));
     }
 }

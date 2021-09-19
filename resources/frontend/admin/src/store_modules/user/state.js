@@ -5,5 +5,6 @@ export default () => ({
   authError: null,
   isAdmin: false,
   isEditor: false,
+  isSaleManager: false,
   permissions: [],
 })

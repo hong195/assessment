@@ -24,4 +24,9 @@ final class DoctrineSaleManagerRepository extends AbstractRepository implements 
 
         return $query->getResult();
     }
+
+    public function getAll(): array
+    {
+        return $this->repository->findAll();
+    }
 }

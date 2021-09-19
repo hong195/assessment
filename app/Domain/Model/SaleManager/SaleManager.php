@@ -40,14 +40,6 @@ class SaleManager
     /**
      * @return int
      */
-    public function getSalaManagerId(): int
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
@@ -67,24 +59,16 @@ class SaleManager
     }
 
     /**
-     * @param Collection $pharmacies
+     * @param array $pharmacies
      */
-    public function assignPharmacis(Collection $pharmacies)
+    public function assignPharmacies(array $pharmacies) : void
     {
-        $this->pharmacies = $pharmacies;
+        $this->pharmacies = new ArrayCollection($pharmacies);
     }
 
-    /**
-     * @param Pharmacy $pharmacyToDeAssign
-     */
-    public function deAssginPharmacy(Pharmacy $pharmacyToDeAssign)
+    public function deAssginPharmacies() : void
     {
-        foreach ($this->pharmacies as $key => $pharmacy) {
-            if ($pharmacy->getId()->isEquals($pharmacyToDeAssign->getId())) {
-                unset($this->pharmacies[$key]);
-                break;
-            }
-        }
+        $this->pharmacies = new ArrayCollection([]);
     }
     /**
      * @return ArrayCollection|Collection

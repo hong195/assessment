@@ -40,7 +40,7 @@
       </v-tabs>
     </base-material-card>
     <base-material-card
-      v-if="criteriaToShow.length"
+      v-if="criteriaToShow.length && showAttributeWheel"
       color="green"
       icon="mdi-poll-box"
       inline
@@ -78,6 +78,12 @@
     name: 'PharmacyRating',
     components: { PolarChart, TableChart, MonthPicker },
     mixins: [BarChartMixin],
+    props: {
+      showAttributeWheel: {
+        type: Boolean,
+        default: true,
+      },
+    },
     data () {
       return {
         polarChart: {

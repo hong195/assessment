@@ -15,7 +15,6 @@ class FinalGradesQuery
     private ?int $year = null;
     private ?string $status = null;
     private ?string $pharmacyId = null;
-    private ?string $employeeName = null;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
@@ -56,7 +55,7 @@ class FinalGradesQuery
      * @param int $perPage
      * @return FinalGrade[]
      */
-    public function execute(int $perPage = 10000)
+    public function execute(int $perPage = 10000): array
     {
         $queryBuilder = $this->entityManager
             ->getRepository(FinalGrade::class)

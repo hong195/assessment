@@ -28,5 +28,9 @@ export default {
     } else if (state.currentUser.role === 'editor') {
       state.isEditor = true
     }
+
+    if (state.currentUser.role === 'sale-manager') {
+      state.isSaleManager = true
+    }
   },
 }

@@ -61,6 +61,16 @@ class InMemoryPharmacyRepository implements PharmacyRepository
 
     public function findOrFail($id): mixed
     {
-        // TODO: Implement findOrFail() method.
+        return;
+    }
+
+    public function find($id)
+    {
+        // TODO: Implement find() method.
+    }
+
+    public function findByIds(array $pharmaciesIds)
+    {
+        // TODO: Implement findByIds() method.
     }
 }

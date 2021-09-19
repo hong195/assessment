@@ -6,8 +6,6 @@ use App\Domain\Listeners\UserListener;
 use App\Domain\Model\SaleManager\SaleManagerRepository;
 use App\Infrastructure\Persistence\Doctrine\DoctrineSaleManagerRepository;
 use App\Infrastructure\Services\FinalGradesQuery;
-use App\Domain\Model\SaleManager\SaleManagerTranslator as SaleManagerTranslatorInterface;
-use App\Infrastructure\Services\SaleManagerTranstalor;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Domain\Model\Criterion\CriterionRepository;
 use App\Domain\Model\FinalGrade\FinalGradeRepository;
@@ -111,12 +109,6 @@ class AppServiceProvider extends ServiceProvider
             $em = $this->app->make(EntityManagerInterface::class);
             return new DoctrineSaleManagerRepository($em);
         });
-
-        /** @var EntityManagerInterface $em */
-        $em = $this->app->make(EntityManagerInterface::class);
-        $saleMangerRepo = $this->app->make(SaleManagerRepository::class);
-        $userListener = $this->app->makeWith(UserListener::class, [$saleMangerRepo, $em]);
-        $em->getConfiguration()->getEntityListenerResolver()->register($userListener);
     }
 
     /**
@@ -126,6 +118,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /** @var EntityManagerInterface $em */
+        $em = $this->app->make(EntityManagerInterface::class);
+        $saleMangerRepo = $this->app->make(SaleManagerRepository::class);
+        $userListener = $this->app->makeWith(UserListener::class, [$saleMangerRepo, $em]);
+        $em->getConfiguration()->getEntityListenerResolver()->register($userListener);
     }
 }

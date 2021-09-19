@@ -11,8 +11,8 @@
       :error-messages="errors"
       :items="options"
       v-bind="attributes"
-      item-text="name"
-      item-value="id"
+      :item-text="fieldLabel"
+      :item-value="fieldValue"
       :label="label"
       @change="updateValue"
     />
@@ -28,6 +28,14 @@
       options: {
         type: Array,
         default: () => [],
+      },
+    },
+    computed: {
+      fieldLabel () {
+        return this.attributes['item-text'] ? this.attributes['item-text'] : 'name'
+      },
+      fieldValue () {
+        return this.attributes['item-value'] ? this.attributes['item-value'] : 'id'
       },
     },
     watch: {

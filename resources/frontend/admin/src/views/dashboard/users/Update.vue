@@ -91,6 +91,10 @@
               id: 'editor',
               name: 'Проверяющий',
             },
+            {
+              id: 'sale_manager',
+              name: 'РОП',
+            },
           ],
           rule: 'required',
           value: null,

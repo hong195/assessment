@@ -18,4 +18,6 @@ interface PharmacyRepository extends AbstractRepository
     public function remove(Pharmacy $pharmacy);
 
     public function findByNumber(PharmacyNumber $number);
+
+    public function findByIds(array $pharmaciesIds);
 }

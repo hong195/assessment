@@ -44,9 +44,10 @@ class DoctrinePharmacyRepository extends AbstractRepository implements PharmacyR
     {
         return new ArrayCollection($this->repository->findBy(['number.number' => (string) $number]));
     }
+
     public function findByEmployeeIds(array $ids): ArrayCollection
     {
-        $qb = $this->repository->createQueryBuilder('p');
+        $qb = $this->getQuery();
 
         $query = $qb->select('p')
             ->leftJoin(Employee::class, 'e',
@@ -56,5 +57,21 @@ class DoctrinePharmacyRepository extends AbstractRepository implements PharmacyR
             ->getQuery();
 
         return new ArrayCollection($query->getResult());
+    }
+
+    public function findByIds(array $pharmaciesIds): ArrayCollection
+    {
+        $qb = $this->getQuery();
+
+        $query=  $qb->select('p')
+            ->add('where', $qb->expr()->in('p.id', $pharmaciesIds))
+            ->getQuery();
+
+        return new ArrayCollection($query->getResult());
+    }
+
+    private function getQuery(): \Doctrine\ORM\QueryBuilder
+    {
+        return $this->repository->createQueryBuilder('p');
     }
 }
