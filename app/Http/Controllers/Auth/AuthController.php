@@ -25,11 +25,13 @@ class AuthController extends Controller
      */
     public function login(): \Illuminate\Http\JsonResponse
     {
-        $credentials = request(['email', 'password']);
+        $credentials = [
+            'password' => request()->get('password'),
+            'login.login' => request()->get('login')
+        ];
 
-        //Todo make remember me, correctly
-        if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['error' =>  __('auth.failed')], 401);
+        if (!$token = auth()->attempt($credentials)) {
+            return response()->json(['error' => __('auth.failed')], 401);
         }
 
         return $this->respondWithToken($token);
@@ -72,7 +74,7 @@ class AuthController extends Controller
     /**
      * Get the token array structure.
      *
-     * @param  string $token
+     * @param string $token
      *
      * @return \Illuminate\Http\JsonResponse
      */
