@@ -48,6 +48,7 @@
   import adminItems from './sidebarMenuItems/adminItems'
   import editorItems from './sidebarMenuItems/editorItems'
   import _isEmpty from 'lodash'
+  import saleManagerItems from '@/components/dashboard/core/sidebarMenuItems/saleManagerItems'
 
   export default {
     name: 'DashboardCoreDrawer',
@@ -63,6 +64,7 @@
       items: subscriberItems,
       itemsAdmin: adminItems,
       itemsEditor: editorItems,
+      itemsSaleManager: saleManagerItems,
     }),
 
     computed: {
@@ -88,6 +90,9 @@
           return this.itemsEditor.map(this.mapItem)
         }
 
+        if (user.isSaleManager) {
+          return this.itemsSaleManager.map(this.mapItem)
+        }
         return this.items.map(this.mapItem)
       },
       profile () {

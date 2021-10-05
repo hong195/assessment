@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/Drawer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/Drawer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/saleManagerItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/saleManagerItems.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/salesManager/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/salesManager/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/pages/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/pages/Login.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +248,7 @@
       <workItem from="1632111152779" duration="604000" />
       <workItem from="1632293804412" duration="138000" />
       <workItem from="1633364878479" duration="3999000" />
-      <workItem from="1633452867510" duration="2346000" />
+      <workItem from="1633452867510" duration="2838000" />
     </task>
     <task id="LOCAL-00001" summary="Added adding description after 10 assessments.">
       <created>1630847703621</created>
@@ -286,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633454002206</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed login bug.">
+      <created>1633455436647</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1633455436647</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +332,8 @@
     <MESSAGE value="Added adding description after 10 assessments." />
     <MESSAGE value="Added sale manager model &amp; user listener." />
     <MESSAGE value="Added sale manager model &amp; user service &amp; controller." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added sale manager model &amp; user service &amp; controller." />
+    <MESSAGE value="Fixed login bug." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed login bug." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
