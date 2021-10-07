@@ -24,7 +24,7 @@ class PharmacyFinalGradeService
         $yearlyPharmacyGrades = [];
 
         if ($pharmacyId) {
-            $this->finalGradesQuery->byPharmacy($pharmacyId);
+            $this->finalGradesQuery->byPharmacies($pharmacyId);
         }
 
         foreach (range(1,12) as $month) {

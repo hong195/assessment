@@ -14,7 +14,7 @@ class FinalGradesQuery
     private ?int $month = null;
     private ?int $year = null;
     private ?string $status = null;
-    private ?string $pharmacyId = null;
+    private array $pharmacyIds = [];
 
     public function __construct(EntityManagerInterface $entityManager)
     {
@@ -39,9 +39,9 @@ class FinalGradesQuery
         return $this;
     }
 
-    public function byPharmacy(string $pharmacyId): static
+    public function byPharmacies(array $pharmacyIds): static
     {
-        $this->pharmacyId = $pharmacyId;
+        $this->pharmacyIds = $pharmacyIds;
         return $this;
     }
 
@@ -77,17 +77,17 @@ class FinalGradesQuery
                 ->setParameter('status', $this->status);
         }
 
-        if ($this->pharmacyId) {
+        if ($this->pharmacyIds) {
             $queryBuilder
                 ->innerJoin(Employee::class, 'e',
                 \Doctrine\ORM\Query\Expr\Join::WITH,
                 'e.id = f.employeeId'
             )
-                ->andWhere('e.pharmacy = :pharmacyId')
-                ->setParameter('pharmacyId', $this->pharmacyId);
+                ->andWhere($queryBuilder->expr()->in('e.pharmacy', $this->pharmacyIds));
         }
 
         $queryBuilder->setMaxResults($perPage);
+
 
         $queryBuilder->orderBy('f.scored/f.total', 'ASC');
 

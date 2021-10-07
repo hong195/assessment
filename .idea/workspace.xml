@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/mutations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/state.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/Drawer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/Drawer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/saleManagerItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/core/sidebarMenuItems/saleManagerItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/user/mutations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesCompletedFinalGradeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesCompletedFinalGradeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradesQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradesQuery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/PharmacyFinalGradeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/PharmacyFinalGradeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/PharmacyRating.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/PharmacyRating.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/salesManager/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/salesManager/Index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -248,7 +255,8 @@
       <workItem from="1632111152779" duration="604000" />
       <workItem from="1632293804412" duration="138000" />
       <workItem from="1633364878479" duration="3999000" />
-      <workItem from="1633452867510" duration="2838000" />
+      <workItem from="1633452867510" duration="3634000" />
+      <workItem from="1633617059193" duration="4025000" />
     </task>
     <task id="LOCAL-00001" summary="Added adding description after 10 assessments.">
       <created>1630847703621</created>
@@ -292,7 +300,21 @@
       <option name="project" value="LOCAL" />
       <updated>1633455436647</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added sale manager menu items.">
+      <created>1633455727924</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1633455727924</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added sale manager menu items.">
+      <created>1633455737891</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1633455737891</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +355,8 @@
     <MESSAGE value="Added sale manager model &amp; user listener." />
     <MESSAGE value="Added sale manager model &amp; user service &amp; controller." />
     <MESSAGE value="Fixed login bug." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed login bug." />
+    <MESSAGE value="Added sale manager menu items." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sale manager menu items." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

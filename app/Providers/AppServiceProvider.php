@@ -98,8 +98,8 @@ class AppServiceProvider extends ServiceProvider
                 $finalGradeQuery->byStatus($status);
             }
 
-            if ($pharmacyId = request('pharmacyId')) {
-                $finalGradeQuery->byPharmacy($pharmacyId);
+            if ($pharmaciesIds = request('pharmaciesIds')) {
+                $finalGradeQuery->byPharmacies($pharmaciesIds);
             }
 
             return $finalGradeQuery;

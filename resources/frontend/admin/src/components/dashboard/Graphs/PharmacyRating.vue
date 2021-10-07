@@ -83,6 +83,10 @@
         type: Boolean,
         default: true,
       },
+      pharmaciesIds: {
+        type: Array,
+        default: () => [],
+      },
     },
     data () {
       return {
@@ -124,11 +128,19 @@
       fetchData () {
         const date = moment(this.date)
         this.isLoading = true
+
+        const params = {
+          year: date.format('YYYY'),
+          month: date.format('M'),
+          test: 2323,
+        }
+
+        if (this.pharmaciesIds.length) {
+          params.pharmaciesIds = this.pharmaciesIds
+        }
+
         this.axios.get('pharmacies-final-grade', {
-          params: {
-            year: date.format('YYYY'),
-            month: date.format('M'),
-          },
+          params,
         })
           .then((data) => {
             this.isLoading = false

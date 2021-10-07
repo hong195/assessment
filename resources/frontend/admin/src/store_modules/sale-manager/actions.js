@@ -9,5 +9,8 @@ export default {
   },
   fetchSaleManager ({ commit }, id) {
     return axios.get(`sale-manager-pharmacies/${id}`)
+      .then(({ data }) => {
+          commit('setSaleMangerPharmacies', data.data)
+      })
   },
 }

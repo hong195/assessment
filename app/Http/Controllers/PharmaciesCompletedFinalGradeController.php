@@ -27,7 +27,7 @@ class PharmaciesCompletedFinalGradeController extends Controller
         $this->pharmacyRepository = $pharmacyRepository;
     }
 
-    public function index(Request $request)
+    public function index(Request $request): \Illuminate\Http\JsonResponse|array
     {
         $month = $request->get('month');
         $year = $request->get('year');

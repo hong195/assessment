@@ -1,8 +1,9 @@
 <template>
   <v-container>
-    <template v-if="isSaleManager">
+    <template v-if="isSaleManager && pharmaciesIds.length">
       <pharmacy-rating
         :show-attribute-wheel="false"
+        :pharmacies-ids="pharmaciesIds"
       />
     </template>
     <template v-if="isAdmin">
@@ -40,12 +41,13 @@
 <script>
   import PharmacyRating from '@/components/dashboard/Graphs/PharmacyRating'
   import DataTable from '@/components/dashboard/DataTable'
-  import { mapState } from 'vuex'
+  import { mapActions, mapState } from 'vuex'
   export default {
     name: 'SalesManagerPharmacies',
     components: { PharmacyRating, DataTable },
     data () {
       return {
+        currentSaleManager: null,
         headers: [
           {
             text: 'Идентификатор',
@@ -72,9 +74,17 @@
       }
     },
     computed: {
-      ...mapState('user', ['isSaleManager', 'isAdmin']),
+      ...mapState('user', ['isSaleManager', 'isAdmin', 'currentUser']),
+      ...mapState('saleManager', ['pharmaciesIds']),
+    },
+    mounted () {
+      this.fetchSaleManager(this.currentUser.id)
+        .then(({ data }) => {
+          this.currentSaleManager = data.data
+        })
     },
     methods: {
+      ...mapActions('saleManager', ['fetchSaleManager']),
       getSaleManagerPharmaciesName (saleManager) {
         if (!saleManager || !saleManager.pharmacies.length) {
           return ''
