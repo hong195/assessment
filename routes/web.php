@@ -1,10 +1,12 @@
 <?php
 
+use App\Notifications\FinalGradeCompleted;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Domain\Model\Employee\EmployeeRepository;
 use App\Domain\Model\Pharmacy\PharmacyId;
 use App\Domain\Model\User\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +22,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('admin');
+});
+
+Route::get('/email', function () {
+    Notification::route('mail', ['alexeyhong10@gmail.com'])
+        ->notify(new FinalGradeCompleted([]));
 });

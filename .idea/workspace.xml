@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/mutations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/state.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Jobs/SendToPharmacyEmailJob.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Notifications/FinalGradeCompleted.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/mail/pharmacyEmail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesCompletedFinalGradeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesCompletedFinalGradeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradesQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradesQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/PharmacyFinalGradeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/PharmacyFinalGradeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/PharmacyRating.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/PharmacyRating.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/salesManager/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/salesManager/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +198,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Vue" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -221,12 +216,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager" />
+      <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/app/Domain/Listeners" />
+      <recent name="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager" />
       <recent name="$PROJECT_DIR$/app/Domain/Model/User" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/salesManager" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/mail" />
+      <recent name="$PROJECT_DIR$/resources/views/vendor/mail" />
       <recent name="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/salesManager" />
     </key>
   </component>
@@ -256,7 +254,12 @@
       <workItem from="1632293804412" duration="138000" />
       <workItem from="1633364878479" duration="3999000" />
       <workItem from="1633452867510" duration="3634000" />
-      <workItem from="1633617059193" duration="4025000" />
+      <workItem from="1633617059193" duration="4720000" />
+      <workItem from="1633667586486" duration="2000" />
+      <workItem from="1633973111871" duration="1959000" />
+      <workItem from="1634142818273" duration="2587000" />
+      <workItem from="1634145692148" duration="10000" />
+      <workItem from="1634314710734" duration="5174000" />
     </task>
     <task id="LOCAL-00001" summary="Added adding description after 10 assessments.">
       <created>1630847703621</created>
@@ -314,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633455737891</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added salemanager final grades.">
+      <created>1633621930067</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1633621930067</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +366,8 @@
     <MESSAGE value="Added sale manager model &amp; user service &amp; controller." />
     <MESSAGE value="Fixed login bug." />
     <MESSAGE value="Added sale manager menu items." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added sale manager menu items." />
+    <MESSAGE value="Added salemanager final grades." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added salemanager final grades." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

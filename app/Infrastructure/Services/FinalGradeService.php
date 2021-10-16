@@ -11,6 +11,7 @@ use App\Domain\Model\Assessment\Reviewer;
 use App\Domain\Model\Assessment\ReviewerId;
 use App\Domain\Model\Assessment\ReviewerName;
 use App\Domain\Shared\Id;
+use App\Jobs\SendToPharmacyEmailJob;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityNotFoundException;
@@ -73,6 +74,8 @@ class FinalGradeService
         $analyses = new FinalGrade($id, $employeeId, $month);
         $this->repository->add($analyses);
         $this->em->flush();
+
+        SendToPharmacyEmailJob::dispatch((string) $employeeId);
     }
 
     private function getMontlyEmployeeAnalyses(EmployeeId $employeeId, Month $month)
