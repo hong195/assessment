@@ -54,6 +54,7 @@
   import FormBase from '@/components/form/FormBase'
   import { mapActions } from 'vuex'
   import SelectField from '../../../components/form/fields/SelectField'
+  import moment from 'moment'
   export default {
     name: 'Create',
     components: {

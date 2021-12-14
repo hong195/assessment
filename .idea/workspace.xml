@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/FinalGrade/FinalGradeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/FinalGrade/FinalGradeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FinalGradeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FinalGradeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrineFinalGradeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Persistence/Doctrine/DoctrineFinalGradeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Persistence/InMemory/InMemoryFinalGradeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Persistence/InMemory/InMemoryFinalGradeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CreateFinalGradeRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CreateFinalGradeRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/final-grade/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/final-grade/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Create.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +271,7 @@
       <workItem from="1638355736178" duration="944000" />
       <workItem from="1638966691990" duration="3547000" />
       <workItem from="1639418030439" duration="2281000" />
-      <workItem from="1639501000822" duration="2454000" />
+      <workItem from="1639501000822" duration="3121000" />
     </task>
     <task id="LOCAL-00001" summary="Added adding description after 10 assessments.">
       <created>1630847703621</created>
@@ -362,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639501683772</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added removing final grade.">
+      <created>1639503579801</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1639503579801</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +410,8 @@
     <MESSAGE value="Added pharmacy notification mail template." />
     <MESSAGE value="Added pharmacy notification." />
     <MESSAGE value="Fixed salemanager bug." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed salemanager bug." />
+    <MESSAGE value="Added removing final grade." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added removing final grade." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

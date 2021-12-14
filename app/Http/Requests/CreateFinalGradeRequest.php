@@ -19,6 +19,6 @@ class CreateFinalGradeRequest extends AbstractJsonRequest
      */
     public function getDto() : FinalGradeDto
     {
-        return new FinalGradeDto($this->get('employee_id'), new \DateTime($this->get('month')));
+        return new FinalGradeDto($this->get('employee_id'), new \DateTime($this->get('assessment_month')));
     }
 }
