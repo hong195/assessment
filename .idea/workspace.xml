@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CreateFinalGradeRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CreateFinalGradeRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +269,7 @@
       <workItem from="1638355736178" duration="944000" />
       <workItem from="1638966691990" duration="3547000" />
       <workItem from="1639418030439" duration="2281000" />
-      <workItem from="1639501000822" duration="3121000" />
+      <workItem from="1639501000822" duration="3286000" />
     </task>
     <task id="LOCAL-00001" summary="Added adding description after 10 assessments.">
       <created>1630847703621</created>
@@ -364,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639503579801</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fixed wrong assessment month bug.">
+      <created>1639504184523</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1639504184523</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,7 +416,8 @@
     <MESSAGE value="Added pharmacy notification." />
     <MESSAGE value="Fixed salemanager bug." />
     <MESSAGE value="Added removing final grade." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added removing final grade." />
+    <MESSAGE value="Fixed wrong assessment month bug." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed wrong assessment month bug." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
