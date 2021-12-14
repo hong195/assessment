@@ -12,10 +12,12 @@ class FinalGradeCompleted extends Notification
     use Queueable;
 
     private $finalGrade;
+    private $employees;
 
-    public function __construct($finalGrade)
+    public function __construct($finalGrade, $employees)
     {
         $this->finalGrade = $finalGrade;
+        $this->employees = $employees;
     }
 
     /**
@@ -40,7 +42,10 @@ class FinalGradeCompleted extends Notification
         return (new MailMessage)
                     ->greeting(' ')
                     ->subject('Рейтинг сотрудников')
-                    ->markdown('mail.pharmacyEmail', ['finalGrades' => []]);
+                    ->markdown('mail.pharmacyEmail', [
+                        'finalGrades' => $this->finalGrade,
+                        'employees'=> $this->employees
+                    ]);
     }
 
     /**

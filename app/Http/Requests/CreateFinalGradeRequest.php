@@ -10,7 +10,7 @@ class CreateFinalGradeRequest extends AbstractJsonRequest
     {
         return [
             'employee_id' => ['string', 'required'],
-            'month' => ['date', 'required'],
+            'assessment_month' => ['date', 'required'],
         ];
     }
 

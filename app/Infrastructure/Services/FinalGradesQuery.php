@@ -27,7 +27,7 @@ class FinalGradesQuery
         return $this;
     }
 
-    public function byMonth(int $month): static
+    public function byMonth($month): static
     {
         $this->month = $month;
         return $this;

@@ -4,6 +4,7 @@
 namespace App\Domain\Model\FinalGrade;
 
 use App\Exceptions\UncompletedFinalGradeException;
+use App\Jobs\SendToPharmacyEmailJob;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

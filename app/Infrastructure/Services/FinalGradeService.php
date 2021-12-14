@@ -74,8 +74,6 @@ class FinalGradeService
         $analyses = new FinalGrade($id, $employeeId, $month);
         $this->repository->add($analyses);
         $this->em->flush();
-
-        SendToPharmacyEmailJob::dispatch((string) $employeeId);
     }
 
     private function getMontlyEmployeeAnalyses(EmployeeId $employeeId, Month $month)
@@ -115,6 +113,10 @@ class FinalGradeService
         $assessment->assignReviewer($this->getReviewer());
 
         $this->em->flush();
+
+        if ($analyses->isMaxReviewsAdded()) {
+            SendToPharmacyEmailJob::dispatch((string) $analyses->getEmployeeId());
+        }
     }
 
     /**

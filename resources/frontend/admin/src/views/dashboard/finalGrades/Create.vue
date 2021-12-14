@@ -137,7 +137,7 @@
       submit () {
         this.create({
           employee_id: this.formValue.employee_id,
-          month: this.formValue.month,
+          assessment_month: this.formValue.month,
         })
           .then(() => {
             this.$store.commit('successMessage', 'Итоговая оценка создана')

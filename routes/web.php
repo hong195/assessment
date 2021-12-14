@@ -25,6 +25,17 @@ Route::get('/', function () {
 });
 
 Route::get('/email', function () {
+    $employeeRepository = app()->make(EmployeeRepository::class);
+    $finalGradeRepository = app()->make(\App\Infrastructure\Services\FinalGradesQuery::class);
+    $employee = $employeeRepository->find('0de88675-bec5-44ae-84cb-755f36302123');
+    $pharmacy  = $employee->getPharmacy();
+
+    $finalGrades = $finalGradeRepository
+        ->byPharmacies([(string) $pharmacy->getId()])
+        ->execute();
+
+    $employees = $pharmacy->getEmployees()->toArray();
+
     Notification::route('mail', ['alexeyhong10@gmail.com'])
-        ->notify(new FinalGradeCompleted([]));
+        ->notify(new FinalGradeCompleted($finalGrades, $employees));
 });
