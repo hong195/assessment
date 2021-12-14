@@ -15,7 +15,7 @@
 
       <v-row justify="end">
         <v-col>
-          <v-btn color="primary" @click="addFinalGrade">
+          <v-btn v-if="isAdmin" color="primary" @click="addFinalGrade">
             Добавить
           </v-btn>
         </v-col>
@@ -77,7 +77,7 @@
   import moment from 'moment'
   import FinalGradeColor from '@/components/dashboard/mixins/FinalGradeColor'
   import Create from './Create'
-  import { mapActions } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
   import ViewFinalGradeModal from './ViewFinalGradeModal'
   import AssessmentBtnCount from './AssessmentBtnCount'
   import Filters from './Filters'
@@ -150,6 +150,9 @@
           pharmacyId: this.pharmacyId,
           withRating: this.withRating,
         }
+      },
+      isAdmin () {
+        return this.$store.state.user.isAdmin
       },
     },
     mounted () {
