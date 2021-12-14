@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="Added pharmacy notification mail template.">
+    <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/FinalGrade/FinalGrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/FinalGrade/FinalGrade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CreateFinalGradeRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CreateFinalGradeRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradesQuery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradesQuery.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/SendToPharmacyEmailJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/SendToPharmacyEmailJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Notifications/FinalGradeCompleted.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/FinalGradeCompleted.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/.env.production" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mail/pharmacyEmail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail/pharmacyEmail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/sale-manager/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/salesManager/Update.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/salesManager/Update.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,6 +270,7 @@
       <workItem from="1638355736178" duration="944000" />
       <workItem from="1638966691990" duration="3547000" />
       <workItem from="1639418030439" duration="2281000" />
+      <workItem from="1639501000822" duration="655000" />
     </task>
     <task id="LOCAL-00001" summary="Added adding description after 10 assessments.">
       <created>1630847703621</created>
@@ -349,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634408059248</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added pharmacy notification.">
+      <created>1639501069264</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1639501069264</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,7 +393,8 @@
     <MESSAGE value="Added sale manager menu items." />
     <MESSAGE value="Added salemanager final grades." />
     <MESSAGE value="Added pharmacy notification mail template." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added pharmacy notification mail template." />
+    <MESSAGE value="Added pharmacy notification." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pharmacy notification." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

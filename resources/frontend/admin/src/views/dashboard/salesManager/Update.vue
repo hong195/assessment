@@ -89,9 +89,8 @@
       this.currentSaleManagerId = this.$route.params.id
 
       this.fetchSaleManager(this.$route.params.id)
-        .then(({ data }) => {
-          this.currentSaleManager = data.data
-
+        .then((data) => {
+          this.currentSaleManager = data
           this.selectedPharmacies = this.currentSaleManager.pharmacies.map((pharmacy) => {
             return pharmacy.id
           })
