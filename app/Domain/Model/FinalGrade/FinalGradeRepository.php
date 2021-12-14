@@ -7,7 +7,6 @@ namespace App\Domain\Model\FinalGrade;
 use App\Domain\Model\Employee\EmployeeId;
 use App\Domain\Shared\AbstractRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Domain\Shared\Id;
 
 interface FinalGradeRepository extends AbstractRepository
 {
@@ -22,4 +21,6 @@ interface FinalGradeRepository extends AbstractRepository
     public function add(FinalGrade $efficiencyAnalysis) : void;
 
     public function all() : ArrayCollection;
+
+    public function remove(FinalGrade $finalGrade);
 }

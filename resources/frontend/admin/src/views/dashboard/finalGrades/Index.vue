@@ -60,7 +60,7 @@
                  :icon="true"
                  color="red"
                  :disabled="(item.status === 'completed')"
-                 @click="remove(item)"
+                 @click="removeFinalaGrade(item.id)"
           >
             <v-icon>mdi-delete</v-icon>
           </v-btn>
@@ -159,7 +159,7 @@
         })
     },
     methods: {
-      ...mapActions('finalGrade', ['fetchAll']),
+      ...mapActions('finalGrade', ['fetchAll', 'remove']),
       ...mapActions('employee', {
         getEmployees: 'fetchAll',
       }),
@@ -198,7 +198,12 @@
         this.activeFinalGrade = finalGrade
         this.$refs.finalGradeModal.openModal()
       },
-      remove (finalGrade) {
+      removeFinalaGrade (finalGrade) {
+        this.remove(finalGrade)
+          .then((data) => {
+            this.$store.commit('successMessage', data.message)
+            this.fetchFinalGrades(this.filters)
+          })
       },
       addAssessment (item) {
         this.$router.push({

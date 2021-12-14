@@ -71,4 +71,9 @@ class InMemoryFinalGradeRepository implements FinalGradeRepository
     public function findOrFail($id): mixed
     {
     }
+
+    public function remove(FinalGrade $finalGrade)
+    {
+
+    }
 }

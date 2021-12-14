@@ -52,4 +52,20 @@ class FinalGradeController extends Controller
     {
         return FinalGradeResource::make($this->repository->findOrFail($id));
     }
+
+    public function destroy($id): \Illuminate\Http\JsonResponse
+    {
+        try {
+            $this->analysisService->remove($id);
+
+            return response()->json([
+                'message' => 'Итоговая оценка удаленна'
+            ]);
+
+        }catch (\Exception $e) {
+            return response()->json([
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
 }

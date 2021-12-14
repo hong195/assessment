@@ -59,4 +59,9 @@ final class DoctrineFinalGradeRepository extends  AbstractRepository implements 
     {
         return $this->repository->find($efficiencyAnalysisId);
     }
+
+    public function remove(FinalGrade $finalGrade)
+    {
+        $this->em->remove($finalGrade);
+    }
 }

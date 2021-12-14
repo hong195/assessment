@@ -40,8 +40,7 @@ Route::get('pharmacy/{pharmacyId}/final-grade', [CompletedPharmacyFinalGradeCont
 Route::get('pharmacies-final-grade', [PharmaciesCompletedFinalGradeController::class, 'index']);
 Route::get('assessments-analytics', [AssessmentAnalyticsController::class, 'index']);
 
-Route::apiResource('final-grades', FinalGradeController::class)
-    ->only(['index', 'store', 'show']);
+Route::apiResource('final-grades', FinalGradeController::class);
 
 Route::apiResource('final-grade.assessments', FinalGradeAssessmentsController::class)
     ->only(['store', 'update', 'destroy', 'show']);

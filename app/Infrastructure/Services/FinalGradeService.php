@@ -228,4 +228,17 @@ class FinalGradeService
         $finalGrade->addDescription($description);
         $this->em->flush();
     }
+
+    public function remove(string $efficiencyAnalysisId)
+    {
+        /** @var FinalGrade $analysis */
+        $analysis = $this->repository->find($efficiencyAnalysisId);
+
+        if ($analysis->isCompleted())  {
+            throw new \Exception('Невозможно удалить завершенную итоговую оценку');
+        }
+
+        $this->repository->remove($analysis);
+        $this->em->flush();
+    }
 }

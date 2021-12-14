@@ -26,4 +26,7 @@ export default {
       description: description,
     })
   },
+  remove ({ commit }, finalGradeId) {
+    return axios.delete(`final-grades/${finalGradeId}`)
+  },
 }
