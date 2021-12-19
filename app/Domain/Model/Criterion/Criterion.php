@@ -23,6 +23,10 @@ class Criterion
      */
     private string $name;
     /**
+     * @ORM\Column (type="string", nullable=true)
+     */
+    private ?string $label;
+    /**
      * @ORM\OneToMany(targetEntity="Option", mappedBy="criterion", orphanRemoval=true, cascade={"persist","remove"})
      */
     private Collection $options;
@@ -31,12 +35,13 @@ class Criterion
      */
     private int $order;
 
-    public function __construct(CriterionId $criteriaId, string $name, int $order = 0)
+    public function __construct(CriterionId $criteriaId, string $name, int $order = 0, string $label = null)
     {
         $this->name = $name;
         $this->options = new ArrayCollection([]);
         $this->id = $criteriaId;
         $this->order = $order;
+        $this->label = $label;
     }
 
     public function getOptions(): Collection
@@ -147,5 +152,13 @@ class Criterion
     public function setOrder(int $order): void
     {
         $this->order = $order;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLabel(): ?string
+    {
+        return $this->label;
     }
 }

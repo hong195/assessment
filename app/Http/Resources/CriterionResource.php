@@ -14,6 +14,7 @@ class CriterionResource extends JsonResource
         return [
             'id' => (string) $this->getId(),
             'name' => $this->getName(),
+            'label' => $this->getLabel(),
             'order' => $this->getOrder(),
             'options' => $this->getOptions()->map(function (Option $option) {
                 return [
