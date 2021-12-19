@@ -77,7 +77,7 @@
         this.removePharmacy(this.pharmacy.id)
           .then((response) => {
             this.$emit('deleted-pharmacy', this.pharmacy.id)
-            this.$store.commit('successMessage', response.data.message)
+            this.$store.commit('successMessage', 'Аптека удаленна')
           })
           .catch(error => {
             this.$store.commit('errorMessage', error)

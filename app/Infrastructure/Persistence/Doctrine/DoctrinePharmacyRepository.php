@@ -37,6 +37,12 @@ class DoctrinePharmacyRepository extends AbstractRepository implements PharmacyR
 
     public function remove(Pharmacy $pharmacy)
     {
+        $employes = $pharmacy->getEmployees();
+
+        foreach ($employes as $employee) {
+            $this->em->remove($employee);
+        }
+
         $this->em->remove($pharmacy);
     }
 

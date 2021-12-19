@@ -26,12 +26,12 @@ class Pharmacy
      */
     private Email $email;
     /**
-     * @ORM\OneToMany(targetEntity="App\Domain\Model\Employee\Employee", mappedBy="pharmacy", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="App\Domain\Model\Employee\Employee", mappedBy="pharmacy", cascade={"persist"})
      */
     private Collection $employees;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Domain\Model\SaleManager\SaleManager", mappedBy="pharmacies", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="App\Domain\Model\SaleManager\SaleManager", mappedBy="pharmacies", cascade={"persist"})
      */
     private Collection $saleManagers;
 
