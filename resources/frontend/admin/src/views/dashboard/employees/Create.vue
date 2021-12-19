@@ -101,9 +101,6 @@
     }),
     computed: {
       ...mapGetters('user', ['currentUser']),
-      isUpdate () {
-        return !!this.$route.params.id
-      },
       redirectUrl () {
         if (this.currentUser.role.id === 2) {
           return 'home'
@@ -120,6 +117,9 @@
               name: pharmacy.number,
             }
           })
+        })
+        .then(() => {
+          this.schema[0].value = this.$route.params.pharmacyId
         })
     },
     methods: {

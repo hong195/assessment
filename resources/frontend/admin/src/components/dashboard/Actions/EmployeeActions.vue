@@ -67,7 +67,7 @@
         this.removeEmployee(this.item.id)
           .then((response) => {
             this.$emit('actionDeletedResponse', this.item.id)
-            this.$store.commit('successMessage', response.data.message)
+            this.$store.commit('successMessage', 'Сотрудник удален')
           })
           .catch(error => {
             this.$store.commit('errorMessage', error)
