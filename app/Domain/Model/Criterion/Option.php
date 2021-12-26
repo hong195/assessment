@@ -33,14 +33,20 @@ class Option
     private Criterion $criterion;
 
     /**
+     * @ORM\Column (type="string", nullable=true)
+     */
+    private ?string $description;
+
+    /**
      * Option constructor.
      * @param OptionId $optionId
      * @param Criterion $criterion
      * @param string $name
-     * @param float|int $value
+     * @param float $value
+     * @param null $description
      * @throws CriterionException
      */
-    public function __construct(OptionId $optionId, Criterion $criterion, string $name, float $value = 0)
+    public function __construct(OptionId $optionId, Criterion $criterion, string $name, float $value = 0, $description = null)
     {
         $this->assertNotEmpty($name);
         $this->assertValueNotNegative($value);
@@ -48,6 +54,7 @@ class Option
         $this->name = $name;
         $this->value = $value;
         $this->criterion = $criterion;
+        $this->description = $description;
     }
 
     /**
@@ -109,5 +116,10 @@ class Option
     public function getId(): OptionId
     {
         return $this->id;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
     }
 }

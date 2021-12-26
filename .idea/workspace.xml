@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Criterion/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Criterion/Criterion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CriterionResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/CriterionResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Criterion/Option.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Criterion/Option.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +207,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -274,7 +272,10 @@
       <workItem from="1639418030439" duration="2281000" />
       <workItem from="1639501000822" duration="3653000" />
       <workItem from="1639545365450" duration="187000" />
-      <workItem from="1639916177465" duration="15213000" />
+      <workItem from="1639916177465" duration="15656000" />
+      <workItem from="1639977310918" duration="26000" />
+      <workItem from="1639977347049" duration="24000" />
+      <workItem from="1640517528647" duration="885000" />
     </task>
     <task id="LOCAL-00001" summary="Added adding description after 10 assessments.">
       <created>1630847703621</created>
@@ -402,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639919608327</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added pharmacy/employee/users import script.">
+      <created>1639938385835</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1639938385835</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,7 +462,8 @@
     <MESSAGE value="Only admin can add final grade." />
     <MESSAGE value="Fixed: pharmacy auto detect on employee creating." />
     <MESSAGE value="Fixed pharmacy removing bug." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed pharmacy removing bug." />
+    <MESSAGE value="Added pharmacy/employee/users import script." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pharmacy/employee/users import script." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
