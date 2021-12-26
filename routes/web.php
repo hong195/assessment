@@ -27,6 +27,38 @@ Route::get('/', function () {
     return view('admin');
 });
 
+Route::get('/import2', function () {
+    $criteria = DB::connection('import')
+        ->table('check_attributes')
+        ->get();
+
+
+    $criteria->each(function ($criterion){
+        $criteriaId = Uuid::uuid4()->toString();
+
+        DB::table('criteria')->insert([
+            'id' => $criteriaId,
+            'name' => $criterion->name,
+            'order' => 0,
+            'label' => $criterion->label
+        ]);
+
+        $options = DB::connection('import')->table('check_attribute_options')->get();
+
+        $options->each(function($option) use ($criteriaId) {
+            $optionId = Uuid::uuid4()->toString();
+            DB::table('options')->insert([
+                'id' => $optionId,
+                'criterion_id' => $criteriaId,
+                'name' => $option->name,
+                'value' => $option->value,
+                'description' => $option->description,
+            ]);
+        });
+    });
+});
+
+
 Route::get('/import', function () {
 
     $pharmacies = DB::connection('import')
@@ -93,7 +125,6 @@ Route::get('/import', function () {
         });
     });
 });
-
 
 function jdecoder($json_str) {
     $cyr_chars = array (
