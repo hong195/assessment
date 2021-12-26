@@ -56,7 +56,7 @@ class CriteriaController extends Controller
         $dto = $request->getDto();
 
         try {
-            $this->criterionService->update($id, $dto->name, $dto->order);
+            $this->criterionService->update($id, $dto->name, $dto->order, $dto->label);
             $this->em->flush();
 
             return response()->json([

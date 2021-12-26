@@ -26,6 +26,6 @@ export default {
     return axios.delete(`criteria/${criterionId}`)
   },
   updateCriterion ({ commit }, { criterionId, params }) {
-    return axios.patch(`criteria/${criterionId}`, params)
+    return axios.put(`criteria/${criterionId}`, params)
   },
 }

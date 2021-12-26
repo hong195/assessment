@@ -181,7 +181,8 @@ class FinalGradeService
                $criterion->getName(),
                $options,
                $selectedCriterion['selected'],
-               $selectedCriterion['description'] ?? ''
+               $selectedCriterion['description'] ?? '',
+               $selectedCriterion['label'] ?? '',
            );
         })->toArray();
     }

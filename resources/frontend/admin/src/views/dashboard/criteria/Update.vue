@@ -66,6 +66,16 @@
             rule: '',
             value: null,
           },
+          {
+            attributes: {},
+            component: 'text',
+            label: 'Слаг',
+            name: 'label',
+            placeholder: null,
+            options: [],
+            rule: 'required',
+            value: '',
+          },
         ],
       }
     },
@@ -73,6 +83,7 @@
       criterion (val) {
         this.schema[0].value = val.name
         this.schema[1].value = val.order
+        this.schema[2].value = val.label
       },
     },
     methods: {
@@ -81,6 +92,7 @@
         this.dialog = true
       },
       submit () {
+        console.log(this.formValue)
         this.updateCriterion({
           criterionId: this.criterion.id,
           params: this.formValue,
@@ -91,7 +103,7 @@
             this.dialog = false
           })
           .catch(() => {
-            this.$store.commit('errorMessage', 'Ошибка удаления')
+            this.$store.commit('errorMessage', 'Ошибка обновления')
           })
       },
     },

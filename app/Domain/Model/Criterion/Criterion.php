@@ -154,6 +154,10 @@ class Criterion
         $this->order = $order;
     }
 
+    public function changeLabel(string $newLabel) : void
+    {
+        $this->label = $newLabel;
+    }
     /**
      * @return string|null
      */

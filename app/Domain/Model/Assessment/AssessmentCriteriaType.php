@@ -50,7 +50,11 @@ class AssessmentCriteriaType extends JsonType
                 return new Option($option->name, $option->value);
             }, (array) $criterion->options);
 
-            return new Criterion($criterion->name, $options, $criterion->selected, $criterion->description);
+            return new Criterion($criterion->name,
+                $options,
+                $criterion->selected,
+                $criterion->description,
+                $criterion->label ?? '');
         });
     }
 

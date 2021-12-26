@@ -4,11 +4,13 @@
 namespace App\DataTransferObjects;
 
 
+use JetBrains\PhpStorm\Pure;
+
 class AssessmentCriteriaDto
 {
     private array $criteria;
 
-    public static function fromArray(array $data): AssessmentCriteriaDto
+    #[Pure] public static function fromArray(array $data): AssessmentCriteriaDto
     {
         $self = new self;
 
@@ -16,7 +18,8 @@ class AssessmentCriteriaDto
             $criterion = [
                 'name' => $datum['name'],
                 'selected' => $datum['selected'],
-                'description' => !empty($datum['description']) ? $datum['description'] : null
+                'description' => !empty($datum['description']) ? $datum['description'] : null,
+                'label' => $datum['label'] ?? null,
             ];
 
             $self->criteria[] = $criterion;

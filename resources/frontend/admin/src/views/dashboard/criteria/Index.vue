@@ -72,6 +72,10 @@
         headers: [
           {
             text: 'Название критерия',
+            value: 'label',
+          },
+          {
+            text: 'Слаг',
             value: 'name',
           },
           {

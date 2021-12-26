@@ -18,6 +18,7 @@ class AssessmentRequest extends AbstractJsonRequest
             'criteria.*.name' => ['string', 'required'],
             'criteria.*.selected' => ['string', 'required'],
             'criteria.*.description' => ['string', 'nullable'],
+            'criteria.*.label' => ['string', 'nullable'],
         ];
     }
 

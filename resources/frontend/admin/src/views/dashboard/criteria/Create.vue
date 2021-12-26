@@ -47,7 +47,7 @@
           {
             attributes: [],
             component: 'text',
-            label: 'Название критерия',
+            label: 'Слаг',
             name: 'name',
             placeholder: null,
             options: [],
@@ -63,6 +63,16 @@
             placeholder: null,
             options: [],
             rule: '',
+            value: null,
+          },
+          {
+            attributes: {},
+            component: 'text',
+            label: 'Название критерия',
+            name: 'label',
+            placeholder: null,
+            options: [],
+            rule: 'required',
             value: null,
           },
         ]

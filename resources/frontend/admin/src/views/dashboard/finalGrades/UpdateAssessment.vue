@@ -133,7 +133,7 @@
                 this.schema.push({
                   attributes: [],
                   component: 'radio',
-                  label: criterion.name,
+                  label: criterion.label,
                   name: `criteria.${index}.selected`,
                   placeholder: null,
                   options: criterion.options.map((option) => {

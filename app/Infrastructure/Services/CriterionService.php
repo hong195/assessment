@@ -35,14 +35,14 @@ class CriterionService
      * @param string $name
      * @throws NotUniqueCriterionNameException
      */
-    public function create(string $name, int $order = 0)
+    public function create(string $name, int $order = 0, $label = null)
     {
         if ($this->repository->findByName($name)) {
             throw new NotUniqueCriterionNameException();
         }
 
         $criterionId = CriterionId::next();
-        $criterion = new Criterion($criterionId, $name, $order);
+        $criterion = new Criterion($criterionId, $name, $order, $label);
 
         $this->repository->add($criterion);
         $this->em->flush();
@@ -53,11 +53,16 @@ class CriterionService
      * @param string $name
      * @throws NotFoundEntityException
      */
-    public function update(string $id, string $name, int $order = 0)
+    public function update(string $id, string $name, int $order = 0, string $label = null)
     {
         $criterion = $this->repository->findById(new CriterionId($id));
 
         $criterion->changeName($name);
+
+        if ($label) {
+            $criterion->changeLabel($label);
+        }
+
         $criterion->setOrder($order);
         $this->em->flush();
     }

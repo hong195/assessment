@@ -29,7 +29,7 @@ class ReviewerIdType extends StringType
 
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        return !empty($value) ? new ReviewerId($value) : null;
+        return isset($value) ? new ReviewerId($value) : null;
 
     }
 }

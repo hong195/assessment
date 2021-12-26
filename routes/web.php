@@ -27,39 +27,90 @@ Route::get('/', function () {
     return view('admin');
 });
 
-Route::get('/import2', function () {
-    $criteria = DB::connection('import')
-        ->table('check_attributes')
-        ->get();
+Route::get('rating-import', function () {
+    $ratings = DB::connection('import')->table('ratings')->where('id', '=', 100)->get();
 
+    $ratings->each(function ($rating) {
+        $finalGradeId = Uuid::uuid4()->toString();
+        $employee = DB::table('employees')
+            ->where('import_id', $rating->user_id)
+            ->first();
 
-    $criteria->each(function ($criterion){
-        $criteriaId = Uuid::uuid4()->toString();
+        $checksIds = DB::connection('import')
+            ->table('check_rating')
+            ->where('rating_id', $rating->id)
+            ->get()
+            ->map->check_id
+            ->toArray();
 
-        DB::table('criteria')->insert([
-            'id' => $criteriaId,
-            'name' => $criterion->name,
-            'order' => 0,
-            'label' => $criterion->label
+        $checks = DB::connection('import')
+            ->table('checks')
+            ->whereIn('id', $checksIds)
+            ->get();
+
+        DB::table('final_grades')->insert([
+            'id' => $finalGradeId,
+            'employee_id' => $employee->id,
+            'scored' => $rating->scored,
+            'total' => $rating->out_of,
+            'status_status' => 'completed',
+            'month_date' => new \DateTime($rating->created_at)
         ]);
 
-        $options = DB::connection('import')->table('check_attribute_options')->get();
+        $checks->each(function ($check) use ($finalGradeId) {
+            $reviewer = DB::table('users')
+                ->where('import_id', $check->reviewer_id)
+                ->first();
 
-        $options->each(function($option) use ($criteriaId) {
-            $optionId = Uuid::uuid4()->toString();
-            DB::table('options')->insert([
-                'id' => $optionId,
-                'criterion_id' => $criteriaId,
-                'name' => $option->name,
-                'value' => $option->value,
-                'description' => $option->description,
+            $name = $reviewer ? "$reviewer->last_name $reviewer->first_name $reviewer->patronymic" : "Неизвестно Неизвестно Неизвестно";
+            $assessmentId = Uuid::uuid4()->toString();
+
+            $criteria = collect(array_values(json_decode($check->criteria, true)))
+                ->filter(function ($criterion) {
+                    return isset($criterion['options']);
+                });
+
+            $criteria = collect($criteria->values())->map(function ($criterion) {
+                    if (empty($criterion['options'])) {
+                        return [];
+                    }
+                    $options = collect($criterion['options']);
+
+                    $selected = $options
+                        ->filter(fn($option) => $option['selected'])->first();
+                    $maxPoint = $options->max(fn($option) => $option['value']);
+
+                    return [
+                        "name" => $criterion['name'],
+                        "label" => $criterion['label'],
+                        "options" => $options->map(fn($option) => [
+                            'name' => $option['label'],
+                            'value' => $option['value'],
+                            'description' => $option['description']
+                        ])->toArray(),
+                        'maxPoint' => $maxPoint,
+                        "selected" => $selected['label'],
+                        "description" => "",
+                        "selectedValue" => $selected['value'],
+                    ];
+                })->toArray();
+
+            DB::table('assessments')->insert([
+                'id' => $assessmentId,
+                'analysis_id' => $finalGradeId,
+                'check_amount' => $check->sum,
+                'check_sale_conversion' => $check->conversion,
+                'check_service_date' => new \DateTime($check->created_at),
+                'reviewer_name' => $name,
+                'reviewer_reviewer_id' => $reviewer ? $reviewer->id : 1,
+                'criteria' => json_encode($criteria),
             ]);
         });
     });
 });
 
 
-Route::get('/import', function () {
+Route::get('import', function () {
 
     $pharmacies = DB::connection('import')
         ->table('pharmacies')
@@ -80,33 +131,34 @@ Route::get('/import', function () {
             ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
             ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
             ->where('pharmacy_id', $el->id)
-            ->select('users.*','model_has_roles.*', 'roles.name as role')
+            ->select('users.*', 'model_has_roles.*', 'roles.name as role')
             ->get();
 
         $users->each(function ($user) use ($pharmacyId) {
             $userData = DB::connection('import')
-                    ->table('user_data')
-                    ->where('user_id', $user->id)
-                    ->get();
+                ->table('user_data')
+                ->where('user_id', $user->id)
+                ->get();
 
 
-            if ($user->role_id == 1) {
+            if ($user->role_id == 1 || $user->role_id == 3) {
                 DB::table('users')->insert([
                     'name_first' => "$user->first_name",
                     'name_middle' => "$user->last_name",
                     'name_last' => "$user->patronymic",
                     'login_login' => $user->login,
                     'role_role' => strtolower($user->role),
-                    'password' => $user->password
+                    'password' => $user->password,
+                    'import_id' => $user->id
                 ]);
-            }else {
-                $gender = collect($userData)->filter(function($data) {
+            } else {
+                $gender = collect($userData)->filter(function ($data) {
                     return $data->name == 'gender';
                 })->first();
                 $gender = $gender ? trim(jdecoder($gender->value), '"') : 'male';
-                $gender =  $gender === 'Женский' ? 'female' : 'male';
+                $gender = $gender === 'Женский' ? 'female' : 'male';
 
-                $birthday = collect($userData)->filter(function($data) {
+                $birthday = collect($userData)->filter(function ($data) {
                     return $data->name == 'birthday';
                 })->first();
 
@@ -119,15 +171,17 @@ Route::get('/import', function () {
                     'name_middle' => "$user->last_name",
                     'name_last_name' => "$user->patronymic",
                     'gender_gender' => $gender,
-                    'birthdate' => new \DateTime($birthday)
+                    'birthdate' => new \DateTime($birthday),
+                    'import_id' => $user->id
                 ]);
             }
         });
     });
 });
 
-function jdecoder($json_str) {
-    $cyr_chars = array (
+function jdecoder($json_str)
+{
+    $cyr_chars = array(
         '\u0430' => 'а', '\u0410' => 'А',
         '\u0431' => 'б', '\u0411' => 'Б',
         '\u0432' => 'в', '\u0412' => 'В',
