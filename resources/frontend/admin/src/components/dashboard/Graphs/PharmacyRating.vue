@@ -132,7 +132,6 @@
         const params = {
           year: date.format('YYYY'),
           month: date.format('M'),
-          test: 2323,
         }
 
         if (this.pharmaciesIds.length) {
@@ -177,7 +176,7 @@
 
             this.polarChart.labels = Object.keys(polarChardData)
             this.polarChart.datasets[0].data = Object.values(polarChardData)
-            this.polarChart.datasets[0].backgroundColor = this.poolColors(polarChardData.length)
+            this.polarChart.datasets[0].backgroundColor = this.poolColors(Object.keys(polarChardData).length)
             this.$refs.polarChart.updateChart()
 
             this.isLoading = false
