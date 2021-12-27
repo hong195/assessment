@@ -31,7 +31,17 @@
             <v-col v-if="activeAssessment" md="12" xl="2" offset-md="1" class="mr-auto">
               <h3>Список чеков</h3>
               <v-list v-if="assessments.length">
-                <v-select v-model="activeAssessmentId" :items="assessments" item-text="check.service_date" item-value="id" />
+                <v-select v-model="activeAssessmentId" :items="assessments" item-text="check.service_date"
+                          item-value="id"
+                />
+                <div class="row">
+                  <div class="col col-12">
+                    <strong>Дата чека:</strong> {{ formatCreationDate(activeAssessment.check.service_date, 'LL') }}
+                  </div>
+                  <div class="col col-12">
+                    <strong>Сумма:</strong> {{ activeAssessment.check.amount }} сум.
+                  </div>
+                </div>
                 <v-row v-if="canManage" v-show="assessmentsCount < 10" class="my-3" justify="space-between">
                   <v-btn small :to="updateAssessmentRouteParam">
                     Редактировать проверку
@@ -48,28 +58,34 @@
             <v-col md="12" xl="5">
               <h3>Информация о чеке</h3>
               <v-list v-if="assessments.length">
-                <v-list-item v-for="(criteria, index) in activeAssessment.criteria" :key="activeAssessment.id + index">
-                  <v-list-item-content>
-                    <v-list-item-title>
-                      {{ index + 1 }}. {{ criteria.name }}
-                    </v-list-item-title>
-                    <v-row>
-                      <v-col v-for="(option) in criteria.options" :key="`option-${criteria.name}-${option.name}-${option.value}`">
-                        <v-radio-group
-                          :value="criteria.selectedValue"
-                          column
+                <template v-if="activeAssessment && activeAssessment.criteria.length">
+                  <v-list-item v-for="(criteria, index) in activeAssessment.criteria"
+                               :key="activeAssessment.id + index"
+                  >
+                    <v-list-item-content>
+                      <v-list-item-title style="white-space: pre-wrap">
+                        {{ index + 1 }}. {{ criteria.label }}
+                      </v-list-item-title>
+                      <v-row>
+                        <v-col v-for="(option) in criteria.options"
+                               :key="`option-${criteria.name}-${option.name}-${option.value}`"
                         >
-                          <v-radio :value="option.value" :label="option.name" disabled />
-                        </v-radio-group>
-                      </v-col>
-                      <v-col v-show="criteria.description" cols="12">
-                        <v-text-field :value="criteria.description" readonly disabled outlined
-                                      label="Примечание"
-                        />
-                      </v-col>
-                    </v-row>
-                  </v-list-item-content>
-                </v-list-item>
+                          <v-radio-group
+                            :value="criteria.selectedValue"
+                            column
+                          >
+                            <v-radio :value="option.value" :label="option.name" disabled />
+                          </v-radio-group>
+                        </v-col>
+                        <v-col v-show="criteria.description" cols="12">
+                          <v-text-field :value="criteria.description" readonly disabled outlined
+                                        label="Примечание"
+                          />
+                        </v-col>
+                      </v-row>
+                    </v-list-item-content>
+                  </v-list-item>
+                </template>
               </v-list>
               <div v-else class="mt-5">
                 Нет добавленных проверок
@@ -100,7 +116,8 @@
     props: {
       finalGrade: {
         type: Object,
-        default: () => {},
+        default: () => {
+        },
       },
     },
     data: () => ({
@@ -148,7 +165,7 @@
     },
     watch: {
       finalGrade () {
-        this.activeAssessmentId = this.activeAssessment.id
+        this.activeAssessmentId = this.activeAssessment?.id
       },
     },
     methods: {
@@ -159,7 +176,7 @@
         this.dialog = false
       },
       formatCreationDate (date, format = 'MMMM YYYY') {
-        return moment(date).format(format)
+        return moment(date).locale(this.$i18n.locale).format(format)
       },
       setActiveAssessment (check) {
         this.activeAssessment = check
@@ -173,10 +190,12 @@
   .v-list-item__title {
     font-size: 1.2rem;
   }
+
   .v-list-item {
     font-size: 1.1rem;
     min-height: 50px !important;
   }
+
   .main-content {
     padding: 20px;
   }

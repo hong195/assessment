@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/PharmacyRating.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/PharmacyRating.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +275,7 @@
       <workItem from="1639977310918" duration="26000" />
       <workItem from="1639977347049" duration="24000" />
       <workItem from="1640517528647" duration="28315000" />
-      <workItem from="1640599118112" duration="2159000" />
+      <workItem from="1640599118112" duration="4067000" />
     </task>
     <task id="LOCAL-00001" summary="Added adding description after 10 assessments.">
       <created>1630847703621</created>
@@ -445,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640599419425</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added random colors for polar charts.">
+      <created>1640602462746</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1640602462746</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -503,7 +510,8 @@
     <MESSAGE value="Added rating import scirpt." />
     <MESSAGE value="Added rating import scirpt #2." />
     <MESSAGE value="Added permission check." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added permission check." />
+    <MESSAGE value="Added random colors for polar charts." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added random colors for polar charts." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
