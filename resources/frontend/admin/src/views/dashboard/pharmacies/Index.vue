@@ -9,7 +9,8 @@
     >
       <v-row>
         <v-col>
-          <v-btn :to="{name: 'create-pharmacy'}"
+          <v-btn v-if="canManage"
+                 :to="{name: 'create-pharmacy'}"
                  color="success"
           >
             Создать Аптеку
@@ -44,12 +45,14 @@
   import can from '@/plugins/directives/v-can'
   import Actions from '@/components/dashboard/Actions/PharmacyActions'
   import DataTable from '@/components/dashboard/DataTable'
+  import canManage from '@/mixins/RoleMixin'
   export default {
     name: 'Pharmacy',
     components: { DataTable, Actions },
     directives: {
       can: can,
     },
+    mixins: [canManage],
     data: () => ({
       headers: [
         {
@@ -82,6 +85,11 @@
         with: 'users',
       },
     }),
+    computed: {
+      canEdit () {
+
+      },
+    },
     methods: {
       actionDeletedResponse () {
         this.$refs['data-table'].fetchPosts()

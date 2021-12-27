@@ -2,7 +2,7 @@
   <div>
     <template v-for="(action, i) in actions">
       <v-btn
-        v-if="canManage"
+        v-if="action.method === 'viewItem' || canManage"
         :key="i"
         dark
         class="px-2 ml-1"

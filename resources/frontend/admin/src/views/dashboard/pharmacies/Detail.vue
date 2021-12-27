@@ -43,7 +43,7 @@
           Список сотрудников
         </h3>
         <div class="my-3">
-          <v-btn color="success" :to="{
+          <v-btn v-if="canManage" color="success" :to="{
             name: 'create-employee',
             params: {
               pharmacyId: pharmacy.id
@@ -69,10 +69,12 @@
 <script>
   import EmployeeActions from '@/components/dashboard/Actions/EmployeeActions'
   import { mapActions } from 'vuex'
+  import canManage from '@/mixins/RoleMixin'
 
   export default {
     name: 'PharmacyDetail',
     components: { EmployeeActions },
+    mixins: [canManage],
     props: {
       pharmacy: {
         type: Object,
