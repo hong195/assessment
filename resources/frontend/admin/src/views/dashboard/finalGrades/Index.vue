@@ -26,6 +26,12 @@
         <template v-slot:item.employee="{ item }">
           {{ getEmployeeName(item.employee_id) }}
         </template>
+        <template v-slot:item.total_amount="{ item }">
+          {{ formatPrice(item.total_amount) }} сум
+        </template>
+        <template v-slot:item.total_sale_conversion="{ item }">
+          <strong>{{ item.total_sale_conversion }}%</strong>
+        </template>
         <template v-slot:item.scored="{ item }">
           <template v-if="item.status === 'uncompleted'">
             Не сформирован
@@ -82,11 +88,12 @@
   import AssessmentBtnCount from './AssessmentBtnCount'
   import Filters from './Filters'
   import canManage from '@/mixins/RoleMixin'
+  import CurrencyFormat from '@/components/dashboard/mixins/CurrencyFormat'
 
   export default {
     name: 'Index',
     components: { Create, AssessmentBtnCount, Filters, ViewFinalGradeModal },
-    mixins: [FinalGradeColor, canManage],
+    mixins: [FinalGradeColor, canManage, CurrencyFormat],
     data () {
       return {
         date: null,

@@ -39,7 +39,7 @@
                     <strong>Дата чека:</strong> {{ formatCreationDate(activeAssessment.check.service_date, 'LL') }}
                   </div>
                   <div class="col col-12">
-                    <strong>Сумма:</strong> {{ activeAssessment.check.amount }} сум.
+                    <strong>Сумма:</strong> {{ formatPrice(activeAssessment.check.amount) }} сум.
                   </div>
                 </div>
                 <v-row v-if="canManage" v-show="assessmentsCount < 10" class="my-3" justify="space-between">
@@ -106,13 +106,14 @@
   import moment from 'moment'
   import FinalGradeTotalInfo from './FinalGradeTotalInfo'
   import canManage from '@/mixins/RoleMixin'
+  import CurrencyFormat from '@/components/dashboard/mixins/CurrencyFormat'
 
   export default {
     name: 'SingleUserRating',
     components: {
       FinalGradeTotalInfo,
     },
-    mixins: [canManage],
+    mixins: [canManage, CurrencyFormat],
     props: {
       finalGrade: {
         type: Object,

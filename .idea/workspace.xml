@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/mixins/CurrencyFormat.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -275,7 +277,7 @@
       <workItem from="1639977310918" duration="26000" />
       <workItem from="1639977347049" duration="24000" />
       <workItem from="1640517528647" duration="28315000" />
-      <workItem from="1640599118112" duration="4067000" />
+      <workItem from="1640599118112" duration="5188000" />
     </task>
     <task id="LOCAL-00001" summary="Added adding description after 10 assessments.">
       <created>1630847703621</created>
@@ -452,7 +454,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640602462746</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Updated view final grade modal component data.">
+      <created>1640604462688</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1640604462688</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,7 +520,8 @@
     <MESSAGE value="Added rating import scirpt #2." />
     <MESSAGE value="Added permission check." />
     <MESSAGE value="Added random colors for polar charts." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added random colors for polar charts." />
+    <MESSAGE value="Updated view final grade modal component data." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated view final grade modal component data." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
