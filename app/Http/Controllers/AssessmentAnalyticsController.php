@@ -34,8 +34,8 @@ class AssessmentAnalyticsController extends Controller
         foreach ($assessmentCriteria as $criteria) {
             foreach ($criteria as $criterion) {
                 foreach ($criterion as $item) {
-                    if (empty($data[$item->getName()])) {
-                        $data[$item->getName()] = 0;
+                    if (empty($data[$item->getLabel()])) {
+                        $data[$item->getLabel()] = 0;
                     }
 
                     $maxValue = max(array_map(function($option) {
@@ -45,7 +45,7 @@ class AssessmentAnalyticsController extends Controller
                     foreach ($item->getOptions() as $option) {
                         if ($option->getName() === $item->getSelected()
                                 && $maxValue === $option->getValue()) {
-                            $data[$item->getName()]++;
+                            $data[$item->getLabel()]++;
                         }
                     }
                 }

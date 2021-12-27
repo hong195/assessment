@@ -167,6 +167,7 @@
           .then(({ data }) => {
             const polarChardData = data.data
 
+            this.criteriaToShow = []
             for (const key in polarChardData) {
               this.criteriaToShow.push({
                 label: key,

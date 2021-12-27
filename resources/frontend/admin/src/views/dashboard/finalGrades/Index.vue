@@ -32,7 +32,7 @@
           </template>
           <template v-else>
             <v-chip :color="getColor(item.scored, item.total)" @click="view(item)">
-              {{ item.scored }}/ {{ item.total }}
+              <span style="color: #fff;">{{ item.scored }}/ {{ item.total }}</span>
             </v-chip>
           </template>
         </template>

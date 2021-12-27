@@ -27,14 +27,53 @@ Route::get('/', function () {
     return view('admin');
 });
 
+Route::get('import-criteria', function () {
+    $criteria = DB::connection('import')
+        ->table('check_attributes')
+        ->get();
+
+
+    $criteria->each(function ($criterion){
+        $criteriaId = Uuid::uuid4()->toString();
+
+        DB::table('criteria')->insert([
+            'id' => $criteriaId,
+            'name' => $criterion->name,
+            'order' => 0,
+            'label' => $criterion->label
+        ]);
+
+        $options = DB::connection('import')->table('check_attribute_options')
+            ->where('check_attribute_id', $criterion->id)
+            ->get();
+
+        $options->each(function($option) use ($criteriaId) {
+            $optionId = Uuid::uuid4()->toString();
+            DB::table('options')->insert([
+                'id' => $optionId,
+                'criterion_id' => $criteriaId,
+                'name' => $option->label,
+                'value' => $option->value,
+                'description' => $option->description,
+            ]);
+        });
+    });
+});
+
 Route::get('rating-import', function () {
-    $ratings = DB::connection('import')->table('ratings')->where('id', '=', 100)->get();
+    $ratings = DB::connection('import')->table('ratings')->get();
 
     $ratings->each(function ($rating) {
         $finalGradeId = Uuid::uuid4()->toString();
         $employee = DB::table('employees')
             ->where('import_id', $rating->user_id)
             ->first();
+
+        if (!$employee) {
+            $employee = DB::table('users')
+                ->where('import_id', $rating->user_id)
+                ->first();
+        }
 
         $checksIds = DB::connection('import')
             ->table('check_rating')
@@ -62,18 +101,30 @@ Route::get('rating-import', function () {
                 ->where('import_id', $check->reviewer_id)
                 ->first();
 
-            $name = $reviewer ? "$reviewer->last_name $reviewer->first_name $reviewer->patronymic" : "Неизвестно Неизвестно Неизвестно";
+            $lastName = $reviewer->last_name ?? 'Неизвестно';
+            $firstName = $reviewer->first_name ?? 'Неизвестно';
+            $patronymic = $reviewer->patronymic ?? 'Неизвестно';
+            $name = "$lastName $firstName $patronymic";
+
             $assessmentId = Uuid::uuid4()->toString();
 
-            $criteria = collect(array_values(json_decode($check->criteria, true)))
+            $criteria = json_decode($check->criteria, true);
+            $temp =  [];
+
+            foreach (array_values($criteria) as  $criterion) {
+                if (empty($criterion['options'])) {
+                    $temp[count($temp) - 1]['desc'] = $criterion['value'];
+                }else {
+                    $temp[] = $criterion;
+                }
+            }
+
+            $criteria = collect($temp)
                 ->filter(function ($criterion) {
                     return isset($criterion['options']);
                 });
 
-            $criteria = collect($criteria->values())->map(function ($criterion) {
-                    if (empty($criterion['options'])) {
-                        return [];
-                    }
+            $criteria = collect($criteria->values())->map(function ($criterion) use ($criteria) {
                     $options = collect($criterion['options']);
 
                     $selected = $options
@@ -86,20 +137,20 @@ Route::get('rating-import', function () {
                         "options" => $options->map(fn($option) => [
                             'name' => $option['label'],
                             'value' => $option['value'],
-                            'description' => $option['description']
+                            'description' => $option['description'] ?? ''
                         ])->toArray(),
                         'maxPoint' => $maxPoint,
-                        "selected" => $selected['label'],
-                        "description" => "",
-                        "selectedValue" => $selected['value'],
+                        "selected" => $selected['label'] ?? '',
+                        "description" => $criterion['desc'] ?? '',
+                        "selectedValue" => $selected['value'] ?? '',
                     ];
                 })->toArray();
 
             DB::table('assessments')->insert([
                 'id' => $assessmentId,
                 'analysis_id' => $finalGradeId,
-                'check_amount' => $check->sum,
-                'check_sale_conversion' => $check->conversion,
+                'check_amount' => $check->sum ?? 0,
+                'check_sale_conversion' => $check->conversion ?? 0,
                 'check_service_date' => new \DateTime($check->created_at),
                 'reviewer_name' => $name,
                 'reviewer_reviewer_id' => $reviewer ? $reviewer->id : 1,

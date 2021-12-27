@@ -65,11 +65,11 @@ final class Criterion
     {
         return $this->selected;
     }
+
     /**
-     * @return int|float
-     * @throws NotExistingSelectedOptionException
+     * @return float|null
      */
-    public function getSelectedValue() : float
+    public function getSelectedValue() : ?float
     {
         foreach ($this->options as $option) {
             if ($option->getName() === $this->selected) {
@@ -77,7 +77,7 @@ final class Criterion
             }
         }
 
-        throw new NotExistingSelectedOptionException;
+        return null;
     }
 
     public function getMaxPoint() : float

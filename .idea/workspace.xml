@@ -4,24 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="Added rating import scirpt.">
+    <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DataTransferObjects/AssessmentCriteriaDto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DataTransferObjects/AssessmentCriteriaDto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Assessment/AssessmentCriteriaType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/AssessmentCriteriaType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Domain/Model/Assessment/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/Criterion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Assessment/ReviewerIdType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Assessment/ReviewerIdType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domain/Model/Criterion/Criterion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domain/Model/Criterion/Criterion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CriteriaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/AssessmentRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/AssessmentRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CriterionRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CriterionRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/CriterionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/CriterionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/criterion/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/store_modules/criterion/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Update.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/criteria/Update.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/CreateAssessment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/CreateAssessment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/UpdateAssessment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/UpdateAssessment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AssessmentAnalyticsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AssessmentAnalyticsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/PharmacyRating.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/components/dashboard/Graphs/PharmacyRating.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -290,7 +278,7 @@
       <workItem from="1639916177465" duration="15656000" />
       <workItem from="1639977310918" duration="26000" />
       <workItem from="1639977347049" duration="24000" />
-      <workItem from="1640517528647" duration="16769000" />
+      <workItem from="1640517528647" duration="26244000" />
     </task>
     <task id="LOCAL-00001" summary="Added adding description after 10 assessments.">
       <created>1630847703621</created>
@@ -439,7 +427,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640518793473</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added rating import scirpt.">
+      <created>1640539448546</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1640539448546</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -494,7 +489,8 @@
     <MESSAGE value="Added pharmacy/employee/users import script." />
     <MESSAGE value="Added option description." />
     <MESSAGE value="Added criteria import." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added criteria import." />
+    <MESSAGE value="Added rating import scirpt." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added rating import scirpt." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
