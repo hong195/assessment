@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Filters.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/Filters.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +274,7 @@
       <workItem from="1639977310918" duration="26000" />
       <workItem from="1639977347049" duration="24000" />
       <workItem from="1640517528647" duration="28315000" />
-      <workItem from="1640599118112" duration="6207000" />
+      <workItem from="1640599118112" duration="6959000" />
     </task>
     <task id="LOCAL-00001" summary="Added adding description after 10 assessments.">
       <created>1630847703621</created>
@@ -466,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640605537006</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Fixed final grade search by pharmacy.">
+      <created>1640606660569</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1640606660569</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +533,8 @@
     <MESSAGE value="Added random colors for polar charts." />
     <MESSAGE value="Updated view final grade modal component data." />
     <MESSAGE value="Updated view final grade modal component data #2." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated view final grade modal component data #2." />
+    <MESSAGE value="Fixed final grade search by pharmacy." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed final grade search by pharmacy." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
