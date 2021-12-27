@@ -4,13 +4,14 @@
       <month-picker v-model="filters.date" />
     </v-col>
     <v-col cols="12" sm="12" md="3" lg="2">
-      <v-select v-model="filters.pharmacyId"
+      <v-select v-model="filters.pharmaciesIds"
                 :items="pharmacies"
                 item-text="number"
                 item-value="id"
                 label="Аптека"
                 clearable
                 outlined
+                multiple
       />
     </v-col>
     <v-col cols="12" sm="12" md="3" lg="2">
@@ -47,7 +48,7 @@
     data () {
       return {
         filters: {
-          pharmacyId: null,
+          pharmaciesIds: null,
           status: null,
           date: null,
           search: null,
