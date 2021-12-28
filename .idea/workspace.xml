@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6bc6161a-d17c-495c-b5bb-1b05c7414631" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Infrastructure/Services/FinalGradeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesCompletedFinalGradeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PharmaciesCompletedFinalGradeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/finalGrades/ViewFinalGradeModal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mail/pharmacyEmail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mail/pharmacyEmail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/pharmacies/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/frontend/admin/src/views/dashboard/pharmacies/Index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +278,8 @@
       <workItem from="1639977347049" duration="24000" />
       <workItem from="1640517528647" duration="28315000" />
       <workItem from="1640599118112" duration="7190000" />
-      <workItem from="1640668810048" duration="5190000" />
+      <workItem from="1640668810048" duration="5244000" />
+      <workItem from="1640708699965" duration="1796000" />
     </task>
     <task id="LOCAL-00001" summary="Added adding description after 10 assessments.">
       <created>1630847703621</created>
@@ -497,7 +498,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640673354338</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Fixed sending email on final grade completing #2.">
+      <created>1640674109753</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1640674109753</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -534,7 +542,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added sale manager model &amp; user service &amp; controller." />
     <MESSAGE value="Fixed login bug." />
     <MESSAGE value="Added sale manager menu items." />
     <MESSAGE value="Added salemanager final grades." />
@@ -559,7 +566,8 @@
     <MESSAGE value="Fixed final grade search by pharmacy." />
     <MESSAGE value="Commit missing files." />
     <MESSAGE value="Fixed sending email on final grade completing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed sending email on final grade completing." />
+    <MESSAGE value="Fixed sending email on final grade completing #2." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed sending email on final grade completing #2." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

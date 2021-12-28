@@ -85,11 +85,6 @@
         with: 'users',
       },
     }),
-    computed: {
-      canEdit () {
-
-      },
-    },
     methods: {
       actionDeletedResponse () {
         this.$refs['data-table'].fetchPosts()

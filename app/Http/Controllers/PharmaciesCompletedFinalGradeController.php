@@ -72,7 +72,7 @@ class PharmaciesCompletedFinalGradeController extends Controller
                                 'check'  => [
                                     'amount' => $assessment->getCheck()->getAmount(),
                                     'conversion' => $assessment->getCheck()->getSaleConversion(),
-                                    'service_date' => $assessment->getCheck()->getServiceDate(),
+                                    'service_date' => $assessment->getCheck()->getServiceDate()->format('Y-m-d'),
                                 ],
                                 'id' => (string) $assessment->getId(),
                                 'reviewer' => [
