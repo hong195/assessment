@@ -115,7 +115,7 @@ class FinalGradeService
         $this->em->flush();
 
         if ($analyses->isMaxReviewsAdded()) {
-            SendToPharmacyEmailJob::dispatch((string) $analyses->getEmployeeId());
+            SendToPharmacyEmailJob::dispatch((string) $analyses->getEmployeeId(), $analyses->getMonth());
         }
     }
 

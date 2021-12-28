@@ -5,6 +5,7 @@ namespace App\Jobs;
 use App\Domain\Model\Employee\Employee;
 use App\Domain\Model\Employee\EmployeeId;
 use App\Domain\Model\Employee\EmployeeRepository;
+use App\Domain\Model\FinalGrade\Month;
 use App\Infrastructure\Services\FinalGradesQuery;
 use App\Notifications\FinalGradeCompleted;
 use Illuminate\Bus\Queueable;
@@ -18,7 +19,8 @@ class SendToPharmacyEmailJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable;
 
     public function __construct(
-        private string $employeeId
+        private string $employeeId,
+        private Month $month
     ){}
 
     /**
@@ -33,12 +35,16 @@ class SendToPharmacyEmailJob implements ShouldQueue
         /** @var Employee $employee */
         $employee = $employeeRepository->getById(new EmployeeId($this->employeeId));
         $pharmacy  = $employee->getPharmacy();
+        $pharmacyEmail = (string) $pharmacy->getEmail();
 
+        if (!$pharmacyEmail) {
+            return;
+        }
 
         $finalGrades = $finalGradeRepository->byStatus('completed')
                         ->byPharmacies([(string) $pharmacy->getId()])
-                        ->byYear(now()->year)
-                        ->byMonth(now()->month)
+                        ->byYear($this->month->getYear())
+                        ->byMonth($this->month->getMonth())
                         ->byStatus('completed')
                         ->execute();
 
