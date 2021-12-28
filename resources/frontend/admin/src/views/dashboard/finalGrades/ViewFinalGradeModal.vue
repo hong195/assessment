@@ -64,6 +64,7 @@
                   >
                     <v-list-item-content>
                       <v-list-item-title style="white-space: pre-wrap">
+                        {{ criteria }}
                         {{ index + 1 }}. {{ criteria.label }}
                       </v-list-item-title>
                       <v-row>

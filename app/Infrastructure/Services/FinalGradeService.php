@@ -182,7 +182,7 @@ class FinalGradeService
                $options,
                $selectedCriterion['selected'],
                $selectedCriterion['description'] ?? '',
-               $selectedCriterion['label'] ?? '',
+               $criterion->getLabel() ?? '',
            );
         })->toArray();
     }

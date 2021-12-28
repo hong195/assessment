@@ -20,7 +20,7 @@
 @foreach($finalGrades as $finalGrade)
 @if ((string) $employee->getId() === (string) $finalGrade->getEmployeeId())
 <span style="font-size: 14px; display: block;">
-<em>{!! (string) $employee->getName() !!}</em> : <em>{!! $finalGrade->getScored() !!} {!! $finalGrade->getTotal() !!}</em>
+<em>{!! (string) $employee->getName() !!}</em> : <em>{!! $finalGrade->getScored() !!}/{!! $finalGrade->getTotal() !!}</em>
 </span>
 @endif
 @endforeach
